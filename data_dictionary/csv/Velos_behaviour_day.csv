@@ -1,0 +1,8 @@
+dataset_name,source_table,column_name,name_en,name_nl,data_type,unit,measurement_type,description_en,calculation_description,calculation_source
+Velos_behaviour_day,T_RAW_velos_behaviour,date,Date,Datum,date,yyyy-mm-dd,Measured,"Date of the data record, UTC timezone",N/A,N/A
+Velos_behaviour_day,T_RAW_velos_behaviour,cow,Cow,Koe,integer,number,N/A,"Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.",N/A,N/A
+Velos_behaviour_day,T_RAW_velos_behaviour,total,Total,Totaal,number,hh-mm-ss,Calculated,Total time recorded of the animal 1 day,Sum duration of all types,T_RAW_velos_behaviour
+Velos_behaviour_day,T_RAW_velos_behaviour,overig,Other,Overig,number,hh-mm-ss,Calculated,Time the cow is actief but not eating or ruminating,Sum duration of type 0,T_RAW_velos_behaviour
+Velos_behaviour_day,T_RAW_velos_behaviour,nietactief,Inactive,Niet actief,number,hh-mm-ss,Calculated,Time the cow is inactief,Sum duration of type 1,T_RAW_velos_behaviour
+Velos_behaviour_day,T_RAW_velos_behaviour,herkouwen,Ruminating,Herkouwen,number,hh-mm-ss,Calculated,Time the cow spent ruminating,Sum duration of type 2,T_RAW_velos_behaviour
+Velos_behaviour_day,T_RAW_velos_behaviour,vreten,Eating,Vreten,number,hh-mm-ss,Calculated,Time the cow spent eating,Sum duration of type 3,T_RAW_velos_behaviour

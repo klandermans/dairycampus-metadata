@@ -1,0 +1,13 @@
+dataset_name,source_table,column_name,name_en,name_nl,data_type,unit,measurement_type,description_en,calculation_description,calculation_source
+TMR_Trioliet_cowconnect_mix,t_raw_cowconnect_mix,date,Date,Datum,date,yy-mm-dd,Measured,Date of the data record,N/A,N/A
+TMR_Trioliet_cowconnect_mix,t_raw_cowconnect_mix,externalFeedplanID,External feedpland ID,Extern voedingsplan ID,string,?,N/A,All NULL,N/A,N/A
+TMR_Trioliet_cowconnect_mix,t_raw_cowconnect_mix,feedplanId,Feedplan ID,Voedingsplan ID,integer,number,N/A,Id of the feedplan,N/A,N/A
+TMR_Trioliet_cowconnect_mix,t_raw_cowconnect_mix,feedplanName,Feedplan name,Voedingsplan naam,string,short text,N/A,Name of the feedplan,N/A,N/A
+TMR_Trioliet_cowconnect_mix,t_raw_cowconnect_mix,id,ID,ID,string,short text,N/A,ID,N/A,N/A
+TMR_Trioliet_cowconnect_mix,t_raw_cowconnect_mix,isOpen,Is Open,Is Open,integer,number,N/A,1 or 0 process running or not.,N/A,N/A
+TMR_Trioliet_cowconnect_mix,t_raw_cowconnect_mix,loadedSum,Loaded som,Geladen som,number,kg,Calculated,Total / sum of all loads,?,N/A
+TMR_Trioliet_cowconnect_mix,t_raw_cowconnect_mix,mixDate,Mix date,Mix datum,datetime,yy-mm-dd-hh-mm-ss,Measured,Date and time,N/A,N/A
+TMR_Trioliet_cowconnect_mix,t_raw_cowconnect_mix,mixLoaderId,Mix loader ID,Mix lader ID,integer,number,N/A,ID of the mix loader,N/A,N/A
+TMR_Trioliet_cowconnect_mix,t_raw_cowconnect_mix,mixLoaderName,Mix loader name,Mix lader naam,string,short text,N/A,Name of the mix loader,N/A,N/A
+TMR_Trioliet_cowconnect_mix,t_raw_cowconnect_mix,rationId,Ration ID,Rantsoen ID,string,?,N/A,All NULL,N/A,N/A
+TMR_Trioliet_cowconnect_mix,t_raw_cowconnect_mix,type,Type,Type,string,short text,N/A,Type,N/A,N/A

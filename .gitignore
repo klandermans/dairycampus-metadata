@@ -1,0 +1,20 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+venv/
+env/
+ENV/
+
+# Temporary / Log files
+*.log
+*.tmp
+/tmp/
+.idea/
+.vscode/

@@ -1,0 +1,14 @@
+dataset_name,source_table,column_name,name_en,name_nl,data_type,unit,measurement_type,description_en,calculation_description,calculation_source
+Greenfeed_feed_aggregrated,T_RAW_Greenfeed_Feed_data,cow,Cow,Koe,integer,number,N/A,"Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.",N/A,N/A
+Greenfeed_feed_aggregrated,T_RAW_Greenfeed_Feed_data,CurrentCup,Current cup,Huidige beker,integer,number,Measured,Current cup,N/A,N/A
+Greenfeed_feed_aggregrated,T_RAW_Greenfeed_Feed_data,CurrentPeriod,Current period,Huidige periode,integer,number,Measured,Current period,N/A,N/A
+Greenfeed_feed_aggregrated,T_RAW_Greenfeed_Feed_data,date,Date,Datum,date,yy-mm-dd,Measured,Date of the data record,N/A,N/A
+Greenfeed_feed_aggregrated,T_RAW_Greenfeed_Feed_data,DateTime,Date and time,Datum en tijd,datetime,yyyy-mm-dd hh-mm-ss,Measured,Date and time,N/A,N/A
+Greenfeed_feed_aggregrated,T_RAW_Greenfeed_Feed_data,DropInterval,Drop interval,Los interval,integer,sec,?,Min. sec between current en new cup,N/A,N/A
+Greenfeed_feed_aggregrated,T_RAW_Greenfeed_Feed_data,FeedType,Feed type,Voer type,integer,number,N/A,Feed type,N/A,N/A
+Greenfeed_feed_aggregrated,T_RAW_Greenfeed_Feed_data,greenfeed,Greenfeed,Greenfeed,integer,number,Measured,Greenfeed,N/A,N/A
+Greenfeed_feed_aggregrated,T_RAW_Greenfeed_Feed_data,MaxCups,Maximum cups,Maximum bekers,integer,number,N/A,Max. cups per period,N/A,N/A
+Greenfeed_feed_aggregrated,T_RAW_Greenfeed_Feed_data,MaxPeriods,Maximum periods,Maximum periodes,integer,number,N/A,Max. periods per day,N/A,N/A
+Greenfeed_feed_aggregrated,T_RAW_Greenfeed_Feed_data,PeriodInterval,Period interval,Periode interval,integer,sec,N/A,Min. Sec between current en next period,N/A,N/A
+Greenfeed_feed_aggregrated,T_RAW_Greenfeed_Feed_data,RFIDTag,Rfid tag,Rfid tag,integer,number,Measured,Rfid tag,N/A,N/A
+Greenfeed_feed_aggregrated,T_RAW_Greenfeed_Feed_data,user,User,Gebruiker,string,short text,N/A,User,N/A,N/A

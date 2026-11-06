@@ -1,0 +1,3 @@
+CREATE VIEW dbo.VL_IkBen
+AS
+SELECT        SUSER_SNAME() AS IkBen

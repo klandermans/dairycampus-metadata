@@ -1,0 +1,14 @@
+dataset_name,source_table,column_name,name_en,name_nl,data_type,unit,measurement_type,description_en,calculation_description,calculation_source
+GEA_milkings,T_RAW_Gea_milk,Cow,Cow,Koe,integer,number,N/A,"Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.",N/A,N/A
+GEA_milkings,T_RAW_Gea_milk,IMDat,Gea Date and time,Gea datum en tijd,datetime,yy-mm-dd-hh-mm-ss,N/A,"GEA, Date and time milking",N/A,N/A
+GEA_milkings,T_RAW_Gea_milk,Reg1,Registration number,Levensnummer,integer,text + number,N/A,National registration number of the animal.,N/A,N/A
+GEA_milkings,T_RAW_Gea_milk,RespISO,Responder number,Responder nummer,integer,number,N/A,Number of the cows responder,N/A,N/A
+GEA_milkings,T_RAW_Gea_milk,Name,Name,Naam,string,N/A,N/A,"Number in GEA, should be same as cow",N/A,N/A
+GEA_milkings,T_RAW_Gea_milk,IMTim,Gea time,Gea tijd,string,N/A,N/A,Time?,N/A,N/A
+GEA_milkings,T_RAW_Gea_milk,IMWt,Cow Weight at Milking,Koe gewicht bij melking,number,kg,Measured,Live animal body weight measured by the integrated scale inside the GEA milking stall or exit platform.,Directly recorded by GEA milking scale sensor.,T_RAW_Gea_milk
+GEA_milkings,T_RAW_Gea_milk,IMFlg,Milking Status Flag,Melk status vlag,string,code,Measured,"Status/diagnostic flag from GEA milking robot/parlor indicating normal completion, kick-off, or incomplete milking.",Status code recorded by GEA system.,T_RAW_Gea_milk
+GEA_milkings,T_RAW_Gea_milk,IMDim,Days in Milk,Dagen in lactatie,integer,days,Calculated,Days in Milk (DIM) recorded in GEA at the time of the milking event.,Milking date minus most recent calving date.,T_RAW_Gea_milk
+GEA_milkings,T_RAW_Gea_milk,IMAvFlo,Avarage milkflow,Gemmidelde melkstrooming,string,N/A,N/A,Average milkflow?,N/A,N/A
+GEA_milkings,T_RAW_Gea_milk,IMMxFlow,Max. milkflow,Maximale melkstrooming,string,N/A,N/A,Max. milkflowAlleen '||||' als waarde???,N/A,N/A
+GEA_milkings,T_RAW_Gea_milk,IMStall,Gea barn,Gea stall,integer,number,N/A,Place in the Gea milking carousel 1-40,N/A,N/A
+GEA_milkings,T_RAW_Gea_milk,IMStartSec,Gea start sec,Gea start sec,string,N/A,N/A,Alleen '?????' als waarde???,N/A,N/A

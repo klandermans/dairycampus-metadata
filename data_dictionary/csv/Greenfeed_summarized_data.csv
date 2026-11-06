@@ -1,0 +1,25 @@
+dataset_name,source_table,column_name,name_en,name_nl,data_type,unit,measurement_type,description_en,calculation_description,calculation_source
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,AirflowCf,Airflow correction factor,Luchtstroom correctie factor,integer,number,N/A,Airflow correction factor,N/A,N/A
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,AirflowLitersPerSec,Airflow liters per second,Luchtstroom liters per seconde,integer,Liter/sec,Measured,Airflow liters per second,N/A,N/A
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,AnimalName,Animal name,Dier naam,integer,number,Measured,Animal name,N/A,N/A
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,CH4GramsPerDay,CH4 grams per day,CH4 gram per dag,integer,number,Measured,"CH4 grams per day, methane",N/A,N/A
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,CO2GramsPerDay,CO2 grams per day,CO2 gram per dag,integer,number,Measured,"CO2 grams per day, carbon dioxide",N/A,N/A
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,cow,Cow,Koe,integer,number,N/A,"Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.",N/A,N/A
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,date,Date,Datum,date,yy-mm-dd,Measured,Date of the data record,N/A,N/A
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,EndTime,End time,Eind tijd,number,yy-mm-dd-hh-mm-ss,Measured,End time,N/A,N/A
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,GoodDataDuration,Good data duration,Goede dataduur,datetime,hh-mm-ss,N/A,Good data duration,N/A,N/A
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,greenfeed,Greenfeed,Greenfeed,integer,number,Measured,Greenfeed,N/A,N/A
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,H2GramsPerDay,H2 grams per day,H2 gram per dag,integer,number,Measured,"H2 grams per day, hydrogen",N/A,N/A
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,H2SGramsPerDay,H2S grams per day,H2S gram per dag,integer,number,Measured,"H2S grams per day, hydrogen sulfide",N/A,N/A
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,InterruptingTags,Interrupting tags,Onderbrekende tags,integer,number,N/A,Interrupting tags,N/A,N/A
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,IsPreliminary,Is preliminary,Is voorlopig,integer,number,N/A,"Is preliminary data, validated data comes directly from C-lock.",N/A,N/A
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,O2GramsPerDay,O2 grams per day,O2 gram per dag,integer,number,Measured,"O2 grams per day, oxygen",N/A,N/A
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,RFID,Rfid,Rfid,integer,number,N/A,Rfid,N/A,N/A
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,RunTime,Run time,Looptijd,number,yy-mm-dd-hh-mm-ss,Measured,Run time,N/A,N/A
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,StartTime,Start time,Start tijd,number,hh-mm-ss,Measured,"Start time, if subgroup not 0",N/A,N/A
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,TempPipeDegreesCelsius,Temperature pipe degrees celsius,Temperatuur pijp graden celsius,number,°C,Measured,Temperature pipe degrees celsius,N/A,N/A
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,user,User,Gebruiker,string,short text,N/A,User,N/A,N/A
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,WasInterrupted,Was interrupted,Is onderbroken,integer,number,N/A,Was interrupted,N/A,N/A
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,WindCf,Wind correction factor,Wind correctie factor,integer,number,N/A,Wind correction factor,N/A,N/A
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,WindDirDeg,Wind direction degrees,Windrichting graden,integer,number,Measured,Wind direction degrees,N/A,N/A
+Greenfeed_summarized_data,T_RAW_Greenfeed_Summarized_Data,WindSpeedMetersPerSec,Wind speed meters per second,Wind snelheid meters per seconde,integer,meter/sec,Measured,Wind speed meters per second,N/A,N/A

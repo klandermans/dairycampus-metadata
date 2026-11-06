@@ -1,0 +1,13 @@
+dataset_name,source_table,column_name,name_en,name_nl,data_type,unit,measurement_type,description_en,calculation_description,calculation_source
+TVL_RIC_intake_dm,TVL_totaal_hokofarm_ds,cow,Cow,Koe,integer,number,N/A,"Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.",N/A,N/A
+TVL_RIC_intake_dm,TVL_totaal_hokofarm_ds,date,Date,Datum,date,yy-mm-dd,Measured,Date of the data record,N/A,N/A
+TVL_RIC_intake_dm,TVL_totaal_hokofarm_ds,dsPct,dry matter percentage,drogestof percentage,integer,number,Calculated,Percentage of dry matter in the feed,?,?
+TVL_RIC_intake_dm,TVL_totaal_hokofarm_ds,feedtype,feedtype,Voertype,string,short text,N/A,Type of feed,N/A,N/A
+TVL_RIC_intake_dm,TVL_totaal_hokofarm_ds,name,Name,Naam,string,short text,N/A,Name collected based on other value,N/A,N/A
+TVL_RIC_intake_dm,TVL_totaal_hokofarm_ds,opnDsVR,Intake dry matter Roughage RIC,Opname droge stof Ruwvoer RIC,number,kg,N/A,Intake of dry matter from roughage RIC,N/A,N/A
+TVL_RIC_intake_dm,TVL_totaal_hokofarm_ds,opnIncWater,Intake including water,Opname inclusief water,number,kg,Calculated,Feed intake including water,?,?
+TVL_RIC_intake_dm,TVL_totaal_hokofarm_ds,opnMinWater,Intake subtracting water,Opname min water,number,kg,Calculated,Feed intake excluding water,?,?
+TVL_RIC_intake_dm,TVL_totaal_hokofarm_ds,opnProd,Intake product,Opname product,number,kg,N/A,Total intake of product,N/A,N/A
+TVL_RIC_intake_dm,TVL_totaal_hokofarm_ds,ricBez,Ric visits,Ricbak bezoek,integer,number,N/A,Number of visits to RIC,N/A,N/A
+TVL_RIC_intake_dm,TVL_totaal_hokofarm_ds,RowID,Row ID,Rij ID,integer,number,N/A,Unique number for row in a specific table.,N/A,N/A
+TVL_RIC_intake_dm,TVL_totaal_hokofarm_ds,trBatches,Tioliet batches,Trioliet Batches,integer,number,N/A,Number of times the triolith has released feed.,N/A,N/A

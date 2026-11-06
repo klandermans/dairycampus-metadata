@@ -1,0 +1,3768 @@
+{
+  "name": "dairy-campus-research-metadata",
+  "title": "Dairy Campus Research Data Platform: Standardized Data Dictionaries",
+  "description": "Comprehensive FAIR metadata dictionaries, variables, and schema descriptions for dairy cattle sensor and experimental data collected at Dairy Campus (Wageningen University & Research).",
+  "version": "1.0.0",
+  "homepage": "https://www.dairycampus.nl/",
+  "license": "CC-BY-4.0",
+  "resources": [
+    {
+      "name": "tvl_total",
+      "path": "csv/TVL_total.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "description": "Comprehensive daily summary per cow integrating all individual data sources: animal demographics, lactation stage, roughage intake (fractions 1-4, fresh and water-excluded), dry matter intake, concentrate intake across stations, morning/evening milk production, official milk test recording components (fat, protein, lactose, urea, SCC), body condition score (BCS), GreenFeed visits, and live body weight.",
+      "schema": {
+        "fields": [
+          {
+            "name": "AnimalServerId",
+            "type": "integer",
+            "title": "Animal server number",
+            "description": "Unique animal server identifier issued across the different systems at Dairy Campus",
+            "unit": "number"
+          },
+          {
+            "name": "AntMlkA",
+            "type": "integer",
+            "title": "Number of milkings afternoon",
+            "description": "How often an animal was milked in the afternoon. 1 is the assumed value. 0 means a missing value/something wrong with registration. 2+ means reattachment of the milking apparatus, can be outlier values.",
+            "unit": "number"
+          },
+          {
+            "name": "AntMlkEtm",
+            "type": "integer",
+            "title": "Number of milkings 24 hours",
+            "description": "Amount of milkings in the last 24 hours. 2 is the assumed value. 1 or 3+ means something is off during morning and/or afternoon milking.",
+            "unit": "number"
+          },
+          {
+            "name": "AntMlkO",
+            "type": "integer",
+            "title": "Number of milkings morning",
+            "description": "How often an animal was milked in the morning. 1 is the assumed value. 0 means a missing value/something wrong with registration. 2+ means reattachment of the milking apparatus, can be outlier values.",
+            "unit": "number"
+          },
+          {
+            "name": "bcs",
+            "type": "integer",
+            "title": "Body condition score",
+            "description": "Automatic body condition score camera",
+            "unit": "number"
+          },
+          {
+            "name": "BegDatPrf",
+            "type": "date",
+            "title": "Starting date experiment",
+            "description": "Expected start date of the experiment",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "BehCod",
+            "type": "string",
+            "title": "Treatment code",
+            "description": "Abbreviaton of the treatname name. Set by the researcher.",
+            "unit": "short text"
+          },
+          {
+            "name": "BehNam",
+            "type": "string",
+            "title": "Treatment name",
+            "description": "Full name of the treatment. Set by the researcher",
+            "unit": "short text"
+          },
+          {
+            "name": "Blk",
+            "type": "integer",
+            "title": "Blocking group",
+            "description": "Number of the assigned block. Set by the researcher.",
+            "unit": "number"
+          },
+          {
+            "name": "C21-10",
+            "type": "number",
+            "title": "Total concentrate via station 1 till 4",
+            "description": "Dag totaal krachtvoer caroussel",
+            "unit": "kg"
+          },
+          {
+            "name": "C21-9",
+            "type": "number",
+            "title": "Concentrate feed milking caroussel",
+            "description": "Kilogram of concentrate feed dispatched at the milking caroussel. NOT the uptake, that cannot be registered currently.",
+            "unit": "kg"
+          },
+          {
+            "name": "CelStd",
+            "type": "string",
+            "title": "Somatic cell count standard",
+            "description": "Somatic cell count of the monthly milk test",
+            "unit": "x1000 cells/mL"
+          },
+          {
+            "name": "Dat",
+            "type": "date",
+            "title": "Date",
+            "description": "Date of the data record",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "DelPro-13",
+            "type": "number",
+            "title": "Feed from the milking robot",
+            "description": "Intake feed 1 from the milkingrobot",
+            "unit": "kg"
+          },
+          {
+            "name": "DrgZetDat",
+            "type": "date",
+            "title": "Start date dry period",
+            "description": "Starting date of the dry period",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "EiwStd",
+            "type": "number",
+            "title": "Protein concentration standard",
+            "description": "Protein concentration of the monthly milk test",
+            "unit": "%"
+          },
+          {
+            "name": "EndDatPrf",
+            "type": "date",
+            "title": "Ending date experiment",
+            "description": "Expected end date of the experiment",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "GewA",
+            "type": "number",
+            "title": "Weight afternoon",
+            "description": "Weight of the animal after milking in the afternoon",
+            "unit": "kg"
+          },
+          {
+            "name": "GewO",
+            "type": "number",
+            "title": "Weight morning",
+            "description": "Weight of the animal after milking in the morning",
+            "unit": "kg"
+          },
+          {
+            "name": "gf_visits",
+            "type": "string",
+            "title": "GreenFeed measurements",
+            "description": "Measurements on cow emission (summarized data)",
+            "unit": ""
+          },
+          {
+            "name": "gf_cupdrops",
+            "type": "string",
+            "title": "GreenFeed cupdrops",
+            "description": "GreenFeed portions concentrate feed.",
+            "unit": ""
+          },
+          {
+            "name": "Hok",
+            "type": "integer",
+            "title": "Pen / Stable number",
+            "description": "Location of where the cows are housed.",
+            "unit": "number"
+          },
+          {
+            "name": "HokMin1",
+            "type": "integer",
+            "title": "Pen / Stable number day before",
+            "description": "Location of where the cows are housed day before",
+            "unit": "number"
+          },
+          {
+            "name": "AtributedKVA",
+            "type": "number",
+            "title": "Attributed Concentrate A",
+            "description": "Total allocated/programmed amount of concentrate feed type A for the cow on the specified date.",
+            "unit": "kg"
+          },
+          {
+            "name": "TotalIntakeKVA",
+            "type": "number",
+            "title": "Concentrate feed station 1",
+            "description": "Total intake feed from SAC box 1",
+            "unit": "kg"
+          },
+          {
+            "name": "AtributedKVB",
+            "type": "number",
+            "title": "Attributed Concentrate B",
+            "description": "Total allocated/programmed amount of concentrate feed type B for the cow on the specified date.",
+            "unit": "kg"
+          },
+          {
+            "name": "TotalIntakeKVB",
+            "type": "number",
+            "title": "Concentrate feed station 2",
+            "description": "Total intake feed from SAC box 2",
+            "unit": "kg"
+          },
+          {
+            "name": "AtributedKVC",
+            "type": "number",
+            "title": "Attributed Concentrate C",
+            "description": "Total allocated/programmed amount of concentrate feed type C for the cow on the specified date.",
+            "unit": "kg"
+          },
+          {
+            "name": "TotalIntakeKVC",
+            "type": "number",
+            "title": "Concentrate feed station 3",
+            "description": "Total intake feed from SAC box 3",
+            "unit": "kg"
+          },
+          {
+            "name": "AtributedKVD",
+            "type": "number",
+            "title": "Attributed Concentrate D",
+            "description": "Total allocated/programmed amount of concentrate feed type D for the cow on the specified date.",
+            "unit": "kg"
+          },
+          {
+            "name": "TotalIntakeKVD",
+            "type": "number",
+            "title": "Concentrate feed station 4",
+            "description": "Total intake feed from SAC box 4",
+            "unit": "kg"
+          },
+          {
+            "name": "HrhNum",
+            "type": "integer",
+            "title": "Repeating number",
+            "description": "Number of repeat of a previously performed test",
+            "unit": "number"
+          },
+          {
+            "name": "InsDat",
+            "type": "date",
+            "title": "Insemination day",
+            "description": "Date of last insemination",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "Jar",
+            "type": "integer",
+            "title": "Year",
+            "description": "Year of the data record",
+            "unit": "number"
+          },
+          {
+            "name": "KetStd",
+            "type": "integer",
+            "title": "Ketose concentration standard",
+            "description": "Ketose concentration of the monthly milk test",
+            "unit": "number"
+          },
+          {
+            "name": "KgMlkA",
+            "type": "number",
+            "title": "Kilogram milk afternoon",
+            "description": "Kilogram of milk registred at the afternoon milking event",
+            "unit": "kg"
+          },
+          {
+            "name": "KgMlkEtm",
+            "type": "number",
+            "title": "Kilogram milk 24 hours",
+            "description": "Kilogram of milk in the last 24 hours",
+            "unit": "kg"
+          },
+          {
+            "name": "KgMlkO",
+            "type": "number",
+            "title": "Kilogram milk morning",
+            "description": "Kilogram of milk registred at the morning milking event",
+            "unit": "kg"
+          },
+          {
+            "name": "KlfDat",
+            "type": "date",
+            "title": "Calving date",
+            "description": "Date of last calving",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "LacDgn",
+            "type": "integer",
+            "title": "Days in lactation",
+            "description": "Amount of days producing milk",
+            "unit": "number"
+          },
+          {
+            "name": "LacNum",
+            "type": "integer",
+            "title": "Parity",
+            "description": "Parity (amount of calvings) of the animal",
+            "unit": "number"
+          },
+          {
+            "name": "LacStd",
+            "type": "number",
+            "title": "Lactose concentration standard",
+            "description": "Lactose of the monthly milk test",
+            "unit": "%"
+          },
+          {
+            "name": "LevNum",
+            "type": "integer",
+            "title": "Registration number",
+            "description": "National registration number of the animal.",
+            "unit": "text + number"
+          },
+          {
+            "name": "LftDgn",
+            "type": "integer",
+            "title": "Age",
+            "description": "Age of the animal in days",
+            "unit": "number"
+          },
+          {
+            "name": "MlkStd",
+            "type": "number",
+            "title": "Milk standard",
+            "description": "Kilogram of milk produced during the standard (once a month) milk composition sampling",
+            "unit": "kg"
+          },
+          {
+            "name": "mpr_dag.Fat_Concentration",
+            "type": "number",
+            "title": "Weekly milk fat concentration",
+            "description": "Weekly milk fat concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.",
+            "unit": "%"
+          },
+          {
+            "name": "mpr_dag.Lactose_Concentration",
+            "type": "number",
+            "title": "Weekly milk lactose concentration",
+            "description": "Weekly milk lactose concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.",
+            "unit": "%"
+          },
+          {
+            "name": "mpr_dag.Protein_Concentration",
+            "type": "number",
+            "title": "Weekly milk protein concentration",
+            "description": "Weekly milk protein concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.",
+            "unit": "%"
+          },
+          {
+            "name": "mpr_dag.SCC",
+            "type": "string",
+            "title": "Weekly somatic cell count",
+            "description": "Weekly somatic cell count during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.",
+            "unit": "1000 cells/mL"
+          },
+          {
+            "name": "mpr_dag.Urea_Concentration",
+            "type": "string",
+            "title": "Weekly milk urea concentration",
+            "description": "Weekly milk urea concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.",
+            "unit": "mg/dL"
+          },
+          {
+            "name": "mpr_week.Fat_Concentration",
+            "type": "number",
+            "title": "Calculated day fat concentration",
+            "description": "An estimated daily milk fat concentration based on the AO sampling and the corresponding milk yield of that day.  x",
+            "unit": "%"
+          },
+          {
+            "name": "mpr_week.Lactose_Concentration",
+            "type": "number",
+            "title": "Calculated day lactose concentration",
+            "description": "An estimated daily milk lactose concentration based on the AO sampling and the corresponding milk yield of that day.",
+            "unit": "%"
+          },
+          {
+            "name": "mpr_week.Protein_Concentration",
+            "type": "number",
+            "title": "Calculated day protein concentration",
+            "description": "An estimated daily milk protein concentration based on the AO sampling and the corresponding milk yield of that day.",
+            "unit": "%"
+          },
+          {
+            "name": "mpr_week.SCC",
+            "type": "string",
+            "title": "Calculated day somatic cell count",
+            "description": "An estimated daily somatic cell count based on the AO sampling and the corresponding milk yield of that day.",
+            "unit": "1000 cells/mL"
+          },
+          {
+            "name": "mpr_week.Urea_Concentration",
+            "type": "string",
+            "title": "Calculated day urea concentration",
+            "description": "An estimated daily milk urea concentration based on the AO sampling and the corresponding milk yield of that day.",
+            "unit": "mg/dL"
+          },
+          {
+            "name": "OorNum",
+            "type": "integer",
+            "title": "Ear number",
+            "description": "Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number.",
+            "unit": "number"
+          },
+          {
+            "name": "OpnRvDsHans",
+            "type": "string",
+            "title": "Intake roughage dry matter Hans",
+            "description": "Intake of dry matter from the roughage, Hans (Will be removed from table)",
+            "unit": "N/A"
+          },
+          {
+            "name": "PrdSta",
+            "type": "string",
+            "title": "Production stage",
+            "description": "Identifying the stage of the cow, producing milk or not",
+            "unit": "short text"
+          },
+          {
+            "name": "PrfCod",
+            "type": "integer",
+            "title": "Experiment number",
+            "description": "Code assigned by Dairy Campus to identify the experiment. Can be the same as the MyProjects number, or differ.",
+            "unit": "number"
+          },
+          {
+            "name": "RowID",
+            "type": "integer",
+            "title": "Row ID",
+            "description": "Unique number for row in a specific table.",
+            "unit": "number"
+          },
+          {
+            "name": "rv1.ds",
+            "type": "string",
+            "title": "Roughage 1 dry matter",
+            "description": "Roughage 1 dry matter",
+            "unit": "N/A"
+          },
+          {
+            "name": "rv1.name",
+            "type": "string",
+            "title": "Roughage name 1",
+            "description": "Name of the roughage treatment consumed by the animal",
+            "unit": "short text"
+          },
+          {
+            "name": "rv1.opnDs",
+            "type": "string",
+            "title": "Roughage 1 intake dry matter",
+            "description": "Roughage 1 intake dry matter",
+            "unit": "N/A"
+          },
+          {
+            "name": "rv1.Prod",
+            "type": "number",
+            "title": "Roughage product 1",
+            "description": "Total uptake in kilograms of the roughage",
+            "unit": "kg"
+          },
+          {
+            "name": "rv1.ProdExclWater",
+            "type": "number",
+            "title": "Roughage 1 intake excluding water",
+            "description": "Total uptake in kilograms of the roughage excluding water",
+            "unit": "kg"
+          },
+          {
+            "name": "rv1.ricBez",
+            "type": "integer",
+            "title": "Roughage 1 RIC bin visits",
+            "description": "Amount of times the animal visited the roughage bins to consume the roughage.",
+            "unit": "number"
+          },
+          {
+            "name": "rv1.trBatches",
+            "type": "integer",
+            "title": "Roughage 1 batches",
+            "description": "Amount of different batches distributed by the feeding robot that the animal consumed for its total roughage uptake",
+            "unit": "number"
+          },
+          {
+            "name": "rv2.ds",
+            "type": "number",
+            "title": "Roughage 2 dry matter",
+            "description": "Roughage 2 dry matter",
+            "unit": "kg"
+          },
+          {
+            "name": "rv2.name",
+            "type": "string",
+            "title": "Roughage name 2",
+            "description": "Name of the roughage treatment consumed by the animal. These are only active (2, 3 and 4) when the animal consumes roughage from a treatment she isn't assigned to.",
+            "unit": "short text"
+          },
+          {
+            "name": "rv2.opnDs",
+            "type": "number",
+            "title": "Roughage 2 intake dry matter",
+            "description": "Roughage 2 intake dry matter",
+            "unit": "kg"
+          },
+          {
+            "name": "rv2.Prod",
+            "type": "number",
+            "title": "Roughage product 2",
+            "description": "Total uptake in kilograms of the roughage.",
+            "unit": "kg"
+          },
+          {
+            "name": "rv2.ProdExclWater",
+            "type": "number",
+            "title": "Roughage 2 intake excluding water",
+            "description": "Total uptake in kilograms of the roughage excluding water",
+            "unit": "kg"
+          },
+          {
+            "name": "rv2.ricBez",
+            "type": "integer",
+            "title": "Roughage 2 RIC bin visits",
+            "description": "Amount of times the animal visited the roughage bins to consume the roughage.",
+            "unit": "number"
+          },
+          {
+            "name": "rv2.trBatches",
+            "type": "integer",
+            "title": "Roughage 2 batches",
+            "description": "Amount of different batches distributed by the feeding robot that the animal consumed for its total roughage uptake",
+            "unit": "number"
+          },
+          {
+            "name": "rv3.ds",
+            "type": "number",
+            "title": "Roughage 3 dry matter",
+            "description": "Roughage 3 dry matter",
+            "unit": "kg"
+          },
+          {
+            "name": "rv3.name",
+            "type": "string",
+            "title": "Roughage name 3",
+            "description": "Name of the roughage treatment consumed by the animal. These are only active (2, 3 and 4) when the animal consumes roughage from a treatment she isn't assigned to.",
+            "unit": "short text"
+          },
+          {
+            "name": "rv3.opnDs",
+            "type": "number",
+            "title": "Roughage 3 intake dry matter",
+            "description": "Roughage 3 intake dry matter",
+            "unit": "kg"
+          },
+          {
+            "name": "rv3.Prod",
+            "type": "number",
+            "title": "Roughage product 3",
+            "description": "Total uptake in kilograms of the roughage.",
+            "unit": "kg"
+          },
+          {
+            "name": "rv3.ProdExclWater",
+            "type": "number",
+            "title": "Roughage 3 intake excluding water",
+            "description": "Total uptake in kilograms of the roughage excluding water",
+            "unit": "kg"
+          },
+          {
+            "name": "rv3.ricBez",
+            "type": "integer",
+            "title": "Roughage 3 RIC bin visits",
+            "description": "Amount of times the animal visited the roughage bins to consume the roughage.",
+            "unit": "number"
+          },
+          {
+            "name": "rv3.trBatches",
+            "type": "integer",
+            "title": "Roughage 3 batches",
+            "description": "Amount of different batches distributed by the feeding robot that the animal consumed for its total roughage uptake",
+            "unit": "number"
+          },
+          {
+            "name": "rv4.ds",
+            "type": "number",
+            "title": "Roughage 4 dry matter",
+            "description": "Roughage 4 dry matter",
+            "unit": "kg"
+          },
+          {
+            "name": "rv4.name",
+            "type": "string",
+            "title": "Roughage name 4",
+            "description": "Name of the roughage treatment consumed by the animal. These are only active (2, 3 and 4) when the animal consumes roughage from a treatment she isn't assigned to.",
+            "unit": "short text"
+          },
+          {
+            "name": "rv4.opnDs",
+            "type": "number",
+            "title": "Roughage 4 intake dry matter",
+            "description": "Roughage 4 intake dry matter",
+            "unit": "kg"
+          },
+          {
+            "name": "rv4.Prod",
+            "type": "number",
+            "title": "Roughage product 4",
+            "description": "Total uptake in kilograms of the roughage.",
+            "unit": "kg"
+          },
+          {
+            "name": "rv4.ProdExclWater",
+            "type": "number",
+            "title": "Roughage 4 intake excluding water",
+            "description": "Total uptake in kilograms of the roughage excluding water",
+            "unit": "kg"
+          },
+          {
+            "name": "rv4.ricBez",
+            "type": "integer",
+            "title": "Roughage 4 RIC bin visits",
+            "description": "Amount of times the animal visited the roughage bins to consume the roughage.",
+            "unit": "number"
+          },
+          {
+            "name": "rv4.trBatches",
+            "type": "integer",
+            "title": "Roughage 4 batches",
+            "description": "Amount of different batches distributed by the feeding robot that the animal consumed for its total roughage uptake",
+            "unit": "number"
+          },
+          {
+            "name": "tot.opnDs",
+            "type": "number",
+            "title": "Total intake drymatter",
+            "description": "Total uptake in kilograms of dry matter",
+            "unit": "kg"
+          },
+          {
+            "name": "tot.Prod",
+            "type": "number",
+            "title": "Total product",
+            "description": "Total roughage 1 t/m 4",
+            "unit": "kg"
+          },
+          {
+            "name": "UreStd",
+            "type": "number",
+            "title": "Urea concentration standard",
+            "description": "Urea concentration of the monthly milk test",
+            "unit": "mg/100 gram"
+          },
+          {
+            "name": "VetStd",
+            "type": "number",
+            "title": "Fat concentration standard",
+            "description": "Fat concentration of the monthly milk test",
+            "unit": "%"
+          },
+          {
+            "name": "VlgKlfDat",
+            "type": "date",
+            "title": "Next calving date",
+            "description": "Next calving date, not predicted, but added after calving",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "VrwDgn",
+            "type": "integer",
+            "title": "Expected number of days",
+            "description": "Number of days from date to expected calving date based on insemination date",
+            "unit": "number"
+          },
+          {
+            "name": "VrwKlfDat",
+            "type": "date",
+            "title": "Expected calving date",
+            "description": "Expected calving date based on insemination date",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "Wek",
+            "type": "integer",
+            "title": "Week",
+            "description": "Calender week number of data record",
+            "unit": "number"
+          },
+          {
+            "name": "WekDag",
+            "type": "string",
+            "title": "Day of the week",
+            "description": "Abbreviaton of weekday (Ma = Monday, Di = Tuesday, Wo = Wednesday, Do = Thursday, Vr = Friday, Za = Saturday, Zo = Sunday)",
+            "unit": "short text"
+          }
+        ]
+      }
+    },
+    {
+      "name": "hokofarm_sac_concentrates",
+      "path": "csv/Hokofarm_SAC_concentrates.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "description": "Visit-level concentrate feeding transactions recorded by SAC / Hokofarm automated concentrate feeders. Captures programmed feed allowance, actual consumed amount, feeding speed, dry matter, crude ash, protein, fat, fiber, and visit timestamps.",
+      "schema": {
+        "fields": [
+          {
+            "name": "ashA",
+            "type": "number",
+            "title": "Ash A",
+            "description": "Ash, indigestible part of feed A",
+            "unit": "kg"
+          },
+          {
+            "name": "ashB",
+            "type": "number",
+            "title": "Ash B",
+            "description": "Ash, indigestible part of feed B",
+            "unit": "kg"
+          },
+          {
+            "name": "ashC",
+            "type": "number",
+            "title": "Ash C",
+            "description": "Ash, indigestible part of feed C",
+            "unit": "kg"
+          },
+          {
+            "name": "ashD",
+            "type": "number",
+            "title": "Ash D",
+            "description": "Ash, indigestible part of feed D",
+            "unit": "kg"
+          },
+          {
+            "name": "cow",
+            "type": "integer",
+            "title": "Cow",
+            "description": "Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.",
+            "unit": "number"
+          },
+          {
+            "name": "crudeFiberA",
+            "type": "number",
+            "title": "CrudeFibre A",
+            "description": "Crude fiber in feed A",
+            "unit": "kg"
+          },
+          {
+            "name": "crudeFiberB",
+            "type": "number",
+            "title": "CrudeFibre B",
+            "description": "Crude fiber in feed B",
+            "unit": "kg"
+          },
+          {
+            "name": "crudeFiberC",
+            "type": "number",
+            "title": "CrudeFibre C",
+            "description": "Crude fiber in feed C",
+            "unit": "kg"
+          },
+          {
+            "name": "crudeFiberD",
+            "type": "number",
+            "title": "CrudeFibre D",
+            "description": "Crude fiber in feed D",
+            "unit": "kg"
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "title": "Date",
+            "description": "Date of the data record",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "dateTime",
+            "type": "datetime",
+            "title": "Date and time",
+            "description": "Date and time",
+            "unit": "yyyy-mm-dd-hh-mm-ss"
+          },
+          {
+            "name": "dryMatterA",
+            "type": "number",
+            "title": "Dry matter A",
+            "description": "Dry matter of feed A",
+            "unit": "kg"
+          },
+          {
+            "name": "dryMatterB",
+            "type": "number",
+            "title": "Dry matter B",
+            "description": "Dry matter of feed B",
+            "unit": "kg"
+          },
+          {
+            "name": "dryMatterC",
+            "type": "number",
+            "title": "Dry matter C",
+            "description": "Dry matter of feed C",
+            "unit": "kg"
+          },
+          {
+            "name": "dryMatterD",
+            "type": "number",
+            "title": "Dry matter D",
+            "description": "Dry matter of feed D",
+            "unit": "kg"
+          },
+          {
+            "name": "endTime",
+            "type": "number",
+            "title": "End time",
+            "description": "End time of action/behaviour",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "energyA",
+            "type": "string",
+            "title": "Energy A",
+            "description": "Energy content A",
+            "unit": "VEM"
+          },
+          {
+            "name": "energyB",
+            "type": "string",
+            "title": "Energy B",
+            "description": "Energy content B",
+            "unit": "VEM"
+          },
+          {
+            "name": "energyC",
+            "type": "string",
+            "title": "Energy C",
+            "description": "Energy content C",
+            "unit": "VEM"
+          },
+          {
+            "name": "energyD",
+            "type": "string",
+            "title": "Energy D",
+            "description": "Energy content D",
+            "unit": "VEM"
+          },
+          {
+            "name": "fatA",
+            "type": "number",
+            "title": "Fat A",
+            "description": "Fat content A",
+            "unit": "kg"
+          },
+          {
+            "name": "fatB",
+            "type": "number",
+            "title": "Fat B",
+            "description": "Fat content B",
+            "unit": "kg"
+          },
+          {
+            "name": "fatC",
+            "type": "number",
+            "title": "Fat C",
+            "description": "Fat content C",
+            "unit": "kg"
+          },
+          {
+            "name": "fatD",
+            "type": "number",
+            "title": "Fat D",
+            "description": "Fat content D",
+            "unit": "kg"
+          },
+          {
+            "name": "feedTypeA",
+            "type": "string",
+            "title": "Feed type A",
+            "description": "Type of feed A",
+            "unit": "short text"
+          },
+          {
+            "name": "feedTypeB",
+            "type": "string",
+            "title": "Feed type B",
+            "description": "Type of feed B",
+            "unit": "short text"
+          },
+          {
+            "name": "feedTypeC",
+            "type": "string",
+            "title": "Feed type C",
+            "description": "Type of feed C",
+            "unit": "short text"
+          },
+          {
+            "name": "feedTypeD",
+            "type": "string",
+            "title": "Feed type D",
+            "description": "Type of feed D",
+            "unit": "short text"
+          },
+          {
+            "name": "fileName",
+            "type": "string",
+            "title": "File name",
+            "description": "Name of a file",
+            "unit": "text"
+          },
+          {
+            "name": "hashValue",
+            "type": "integer",
+            "title": "Hash value",
+            "description": "Validation record for data processing",
+            "unit": "number"
+          },
+          {
+            "name": "intakeA",
+            "type": "number",
+            "title": "Intake A",
+            "description": "Feed intake A",
+            "unit": "kg"
+          },
+          {
+            "name": "intakeB",
+            "type": "number",
+            "title": "Intake B",
+            "description": "Feed intake B",
+            "unit": "kg"
+          },
+          {
+            "name": "intakeC",
+            "type": "number",
+            "title": "Intake C",
+            "description": "Feed intake C",
+            "unit": "kg"
+          },
+          {
+            "name": "intakeD",
+            "type": "number",
+            "title": "Intake D",
+            "description": "Feed intake D",
+            "unit": "kg"
+          },
+          {
+            "name": "proteinA",
+            "type": "integer",
+            "title": "Protein A",
+            "description": "Protein content A",
+            "unit": "number"
+          },
+          {
+            "name": "proteinB",
+            "type": "integer",
+            "title": "Protein B",
+            "description": "Protein content B",
+            "unit": "number"
+          },
+          {
+            "name": "proteinC",
+            "type": "integer",
+            "title": "Protein C",
+            "description": "Protein content C",
+            "unit": "number"
+          },
+          {
+            "name": "proteinD",
+            "type": "integer",
+            "title": "Protein D",
+            "description": "Protein content D",
+            "unit": "number"
+          },
+          {
+            "name": "startTime",
+            "type": "number",
+            "title": "Start time",
+            "description": "Start time of action/behaviour",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "station",
+            "type": "integer",
+            "title": "Station",
+            "description": "Station or location of activity",
+            "unit": "number"
+          },
+          {
+            "name": "totalTime",
+            "type": "integer",
+            "title": "Total time",
+            "description": "Total duration",
+            "unit": "sec"
+          },
+          {
+            "name": "transponder",
+            "type": "integer",
+            "title": "Transponder",
+            "description": "Transponder number of the cow",
+            "unit": "number"
+          }
+        ]
+      }
+    },
+    {
+      "name": "hokofarm_ric",
+      "path": "csv/Hokofarm_RIC.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "description": "High-resolution individual visit transactions recorded by Hokofarm RIC (Roughage Intake Control) weighing feed bins. Measures cow ear tag number, bin number, start and end timestamps, initial weight, ending weight, consumed fresh feed quantity, and nutritional composition.",
+      "schema": {
+        "fields": [
+          {
+            "name": "ash",
+            "type": "number",
+            "title": "Ash",
+            "description": "Ash, indigestible part of the feed",
+            "unit": "kg"
+          },
+          {
+            "name": "cow",
+            "type": "integer",
+            "title": "Cow",
+            "description": "Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.",
+            "unit": "number"
+          },
+          {
+            "name": "crudeFibre",
+            "type": "number",
+            "title": "CrudeFibre",
+            "description": "Crude fiber in the feed",
+            "unit": "kg"
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "title": "Date",
+            "description": "Date of the data record",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "datetime",
+            "type": "datetime",
+            "title": "Date and time",
+            "description": "Date and time",
+            "unit": "yyyy-mm-dd-hh-mm-ss"
+          },
+          {
+            "name": "dryMatter",
+            "type": "number",
+            "title": "Dry matter",
+            "description": "Dry matter",
+            "unit": "kg"
+          },
+          {
+            "name": "duration",
+            "type": "integer",
+            "title": "Duration",
+            "description": "Duration of action/behaviour",
+            "unit": "sec"
+          },
+          {
+            "name": "endTime",
+            "type": "number",
+            "title": "End time",
+            "description": "End time of action/behaviour",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "endWeight",
+            "type": "number",
+            "title": "End Weight",
+            "description": "End weight",
+            "unit": "kg"
+          },
+          {
+            "name": "energy",
+            "type": "string",
+            "title": "Energy",
+            "description": "Energy content",
+            "unit": "VEM"
+          },
+          {
+            "name": "fat",
+            "type": "number",
+            "title": "Fat",
+            "description": "Fat content",
+            "unit": "kg"
+          },
+          {
+            "name": "feedType",
+            "type": "string",
+            "title": "Feed type",
+            "description": "Type of feed",
+            "unit": "short text"
+          },
+          {
+            "name": "intake",
+            "type": "number",
+            "title": "Intake",
+            "description": "Feed intake",
+            "unit": "kg"
+          },
+          {
+            "name": "protein",
+            "type": "number",
+            "title": "Protein",
+            "description": "Protein content",
+            "unit": "kg"
+          },
+          {
+            "name": "startTime",
+            "type": "number",
+            "title": "Start time",
+            "description": "Start time of action/behaviour",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "startWeight",
+            "type": "number",
+            "title": "Start weight",
+            "description": "Start weight",
+            "unit": "kg"
+          },
+          {
+            "name": "station",
+            "type": "integer",
+            "title": "Station",
+            "description": "Station or location of activity",
+            "unit": "number"
+          },
+          {
+            "name": "transponder",
+            "type": "integer",
+            "title": "Transponder",
+            "description": "Transponder number of the cow",
+            "unit": "number"
+          }
+        ]
+      }
+    },
+    {
+      "name": "tvl_ric_intake_dm",
+      "path": "csv/TVL_RIC_intake_dm.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "description": "Daily aggregated roughage intake per cow per feed group/ration, combining fresh intake, laboratory dry matter determination, and ration dry matter intake.",
+      "schema": {
+        "fields": [
+          {
+            "name": "cow",
+            "type": "integer",
+            "title": "Cow",
+            "description": "Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.",
+            "unit": "number"
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "title": "Date",
+            "description": "Date of the data record",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "dsPct",
+            "type": "integer",
+            "title": "dry matter percentage",
+            "description": "Percentage of dry matter in the feed",
+            "unit": "number"
+          },
+          {
+            "name": "feedtype",
+            "type": "string",
+            "title": "feedtype",
+            "description": "Type of feed",
+            "unit": "short text"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "title": "Name",
+            "description": "Name collected based on other value",
+            "unit": "short text"
+          },
+          {
+            "name": "opnDsVR",
+            "type": "number",
+            "title": "Intake dry matter Roughage RIC",
+            "description": "Intake of dry matter from roughage RIC",
+            "unit": "kg"
+          },
+          {
+            "name": "opnIncWater",
+            "type": "number",
+            "title": "Intake including water",
+            "description": "Feed intake including water",
+            "unit": "kg"
+          },
+          {
+            "name": "opnMinWater",
+            "type": "number",
+            "title": "Intake subtracting water",
+            "description": "Feed intake excluding water",
+            "unit": "kg"
+          },
+          {
+            "name": "opnProd",
+            "type": "number",
+            "title": "Intake product",
+            "description": "Total intake of product",
+            "unit": "kg"
+          },
+          {
+            "name": "ricBez",
+            "type": "integer",
+            "title": "Ric visits",
+            "description": "Number of visits to RIC",
+            "unit": "number"
+          },
+          {
+            "name": "RowID",
+            "type": "integer",
+            "title": "Row ID",
+            "description": "Unique number for row in a specific table.",
+            "unit": "number"
+          },
+          {
+            "name": "trBatches",
+            "type": "integer",
+            "title": "Tioliet batches",
+            "description": "Number of times the triolith has released feed.",
+            "unit": "number"
+          }
+        ]
+      }
+    },
+    {
+      "name": "triomatic_ric_load",
+      "path": "csv/Triomatic_RIC_load.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "description": "Batch loading records from the Trioliet Triomatic automated feeding kitchen and mixer robot. Records target and actual weights for each ration component (silage, hay, concentrates, minerals, added water) loaded into the mixer robot.",
+      "schema": {
+        "fields": [
+          {
+            "name": "AnimalCount",
+            "type": "integer",
+            "title": "Animal count",
+            "description": "The number of animals",
+            "unit": "number"
+          },
+          {
+            "name": "Date",
+            "type": "datetime",
+            "title": "Date",
+            "description": "Date",
+            "unit": "yy-mm-dd-hh-mm-ss"
+          },
+          {
+            "name": "Extra",
+            "type": "integer",
+            "title": "Extra",
+            "description": "Extra information",
+            "unit": "number"
+          },
+          {
+            "name": "FeedingGroup",
+            "type": "integer",
+            "title": "Feeding group",
+            "description": "Log source 0 = 1, log source 1 = NULL betekenis Feeding group?",
+            "unit": "number"
+          },
+          {
+            "name": "filename",
+            "type": "string",
+            "title": "Filename",
+            "description": "Name of the file containing information",
+            "unit": "short text"
+          },
+          {
+            "name": "FinishedReady",
+            "type": "string",
+            "title": "Finished ready",
+            "description": "NULL?",
+            "unit": "?"
+          },
+          {
+            "name": "GroupID",
+            "type": "integer",
+            "title": "Group ID",
+            "description": "Id of the group",
+            "unit": "number"
+          },
+          {
+            "name": "GroupName",
+            "type": "string",
+            "title": "Group name",
+            "description": "Name of the group",
+            "unit": "short text"
+          },
+          {
+            "name": "Id",
+            "type": "integer",
+            "title": "ID",
+            "description": "ID",
+            "unit": "number"
+          },
+          {
+            "name": "IngredientName",
+            "type": "string",
+            "title": "Ingredient name",
+            "description": "Name of the ingredient",
+            "unit": "short text"
+          },
+          {
+            "name": "k42",
+            "type": "integer",
+            "title": "k42",
+            "description": "Validation record for data processing",
+            "unit": "number"
+          },
+          {
+            "name": "LogSource",
+            "type": "integer",
+            "title": "Log source",
+            "description": "0 meaning feed preparation, and 1 the distribution of feed to RIC bins",
+            "unit": "number"
+          },
+          {
+            "name": "NettoLoadedWeight",
+            "type": "number",
+            "title": "Netto loaded weight",
+            "description": "Netto weight loaded",
+            "unit": "kg"
+          },
+          {
+            "name": "NrOfSplittings",
+            "type": "integer",
+            "title": "Number of splittings",
+            "description": "Number of splittings",
+            "unit": "number"
+          },
+          {
+            "name": "NumberRecipeLines",
+            "type": "integer",
+            "title": "Number of recipe lines",
+            "description": "Total number of recipe lines",
+            "unit": "number"
+          },
+          {
+            "name": "OpdrachtID",
+            "type": "integer",
+            "title": "Job ID",
+            "description": "Job ID",
+            "unit": "number"
+          },
+          {
+            "name": "PerformedFeedFactor",
+            "type": "integer",
+            "title": "Performed feed factor",
+            "description": "Performed feed factor",
+            "unit": "number"
+          },
+          {
+            "name": "PerformedProductDryWeightKgAfterDrop",
+            "type": "number",
+            "title": "Kg dry weight after drop",
+            "description": "Kg dry weight after drop",
+            "unit": "kg"
+          },
+          {
+            "name": "PerformedProductDryWeightPartAfterDrop",
+            "type": "number",
+            "title": "Part of dry weight after drop",
+            "description": "Part of dry weight after drop",
+            "unit": "kg"
+          },
+          {
+            "name": "PerformedProductError",
+            "type": "number",
+            "title": "Performed product error",
+            "description": "Error, difference between Scheduled kg and performed kg feed",
+            "unit": "kg"
+          },
+          {
+            "name": "PerformedProductKgAfterDrop",
+            "type": "number",
+            "title": "Kg product after drop",
+            "description": "Kg product after drop",
+            "unit": "kg"
+          },
+          {
+            "name": "PerformedProductKgAtStop",
+            "type": "number",
+            "title": "Kg product at stop",
+            "description": "Kg product at stop",
+            "unit": "kg"
+          },
+          {
+            "name": "PerformedTime",
+            "type": "number",
+            "title": "Performed time",
+            "description": "Performed time",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "PushingGroup",
+            "type": "integer",
+            "title": "Pushing group",
+            "description": "Pushing group",
+            "unit": "number"
+          },
+          {
+            "name": "Ready",
+            "type": "integer",
+            "title": "Ready",
+            "description": "Ready",
+            "unit": "number"
+          },
+          {
+            "name": "ReadyTime",
+            "type": "number",
+            "title": "Ready time",
+            "description": "Ready time, if log source 1",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "ReceptLineNr",
+            "type": "integer",
+            "title": "Recept line number",
+            "description": "Current number of recipe line",
+            "unit": "number"
+          },
+          {
+            "name": "ReceptName",
+            "type": "string",
+            "title": "Recipe name",
+            "description": "Name of the feed recipe",
+            "unit": "short text"
+          },
+          {
+            "name": "ScheduledDryWeightContent",
+            "type": "integer",
+            "title": "Scheduled dry weight content",
+            "description": "Scheduled dry weight content",
+            "unit": "number"
+          },
+          {
+            "name": "ScheduledDryWeightContentPart",
+            "type": "integer",
+            "title": "Scheduled dry weight content part",
+            "description": "Scheduled dry weight content part",
+            "unit": "number"
+          },
+          {
+            "name": "ScheduledDryWeightKg",
+            "type": "number",
+            "title": "Scheduled dry weight kg",
+            "description": "Scheduled dry weight kg",
+            "unit": "kg"
+          },
+          {
+            "name": "ScheduledFeedFactor",
+            "type": "integer",
+            "title": "Scheduled feed factor",
+            "description": "Scheduled feed factor",
+            "unit": "number"
+          },
+          {
+            "name": "ScheduledPart",
+            "type": "integer",
+            "title": "Scheduled part",
+            "description": "Scheduled part",
+            "unit": "number"
+          },
+          {
+            "name": "ScheduledProductKg",
+            "type": "number",
+            "title": "Scheduled product kg",
+            "description": "Scheduled product kg",
+            "unit": "kg"
+          },
+          {
+            "name": "ScheduledTime",
+            "type": "number",
+            "title": "Scheduled time",
+            "description": "Scheduled time, if log source 1",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "SplittedNr",
+            "type": "integer",
+            "title": "Splitted number",
+            "description": "Splitted number, only 1",
+            "unit": "number"
+          },
+          {
+            "name": "StartPosition",
+            "type": "integer",
+            "title": "Start position",
+            "description": "Start position, if subgroup not 0",
+            "unit": "number"
+          },
+          {
+            "name": "StartTime",
+            "type": "number",
+            "title": "Start time",
+            "description": "Start time, if subgroup not 0",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "StartWeight",
+            "type": "number",
+            "title": "Start weight",
+            "description": "Start weight, if subgroup not 0",
+            "unit": "kg"
+          },
+          {
+            "name": "StopPosition",
+            "type": "integer",
+            "title": "Stop position",
+            "description": "Stop position, if subgroup not 0",
+            "unit": "number"
+          },
+          {
+            "name": "StopTime",
+            "type": "number",
+            "title": "Stop time",
+            "description": "Stop time, if subgroup not 0",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "StopWeight",
+            "type": "number",
+            "title": "Stop weight",
+            "description": "Stop weight, if subgroup not 0",
+            "unit": "kg"
+          },
+          {
+            "name": "StrawGroup",
+            "type": "integer",
+            "title": "Straw group",
+            "description": "Straw group",
+            "unit": "number"
+          },
+          {
+            "name": "SubGroupNr",
+            "type": "integer",
+            "title": "Subgroup number",
+            "description": "Number of the subgroup, 0 no subgroup",
+            "unit": "number"
+          },
+          {
+            "name": "TakeoffTime",
+            "type": "number",
+            "title": "Take off time",
+            "description": "Take off time, if log source 1",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "TrackSection",
+            "type": "integer",
+            "title": "Track section",
+            "description": "Track section, if subgroup 1 if there is no subgroup 0",
+            "unit": "number"
+          }
+        ]
+      }
+    },
+    {
+      "name": "triomatic_ric_drop",
+      "path": "csv/Triomatic_RIC_drop.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "description": "Batch delivery (discharge) records from the Trioliet Triomatic feeding robot to individual barn pens, groups, and RIC feeding bins. Captures distributed weight, delivery time, and destination pen.",
+      "schema": {
+        "fields": [
+          {
+            "name": "AnimalCount",
+            "type": "integer",
+            "title": "Animal count",
+            "description": "The number of animals",
+            "unit": "number"
+          },
+          {
+            "name": "Date",
+            "type": "datetime",
+            "title": "Date",
+            "description": "Date",
+            "unit": "yy-mm-dd-hh-mm-ss"
+          },
+          {
+            "name": "Extra",
+            "type": "integer",
+            "title": "Extra",
+            "description": "Extra information",
+            "unit": "number"
+          },
+          {
+            "name": "FeedingGroup",
+            "type": "integer",
+            "title": "Feeding group",
+            "description": "Log source 0 = 1, log source 1 = NULL betekenis Feeding group?",
+            "unit": "number"
+          },
+          {
+            "name": "filename",
+            "type": "string",
+            "title": "Filename",
+            "description": "Name of the file containing information",
+            "unit": "short text"
+          },
+          {
+            "name": "FinishedReady",
+            "type": "string",
+            "title": "Finished ready",
+            "description": "NULL?",
+            "unit": "?"
+          },
+          {
+            "name": "GroupID",
+            "type": "integer",
+            "title": "Group ID",
+            "description": "Id of the group",
+            "unit": "number"
+          },
+          {
+            "name": "GroupName",
+            "type": "string",
+            "title": "Group name",
+            "description": "Name of the group",
+            "unit": "short text"
+          },
+          {
+            "name": "Id",
+            "type": "integer",
+            "title": "ID",
+            "description": "ID",
+            "unit": "number"
+          },
+          {
+            "name": "IngredientName",
+            "type": "string",
+            "title": "Ingredient name",
+            "description": "Name of the ingredient",
+            "unit": "short text"
+          },
+          {
+            "name": "k42",
+            "type": "integer",
+            "title": "k42",
+            "description": "Validation record for data processing",
+            "unit": "number"
+          },
+          {
+            "name": "LogSource",
+            "type": "integer",
+            "title": "Log source",
+            "description": "0 meaning feed preparation, and 1 the distribution of feed to RIC bins",
+            "unit": "number"
+          },
+          {
+            "name": "NettoLoadedWeight",
+            "type": "number",
+            "title": "Netto loaded weight",
+            "description": "Netto weight loaded",
+            "unit": "kg"
+          },
+          {
+            "name": "NrOfSplittings",
+            "type": "integer",
+            "title": "Number of splittings",
+            "description": "Number of splittings",
+            "unit": "number"
+          },
+          {
+            "name": "NumberRecipeLines",
+            "type": "integer",
+            "title": "Number of recipe lines",
+            "description": "Total number of recipe lines",
+            "unit": "number"
+          },
+          {
+            "name": "OpdrachtID",
+            "type": "integer",
+            "title": "Job ID",
+            "description": "Job ID",
+            "unit": "number"
+          },
+          {
+            "name": "PerformedFeedFactor",
+            "type": "integer",
+            "title": "Performed feed factor",
+            "description": "Performed feed factor",
+            "unit": "number"
+          },
+          {
+            "name": "PerformedProductDryWeightKgAfterDrop",
+            "type": "number",
+            "title": "Kg dry weight after drop",
+            "description": "Kg dry weight after drop",
+            "unit": "kg"
+          },
+          {
+            "name": "PerformedProductDryWeightPartAfterDrop",
+            "type": "number",
+            "title": "Part of dry weight after drop",
+            "description": "Part of dry weight after drop",
+            "unit": "kg"
+          },
+          {
+            "name": "PerformedProductError",
+            "type": "number",
+            "title": "Performed product error",
+            "description": "Error, difference between Scheduled kg and performed kg feed",
+            "unit": "kg"
+          },
+          {
+            "name": "PerformedProductKgAfterDrop",
+            "type": "number",
+            "title": "Kg product after drop",
+            "description": "Kg product after drop",
+            "unit": "kg"
+          },
+          {
+            "name": "PerformedProductKgAtStop",
+            "type": "number",
+            "title": "Kg product at stop",
+            "description": "Kg product at stop",
+            "unit": "kg"
+          },
+          {
+            "name": "PerformedTime",
+            "type": "number",
+            "title": "Performed time",
+            "description": "Performed time",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "PushingGroup",
+            "type": "integer",
+            "title": "Pushing group",
+            "description": "Pushing group",
+            "unit": "number"
+          },
+          {
+            "name": "Ready",
+            "type": "integer",
+            "title": "Ready",
+            "description": "Ready",
+            "unit": "number"
+          },
+          {
+            "name": "ReadyTime",
+            "type": "number",
+            "title": "Ready time",
+            "description": "Ready time, if log source 1",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "ReceptLineNr",
+            "type": "integer",
+            "title": "Recept line number",
+            "description": "Current number of recipe line",
+            "unit": "number"
+          },
+          {
+            "name": "ReceptName",
+            "type": "string",
+            "title": "Recipe name",
+            "description": "Name of the feed recipe",
+            "unit": "short text"
+          },
+          {
+            "name": "ScheduledDryWeightContent",
+            "type": "integer",
+            "title": "Scheduled dry weight content",
+            "description": "Scheduled dry weight content",
+            "unit": "number"
+          },
+          {
+            "name": "ScheduledDryWeightContentPart",
+            "type": "integer",
+            "title": "Scheduled dry weight content part",
+            "description": "Scheduled dry weight content part",
+            "unit": "number"
+          },
+          {
+            "name": "ScheduledDryWeightKg",
+            "type": "number",
+            "title": "Scheduled dry weight kg",
+            "description": "Scheduled dry weight kg",
+            "unit": "kg"
+          },
+          {
+            "name": "ScheduledFeedFactor",
+            "type": "integer",
+            "title": "Scheduled feed factor",
+            "description": "Scheduled feed factor",
+            "unit": "number"
+          },
+          {
+            "name": "ScheduledPart",
+            "type": "integer",
+            "title": "Scheduled part",
+            "description": "Scheduled part",
+            "unit": "number"
+          },
+          {
+            "name": "ScheduledProductKg",
+            "type": "number",
+            "title": "Scheduled product kg",
+            "description": "Scheduled product kg",
+            "unit": "kg"
+          },
+          {
+            "name": "ScheduledTime",
+            "type": "number",
+            "title": "Scheduled time",
+            "description": "Scheduled time, if log source 1",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "SplittedNr",
+            "type": "integer",
+            "title": "Splitted number",
+            "description": "Splitted number, only 1",
+            "unit": "number"
+          },
+          {
+            "name": "StartPosition",
+            "type": "integer",
+            "title": "Start position",
+            "description": "Start position, if subgroup not 0",
+            "unit": "number"
+          },
+          {
+            "name": "StartTime",
+            "type": "number",
+            "title": "Start time",
+            "description": "Start time, if subgroup not 0",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "StartWeight",
+            "type": "number",
+            "title": "Start weight",
+            "description": "Start weight, if subgroup not 0",
+            "unit": "kg"
+          },
+          {
+            "name": "StopPosition",
+            "type": "integer",
+            "title": "Stop position",
+            "description": "Stop position, if subgroup not 0",
+            "unit": "number"
+          },
+          {
+            "name": "StopTime",
+            "type": "number",
+            "title": "Stop time",
+            "description": "Stop time, if subgroup not 0",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "StopWeight",
+            "type": "number",
+            "title": "Stop weight",
+            "description": "Stop weight, if subgroup not 0",
+            "unit": "kg"
+          },
+          {
+            "name": "StrawGroup",
+            "type": "integer",
+            "title": "Straw group",
+            "description": "Straw group",
+            "unit": "number"
+          },
+          {
+            "name": "SubGroupNr",
+            "type": "integer",
+            "title": "Subgroup number",
+            "description": "Number of the subgroup, 0 no subgroup",
+            "unit": "number"
+          },
+          {
+            "name": "TakeoffTime",
+            "type": "number",
+            "title": "Take off time",
+            "description": "Take off time, if log source 1",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "TrackSection",
+            "type": "integer",
+            "title": "Track section",
+            "description": "Track section, if subgroup 1 if there is no subgroup 0",
+            "unit": "number"
+          }
+        ]
+      }
+    },
+    {
+      "name": "gea_gates",
+      "path": "csv/GEA_gates.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "description": "Passage records through GEA automated selection, separation, and smart routing gates. Logs animal identification, gate ID, direction, and routing decisions.",
+      "schema": {
+        "fields": [
+          {
+            "name": "cow",
+            "type": "integer",
+            "title": "Cow",
+            "description": "Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.",
+            "unit": "number"
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "title": "Date",
+            "description": "Date of the data record",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "event",
+            "type": "integer",
+            "title": "Event",
+            "description": "0 = No gate action or weighting, 1 = selection gate A, 2 = selection gate B",
+            "unit": "number"
+          },
+          {
+            "name": "gate",
+            "type": "integer",
+            "title": "Gate",
+            "description": "Number of the gate",
+            "unit": "number"
+          },
+          {
+            "name": "message",
+            "type": "string",
+            "title": "Message",
+            "description": "ID and info gate action, weighting or selection has or has not taken place",
+            "unit": "tekst"
+          }
+        ]
+      }
+    },
+    {
+      "name": "gea_milkings",
+      "path": "csv/GEA_milkings.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "description": "Individual milking session transactions from GEA milking systems (automatic milking rotary/robots). Records milk yield per quarter/session, milking duration, milk conductivity, blood detection, animal body weight at milking, and status flags.",
+      "schema": {
+        "fields": [
+          {
+            "name": "Cow",
+            "type": "integer",
+            "title": "Cow",
+            "description": "Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.",
+            "unit": "number"
+          },
+          {
+            "name": "IMDat",
+            "type": "datetime",
+            "title": "Gea Date and time",
+            "description": "GEA, Date and time milking",
+            "unit": "yy-mm-dd-hh-mm-ss"
+          },
+          {
+            "name": "Reg1",
+            "type": "integer",
+            "title": "Registration number",
+            "description": "National registration number of the animal.",
+            "unit": "text + number"
+          },
+          {
+            "name": "RespISO",
+            "type": "integer",
+            "title": "Responder number",
+            "description": "Number of the cows responder",
+            "unit": "number"
+          },
+          {
+            "name": "Name",
+            "type": "string",
+            "title": "Name",
+            "description": "Number in GEA, should be same as cow",
+            "unit": "N/A"
+          },
+          {
+            "name": "IMTim",
+            "type": "string",
+            "title": "Gea time",
+            "description": "Time?",
+            "unit": "N/A"
+          },
+          {
+            "name": "IMWt",
+            "type": "number",
+            "title": "Cow Weight at Milking",
+            "description": "Live animal body weight measured by the integrated scale inside the GEA milking stall or exit platform.",
+            "unit": "kg"
+          },
+          {
+            "name": "IMFlg",
+            "type": "string",
+            "title": "Milking Status Flag",
+            "description": "Status/diagnostic flag from GEA milking robot/parlor indicating normal completion, kick-off, or incomplete milking.",
+            "unit": "code"
+          },
+          {
+            "name": "IMDim",
+            "type": "integer",
+            "title": "Days in Milk",
+            "description": "Days in Milk (DIM) recorded in GEA at the time of the milking event.",
+            "unit": "days"
+          },
+          {
+            "name": "IMAvFlo",
+            "type": "string",
+            "title": "Avarage milkflow",
+            "description": "Average milkflow?",
+            "unit": "N/A"
+          },
+          {
+            "name": "IMMxFlow",
+            "type": "string",
+            "title": "Max. milkflow",
+            "description": "Max. milkflowAlleen '||||' als waarde???",
+            "unit": "N/A"
+          },
+          {
+            "name": "IMStall",
+            "type": "integer",
+            "title": "Gea barn",
+            "description": "Place in the Gea milking carousel 1-40",
+            "unit": "number"
+          },
+          {
+            "name": "IMStartSec",
+            "type": "string",
+            "title": "Gea start sec",
+            "description": "Alleen '?????' als waarde???",
+            "unit": "N/A"
+          }
+        ]
+      }
+    },
+    {
+      "name": "tmr_trioliet_cowconnect_mix",
+      "path": "csv/TMR_Trioliet_cowconnect_mix.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "description": "TMR (Total Mixed Ration) mixing records collected via the CowConnect digital weighing system on mobile mixer wagons. Records loaded quantities, planned vs actual weights, and mixing times per ingredient.",
+      "schema": {
+        "fields": [
+          {
+            "name": "date",
+            "type": "date",
+            "title": "Date",
+            "description": "Date of the data record",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "externalFeedplanID",
+            "type": "string",
+            "title": "External feedpland ID",
+            "description": "All NULL",
+            "unit": "?"
+          },
+          {
+            "name": "feedplanId",
+            "type": "integer",
+            "title": "Feedplan ID",
+            "description": "Id of the feedplan",
+            "unit": "number"
+          },
+          {
+            "name": "feedplanName",
+            "type": "string",
+            "title": "Feedplan name",
+            "description": "Name of the feedplan",
+            "unit": "short text"
+          },
+          {
+            "name": "id",
+            "type": "string",
+            "title": "ID",
+            "description": "ID",
+            "unit": "short text"
+          },
+          {
+            "name": "isOpen",
+            "type": "integer",
+            "title": "Is Open",
+            "description": "1 or 0 process running or not.",
+            "unit": "number"
+          },
+          {
+            "name": "loadedSum",
+            "type": "number",
+            "title": "Loaded som",
+            "description": "Total / sum of all loads",
+            "unit": "kg"
+          },
+          {
+            "name": "mixDate",
+            "type": "datetime",
+            "title": "Mix date",
+            "description": "Date and time",
+            "unit": "yy-mm-dd-hh-mm-ss"
+          },
+          {
+            "name": "mixLoaderId",
+            "type": "integer",
+            "title": "Mix loader ID",
+            "description": "ID of the mix loader",
+            "unit": "number"
+          },
+          {
+            "name": "mixLoaderName",
+            "type": "string",
+            "title": "Mix loader name",
+            "description": "Name of the mix loader",
+            "unit": "short text"
+          },
+          {
+            "name": "rationId",
+            "type": "string",
+            "title": "Ration ID",
+            "description": "All NULL",
+            "unit": "?"
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "title": "Type",
+            "description": "Type",
+            "unit": "short text"
+          }
+        ]
+      }
+    },
+    {
+      "name": "velos_behaviour",
+      "path": "csv/Velos_behaviour.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "description": "Sensor-based behavioral observation intervals captured by Nedap Velos collar/leg tags (Smarttags). Classifies duration of behaviors (0: other/standing, 1: inactive/lying, 2: ruminating, 3: eating).",
+      "schema": {
+        "fields": [
+          {
+            "name": "date",
+            "type": "date",
+            "title": "Date",
+            "description": "Date of the data record, UTC timezone",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "cow",
+            "type": "integer",
+            "title": "Cow",
+            "description": "Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.",
+            "unit": "number"
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "title": "Type",
+            "description": "Type of behaviour 1 - 3",
+            "unit": "short text"
+          },
+          {
+            "name": "duration",
+            "type": "integer",
+            "title": "Duration",
+            "description": "Duration of action/behaviour",
+            "unit": "sec"
+          }
+        ]
+      }
+    },
+    {
+      "name": "velos_behaviour_day",
+      "path": "csv/Velos_behaviour_day.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "description": "Daily aggregated behavioral budgets per cow, summing durations of eating, ruminating, inactivity (lying), and other active behaviors per 24-hour day.",
+      "schema": {
+        "fields": [
+          {
+            "name": "date",
+            "type": "date",
+            "title": "Date",
+            "description": "Date of the data record, UTC timezone",
+            "unit": "yyyy-mm-dd"
+          },
+          {
+            "name": "cow",
+            "type": "integer",
+            "title": "Cow",
+            "description": "Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.",
+            "unit": "number"
+          },
+          {
+            "name": "total",
+            "type": "number",
+            "title": "Total",
+            "description": "Total time recorded of the animal 1 day",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "overig",
+            "type": "number",
+            "title": "Other",
+            "description": "Time the cow is actief but not eating or ruminating",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "nietactief",
+            "type": "number",
+            "title": "Inactive",
+            "description": "Time the cow is inactief",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "herkouwen",
+            "type": "number",
+            "title": "Ruminating",
+            "description": "Time the cow spent ruminating",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "vreten",
+            "type": "number",
+            "title": "Eating",
+            "description": "Time the cow spent eating",
+            "unit": "hh-mm-ss"
+          }
+        ]
+      }
+    },
+    {
+      "name": "tmr_trioliet_cowconnect_drop",
+      "path": "csv/TMR_Trioliet_cowconnect_drop.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "description": "Discharge and delivery logs of mixed rations to feed fences and groups recorded via the CowConnect system.",
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "title": "ID",
+            "description": "ID",
+            "unit": "short text"
+          },
+          {
+            "name": "externalMixTaskId",
+            "type": "string",
+            "title": "External mix task ID",
+            "description": "External mix task ID",
+            "unit": "short text"
+          },
+          {
+            "name": "quantity",
+            "type": "number",
+            "title": "Quantity",
+            "description": "Quantity",
+            "unit": "kg"
+          },
+          {
+            "name": "leftOverQuantity",
+            "type": "number",
+            "title": "Left over quantity",
+            "description": "Quantity left over",
+            "unit": "kg"
+          },
+          {
+            "name": "noOfAnimals",
+            "type": "integer",
+            "title": "Number of animals",
+            "description": "Number of animals",
+            "unit": "number"
+          },
+          {
+            "name": "feedSectionName",
+            "type": "string",
+            "title": "Feed section name",
+            "description": "Name of the feed section",
+            "unit": "short text"
+          },
+          {
+            "name": "feedsectionType",
+            "type": "integer",
+            "title": "feed section type",
+            "description": "Feedsection type",
+            "unit": "number"
+          },
+          {
+            "name": "externalFeedSectionId",
+            "type": "integer",
+            "title": "External feed sectiond ID",
+            "description": "External Feed section ID if the feed section has an external ID",
+            "unit": "number"
+          },
+          {
+            "name": "externalMixTask",
+            "type": "string",
+            "title": "External mix task",
+            "description": "NULL",
+            "unit": "N/A"
+          },
+          {
+            "name": "mix_id",
+            "type": "string",
+            "title": "Mix ID",
+            "description": "Mix ID and external mix task id are foreign keys of the ID (primairy key)",
+            "unit": "short text"
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "title": "Type",
+            "description": "Type",
+            "unit": "short text"
+          }
+        ]
+      }
+    },
+    {
+      "name": "dc_dm_content",
+      "path": "csv/DC_DM_content.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "description": "Official laboratory oven-drying dry matter test results (droogstoof) for feed batches, silage cuts, and mixed rations sampled at Dairy Campus.",
+      "schema": {
+        "fields": [
+          {
+            "name": "BlkDat",
+            "type": "datetime",
+            "title": "Can date",
+            "description": "Date the can was weighed",
+            "unit": "yy-mm-dd-hh-mm-ss"
+          },
+          {
+            "name": "BlkGew",
+            "type": "number",
+            "title": "Can weight",
+            "description": "Weight of the can",
+            "unit": "gram"
+          },
+          {
+            "name": "BlkNum",
+            "type": "integer",
+            "title": "Can number",
+            "description": "Number of the can",
+            "unit": "number"
+          },
+          {
+            "name": "DatMon",
+            "type": "datetime",
+            "title": "Sample date",
+            "description": "Date the sample was obtained",
+            "unit": "yy-mm-dd-hh-mm-ss"
+          },
+          {
+            "name": "DatSes",
+            "type": "datetime",
+            "title": "Date session",
+            "description": "Date of weigh session",
+            "unit": "yy-mm-dd-hh-mm-ss"
+          },
+          {
+            "name": "DrgDat",
+            "type": "datetime",
+            "title": "Dried date",
+            "description": "Date end of the analysis",
+            "unit": "yy-mm-dd-hh-mm-ss"
+          },
+          {
+            "name": "DrgGew",
+            "type": "number",
+            "title": "Dried weight",
+            "description": "Dried sample weight, with or without weight of the can?",
+            "unit": "gram"
+          },
+          {
+            "name": "DrgStfGkg",
+            "type": "number",
+            "title": "Dry matter weight kg",
+            "description": "Weight of the dry matter",
+            "unit": "gram"
+          },
+          {
+            "name": "DrgTyd",
+            "type": "number",
+            "title": "dry time",
+            "description": "Time end of the analysis when all moisture has evaporated",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "ObjCod",
+            "type": "string",
+            "title": "Object code",
+            "description": "Short description/code of the sample",
+            "unit": "short text"
+          },
+          {
+            "name": "ObjCodNum",
+            "type": "integer",
+            "title": "Object code number",
+            "description": "Used when analyzing duplicate or triplicate samples",
+            "unit": "number"
+          },
+          {
+            "name": "PrjCod",
+            "type": "string",
+            "title": "Project code",
+            "description": "Project code",
+            "unit": "short text"
+          },
+          {
+            "name": "VlgNum",
+            "type": "integer",
+            "title": "Tracking number",
+            "description": "Tracking number",
+            "unit": "number"
+          },
+          {
+            "name": "VrsDat",
+            "type": "datetime",
+            "title": "fresh date",
+            "description": "Date start of the analysis",
+            "unit": "yy-mm-dd-hh-mm-ss"
+          },
+          {
+            "name": "VrsGew",
+            "type": "number",
+            "title": "fresh weight",
+            "description": "Weight at the start of the analysis",
+            "unit": "gram"
+          },
+          {
+            "name": "VrsTyd",
+            "type": "number",
+            "title": "fresh time",
+            "description": "Time start of the analysis, fresh sample is weighed",
+            "unit": "hh-mm-ss"
+          }
+        ]
+      }
+    },
+    {
+      "name": "greenfeed_summarized_data",
+      "path": "csv/Greenfeed_summarized_data.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "description": "Validated visit-level enteric methane (CH4) and carbon dioxide (CO2) emission measurements from C-Lock GreenFeed automated emission monitoring systems, including emission fluxes, head proximity detection, airflow rates, and sensor calibrations.",
+      "schema": {
+        "fields": [
+          {
+            "name": "AirflowCf",
+            "type": "integer",
+            "title": "Airflow correction factor",
+            "description": "Airflow correction factor",
+            "unit": "number"
+          },
+          {
+            "name": "AirflowLitersPerSec",
+            "type": "integer",
+            "title": "Airflow liters per second",
+            "description": "Airflow liters per second",
+            "unit": "Liter/sec"
+          },
+          {
+            "name": "AnimalName",
+            "type": "integer",
+            "title": "Animal name",
+            "description": "Animal name",
+            "unit": "number"
+          },
+          {
+            "name": "CH4GramsPerDay",
+            "type": "integer",
+            "title": "CH4 grams per day",
+            "description": "CH4 grams per day, methane",
+            "unit": "number"
+          },
+          {
+            "name": "CO2GramsPerDay",
+            "type": "integer",
+            "title": "CO2 grams per day",
+            "description": "CO2 grams per day, carbon dioxide",
+            "unit": "number"
+          },
+          {
+            "name": "cow",
+            "type": "integer",
+            "title": "Cow",
+            "description": "Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.",
+            "unit": "number"
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "title": "Date",
+            "description": "Date of the data record",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "EndTime",
+            "type": "number",
+            "title": "End time",
+            "description": "End time",
+            "unit": "yy-mm-dd-hh-mm-ss"
+          },
+          {
+            "name": "GoodDataDuration",
+            "type": "datetime",
+            "title": "Good data duration",
+            "description": "Good data duration",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "greenfeed",
+            "type": "integer",
+            "title": "Greenfeed",
+            "description": "Greenfeed",
+            "unit": "number"
+          },
+          {
+            "name": "H2GramsPerDay",
+            "type": "integer",
+            "title": "H2 grams per day",
+            "description": "H2 grams per day, hydrogen",
+            "unit": "number"
+          },
+          {
+            "name": "H2SGramsPerDay",
+            "type": "integer",
+            "title": "H2S grams per day",
+            "description": "H2S grams per day, hydrogen sulfide",
+            "unit": "number"
+          },
+          {
+            "name": "InterruptingTags",
+            "type": "integer",
+            "title": "Interrupting tags",
+            "description": "Interrupting tags",
+            "unit": "number"
+          },
+          {
+            "name": "IsPreliminary",
+            "type": "integer",
+            "title": "Is preliminary",
+            "description": "Is preliminary data, validated data comes directly from C-lock.",
+            "unit": "number"
+          },
+          {
+            "name": "O2GramsPerDay",
+            "type": "integer",
+            "title": "O2 grams per day",
+            "description": "O2 grams per day, oxygen",
+            "unit": "number"
+          },
+          {
+            "name": "RFID",
+            "type": "integer",
+            "title": "Rfid",
+            "description": "Rfid",
+            "unit": "number"
+          },
+          {
+            "name": "RunTime",
+            "type": "number",
+            "title": "Run time",
+            "description": "Run time",
+            "unit": "yy-mm-dd-hh-mm-ss"
+          },
+          {
+            "name": "StartTime",
+            "type": "number",
+            "title": "Start time",
+            "description": "Start time, if subgroup not 0",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "TempPipeDegreesCelsius",
+            "type": "number",
+            "title": "Temperature pipe degrees celsius",
+            "description": "Temperature pipe degrees celsius",
+            "unit": "\u00b0C"
+          },
+          {
+            "name": "user",
+            "type": "string",
+            "title": "User",
+            "description": "User",
+            "unit": "short text"
+          },
+          {
+            "name": "WasInterrupted",
+            "type": "integer",
+            "title": "Was interrupted",
+            "description": "Was interrupted",
+            "unit": "number"
+          },
+          {
+            "name": "WindCf",
+            "type": "integer",
+            "title": "Wind correction factor",
+            "description": "Wind correction factor",
+            "unit": "number"
+          },
+          {
+            "name": "WindDirDeg",
+            "type": "integer",
+            "title": "Wind direction degrees",
+            "description": "Wind direction degrees",
+            "unit": "number"
+          },
+          {
+            "name": "WindSpeedMetersPerSec",
+            "type": "integer",
+            "title": "Wind speed meters per second",
+            "description": "Wind speed meters per second",
+            "unit": "meter/sec"
+          }
+        ]
+      }
+    },
+    {
+      "name": "greenfeed_feed_aggregrated",
+      "path": "csv/Greenfeed_feed_aggregrated.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "description": "Aggregated pelleted bait feed dispensed by GreenFeed units to incentivize cow visits, including cup drops, feed mass, and visit timestamps.",
+      "schema": {
+        "fields": [
+          {
+            "name": "cow",
+            "type": "integer",
+            "title": "Cow",
+            "description": "Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.",
+            "unit": "number"
+          },
+          {
+            "name": "CurrentCup",
+            "type": "integer",
+            "title": "Current cup",
+            "description": "Current cup",
+            "unit": "number"
+          },
+          {
+            "name": "CurrentPeriod",
+            "type": "integer",
+            "title": "Current period",
+            "description": "Current period",
+            "unit": "number"
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "title": "Date",
+            "description": "Date of the data record",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "DateTime",
+            "type": "datetime",
+            "title": "Date and time",
+            "description": "Date and time",
+            "unit": "yyyy-mm-dd hh-mm-ss"
+          },
+          {
+            "name": "DropInterval",
+            "type": "integer",
+            "title": "Drop interval",
+            "description": "Min. sec between current en new cup",
+            "unit": "sec"
+          },
+          {
+            "name": "FeedType",
+            "type": "integer",
+            "title": "Feed type",
+            "description": "Feed type",
+            "unit": "number"
+          },
+          {
+            "name": "greenfeed",
+            "type": "integer",
+            "title": "Greenfeed",
+            "description": "Greenfeed",
+            "unit": "number"
+          },
+          {
+            "name": "MaxCups",
+            "type": "integer",
+            "title": "Maximum cups",
+            "description": "Max. cups per period",
+            "unit": "number"
+          },
+          {
+            "name": "MaxPeriods",
+            "type": "integer",
+            "title": "Maximum periods",
+            "description": "Max. periods per day",
+            "unit": "number"
+          },
+          {
+            "name": "PeriodInterval",
+            "type": "integer",
+            "title": "Period interval",
+            "description": "Min. Sec between current en next period",
+            "unit": "sec"
+          },
+          {
+            "name": "RFIDTag",
+            "type": "integer",
+            "title": "Rfid tag",
+            "description": "Rfid tag",
+            "unit": "number"
+          },
+          {
+            "name": "user",
+            "type": "string",
+            "title": "User",
+            "description": "User",
+            "unit": "short text"
+          }
+        ]
+      }
+    },
+    {
+      "name": "weatherstation",
+      "path": "csv/Weatherstation.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "description": "On-site local meteorological data recorded at Dairy Campus in Leeuwarden. Parameters include ambient temperature, relative humidity, atmospheric pressure, wind speed, wind direction, dew point, solar radiation, and precipitation.",
+      "schema": {
+        "fields": [
+          {
+            "name": "dewpoint",
+            "type": "number",
+            "title": "Dewpoint",
+            "description": "Dew point\u00a0is the temperature to which air must be cooled to become saturated with water vapor",
+            "unit": "\u00b0C"
+          },
+          {
+            "name": "global_radiation",
+            "type": "string",
+            "title": "Global radiation",
+            "description": "The sum of the diffuse and direct solar radiation\u00a0is called global solar radiation.",
+            "unit": "Watt/m2"
+          },
+          {
+            "name": "gust",
+            "type": "integer",
+            "title": "Wind gust",
+            "description": "A sudden, brief increase in speed of the wind",
+            "unit": "Beaufort, over 10 minuten (meter/sec)?"
+          },
+          {
+            "name": "gust_direction",
+            "type": "string",
+            "title": "Wind gust direction",
+            "description": "Direction from which the wind gust blows",
+            "unit": "\u00b0 Degree"
+          },
+          {
+            "name": "humidity_150",
+            "type": "number",
+            "title": "Humidity",
+            "description": "The concentration of water vapor present in the air",
+            "unit": "%"
+          },
+          {
+            "name": "latitude",
+            "type": "string",
+            "title": "Latitude",
+            "description": "Coordinate that specifies the north\u2013south position",
+            "unit": "\u00b0 Degree"
+          },
+          {
+            "name": "longitude",
+            "type": "string",
+            "title": "Longitude",
+            "description": "Coordinate that specifies the east\u2013west position",
+            "unit": "\u00b0 Degree"
+          },
+          {
+            "name": "precipitation",
+            "type": "string",
+            "title": "Precipitation",
+            "description": "Any product of the condensation of atmospheric water vapor that falls from clouds",
+            "unit": "Millimeters"
+          },
+          {
+            "name": "rain_chance",
+            "type": "number",
+            "title": "Rain chance",
+            "description": "Chance of precipitation",
+            "unit": "%"
+          },
+          {
+            "name": "station_name",
+            "type": "string",
+            "title": "Station name",
+            "description": "Station name",
+            "unit": "short text"
+          },
+          {
+            "name": "symbol_number",
+            "type": "string",
+            "title": "Symbol number",
+            "description": "Symbol number",
+            "unit": "?"
+          },
+          {
+            "name": "temperature_10",
+            "type": "number",
+            "title": "Temperature 10",
+            "description": "Temperature 10 cm above ground level.",
+            "unit": "\u00b0C"
+          },
+          {
+            "name": "temperature_150",
+            "type": "number",
+            "title": "Temperature 150",
+            "description": "Temperature 150 cm above ground level.",
+            "unit": "\u00b0C"
+          },
+          {
+            "name": "timestamp",
+            "type": "datetime",
+            "title": "Timestamp",
+            "description": "Timestamp",
+            "unit": "yy-mm-dd-hh-mm-ss"
+          },
+          {
+            "name": "wet_bulb_temperature",
+            "type": "number",
+            "title": "Wet bulb temperature",
+            "description": "Thermometer with the bulb in somthing wet",
+            "unit": "\u00b0C"
+          },
+          {
+            "name": "wind_direction",
+            "type": "string",
+            "title": "Wind direction",
+            "description": "Direction from which the wind blows",
+            "unit": "\u00b0 Degree"
+          },
+          {
+            "name": "windchill",
+            "type": "number",
+            "title": "Windchill",
+            "description": "The cooling effect of wind blowing on a surface",
+            "unit": "\u00b0C"
+          },
+          {
+            "name": "windspeed",
+            "type": "integer",
+            "title": "Windspeed",
+            "description": "Rate at which wind/air is moving",
+            "unit": "Beaufort, over 10 minuten (meter/sec)?"
+          }
+        ]
+      }
+    },
+    {
+      "name": "missing_data",
+      "path": "csv/Missing_data.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "description": "Automated data validation and completeness flags per cow per day, tracking whether milk yields, body weights, feed intake, Nedap Velos tracking, or BCS camera observations are missing or suspect.",
+      "schema": {
+        "fields": [
+          {
+            "name": "bcs",
+            "type": "boolean",
+            "title": "Body condition score",
+            "description": "Automatic body condition score camera",
+            "unit": "Ja/Nee"
+          },
+          {
+            "name": "behcod",
+            "type": "string",
+            "title": "Treatment code",
+            "description": "Treatment code",
+            "unit": "Ja/Nee"
+          },
+          {
+            "name": "bijzonderheden",
+            "type": "boolean",
+            "title": "Particularities",
+            "description": "Particularities",
+            "unit": "Ja/Nee"
+          },
+          {
+            "name": "date",
+            "type": "date",
+            "title": "Date",
+            "description": "Date of the data record",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "gewa",
+            "type": "boolean",
+            "title": "Weight evening",
+            "description": "Weight evening",
+            "unit": "Ja/Nee"
+          },
+          {
+            "name": "gewgeaa",
+            "type": "boolean",
+            "title": "Weight gea evening",
+            "description": "Weight gea evening",
+            "unit": "Ja/Nee"
+          },
+          {
+            "name": "gewgeao",
+            "type": "boolean",
+            "title": "Weight gea morning",
+            "description": "Weight gea morning",
+            "unit": "Ja/Nee"
+          },
+          {
+            "name": "gewo",
+            "type": "boolean",
+            "title": "Weight morning",
+            "description": "Weight morning",
+            "unit": "Ja/Nee"
+          },
+          {
+            "name": "hok",
+            "type": "boolean",
+            "title": "Barn",
+            "description": "Barn",
+            "unit": "Ja/Nee"
+          },
+          {
+            "name": "kgmlka",
+            "type": "boolean",
+            "title": "Kg milk evening",
+            "description": "Kg milk evening",
+            "unit": "Ja/Nee"
+          },
+          {
+            "name": "kgmlko",
+            "type": "boolean",
+            "title": "Kg milk morning",
+            "description": "Kg milk morning",
+            "unit": "Ja/Nee"
+          },
+          {
+            "name": "oornum",
+            "type": "integer",
+            "title": "Ear number",
+            "description": "Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number.",
+            "unit": "number"
+          },
+          {
+            "name": "opnkv",
+            "type": "boolean",
+            "title": "Intake feed",
+            "description": "Intake feed",
+            "unit": "Ja/Nee"
+          },
+          {
+            "name": "opnrv",
+            "type": "string",
+            "title": "Intake roughage",
+            "description": "Intake roughage",
+            "unit": "Ja/Nee"
+          },
+          {
+            "name": "prdsta",
+            "type": "boolean",
+            "title": "Production stage",
+            "description": "Identifying the stage of the cow, producing milk or not",
+            "unit": "Ja/Nee"
+          },
+          {
+            "name": "prfcod",
+            "type": "string",
+            "title": "Trial code",
+            "description": "Trial code",
+            "unit": "Ja/Nee"
+          },
+          {
+            "name": "velos",
+            "type": "boolean",
+            "title": "Velos",
+            "description": "Velos cow behavior",
+            "unit": "Ja/Nee"
+          }
+        ]
+      }
+    },
+    {
+      "name": "environment_barn_animal_day",
+      "path": "csv/Environment_barn_Animal_day.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "description": "Integrated animal-level daily profile linking barn compartment/pen locations, lactation days, age, group movements, and daily intake/yield metrics.",
+      "schema": {
+        "fields": [
+          {
+            "name": "AgeDAys",
+            "type": "integer",
+            "title": "Age",
+            "description": "Age of the animal in days",
+            "unit": "number"
+          },
+          {
+            "name": "AnimalNumber",
+            "type": "integer",
+            "title": "Animal Number",
+            "description": "Unique animal server identifier issued across the different systems at Dairy Campus",
+            "unit": "number"
+          },
+          {
+            "name": "AntGewA",
+            "type": "number",
+            "title": "Weight afternoon",
+            "description": "Weight of the animal after milking in the afternoon",
+            "unit": "kg"
+          },
+          {
+            "name": "AntGewO",
+            "type": "number",
+            "title": "Weight morning",
+            "description": "Weight of the animal after milking in the morning",
+            "unit": "kg"
+          },
+          {
+            "name": "BirthDate",
+            "type": "date",
+            "title": "Date of birth",
+            "description": "The cows date of birth",
+            "unit": "yyyy-mm-dd"
+          },
+          {
+            "name": "DateMelkCon4Wk",
+            "type": "date",
+            "title": "Date of 4-Weekly Milk Recording",
+            "description": "Date of the most recent official 4-weekly milk control / recording event (MPR).",
+            "unit": "yyyy-mm-dd"
+          },
+          {
+            "name": "DatGldTot",
+            "type": "datetime",
+            "title": "Valid Until Date",
+            "description": "Date until which the current housing, lactation, or trial assignment status remains valid.",
+            "unit": "yyyy-mm-dd"
+          },
+          {
+            "name": "DaysInLactation",
+            "type": "integer",
+            "title": "Days in lactation",
+            "description": "Amount of days producing milk",
+            "unit": "number"
+          },
+          {
+            "name": "DryDate",
+            "type": "date",
+            "title": "Start date dry period",
+            "description": "Starting date of the dry period",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "EarNumber",
+            "type": "integer",
+            "title": "Ear number",
+            "description": "Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number.",
+            "unit": "number"
+          },
+          {
+            "name": "Eiw",
+            "type": "number",
+            "title": "Protein concentration standard",
+            "description": "Protein concentration of the monthly milk test",
+            "unit": "%"
+          },
+          {
+            "name": "EndDate",
+            "type": "date",
+            "title": "Ending date experiment",
+            "description": "Expected end date of the experiment",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "Ket",
+            "type": "string",
+            "title": "Ketose concentration of the monthly milk test",
+            "description": "number",
+            "unit": "Calculated"
+          },
+          {
+            "name": "ExpecCalvingDate",
+            "type": "date",
+            "title": "Expected calving date",
+            "description": "Expected calving date based on insemination date",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "Fat%",
+            "type": "number",
+            "title": "Calculated day fat concentration",
+            "description": "An estimated daily milk fat concentration based on the AO sampling and the corresponding milk yield of that day.  x",
+            "unit": "%"
+          },
+          {
+            "name": "GewTot",
+            "type": "number",
+            "title": "Weight totaal",
+            "description": "Average weight of the animal for the day.",
+            "unit": "kg"
+          },
+          {
+            "name": "IDNumber",
+            "type": "integer",
+            "title": "ID nummer",
+            "description": "Registration number same as LevNum",
+            "unit": "National registration number of the animal."
+          },
+          {
+            "name": "InsiminationDate",
+            "type": "date",
+            "title": "Insemination day",
+            "description": "Date of last insemination",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "Lac",
+            "type": "number",
+            "title": "Lactose concentration standard",
+            "description": "Lactose of the monthly milk test",
+            "unit": "%"
+          },
+          {
+            "name": "Lactose%",
+            "type": "number",
+            "title": "Calculated day lactose concentration",
+            "description": "An estimated daily milk lactose concentration based on the AO sampling and the corresponding milk yield of that day.",
+            "unit": "%"
+          },
+          {
+            "name": "LastCalvingDate",
+            "type": "date",
+            "title": "Last calving date",
+            "description": "Date of last calving",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "Milk_Yield",
+            "type": "number",
+            "title": "Milk Yield",
+            "description": "Milk yield",
+            "unit": "kg"
+          },
+          {
+            "name": "MilkAfternoon",
+            "type": "number",
+            "title": "Milk Yield afternoon",
+            "description": "Milk Yield afternoon",
+            "unit": "kg"
+          },
+          {
+            "name": "MilkDay",
+            "type": "number",
+            "title": "Milk Yield day",
+            "description": "Milk Yield day",
+            "unit": "kg"
+          },
+          {
+            "name": "MilkMorning",
+            "type": "number",
+            "title": "Milk Yield morning",
+            "description": "Milk Yield morning",
+            "unit": "kg"
+          },
+          {
+            "name": "MilkYield",
+            "type": "number",
+            "title": "Milk Yield",
+            "description": "Milk yield",
+            "unit": "kg"
+          },
+          {
+            "name": "MlkCon",
+            "type": "boolean",
+            "title": "Milk Con?",
+            "description": "Indicator flag showing whether official milk recording (MPR) data was collected on this date.",
+            "unit": "boolean"
+          },
+          {
+            "name": "NumberAnimal",
+            "type": "integer",
+            "title": "Number Animal",
+            "description": "Unique animal server identifier issued across the different systems at Dairy Campus",
+            "unit": "number"
+          },
+          {
+            "name": "NumberOLactations",
+            "type": "integer",
+            "title": "Parity",
+            "description": "Parity (amount of calvings) of the animal",
+            "unit": "number"
+          },
+          {
+            "name": "NumbOfDates",
+            "type": "date",
+            "title": "Number of dates?",
+            "description": "Count of observation days recorded for the animal within the experimental reporting period.",
+            "unit": "count"
+          },
+          {
+            "name": "Protein%",
+            "type": "number",
+            "title": "Calculated day protein concentration",
+            "description": "An estimated daily milk protein concentration based on the AO sampling and the corresponding milk yield of that day.",
+            "unit": "%"
+          },
+          {
+            "name": "SampleDateEvening",
+            "type": "datetime",
+            "title": "Sample date evening",
+            "description": "Date the sample was obtained during the evening",
+            "unit": "yy-mm-dd-hh-mm-ss"
+          },
+          {
+            "name": "SampleDateMorning",
+            "type": "datetime",
+            "title": "Sample date morning",
+            "description": "Date the sample was obtained during the morning",
+            "unit": "yy-mm-dd-hh-mm-ss"
+          },
+          {
+            "name": "SCC",
+            "type": "string",
+            "title": "Calculated day somatic cell count",
+            "description": "An estimated daily somatic cell count based on the AO sampling and the corresponding milk yield of that day.",
+            "unit": "1000 cells/mL"
+          },
+          {
+            "name": "StartDate",
+            "type": "datetime",
+            "title": "Start date",
+            "description": "Start date",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "Stl",
+            "type": "string",
+            "title": "Barn Section",
+            "description": "Physical barn building or housing section identifier at Dairy Campus.",
+            "unit": "identifier"
+          },
+          {
+            "name": "SumVoeGft",
+            "type": "number",
+            "title": "Total Feed Granted",
+            "description": "Total amount of concentrate feed programmed/granted to the animal over the period.",
+            "unit": "kg"
+          },
+          {
+            "name": "SumVoeOpnm",
+            "type": "number",
+            "title": "Total Feed Intake",
+            "description": "Total actual concentrate feed consumed by the animal over the period.",
+            "unit": "kg"
+          },
+          {
+            "name": "SumVoeRst",
+            "type": "number",
+            "title": "Total Feed Residual",
+            "description": "Total amount of unconsumed concentrate feed remaining in the troughs.",
+            "unit": "kg"
+          },
+          {
+            "name": "Unit",
+            "type": "integer",
+            "title": "Unit / barn number",
+            "description": "Location of where the cows are housed.",
+            "unit": "number"
+          },
+          {
+            "name": "Ure",
+            "type": "string",
+            "title": "Calculated day urea concentration",
+            "description": "An estimated daily milk urea concentration based on the AO sampling and the corresponding milk yield of that day.",
+            "unit": "mg/dL"
+          },
+          {
+            "name": "Urea (mg/100g)",
+            "type": "string",
+            "title": "Weekly milk urea concentration",
+            "description": "Weekly milk urea concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.",
+            "unit": "mg/dL"
+          },
+          {
+            "name": "Vet",
+            "type": "number",
+            "title": "Weekly milk fat concentration",
+            "description": "Weekly milk fat concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.",
+            "unit": "%"
+          },
+          {
+            "name": "Week",
+            "type": "integer",
+            "title": "Week",
+            "description": "Calender week number of data record",
+            "unit": "number"
+          },
+          {
+            "name": "WeekDay",
+            "type": "string",
+            "title": "Day of the week",
+            "description": "Abbreviaton of weekday (Ma = Monday, Di = Tuesday, Wo = Wednesday, Do = Thursday, Vr = Friday, Za = Saturday, Zo = Sunday)",
+            "unit": "short text"
+          },
+          {
+            "name": "WeightAfternoon",
+            "type": "number",
+            "title": "Weight afternoon",
+            "description": "Weight of the animal after milking in the afternoon",
+            "unit": "kg"
+          },
+          {
+            "name": "WeightMorning",
+            "type": "number",
+            "title": "Weight morning",
+            "description": "Weight of the animal after milking in the morning",
+            "unit": "kg"
+          },
+          {
+            "name": "Year",
+            "type": "string",
+            "title": "number",
+            "description": "Measured",
+            "unit": "N/A"
+          },
+          {
+            "name": "VrwDgn",
+            "type": "integer",
+            "title": "Expected Days",
+            "description": "Expected remaining gestation days or planned days dry prior to the anticipated calving date.",
+            "unit": "days"
+          },
+          {
+            "name": "AntMlkO",
+            "type": "integer",
+            "title": "Number of milkings morning",
+            "description": "How often an animal was milked in the morning. 1 is the assumed value. 0 means a missing value/something wrong with registration. 2+ means reattachment of the milking apparatus, can be outlier values.",
+            "unit": "number"
+          },
+          {
+            "name": "AntMlkA",
+            "type": "integer",
+            "title": "Number of milkings afternoon",
+            "description": "How often an animal was milked in the afternoon. 1 is the assumed value. 0 means a missing value/something wrong with registration. 2+ means reattachment of the milking apparatus, can be outlier values.",
+            "unit": "number"
+          },
+          {
+            "name": "Date",
+            "type": "datetime",
+            "title": "Date",
+            "description": "Date",
+            "unit": "yy-mm-dd-hh-mm-ss"
+          }
+        ]
+      }
+    },
+    {
+      "name": "environment_barn_animal_experim",
+      "path": "csv/Environment_barn_Animal_experim.csv",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "description": "Experiment-specific animal daily tracking table joining trial assignment, treatment codes, block numbers, and longitudinal performance parameters.",
+      "schema": {
+        "fields": [
+          {
+            "name": "AntMlkA",
+            "type": "integer",
+            "title": "Number of milkings afternoon",
+            "description": "How often an animal was milked in the afternoon. 1 is the assumed value. 0 means a missing value/something wrong with registration. 2+ means reattachment of the milking apparatus, can be outlier values.",
+            "unit": "number"
+          },
+          {
+            "name": "AntMlkO",
+            "type": "integer",
+            "title": "Number of milkings morning",
+            "description": "How often an animal was milked in the morning. 1 is the assumed value. 0 means a missing value/something wrong with registration. 2+ means reattachment of the milking apparatus, can be outlier values.",
+            "unit": "number"
+          },
+          {
+            "name": "Date",
+            "type": "datetime",
+            "title": "Date",
+            "description": "Date",
+            "unit": "yy-mm-dd-hh-mm-ss"
+          },
+          {
+            "name": "VrwDgn",
+            "type": "integer",
+            "title": "Expected Days",
+            "description": "Expected remaining gestation days or planned days dry prior to the anticipated calving date.",
+            "unit": "days"
+          },
+          {
+            "name": "AgeDays",
+            "type": "integer",
+            "title": "Age in Days",
+            "description": "Age of the animal in days calculated as recording date minus birth date.",
+            "unit": "days"
+          },
+          {
+            "name": "AnimalNumber",
+            "type": "integer",
+            "title": "Animal Number",
+            "description": "Unique animal server identifier issued across the different systems at Dairy Campus",
+            "unit": "number"
+          },
+          {
+            "name": "BirthDate",
+            "type": "date",
+            "title": "Date of birth",
+            "description": "The cows date of birth",
+            "unit": "yyyy-mm-dd"
+          },
+          {
+            "name": "DaysInLactation",
+            "type": "integer",
+            "title": "Days in lactation",
+            "description": "Amount of days producing milk",
+            "unit": "number"
+          },
+          {
+            "name": "DryDate",
+            "type": "date",
+            "title": "Start date dry period",
+            "description": "Starting date of the dry period",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "EarNumber",
+            "type": "integer",
+            "title": "Ear number",
+            "description": "Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number.",
+            "unit": "number"
+          },
+          {
+            "name": "EndDate",
+            "type": "date",
+            "title": "Ending date experiment",
+            "description": "Expected end date of the experiment",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "Fat%",
+            "type": "number",
+            "title": "Calculated day fat concentration",
+            "description": "An estimated daily milk fat concentration based on the AO sampling and the corresponding milk yield of that day.  x",
+            "unit": "%"
+          },
+          {
+            "name": "GewTot",
+            "type": "number",
+            "title": "Total Weight",
+            "description": "Total live animal body weight (average or latest measurement for the date).",
+            "unit": "kg"
+          },
+          {
+            "name": "InsiminationDate",
+            "type": "date",
+            "title": "Insemination day",
+            "description": "Date of last insemination",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "Ket",
+            "type": "string",
+            "title": "Ketosis Indicator",
+            "description": "Ketosis classification indicator (0: healthy/negative, 1: suspected subclinical ketosis, 2: clinical ketosis).",
+            "unit": "code"
+          },
+          {
+            "name": "Lactose%",
+            "type": "number",
+            "title": "Calculated day lactose concentration",
+            "description": "An estimated daily milk lactose concentration based on the AO sampling and the corresponding milk yield of that day.",
+            "unit": "%"
+          },
+          {
+            "name": "LastCalvingDate",
+            "type": "date",
+            "title": "Last calving date",
+            "description": "Date of last calving",
+            "unit": "yy-mm-dd"
+          },
+          {
+            "name": "NumberAnimal",
+            "type": "integer",
+            "title": "Number Animal",
+            "description": "Unique animal server identifier issued across the different systems at Dairy Campus",
+            "unit": "number"
+          },
+          {
+            "name": "NumberOLactations",
+            "type": "integer",
+            "title": "Parity",
+            "description": "Parity (amount of calvings) of the animal",
+            "unit": "number"
+          },
+          {
+            "name": "NumbOfDates",
+            "type": "date",
+            "title": "Number of Dates",
+            "description": "Count of observation days recorded for the animal within the experimental reporting period.",
+            "unit": "count"
+          },
+          {
+            "name": "Projectcode",
+            "type": "string",
+            "title": "Project Code",
+            "description": "Unique research experiment / trial code (e.g. 4400003634). Same as prfcod.",
+            "unit": "identifier"
+          },
+          {
+            "name": "ProjectName",
+            "type": "string",
+            "title": "Project Name",
+            "description": "Official descriptive name of the research project or trial. Same as prfnam.",
+            "unit": "text"
+          },
+          {
+            "name": "Protein%",
+            "type": "number",
+            "title": "Calculated day protein concentration",
+            "description": "An estimated daily milk protein concentration based on the AO sampling and the corresponding milk yield of that day.",
+            "unit": "%"
+          },
+          {
+            "name": "SampleDateEvening",
+            "type": "datetime",
+            "title": "Sample date evening",
+            "description": "Date the sample was obtained during the evening",
+            "unit": "yy-mm-dd-hh-mm-ss"
+          },
+          {
+            "name": "SampleDateMorning",
+            "type": "datetime",
+            "title": "Sample date morning",
+            "description": "Date the sample was obtained during the morning",
+            "unit": "yy-mm-dd-hh-mm-ss"
+          },
+          {
+            "name": "SCC",
+            "type": "string",
+            "title": "Calculated day somatic cell count",
+            "description": "An estimated daily somatic cell count based on the AO sampling and the corresponding milk yield of that day.",
+            "unit": "1000 cells/mL"
+          },
+          {
+            "name": "StartDate",
+            "type": "datetime",
+            "title": "Start date",
+            "description": "Start date",
+            "unit": "hh-mm-ss"
+          },
+          {
+            "name": "SumVoeGft",
+            "type": "number",
+            "title": "Total Feed Granted",
+            "description": "Total amount of concentrate feed programmed/granted to the animal over the period.",
+            "unit": "kg"
+          },
+          {
+            "name": "SumVoeRst",
+            "type": "number",
+            "title": "Total Feed Residual",
+            "description": "Total amount of unconsumed concentrate feed remaining in the troughs.",
+            "unit": "kg"
+          },
+          {
+            "name": "Unit",
+            "type": "integer",
+            "title": "Unit / barn number",
+            "description": "Location of where the cows are housed.",
+            "unit": "number"
+          },
+          {
+            "name": "Urea (mg/100g)",
+            "type": "string",
+            "title": "Weekly milk urea concentration",
+            "description": "Weekly milk urea concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.",
+            "unit": "mg/dL"
+          },
+          {
+            "name": "Week",
+            "type": "integer",
+            "title": "Week",
+            "description": "Calender week number of data record",
+            "unit": "number"
+          },
+          {
+            "name": "WeekDay",
+            "type": "string",
+            "title": "Day of the week",
+            "description": "Abbreviaton of weekday (Ma = Monday, Di = Tuesday, Wo = Wednesday, Do = Thursday, Vr = Friday, Za = Saturday, Zo = Sunday)",
+            "unit": "short text"
+          },
+          {
+            "name": "WeightAfternoon",
+            "type": "number",
+            "title": "Weight afternoon",
+            "description": "Weight of the animal after milking in the afternoon",
+            "unit": "kg"
+          },
+          {
+            "name": "WeightMorning",
+            "type": "number",
+            "title": "Weight morning",
+            "description": "Weight of the animal after milking in the morning",
+            "unit": "kg"
+          },
+          {
+            "name": "Year",
+            "type": "string",
+            "title": "number",
+            "description": "Measured",
+            "unit": "N/A"
+          },
+          {
+            "name": "AntGewA",
+            "type": "number",
+            "title": "Weight afternoon",
+            "description": "Weight of the animal after milking in the afternoon",
+            "unit": "kg"
+          },
+          {
+            "name": "AntGewO",
+            "type": "number",
+            "title": "Weight morning",
+            "description": "Weight of the animal after milking in the morning",
+            "unit": "kg"
+          },
+          {
+            "name": "IDNumber",
+            "type": "string",
+            "title": "Animal Identification Number",
+            "description": "Official national unique life identification number of the animal (LevNum / EU identification tag).",
+            "unit": "identifier"
+          },
+          {
+            "name": "DateMelkCon4Wk",
+            "type": "date",
+            "title": "Date of 4-Weekly Milk Recording",
+            "description": "Date of the most recent official 4-weekly milk control / recording event (MPR).",
+            "unit": "yyyy-mm-dd"
+          },
+          {
+            "name": "DatGldTot",
+            "type": "datetime",
+            "title": "Valid Until Date",
+            "description": "Date until which the current housing, lactation, or trial assignment status remains valid.",
+            "unit": "yyyy-mm-dd"
+          },
+          {
+            "name": "Eiw",
+            "type": "number",
+            "title": "Protein concentration standard",
+            "description": "Protein concentration of the monthly milk test",
+            "unit": "%"
+          },
+          {
+            "name": "ExpecCalvingDate",
+            "type": "date",
+            "title": "Expected Calving Date",
+            "description": "Estimated date of the next calving, based on confirmed insemination date + gestation length (~270-280 days).",
+            "unit": "yyyy-mm-dd"
+          },
+          {
+            "name": "Lac",
+            "type": "number",
+            "title": "Lactose concentration standard",
+            "description": "Lactose of the monthly milk test",
+            "unit": "%"
+          },
+          {
+            "name": "Milk_Yield",
+            "type": "number",
+            "title": "Milk Yield",
+            "description": "Milk yield",
+            "unit": "kg"
+          },
+          {
+            "name": "MilkAfternoon",
+            "type": "number",
+            "title": "Milk Yield afternoon",
+            "description": "Milk Yield afternoon",
+            "unit": "kg"
+          },
+          {
+            "name": "MilkDay",
+            "type": "number",
+            "title": "Milk Yield day",
+            "description": "Milk Yield day",
+            "unit": "kg"
+          },
+          {
+            "name": "MilkMorming",
+            "type": "number",
+            "title": "Morning Milk Yield",
+            "description": "Total quantity of milk produced during morning milking sessions.",
+            "unit": "kg"
+          },
+          {
+            "name": "MilkYield",
+            "type": "number",
+            "title": "Milk Yield",
+            "description": "Milk yield",
+            "unit": "kg"
+          },
+          {
+            "name": "MlkCon",
+            "type": "boolean",
+            "title": "Milk Recording Present",
+            "description": "Indicator flag showing whether official milk recording (MPR) data was collected on this date.",
+            "unit": "boolean"
+          },
+          {
+            "name": "Stl",
+            "type": "string",
+            "title": "Barn Section",
+            "description": "Physical barn building or housing section identifier at Dairy Campus.",
+            "unit": "identifier"
+          },
+          {
+            "name": "Ure",
+            "type": "string",
+            "title": "Calculated day urea concentration",
+            "description": "An estimated daily milk urea concentration based on the AO sampling and the corresponding milk yield of that day.",
+            "unit": "mg/dL"
+          },
+          {
+            "name": "Vet",
+            "type": "number",
+            "title": "Weekly milk fat concentration",
+            "description": "Weekly milk fat concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.",
+            "unit": "%"
+          },
+          {
+            "name": "SumVoeOpnm",
+            "type": "number",
+            "title": "Total Feed Intake",
+            "description": "Total actual concentrate feed consumed by the animal over the period.",
+            "unit": "kg"
+          }
+        ]
+      }
+    }
+  ]
+}

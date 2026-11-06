@@ -1,0 +1,12 @@
+dataset_name,source_table,column_name,name_en,name_nl,data_type,unit,measurement_type,description_en,calculation_description,calculation_source
+TMR_Trioliet_cowconnect_drop,t_raw_cowconnect_drop,id,ID,ID,string,short text,N/A,ID,N/A,N/A
+TMR_Trioliet_cowconnect_drop,t_raw_cowconnect_drop,externalMixTaskId,External mix task ID,Extern mix taak ID,string,short text,N/A,External mix task ID,N/A,N/A
+TMR_Trioliet_cowconnect_drop,t_raw_cowconnect_drop,quantity,Quantity,Hoeveelheid,number,kg,Measured,Quantity,N/A,N/A
+TMR_Trioliet_cowconnect_drop,t_raw_cowconnect_drop,leftOverQuantity,Left over quantity,Hoeveelheid overgebleven,number,kg,Measured,Quantity left over,N/A,N/A
+TMR_Trioliet_cowconnect_drop,t_raw_cowconnect_drop,noOfAnimals,Number of animals,Aantal dieren,integer,number,N/A,Number of animals,N/A,N/A
+TMR_Trioliet_cowconnect_drop,t_raw_cowconnect_drop,feedSectionName,Feed section name,Voer sectie naam,string,short text,N/A,Name of the feed section,N/A,N/A
+TMR_Trioliet_cowconnect_drop,t_raw_cowconnect_drop,feedsectionType,feed section type,Voer sectie type,integer,number,N/A,Feedsection type,N/A,N/A
+TMR_Trioliet_cowconnect_drop,t_raw_cowconnect_drop,externalFeedSectionId,External feed sectiond ID,Extern voer sectie ID,integer,number,N/A,External Feed section ID if the feed section has an external ID,N/A,N/A
+TMR_Trioliet_cowconnect_drop,t_raw_cowconnect_drop,externalMixTask,External mix task,Extern mix taak,string,N/A,N/A,NULL,N/A,N/A
+TMR_Trioliet_cowconnect_drop,t_raw_cowconnect_drop,mix_id,Mix ID,Mix ID,string,short text,N/A,Mix ID and external mix task id are foreign keys of the ID (primairy key),N/A,N/A
+TMR_Trioliet_cowconnect_drop,t_raw_cowconnect_drop,type,Type,Type,string,short text,N/A,Type,N/A,N/A
