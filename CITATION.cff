@@ -9,6 +9,7 @@ authors:
     given-names: "Fedde"
     affiliation: "Dairy Campus, Wageningen University & Research"
 version: "1.0.0"
+doi: "10.5281/zenodo.24020783"
 date-released: 2026-11-06
 license: "CC-BY-4.0"
 repository-code: "https://github.com/dairycampus/metadata"
