@@ -75,29 +75,7 @@ Where:
 
 *Note*: The database logic enforces `HAVING count(milking_begin_datetime) > 1` and `(count(nullif(Concentration, 0)) - 1)`, guaranteeing that both sessions are valid before generating the official daily concentration.
 
-#### 2. Fat- and Protein-Corrected Milk (FPCM / Standaardmelk)
-To compare milk production across individual cows, breeds, and nutritional diets with varying milk solids, milk yield is normalized to standard energy content using the Dutch national reference formula (CVB / Wageningen University & Research standard, implemented in [`bert_relifestock.sql`](views/bert_relifestock.sql)):
-
-$$\text{FPCM (kg/day)} = \text{MilkYield (kg/day)} \times \left(0.337 + 0.116 \times \text{Fat}_{\%} + 0.060 \times \text{Protein}_{\%}\right)$$
-
-Where:
-- $\text{MilkYield}$ = 24-hour milk production (`KgMlkEtm`).
-- $\text{Fat}_{\%}$ = Milk fat concentration (from MPR test day or weekly rolling `mpr_week.Fat_Concentration`).
-- $\text{Protein}_{\%}$ = Milk crude protein concentration (from MPR test day or weekly rolling `mpr_week.Protein_Concentration`).
-
-Standard milk (FPCM) represents milk containing 4.00% fat and 3.32% protein with an energy density of approximately 3.14 MJ Net Energy for Lactation ($NE_L$) per kilogram.
-
-#### 3. Daily Component Yields
-Using the yield-weighted concentrations, daily mass yields of milk components are calculated as:
-$$\text{Fat Yield (kg/day)} = \text{MilkYield (kg/day)} \times \frac{\text{Fat}_{\%}}{100}$$
-$$\text{Protein Yield (kg/day)} = \text{MilkYield (kg/day)} \times \frac{\text{Protein}_{\%}}{100}$$
-$$\text{Lactose Yield (kg/day)} = \text{MilkYield (kg/day)} \times \frac{\text{Lactose}_{\%}}{100}$$
-
-#### 4. Feed Efficiency (Feed Conversion Ratio)
-Combining the MPR energy-corrected milk production with daily dry matter intake ($\text{tot.opnDs}$):
-$$\text{Feed Efficiency (FCE)} = \frac{\text{FPCM (kg/day)}}{\text{Dry Matter Intake (kg DM/day)}}$$
-
-#### 5. Official Test Day Parameters (T_Animal_MilkSamples)
+#### 2. Official Test Day Parameters (`T_Animal_MilkSamples`)
 - **`MlkStd`**: Milk yield on official recording date (kg).
 - **`VetStd`**: Milk fat percentage (%).
 - **`EiwStd`**: Milk crude protein percentage (%).
@@ -106,7 +84,7 @@ $$\text{Feed Efficiency (FCE)} = \frac{\text{FPCM (kg/day)}}{\text{Dry Matter In
 - **`CelStd`**: Somatic cell count (SCC, in 1,000 cells/mL), indicative of udder health and subclinical mastitis.
 - **`KetStd`**: Diagnostic ketosis code based on beta-hydroxybutyrate (BHB) concentration (0 = healthy, 1 = suspect, 2 = clinical).
 
-#### 6. Weekly Rolling CRV Milk Quality
+#### 3. Weekly Rolling CRV Milk Quality (`VL_Dier_Datum_Crv.sql`)
 ISO-calendar week averages are calculated across test samples in view [`VL_Dier_Datum_Crv.sql`](views/VL_Dier_Datum_Crv.sql):
 - `mpr_week.Fat_Concentration`, `mpr_week.Protein_Concentration`, `mpr_week.Lactose_Concentration`, `mpr_week.SCC`, `mpr_week.Urea_Concentration`.
 
