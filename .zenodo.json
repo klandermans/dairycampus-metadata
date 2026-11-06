@@ -3,8 +3,12 @@
   "description": "<p>This repository provides the comprehensive FAIR metadata specification, standardized data dictionaries, data extraction queries, and data processing calculation models for the Dairy Campus research facility (Wageningen University &amp; Research, Leeuwarden, the Netherlands).</p><p>Dairy Campus operates a high-resolution, multi-sensor experimental dairy cattle infrastructure. The repository contains:</p><ul><li><strong>Data Dictionaries (English):</strong> Detailed variable-level definitions, measurement units, data types, and provenance for 19 core research datasets (including daily summaries, roughage intake, concentrate feeding, milking, emissions, rumination/activity behavior, and barn climate).</li><li><strong>Research Report Extraction Queries:</strong> Standardized SQL extraction queries (used in automated Apache Airflow pipelines) parameterized by experiment/trial code (<code>[prfcod]</code>).</li><li><strong>Calculation Models &amp; Provenance:</strong> Stored procedures, views, and functions that compute derived parameters, including fresh-to-dry-matter roughage intake conversions, mixer wagon added water subtractions, milk composition metrics, behavioral durations, and missing data quality flags.</li></ul>",
   "creators": [
     {
-      "name": "Dairy Campus - Wageningen University & Research",
-      "affiliation": "Wageningen University & Research, Animal Sciences Group"
+      "name": "Klandermans, Bert",
+      "affiliation": "Dairy Campus, Wageningen University & Research"
+    },
+    {
+      "name": "de Jong, Fedde",
+      "affiliation": "Dairy Campus, Wageningen University & Research"
     }
   ],
   "keywords": [

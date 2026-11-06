@@ -481,6 +481,18 @@ def main():
         "title": "Dairy Campus Research Data Platform: Standardized Data Dictionaries",
         "description": "Comprehensive FAIR metadata dictionaries, variables, and schema descriptions for dairy cattle sensor and experimental data collected at Dairy Campus (Wageningen University & Research).",
         "version": "1.0.0",
+        "contributors": [
+            {
+                "title": "Bert Klandermans",
+                "role": "author",
+                "organization": "Dairy Campus, Wageningen University & Research"
+            },
+            {
+                "title": "Fedde de Jong",
+                "role": "author",
+                "organization": "Dairy Campus, Wageningen University & Research"
+            }
+        ],
         "homepage": "https://www.dairycampus.nl/",
         "license": "CC-BY-4.0",
         "resources": []

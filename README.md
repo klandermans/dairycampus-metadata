@@ -167,13 +167,19 @@ This repository is pre-configured to be deposited directly to **Zenodo** via the
 
 ---
 
-## 6. How to Cite
+## 6. Authors & Citation
+
+### Authors
+- **Bert Klandermans** (Dairy Campus, Wageningen University & Research)
+- **Fedde de Jong** (Dairy Campus, Wageningen University & Research)
+
+### How to Cite
 
 If you use this metadata, data dictionary, or calculation methodology in your research, please cite:
 
 ```bibtex
-@dataset{dairycampus_metadata_2026,
-  author       = {{Dairy Campus - Wageningen University & Research}},
+@dataset{klandermans_dejong_dairycampus_2026,
+  author       = {Klandermans, Bert and de Jong, Fedde},
   title        = {{Dairy Campus Research Data Platform: Metadata Dictionary, Extraction Queries, and Calculation Models}},
   year         = {2026},
   publisher    = {Zenodo},

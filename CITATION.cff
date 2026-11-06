@@ -2,8 +2,12 @@ cff-version: 1.2.0
 message: "If you use this metadata, data dictionary, or calculation methodology in your research, please cite it as below."
 title: "Dairy Campus Research Data Platform: Metadata Dictionary, Extraction Queries, and Calculation Models"
 authors:
-  - name: "Dairy Campus - Wageningen University & Research"
-    website: "https://www.dairycampus.nl/"
+  - family-names: "Klandermans"
+    given-names: "Bert"
+    affiliation: "Dairy Campus, Wageningen University & Research"
+  - family-names: "de Jong"
+    given-names: "Fedde"
+    affiliation: "Dairy Campus, Wageningen University & Research"
 version: "1.0.0"
 date-released: 2026-11-06
 license: "CC-BY-4.0"
