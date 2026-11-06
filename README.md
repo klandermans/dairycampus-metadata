@@ -2,7 +2,7 @@
 
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24020783.svg)](https://doi.org/10.5281/zenodo.24020783)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24020864.svg)](https://doi.org/10.5281/zenodo.24020864)
 [![FAIR Data Compliant](https://img.shields.io/badge/FAIR-Data%20Compliant-blue.svg)](https://www.go-fair.org/fair-principles/)
 
 This repository provides the complete, standardized **FAIR Metadata Specifications**, **Variable Dictionaries**, **Trial Extraction Queries**, and **Data Processing Calculation Models** for the [Dairy Campus](https://www.dairycampus.nl/) research facility (Wageningen University & Research, Leeuwarden, the Netherlands). 
@@ -184,12 +184,12 @@ If you use this metadata, data dictionary, or calculation methodology in your re
 ```bibtex
 @dataset{klandermans_dejong_dairycampus_2026,
   author       = {Klandermans, Bert and de Jong, Fedde},
-  title        = {{Dairy Campus Research Data Platform: Metadata Dictionary, Extraction Queries, and Calculation Models}},
+  title        = {{Dairy Campus Research Data Platform: Comprehensive Data Descriptor, Standardized Metadata Dictionaries, and Calculation Methodologies}},
   year         = {2026},
   publisher    = {Zenodo},
   version      = {v1.0.0},
-  doi          = {10.5281/zenodo.24020783},
-  url          = {https://zenodo.org/records/24020783}
+  doi          = {10.5281/zenodo.24020864},
+  url          = {https://zenodo.org/records/24020864}
 }
 ```
 
