@@ -1,0 +1,5 @@
+dataset_name,source_table,column_name,name_en,name_nl,data_type,unit,measurement_type,description_en,calculation_description,calculation_source
+Velos_behaviour,T_RAW_velos_behaviour,date,Date,Datum,date,yy-mm-dd,Measured,"Date of the data record, UTC timezone",N/A,N/A
+Velos_behaviour,T_RAW_velos_behaviour,cow,Cow,Koe,integer,number,N/A,"Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.",N/A,N/A
+Velos_behaviour,T_RAW_velos_behaviour,type,Type,Type,string,short text,N/A,Type of behaviour 1 - 3,"0, overig actief. 1, niet actief. 2, herkouwen. 3, vreten.",N/A
+Velos_behaviour,T_RAW_velos_behaviour,duration,Duration,Duur,integer,sec,Calculated,Duration of action/behaviour,Calculated by endTime - startTime,?

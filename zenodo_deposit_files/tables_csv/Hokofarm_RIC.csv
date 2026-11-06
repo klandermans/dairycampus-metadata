@@ -1,0 +1,19 @@
+dataset_name,source_table,column_name,name_en,name_nl,data_type,unit,measurement_type,description_en,calculation_description,calculation_source
+Hokofarm_RIC,t_raw_hokofarmvr,ash,Ash,As,number,kg,Calculated,"Ash, indigestible part of the feed","Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_RIC,t_raw_hokofarmvr,cow,Cow,Koe,integer,number,N/A,"Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.",N/A,N/A
+Hokofarm_RIC,t_raw_hokofarmvr,crudeFibre,CrudeFibre,Ruwe vezel,number,kg,Calculated,Crude fiber in the feed,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_RIC,t_raw_hokofarmvr,date,Date,Datum,date,yy-mm-dd,Measured,Date of the data record,N/A,N/A
+Hokofarm_RIC,t_raw_hokofarmvr,datetime,Date and time,Datum en tijd,datetime,yyyy-mm-dd-hh-mm-ss,Measured,Date and time,N/A,N/A
+Hokofarm_RIC,t_raw_hokofarmvr,dryMatter,Dry matter,Droge stof,number,kg,Calculated,Dry matter,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_RIC,t_raw_hokofarmvr,duration,Duration,Duur,integer,sec,Calculated,Duration of action/behaviour,Calculated by endTime - startTime,?
+Hokofarm_RIC,t_raw_hokofarmvr,endTime,End time,Eind tijd,number,hh-mm-ss,Measured,End time of action/behaviour,N/A,N/A
+Hokofarm_RIC,t_raw_hokofarmvr,endWeight,End Weight,Eind gewicht,number,kg,Measured,End weight,N/A,N/A
+Hokofarm_RIC,t_raw_hokofarmvr,energy,Energy,Energie,string,VEM,Calculated,Energy content,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_RIC,t_raw_hokofarmvr,fat,Fat,Vet,number,kg,Calculated,Fat content,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_RIC,t_raw_hokofarmvr,feedType,Feed type,Voer type,string,short text,N/A,Type of feed,N/A,N/A
+Hokofarm_RIC,t_raw_hokofarmvr,intake,Intake,Opname,number,kg,Calculated,Feed intake,Calculated by endWeight - startWeight,?
+Hokofarm_RIC,t_raw_hokofarmvr,protein,Protein,Eiwit,number,kg,Calculated,Protein content,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_RIC,t_raw_hokofarmvr,startTime,Start time,Start tijd,number,hh-mm-ss,Measured,Start time of action/behaviour,N/A,N/A
+Hokofarm_RIC,t_raw_hokofarmvr,startWeight,Start weight,Start gewicht,number,kg,Measured,Start weight,N/A,N/A
+Hokofarm_RIC,t_raw_hokofarmvr,station,Station,Station,integer,number,Measured,Station or location of activity,N/A,N/A
+Hokofarm_RIC,t_raw_hokofarmvr,transponder,Transponder,Transponder,integer,number,Measured,Transponder number of the cow,N/A,N/A

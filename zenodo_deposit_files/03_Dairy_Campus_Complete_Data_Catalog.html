@@ -1,0 +1,4930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Dairy Campus Research Data Platform - Complete Data Catalog</title>
+<style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: #24292e; line-height: 1.5; padding: 30px; max-width: 1400px; margin: 0 auto; background: #fafbfc; }
+    h1 { color: #0366d6; border-bottom: 2px solid #e1e4e8; padding-bottom: 10px; margin-top: 0; }
+    h2 { color: #24292e; border-bottom: 1px solid #e1e4e8; padding-bottom: 8px; margin-top: 40px; }
+    .meta-box { background: #eef5ff; border: 1px solid #c8e1ff; border-radius: 6px; padding: 16px; margin-bottom: 30px; }
+    .meta-box p { margin: 4px 0; }
+    table { width: 100%; border-collapse: collapse; margin: 16px 0 32px 0; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.08); border-radius: 6px; overflow: hidden; }
+    th { background: #0366d6; color: #fff; text-align: left; padding: 10px 12px; font-size: 13px; font-weight: 600; }
+    td { padding: 9px 12px; border-bottom: 1px solid #eaecef; font-size: 13px; vertical-align: top; }
+    tr:nth-child(even) { background-color: #f6f8fa; }
+    tr:hover { background-color: #f1f8ff; }
+    code { font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace; background: rgba(27,31,35,0.05); padding: 2px 5px; border-radius: 3px; font-size: 12px; color: #d73a49; }
+    .tag { display: inline-block; padding: 2px 6px; border-radius: 10px; font-size: 11px; font-weight: 500; }
+    .tag-calc { background: #ffeef0; color: #d73a49; border: 1px solid #fdaeb7; }
+    .tag-meas { background: #dcffe4; color: #22863a; border: 1px solid #bef5cb; }
+    .toc { background: #fff; border: 1px solid #e1e4e8; border-radius: 6px; padding: 16px 24px; margin-bottom: 30px; }
+    .toc ul { column-count: 3; margin: 0; padding-left: 20px; }
+    .toc li { margin-bottom: 6px; font-size: 13px; }
+    a { color: #0366d6; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<h1>Dairy Campus Research Data Platform: Complete Metadata Catalog</h1>
+
+<div class="meta-box">
+    <p><strong>Authors:</strong> Bert Klandermans &amp; Fedde de Jong (Dairy Campus, Wageningen University &amp; Research)</p>
+    <p><strong>Affiliation:</strong> Wageningen University &amp; Research, Leeuwarden, the Netherlands</p>
+    <p><strong>License:</strong> Creative Commons Attribution 4.0 International (CC-BY 4.0)</p>
+    <p><strong>Total Research Datasets:</strong> 19 datasets | <strong>Total Documented Variables:</strong> 507 parameters</p>
+</div>
+
+<div class="toc">
+    <h3>Table of Contents</h3>
+    <ul>
+        <li><a href="#TVL_total">TVL_total (97 vars)</a></li>
+        <li><a href="#Hokofarm_SAC_concentrates">Hokofarm_SAC_concentrates (42 vars)</a></li>
+        <li><a href="#Hokofarm_RIC">Hokofarm_RIC (18 vars)</a></li>
+        <li><a href="#TVL_RIC_intake_dm">TVL_RIC_intake_dm (12 vars)</a></li>
+        <li><a href="#Triomatic_RIC_load">Triomatic_RIC_load (46 vars)</a></li>
+        <li><a href="#Triomatic_RIC_drop">Triomatic_RIC_drop (46 vars)</a></li>
+        <li><a href="#GEA_gates">GEA_gates (5 vars)</a></li>
+        <li><a href="#GEA_milkings">GEA_milkings (13 vars)</a></li>
+        <li><a href="#TMR_Trioliet_cowconnect_mix">TMR_Trioliet_cowconnect_mix (12 vars)</a></li>
+        <li><a href="#Velos_behaviour">Velos_behaviour (4 vars)</a></li>
+        <li><a href="#Velos_behaviour_day">Velos_behaviour_day (7 vars)</a></li>
+        <li><a href="#TMR_Trioliet_cowconnect_drop">TMR_Trioliet_cowconnect_drop (11 vars)</a></li>
+        <li><a href="#DC_DM_content">DC_DM_content (16 vars)</a></li>
+        <li><a href="#Greenfeed_summarized_data">Greenfeed_summarized_data (24 vars)</a></li>
+        <li><a href="#Greenfeed_feed_aggregrated">Greenfeed_feed_aggregrated (13 vars)</a></li>
+        <li><a href="#Weatherstation">Weatherstation (18 vars)</a></li>
+        <li><a href="#Missing_data">Missing_data (17 vars)</a></li>
+        <li><a href="#Environment_barn_Animal_day">Environment_barn_Animal_day (52 vars)</a></li>
+        <li><a href="#Environment_barn_Animal_experim">Environment_barn_Animal_experim (54 vars)</a></li>
+    </ul>
+</div>
+<h2 id="TVL_total">TVL_total</h2>
+<p><strong>Primary Source Table:</strong> <code>tvl_totaal</code> | <strong>Variables:</strong> 97</p>
+<table>
+<thead>
+<tr>
+    <th style="width: 15%;">Column Name</th>
+    <th style="width: 18%;">English Label</th>
+    <th style="width: 8%;">Type</th>
+    <th style="width: 8%;">Unit</th>
+    <th style="width: 10%;">Method</th>
+    <th style="width: 25%;">English Description</th>
+    <th style="width: 16%;">Calculation / Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><code>AnimalServerId</code></td>
+    <td><strong>Animal server number</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Unique animal server identifier issued across the different systems at Dairy Campus</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>AntMlkA</code></td>
+    <td><strong>Number of milkings afternoon</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>How often an animal was milked in the afternoon. 1 is the assumed value. 0 means a missing value/something wrong with registration. 2+ means reattachment of the milking apparatus, can be outlier values.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>AntMlkEtm</code></td>
+    <td><strong>Number of milkings 24 hours</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Amount of milkings in the last 24 hours. 2 is the assumed value. 1 or 3+ means something is off during morning and/or afternoon milking.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>AntMlkO</code></td>
+    <td><strong>Number of milkings morning</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>How often an animal was milked in the morning. 1 is the assumed value. 0 means a missing value/something wrong with registration. 2+ means reattachment of the milking apparatus, can be outlier values.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>bcs</code></td>
+    <td><strong>Body condition score</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Automatic body condition score camera</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>BegDatPrf</code></td>
+    <td><strong>Starting date experiment</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Expected start date of the experiment</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>BehCod</code></td>
+    <td><strong>Treatment code</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Abbreviaton of the treatname name. Set by the researcher.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>BehNam</code></td>
+    <td><strong>Treatment name</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Full name of the treatment. Set by the researcher</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Blk</code></td>
+    <td><strong>Blocking group</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number of the assigned block. Set by the researcher.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>C21-10</code></td>
+    <td><strong>Total concentrate via station 1 till 4</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Dag totaal krachtvoer caroussel</td>
+    <td>??? Sum of distributed concentrate feed at the specific day?<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>C21-9</code></td>
+    <td><strong>Concentrate feed milking caroussel</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Kilogram of concentrate feed dispatched at the milking caroussel. NOT the uptake, that cannot be registered currently.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>CelStd</code></td>
+    <td><strong>Somatic cell count standard</strong></td>
+    <td><code>string</code></td>
+    <td>x1000 cells/mL</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Somatic cell count of the monthly milk test</td>
+    <td>Official somatic cell count (SCC) determined from routine 4-weekly milk recording samples (MPR), analyzed by laboratory.<br><small style='color:#586069;'>Source: T_Animal_MilkSamples (MlkCon.SCCDay)</small></td>
+</tr>
+<tr>
+    <td><code>Dat</code></td>
+    <td><strong>Date</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date of the data record</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>DelPro-13</code></td>
+    <td><strong>Feed from the milking robot</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Intake feed 1 from the milkingrobot</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>DrgZetDat</code></td>
+    <td><strong>Start date dry period</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Starting date of the dry period</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>EiwStd</code></td>
+    <td><strong>Protein concentration standard</strong></td>
+    <td><code>number</code></td>
+    <td>%</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Protein concentration of the monthly milk test</td>
+    <td>Milk crude protein percentage determined from official routine milk recording laboratory analysis.<br><small style='color:#586069;'>Source: T_Animal_MilkSamples (MlkCon.ProteinPercentage)</small></td>
+</tr>
+<tr>
+    <td><code>EndDatPrf</code></td>
+    <td><strong>Ending date experiment</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Expected end date of the experiment</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>GewA</code></td>
+    <td><strong>Weight afternoon</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weight of the animal after milking in the afternoon</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>GewO</code></td>
+    <td><strong>Weight morning</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weight of the animal after milking in the morning</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>gf_visits</code></td>
+    <td><strong>GreenFeed measurements</strong></td>
+    <td><code>string</code></td>
+    <td>N/A</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Measurements on cow emission (summarized data)</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>gf_cupdrops</code></td>
+    <td><strong>GreenFeed cupdrops</strong></td>
+    <td><code>string</code></td>
+    <td>N/A</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>GreenFeed portions concentrate feed.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Hok</code></td>
+    <td><strong>Pen / Stable number</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Location of where the cows are housed.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>HokMin1</code></td>
+    <td><strong>Pen / Stable number day before</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Location of where the cows are housed day before</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>AtributedKVA</code></td>
+    <td><strong>Attributed Concentrate A</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total allocated/programmed amount of concentrate feed type A for the cow on the specified date.</td>
+    <td>Sum of programmed concentrate A quantities across feeding stations (Hokofarm / SAC).<br><small style='color:#586069;'>Source: T_Raw_HokofarmCD / TVL_Totaal_sub_kv</small></td>
+</tr>
+<tr>
+    <td><code>TotalIntakeKVA</code></td>
+    <td><strong>Concentrate feed station 1</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total intake feed from SAC box 1</td>
+    <td>Total consumed quantity of concentrate feed A by the animal at the automatic feeding station on the specified date.<br><small style='color:#586069;'>Source: T_Raw_HokofarmCD (totalIntakeKVA)</small></td>
+</tr>
+<tr>
+    <td><code>AtributedKVB</code></td>
+    <td><strong>Attributed Concentrate B</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total allocated/programmed amount of concentrate feed type B for the cow on the specified date.</td>
+    <td>Sum of programmed concentrate B quantities across feeding stations (Hokofarm / SAC).<br><small style='color:#586069;'>Source: T_Raw_HokofarmCD / TVL_Totaal_sub_kv</small></td>
+</tr>
+<tr>
+    <td><code>TotalIntakeKVB</code></td>
+    <td><strong>Concentrate feed station 2</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total intake feed from SAC box 2</td>
+    <td>Total consumed quantity of concentrate feed B by the animal at the automatic feeding station on the specified date.<br><small style='color:#586069;'>Source: T_Raw_HokofarmCD (totalIntakeKVB)</small></td>
+</tr>
+<tr>
+    <td><code>AtributedKVC</code></td>
+    <td><strong>Attributed Concentrate C</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total allocated/programmed amount of concentrate feed type C for the cow on the specified date.</td>
+    <td>Sum of programmed concentrate C quantities across feeding stations (Hokofarm / SAC).<br><small style='color:#586069;'>Source: T_Raw_HokofarmCD / TVL_Totaal_sub_kv</small></td>
+</tr>
+<tr>
+    <td><code>TotalIntakeKVC</code></td>
+    <td><strong>Concentrate feed station 3</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total intake feed from SAC box 3</td>
+    <td>Total consumed quantity of concentrate feed C by the animal at the automatic feeding station on the specified date.<br><small style='color:#586069;'>Source: T_Raw_HokofarmCD (totalIntakeKVC)</small></td>
+</tr>
+<tr>
+    <td><code>AtributedKVD</code></td>
+    <td><strong>Attributed Concentrate D</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total allocated/programmed amount of concentrate feed type D for the cow on the specified date.</td>
+    <td>Sum of programmed concentrate D quantities across feeding stations (Hokofarm / SAC).<br><small style='color:#586069;'>Source: T_Raw_HokofarmCD / TVL_Totaal_sub_kv</small></td>
+</tr>
+<tr>
+    <td><code>TotalIntakeKVD</code></td>
+    <td><strong>Concentrate feed station 4</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total intake feed from SAC box 4</td>
+    <td>Total consumed quantity of concentrate feed D by the animal at the automatic feeding station on the specified date.<br><small style='color:#586069;'>Source: T_Raw_HokofarmCD (totalIntakeKVD)</small></td>
+</tr>
+<tr>
+    <td><code>HrhNum</code></td>
+    <td><strong>Repeating number</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number of repeat of a previously performed test</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>InsDat</code></td>
+    <td><strong>Insemination day</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date of last insemination</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Jar</code></td>
+    <td><strong>Year</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Year of the data record</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>KetStd</code></td>
+    <td><strong>Ketose concentration standard</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Ketose concentration of the monthly milk test</td>
+    <td>Ketosis diagnostic classification code (0: normal/negative, 1: suspected subclinical, 2: clinical ketosis).<br><small style='color:#586069;'>Source: T_Animal_MilkSamples (MlkCon.KetosisCode)</small></td>
+</tr>
+<tr>
+    <td><code>KgMlkA</code></td>
+    <td><strong>Kilogram milk afternoon</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Kilogram of milk registred at the afternoon milking event</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>KgMlkEtm</code></td>
+    <td><strong>Kilogram milk 24 hours</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Kilogram of milk in the last 24 hours</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>KgMlkO</code></td>
+    <td><strong>Kilogram milk morning</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Kilogram of milk registred at the morning milking event</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>KlfDat</code></td>
+    <td><strong>Calving date</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date of last calving</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>LacDgn</code></td>
+    <td><strong>Days in lactation</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Amount of days producing milk</td>
+    <td>Date - calving date<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>LacNum</code></td>
+    <td><strong>Parity</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Parity (amount of calvings) of the animal</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>LacStd</code></td>
+    <td><strong>Lactose concentration standard</strong></td>
+    <td><code>number</code></td>
+    <td>%</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Lactose of the monthly milk test</td>
+    <td>Milk lactose percentage determined from official routine milk recording laboratory analysis.<br><small style='color:#586069;'>Source: T_Animal_MilkSamples (MlkCon.LactosePercentage)</small></td>
+</tr>
+<tr>
+    <td><code>LevNum</code></td>
+    <td><strong>Registration number</strong></td>
+    <td><code>integer</code></td>
+    <td>text + number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>National registration number of the animal.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>LftDgn</code></td>
+    <td><strong>Age</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Age of the animal in days</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>MlkStd</code></td>
+    <td><strong>Milk standard</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Kilogram of milk produced during the standard (once a month) milk composition sampling</td>
+    <td>Total daily milk yield recorded during the official milk control recording day.<br><small style='color:#586069;'>Source: T_Animal_MilkSamples (MlkCon.MilkQuantityMass)</small></td>
+</tr>
+<tr>
+    <td><code>mpr_dag.Fat_Concentration</code></td>
+    <td><strong>Weekly milk fat concentration</strong></td>
+    <td><code>number</code></td>
+    <td>%</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weekly milk fat concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>mpr_dag.Lactose_Concentration</code></td>
+    <td><strong>Weekly milk lactose concentration</strong></td>
+    <td><code>number</code></td>
+    <td>%</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weekly milk lactose concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>mpr_dag.Protein_Concentration</code></td>
+    <td><strong>Weekly milk protein concentration</strong></td>
+    <td><code>number</code></td>
+    <td>%</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weekly milk protein concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>mpr_dag.SCC</code></td>
+    <td><strong>Weekly somatic cell count</strong></td>
+    <td><code>string</code></td>
+    <td>1000 cells/mL</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weekly somatic cell count during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>mpr_dag.Urea_Concentration</code></td>
+    <td><strong>Weekly milk urea concentration</strong></td>
+    <td><code>string</code></td>
+    <td>mg/dL</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weekly milk urea concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>mpr_week.Fat_Concentration</code></td>
+    <td><strong>Calculated day fat concentration</strong></td>
+    <td><code>number</code></td>
+    <td>%</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>An estimated daily milk fat concentration based on the AO sampling and the corresponding milk yield of that day.  x</td>
+    <td>ISO-calendar week yield-weighted average milk fat concentration calculated across regular CRV/MPR test recordings: sum(Fat_Concentration * MilkingYield) / sum(MilkingYield). Used to derive Fat- and Protein-Corrected Milk (FPCM).<br><small style='color:#586069;'>Source: VL_Dier_Datum_Crv</small></td>
+</tr>
+<tr>
+    <td><code>mpr_week.Lactose_Concentration</code></td>
+    <td><strong>Calculated day lactose concentration</strong></td>
+    <td><code>number</code></td>
+    <td>%</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>An estimated daily milk lactose concentration based on the AO sampling and the corresponding milk yield of that day.</td>
+    <td>ISO-calendar week yield-weighted average milk lactose concentration calculated across regular CRV/MPR test recordings: sum(Lactose_Concentration * MilkingYield) / sum(MilkingYield).<br><small style='color:#586069;'>Source: VL_Dier_Datum_Crv</small></td>
+</tr>
+<tr>
+    <td><code>mpr_week.Protein_Concentration</code></td>
+    <td><strong>Calculated day protein concentration</strong></td>
+    <td><code>number</code></td>
+    <td>%</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>An estimated daily milk protein concentration based on the AO sampling and the corresponding milk yield of that day.</td>
+    <td>ISO-calendar week yield-weighted average milk protein concentration calculated across regular CRV/MPR test recordings: sum(Protein_Concentration * MilkingYield) / sum(MilkingYield). Used to derive Fat- and Protein-Corrected Milk (FPCM).<br><small style='color:#586069;'>Source: VL_Dier_Datum_Crv</small></td>
+</tr>
+<tr>
+    <td><code>mpr_week.SCC</code></td>
+    <td><strong>Calculated day somatic cell count</strong></td>
+    <td><code>string</code></td>
+    <td>1000 cells/mL</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>An estimated daily somatic cell count based on the AO sampling and the corresponding milk yield of that day.</td>
+    <td>ISO-calendar week yield-weighted average somatic cell count (1,000 cells/mL) calculated across regular CRV/MPR test recordings: sum(SCC * MilkingYield) / sum(MilkingYield).<br><small style='color:#586069;'>Source: VL_Dier_Datum_Crv</small></td>
+</tr>
+<tr>
+    <td><code>mpr_week.Urea_Concentration</code></td>
+    <td><strong>Calculated day urea concentration</strong></td>
+    <td><code>string</code></td>
+    <td>mg/dL</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>An estimated daily milk urea concentration based on the AO sampling and the corresponding milk yield of that day.</td>
+    <td>ISO-calendar week yield-weighted average milk urea concentration (mg/dL) calculated across regular CRV/MPR test recordings: sum(Urea_Concentration * MilkingYield) / sum(MilkingYield).<br><small style='color:#586069;'>Source: VL_Dier_Datum_Crv</small></td>
+</tr>
+<tr>
+    <td><code>OorNum</code></td>
+    <td><strong>Ear number</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>OpnRvDsHans</code></td>
+    <td><strong>Intake roughage dry matter Hans</strong></td>
+    <td><code>string</code></td>
+    <td>N/A</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Intake of dry matter from the roughage, Hans (Will be removed from table)</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>PrdSta</code></td>
+    <td><strong>Production stage</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Identifying the stage of the cow, producing milk or not</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>PrfCod</code></td>
+    <td><strong>Experiment number</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Code assigned by Dairy Campus to identify the experiment. Can be the same as the MyProjects number, or differ.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>RowID</code></td>
+    <td><strong>Row ID</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Unique number for row in a specific table.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>rv1.ds</code></td>
+    <td><strong>Roughage 1 dry matter</strong></td>
+    <td><code>string</code></td>
+    <td>N/A</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Roughage 1 dry matter</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>rv1.name</code></td>
+    <td><strong>Roughage name 1</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Name of the roughage treatment consumed by the animal</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>rv1.opnDs</code></td>
+    <td><strong>Roughage 1 intake dry matter</strong></td>
+    <td><code>string</code></td>
+    <td>N/A</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Roughage 1 intake dry matter</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>rv1.Prod</code></td>
+    <td><strong>Roughage product 1</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total uptake in kilograms of the roughage</td>
+    <td>Sum of roughage intake of all visits in a single day. The roughage bin calculates uptake as: starting weight - end weight (bins contains a scale)<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>rv1.ProdExclWater</code></td>
+    <td><strong>Roughage 1 intake excluding water</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total uptake in kilograms of the roughage excluding water</td>
+    <td>Daily roughage intake fraction 1 excluding added water: (TotalLoaded - AddedWaterKg) / TotalLoaded * Intake.<br><small style='color:#586069;'>Source: VL_Totaal_sub_ric_opn_prod</small></td>
+</tr>
+<tr>
+    <td><code>rv1.ricBez</code></td>
+    <td><strong>Roughage 1 RIC bin visits</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Amount of times the animal visited the roughage bins to consume the roughage.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>rv1.trBatches</code></td>
+    <td><strong>Roughage 1 batches</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Amount of different batches distributed by the feeding robot that the animal consumed for its total roughage uptake</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>rv2.ds</code></td>
+    <td><strong>Roughage 2 dry matter</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Roughage 2 dry matter</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>rv2.name</code></td>
+    <td><strong>Roughage name 2</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Name of the roughage treatment consumed by the animal. These are only active (2, 3 and 4) when the animal consumes roughage from a treatment she isn't assigned to.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>rv2.opnDs</code></td>
+    <td><strong>Roughage 2 intake dry matter</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Roughage 2 intake dry matter</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>rv2.Prod</code></td>
+    <td><strong>Roughage product 2</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total uptake in kilograms of the roughage.</td>
+    <td>?</td>
+</tr>
+<tr>
+    <td><code>rv2.ProdExclWater</code></td>
+    <td><strong>Roughage 2 intake excluding water</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total uptake in kilograms of the roughage excluding water</td>
+    <td>Daily roughage intake fraction 2 excluding added water: (TotalLoaded - AddedWaterKg) / TotalLoaded * Intake.<br><small style='color:#586069;'>Source: VL_Totaal_sub_ric_opn_prod</small></td>
+</tr>
+<tr>
+    <td><code>rv2.ricBez</code></td>
+    <td><strong>Roughage 2 RIC bin visits</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Amount of times the animal visited the roughage bins to consume the roughage.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>rv2.trBatches</code></td>
+    <td><strong>Roughage 2 batches</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Amount of different batches distributed by the feeding robot that the animal consumed for its total roughage uptake</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>rv3.ds</code></td>
+    <td><strong>Roughage 3 dry matter</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Roughage 3 dry matter</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>rv3.name</code></td>
+    <td><strong>Roughage name 3</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Name of the roughage treatment consumed by the animal. These are only active (2, 3 and 4) when the animal consumes roughage from a treatment she isn't assigned to.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>rv3.opnDs</code></td>
+    <td><strong>Roughage 3 intake dry matter</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Roughage 3 intake dry matter</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>rv3.Prod</code></td>
+    <td><strong>Roughage product 3</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total uptake in kilograms of the roughage.</td>
+    <td>Sum of roughage intake of all visits in a single day. The roughage bin calculates uptake as: starting weight - end weight (bins contains a scale)<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>rv3.ProdExclWater</code></td>
+    <td><strong>Roughage 3 intake excluding water</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total uptake in kilograms of the roughage excluding water</td>
+    <td>Daily roughage intake fraction 3 excluding added water: (TotalLoaded - AddedWaterKg) / TotalLoaded * Intake.<br><small style='color:#586069;'>Source: VL_Totaal_sub_ric_opn_prod</small></td>
+</tr>
+<tr>
+    <td><code>rv3.ricBez</code></td>
+    <td><strong>Roughage 3 RIC bin visits</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Amount of times the animal visited the roughage bins to consume the roughage.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>rv3.trBatches</code></td>
+    <td><strong>Roughage 3 batches</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Amount of different batches distributed by the feeding robot that the animal consumed for its total roughage uptake</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>rv4.ds</code></td>
+    <td><strong>Roughage 4 dry matter</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Roughage 4 dry matter</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>rv4.name</code></td>
+    <td><strong>Roughage name 4</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Name of the roughage treatment consumed by the animal. These are only active (2, 3 and 4) when the animal consumes roughage from a treatment she isn't assigned to.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>rv4.opnDs</code></td>
+    <td><strong>Roughage 4 intake dry matter</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Roughage 4 intake dry matter</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>rv4.Prod</code></td>
+    <td><strong>Roughage product 4</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total uptake in kilograms of the roughage.</td>
+    <td>Sum of roughage intake of all visits in a single day. The roughage bin calculates uptake as: starting weight - end weight (bins contains a scale)<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>rv4.ProdExclWater</code></td>
+    <td><strong>Roughage 4 intake excluding water</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total uptake in kilograms of the roughage excluding water</td>
+    <td>Daily roughage intake fraction 4 excluding added water: (TotalLoaded - AddedWaterKg) / TotalLoaded * Intake.<br><small style='color:#586069;'>Source: VL_Totaal_sub_ric_opn_prod</small></td>
+</tr>
+<tr>
+    <td><code>rv4.ricBez</code></td>
+    <td><strong>Roughage 4 RIC bin visits</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Amount of times the animal visited the roughage bins to consume the roughage.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>rv4.trBatches</code></td>
+    <td><strong>Roughage 4 batches</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Amount of different batches distributed by the feeding robot that the animal consumed for its total roughage uptake</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>tot.opnDs</code></td>
+    <td><strong>Total intake drymatter</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total uptake in kilograms of dry matter</td>
+    <td>Total daily dry matter intake (kg DM/day). Calculated by summing the dry matter intake of all roughage fractions: (OpnMinWater * DryMatterPercentage).<br><small style='color:#586069;'>Source: VL_Totaal_sub_ric_opn_prod</small></td>
+</tr>
+<tr>
+    <td><code>tot.Prod</code></td>
+    <td><strong>Total product</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Total roughage 1 t/m 4</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>UreStd</code></td>
+    <td><strong>Urea concentration standard</strong></td>
+    <td><code>number</code></td>
+    <td>mg/100 gram</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Urea concentration of the monthly milk test</td>
+    <td>Milk urea nitrogen content determined from official routine milk recording laboratory analysis.<br><small style='color:#586069;'>Source: T_Animal_MilkSamples (MlkCon.Urea)</small></td>
+</tr>
+<tr>
+    <td><code>VetStd</code></td>
+    <td><strong>Fat concentration standard</strong></td>
+    <td><code>number</code></td>
+    <td>%</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Fat concentration of the monthly milk test</td>
+    <td>Milk fat percentage determined from official routine milk recording laboratory analysis.<br><small style='color:#586069;'>Source: T_Animal_MilkSamples (MlkCon.FatPercentage)</small></td>
+</tr>
+<tr>
+    <td><code>VlgKlfDat</code></td>
+    <td><strong>Next calving date</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Next calving date, not predicted, but added after calving</td>
+    <td>?</td>
+</tr>
+<tr>
+    <td><code>VrwDgn</code></td>
+    <td><strong>Expected number of days</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Number of days from date to expected calving date based on insemination date</td>
+    <td>Expected calving date minus current date.<br><small style='color:#586069;'>Source: TVL_Dier_Datum_Stal</small></td>
+</tr>
+<tr>
+    <td><code>VrwKlfDat</code></td>
+    <td><strong>Expected calving date</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Expected calving date based on insemination date</td>
+    <td>Insemination date + 280 days<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>Wek</code></td>
+    <td><strong>Week</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Calender week number of data record</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>WekDag</code></td>
+    <td><strong>Day of the week</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Abbreviaton of weekday (Ma = Monday, Di = Tuesday, Wo = Wednesday, Do = Thursday, Vr = Friday, Za = Saturday, Zo = Sunday)</td>
+    <td>Direct measurement</td>
+</tr>
+</tbody></table>
+<h2 id="Hokofarm_SAC_concentrates">Hokofarm_SAC_concentrates</h2>
+<p><strong>Primary Source Table:</strong> <code>t_raw_hokofarmvb</code> | <strong>Variables:</strong> 42</p>
+<table>
+<thead>
+<tr>
+    <th style="width: 15%;">Column Name</th>
+    <th style="width: 18%;">English Label</th>
+    <th style="width: 8%;">Type</th>
+    <th style="width: 8%;">Unit</th>
+    <th style="width: 10%;">Method</th>
+    <th style="width: 25%;">English Description</th>
+    <th style="width: 16%;">Calculation / Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><code>ashA</code></td>
+    <td><strong>Ash A</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Ash, indigestible part of feed A</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>ashB</code></td>
+    <td><strong>Ash B</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Ash, indigestible part of feed B</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>ashC</code></td>
+    <td><strong>Ash C</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Ash, indigestible part of feed C</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>ashD</code></td>
+    <td><strong>Ash D</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Ash, indigestible part of feed D</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>cow</code></td>
+    <td><strong>Cow</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>crudeFiberA</code></td>
+    <td><strong>CrudeFibre A</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Crude fiber in feed A</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>crudeFiberB</code></td>
+    <td><strong>CrudeFibre B</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Crude fiber in feed B</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>crudeFiberC</code></td>
+    <td><strong>CrudeFibre C</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Crude fiber in feed C</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>crudeFiberD</code></td>
+    <td><strong>CrudeFibre D</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Crude fiber in feed D</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>date</code></td>
+    <td><strong>Date</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date of the data record</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>dateTime</code></td>
+    <td><strong>Date and time</strong></td>
+    <td><code>datetime</code></td>
+    <td>yyyy-mm-dd-hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date and time</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>dryMatterA</code></td>
+    <td><strong>Dry matter A</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Dry matter of feed A</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>dryMatterB</code></td>
+    <td><strong>Dry matter B</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Dry matter of feed B</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>dryMatterC</code></td>
+    <td><strong>Dry matter C</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Dry matter of feed C</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>dryMatterD</code></td>
+    <td><strong>Dry matter D</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Dry matter of feed D</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>endTime</code></td>
+    <td><strong>End time</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>End time of action/behaviour</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>energyA</code></td>
+    <td><strong>Energy A</strong></td>
+    <td><code>string</code></td>
+    <td>VEM</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Energy content A</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>energyB</code></td>
+    <td><strong>Energy B</strong></td>
+    <td><code>string</code></td>
+    <td>VEM</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Energy content B</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>energyC</code></td>
+    <td><strong>Energy C</strong></td>
+    <td><code>string</code></td>
+    <td>VEM</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Energy content C</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>energyD</code></td>
+    <td><strong>Energy D</strong></td>
+    <td><code>string</code></td>
+    <td>VEM</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Energy content D</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>fatA</code></td>
+    <td><strong>Fat A</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Fat content A</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>fatB</code></td>
+    <td><strong>Fat B</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Fat content B</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>fatC</code></td>
+    <td><strong>Fat C</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Fat content C</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>fatD</code></td>
+    <td><strong>Fat D</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Fat content D</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>feedTypeA</code></td>
+    <td><strong>Feed type A</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Type of feed A</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>feedTypeB</code></td>
+    <td><strong>Feed type B</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Type of feed B</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>feedTypeC</code></td>
+    <td><strong>Feed type C</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Type of feed C</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>feedTypeD</code></td>
+    <td><strong>Feed type D</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Type of feed D</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>fileName</code></td>
+    <td><strong>File name</strong></td>
+    <td><code>string</code></td>
+    <td>text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Name of a file</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>hashValue</code></td>
+    <td><strong>Hash value</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Validation record for data processing</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>intakeA</code></td>
+    <td><strong>Intake A</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Feed intake A</td>
+    <td>Calculated by endWeight - startWeight<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>intakeB</code></td>
+    <td><strong>Intake B</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Feed intake B</td>
+    <td>Calculated by endWeight - startWeight<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>intakeC</code></td>
+    <td><strong>Intake C</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Feed intake C</td>
+    <td>Calculated by endWeight - startWeight<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>intakeD</code></td>
+    <td><strong>Intake D</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Feed intake D</td>
+    <td>Calculated by endWeight - startWeight<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>proteinA</code></td>
+    <td><strong>Protein A</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Protein content A</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>proteinB</code></td>
+    <td><strong>Protein B</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Protein content B</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>proteinC</code></td>
+    <td><strong>Protein C</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Protein content C</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>proteinD</code></td>
+    <td><strong>Protein D</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Protein content D</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>startTime</code></td>
+    <td><strong>Start time</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Start time of action/behaviour</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>station</code></td>
+    <td><strong>Station</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Station or location of activity</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>totalTime</code></td>
+    <td><strong>Total time</strong></td>
+    <td><code>integer</code></td>
+    <td>sec</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total duration</td>
+    <td>Calculated by endTime - startTime<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>transponder</code></td>
+    <td><strong>Transponder</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Transponder number of the cow</td>
+    <td>Direct measurement</td>
+</tr>
+</tbody></table>
+<h2 id="Hokofarm_RIC">Hokofarm_RIC</h2>
+<p><strong>Primary Source Table:</strong> <code>t_raw_hokofarmvr</code> | <strong>Variables:</strong> 18</p>
+<table>
+<thead>
+<tr>
+    <th style="width: 15%;">Column Name</th>
+    <th style="width: 18%;">English Label</th>
+    <th style="width: 8%;">Type</th>
+    <th style="width: 8%;">Unit</th>
+    <th style="width: 10%;">Method</th>
+    <th style="width: 25%;">English Description</th>
+    <th style="width: 16%;">Calculation / Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><code>ash</code></td>
+    <td><strong>Ash</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Ash, indigestible part of the feed</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>cow</code></td>
+    <td><strong>Cow</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>crudeFibre</code></td>
+    <td><strong>CrudeFibre</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Crude fiber in the feed</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>date</code></td>
+    <td><strong>Date</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date of the data record</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>datetime</code></td>
+    <td><strong>Date and time</strong></td>
+    <td><code>datetime</code></td>
+    <td>yyyy-mm-dd-hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date and time</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>dryMatter</code></td>
+    <td><strong>Dry matter</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Dry matter</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>duration</code></td>
+    <td><strong>Duration</strong></td>
+    <td><code>integer</code></td>
+    <td>sec</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Duration of action/behaviour</td>
+    <td>Calculated by endTime - startTime<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>endTime</code></td>
+    <td><strong>End time</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>End time of action/behaviour</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>endWeight</code></td>
+    <td><strong>End Weight</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>End weight</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>energy</code></td>
+    <td><strong>Energy</strong></td>
+    <td><code>string</code></td>
+    <td>VEM</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Energy content</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>fat</code></td>
+    <td><strong>Fat</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Fat content</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>feedType</code></td>
+    <td><strong>Feed type</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Type of feed</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>intake</code></td>
+    <td><strong>Intake</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Feed intake</td>
+    <td>Calculated by endWeight - startWeight<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>protein</code></td>
+    <td><strong>Protein</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Protein content</td>
+    <td>Dry matter energy, protein, crude fiber and fat always 0 in this table?</td>
+</tr>
+<tr>
+    <td><code>startTime</code></td>
+    <td><strong>Start time</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Start time of action/behaviour</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>startWeight</code></td>
+    <td><strong>Start weight</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Start weight</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>station</code></td>
+    <td><strong>Station</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Station or location of activity</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>transponder</code></td>
+    <td><strong>Transponder</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Transponder number of the cow</td>
+    <td>Direct measurement</td>
+</tr>
+</tbody></table>
+<h2 id="TVL_RIC_intake_dm">TVL_RIC_intake_dm</h2>
+<p><strong>Primary Source Table:</strong> <code>TVL_totaal_hokofarm_ds</code> | <strong>Variables:</strong> 12</p>
+<table>
+<thead>
+<tr>
+    <th style="width: 15%;">Column Name</th>
+    <th style="width: 18%;">English Label</th>
+    <th style="width: 8%;">Type</th>
+    <th style="width: 8%;">Unit</th>
+    <th style="width: 10%;">Method</th>
+    <th style="width: 25%;">English Description</th>
+    <th style="width: 16%;">Calculation / Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><code>cow</code></td>
+    <td><strong>Cow</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>date</code></td>
+    <td><strong>Date</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date of the data record</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>dsPct</code></td>
+    <td><strong>dry matter percentage</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Percentage of dry matter in the feed</td>
+    <td>?<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>feedtype</code></td>
+    <td><strong>feedtype</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Type of feed</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>name</code></td>
+    <td><strong>Name</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Name collected based on other value</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>opnDsVR</code></td>
+    <td><strong>Intake dry matter Roughage RIC</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Intake of dry matter from roughage RIC</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>opnIncWater</code></td>
+    <td><strong>Intake including water</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Feed intake including water</td>
+    <td>?<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>opnMinWater</code></td>
+    <td><strong>Intake subtracting water</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Feed intake excluding water</td>
+    <td>?<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>opnProd</code></td>
+    <td><strong>Intake product</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Total intake of product</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>ricBez</code></td>
+    <td><strong>Ric visits</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number of visits to RIC</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>RowID</code></td>
+    <td><strong>Row ID</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Unique number for row in a specific table.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>trBatches</code></td>
+    <td><strong>Tioliet batches</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number of times the triolith has released feed.</td>
+    <td>Direct measurement</td>
+</tr>
+</tbody></table>
+<h2 id="Triomatic_RIC_load">Triomatic_RIC_load</h2>
+<p><strong>Primary Source Table:</strong> <code>t_raw_trioliet</code> | <strong>Variables:</strong> 46</p>
+<table>
+<thead>
+<tr>
+    <th style="width: 15%;">Column Name</th>
+    <th style="width: 18%;">English Label</th>
+    <th style="width: 8%;">Type</th>
+    <th style="width: 8%;">Unit</th>
+    <th style="width: 10%;">Method</th>
+    <th style="width: 25%;">English Description</th>
+    <th style="width: 16%;">Calculation / Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><code>AnimalCount</code></td>
+    <td><strong>Animal count</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>The number of animals</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Date</code></td>
+    <td><strong>Date</strong></td>
+    <td><code>datetime</code></td>
+    <td>yy-mm-dd-hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Extra</code></td>
+    <td><strong>Extra</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Extra information</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>FeedingGroup</code></td>
+    <td><strong>Feeding group</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Log source 0 = 1, log source 1 = NULL betekenis Feeding group?</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>filename</code></td>
+    <td><strong>Filename</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Name of the file containing information</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>FinishedReady</code></td>
+    <td><strong>Finished ready</strong></td>
+    <td><code>string</code></td>
+    <td>?</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>NULL?</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>GroupID</code></td>
+    <td><strong>Group ID</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Id of the group</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>GroupName</code></td>
+    <td><strong>Group name</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Name of the group</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Id</code></td>
+    <td><strong>ID</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>ID</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>IngredientName</code></td>
+    <td><strong>Ingredient name</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Name of the ingredient</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>k42</code></td>
+    <td><strong>k42</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Validation record for data processing</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>LogSource</code></td>
+    <td><strong>Log source</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>0 meaning feed preparation, and 1 the distribution of feed to RIC bins</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>NettoLoadedWeight</code></td>
+    <td><strong>Netto loaded weight</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Netto weight loaded</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>NrOfSplittings</code></td>
+    <td><strong>Number of splittings</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number of splittings</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>NumberRecipeLines</code></td>
+    <td><strong>Number of recipe lines</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Total number of recipe lines</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>OpdrachtID</code></td>
+    <td><strong>Job ID</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Job ID</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>PerformedFeedFactor</code></td>
+    <td><strong>Performed feed factor</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Performed feed factor</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>PerformedProductDryWeightKgAfterDrop</code></td>
+    <td><strong>Kg dry weight after drop</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Kg dry weight after drop</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>PerformedProductDryWeightPartAfterDrop</code></td>
+    <td><strong>Part of dry weight after drop</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Part of dry weight after drop</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>PerformedProductError</code></td>
+    <td><strong>Performed product error</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Error, difference between Scheduled kg and performed kg feed</td>
+    <td>?</td>
+</tr>
+<tr>
+    <td><code>PerformedProductKgAfterDrop</code></td>
+    <td><strong>Kg product after drop</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Kg product after drop</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>PerformedProductKgAtStop</code></td>
+    <td><strong>Kg product at stop</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Kg product at stop</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>PerformedTime</code></td>
+    <td><strong>Performed time</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Performed time</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>PushingGroup</code></td>
+    <td><strong>Pushing group</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Pushing group</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Ready</code></td>
+    <td><strong>Ready</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Ready</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>ReadyTime</code></td>
+    <td><strong>Ready time</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Ready time, if log source 1</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>ReceptLineNr</code></td>
+    <td><strong>Recept line number</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Current number of recipe line</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>ReceptName</code></td>
+    <td><strong>Recipe name</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Name of the feed recipe</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>ScheduledDryWeightContent</code></td>
+    <td><strong>Scheduled dry weight content</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Scheduled dry weight content</td>
+    <td>?</td>
+</tr>
+<tr>
+    <td><code>ScheduledDryWeightContentPart</code></td>
+    <td><strong>Scheduled dry weight content part</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Scheduled dry weight content part</td>
+    <td>?</td>
+</tr>
+<tr>
+    <td><code>ScheduledDryWeightKg</code></td>
+    <td><strong>Scheduled dry weight kg</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Scheduled dry weight kg</td>
+    <td>?</td>
+</tr>
+<tr>
+    <td><code>ScheduledFeedFactor</code></td>
+    <td><strong>Scheduled feed factor</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Scheduled feed factor</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>ScheduledPart</code></td>
+    <td><strong>Scheduled part</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Scheduled part</td>
+    <td>?</td>
+</tr>
+<tr>
+    <td><code>ScheduledProductKg</code></td>
+    <td><strong>Scheduled product kg</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Scheduled product kg</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>ScheduledTime</code></td>
+    <td><strong>Scheduled time</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Scheduled time, if log source 1</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>SplittedNr</code></td>
+    <td><strong>Splitted number</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Splitted number, only 1</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>StartPosition</code></td>
+    <td><strong>Start position</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Start position, if subgroup not 0</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>StartTime</code></td>
+    <td><strong>Start time</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Start time, if subgroup not 0</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>StartWeight</code></td>
+    <td><strong>Start weight</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Start weight, if subgroup not 0</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>StopPosition</code></td>
+    <td><strong>Stop position</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Stop position, if subgroup not 0</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>StopTime</code></td>
+    <td><strong>Stop time</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Stop time, if subgroup not 0</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>StopWeight</code></td>
+    <td><strong>Stop weight</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Stop weight, if subgroup not 0</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>StrawGroup</code></td>
+    <td><strong>Straw group</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Straw group</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>SubGroupNr</code></td>
+    <td><strong>Subgroup number</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number of the subgroup, 0 no subgroup</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>TakeoffTime</code></td>
+    <td><strong>Take off time</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Take off time, if log source 1</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>TrackSection</code></td>
+    <td><strong>Track section</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Track section, if subgroup 1 if there is no subgroup 0</td>
+    <td>Direct measurement</td>
+</tr>
+</tbody></table>
+<h2 id="Triomatic_RIC_drop">Triomatic_RIC_drop</h2>
+<p><strong>Primary Source Table:</strong> <code>t_raw_trioliet</code> | <strong>Variables:</strong> 46</p>
+<table>
+<thead>
+<tr>
+    <th style="width: 15%;">Column Name</th>
+    <th style="width: 18%;">English Label</th>
+    <th style="width: 8%;">Type</th>
+    <th style="width: 8%;">Unit</th>
+    <th style="width: 10%;">Method</th>
+    <th style="width: 25%;">English Description</th>
+    <th style="width: 16%;">Calculation / Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><code>AnimalCount</code></td>
+    <td><strong>Animal count</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>The number of animals</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Date</code></td>
+    <td><strong>Date</strong></td>
+    <td><code>datetime</code></td>
+    <td>yy-mm-dd-hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Extra</code></td>
+    <td><strong>Extra</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Extra information</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>FeedingGroup</code></td>
+    <td><strong>Feeding group</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Log source 0 = 1, log source 1 = NULL betekenis Feeding group?</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>filename</code></td>
+    <td><strong>Filename</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Name of the file containing information</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>FinishedReady</code></td>
+    <td><strong>Finished ready</strong></td>
+    <td><code>string</code></td>
+    <td>?</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>NULL?</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>GroupID</code></td>
+    <td><strong>Group ID</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Id of the group</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>GroupName</code></td>
+    <td><strong>Group name</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Name of the group</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Id</code></td>
+    <td><strong>ID</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>ID</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>IngredientName</code></td>
+    <td><strong>Ingredient name</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Name of the ingredient</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>k42</code></td>
+    <td><strong>k42</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Validation record for data processing</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>LogSource</code></td>
+    <td><strong>Log source</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>0 meaning feed preparation, and 1 the distribution of feed to RIC bins</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>NettoLoadedWeight</code></td>
+    <td><strong>Netto loaded weight</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Netto weight loaded</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>NrOfSplittings</code></td>
+    <td><strong>Number of splittings</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number of splittings</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>NumberRecipeLines</code></td>
+    <td><strong>Number of recipe lines</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Total number of recipe lines</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>OpdrachtID</code></td>
+    <td><strong>Job ID</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Job ID</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>PerformedFeedFactor</code></td>
+    <td><strong>Performed feed factor</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Performed feed factor</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>PerformedProductDryWeightKgAfterDrop</code></td>
+    <td><strong>Kg dry weight after drop</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Kg dry weight after drop</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>PerformedProductDryWeightPartAfterDrop</code></td>
+    <td><strong>Part of dry weight after drop</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Part of dry weight after drop</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>PerformedProductError</code></td>
+    <td><strong>Performed product error</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Error, difference between Scheduled kg and performed kg feed</td>
+    <td>?</td>
+</tr>
+<tr>
+    <td><code>PerformedProductKgAfterDrop</code></td>
+    <td><strong>Kg product after drop</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Kg product after drop</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>PerformedProductKgAtStop</code></td>
+    <td><strong>Kg product at stop</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Kg product at stop</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>PerformedTime</code></td>
+    <td><strong>Performed time</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Performed time</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>PushingGroup</code></td>
+    <td><strong>Pushing group</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Pushing group</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Ready</code></td>
+    <td><strong>Ready</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Ready</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>ReadyTime</code></td>
+    <td><strong>Ready time</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Ready time, if log source 1</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>ReceptLineNr</code></td>
+    <td><strong>Recept line number</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Current number of recipe line</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>ReceptName</code></td>
+    <td><strong>Recipe name</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Name of the feed recipe</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>ScheduledDryWeightContent</code></td>
+    <td><strong>Scheduled dry weight content</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Scheduled dry weight content</td>
+    <td>?</td>
+</tr>
+<tr>
+    <td><code>ScheduledDryWeightContentPart</code></td>
+    <td><strong>Scheduled dry weight content part</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Scheduled dry weight content part</td>
+    <td>?</td>
+</tr>
+<tr>
+    <td><code>ScheduledDryWeightKg</code></td>
+    <td><strong>Scheduled dry weight kg</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Scheduled dry weight kg</td>
+    <td>?</td>
+</tr>
+<tr>
+    <td><code>ScheduledFeedFactor</code></td>
+    <td><strong>Scheduled feed factor</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Scheduled feed factor</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>ScheduledPart</code></td>
+    <td><strong>Scheduled part</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Scheduled part</td>
+    <td>?</td>
+</tr>
+<tr>
+    <td><code>ScheduledProductKg</code></td>
+    <td><strong>Scheduled product kg</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Scheduled product kg</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>ScheduledTime</code></td>
+    <td><strong>Scheduled time</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Scheduled time, if log source 1</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>SplittedNr</code></td>
+    <td><strong>Splitted number</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Splitted number, only 1</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>StartPosition</code></td>
+    <td><strong>Start position</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Start position, if subgroup not 0</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>StartTime</code></td>
+    <td><strong>Start time</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Start time, if subgroup not 0</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>StartWeight</code></td>
+    <td><strong>Start weight</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Start weight, if subgroup not 0</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>StopPosition</code></td>
+    <td><strong>Stop position</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Stop position, if subgroup not 0</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>StopTime</code></td>
+    <td><strong>Stop time</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Stop time, if subgroup not 0</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>StopWeight</code></td>
+    <td><strong>Stop weight</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Stop weight, if subgroup not 0</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>StrawGroup</code></td>
+    <td><strong>Straw group</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Straw group</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>SubGroupNr</code></td>
+    <td><strong>Subgroup number</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number of the subgroup, 0 no subgroup</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>TakeoffTime</code></td>
+    <td><strong>Take off time</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Take off time, if log source 1</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>TrackSection</code></td>
+    <td><strong>Track section</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Track section, if subgroup 1 if there is no subgroup 0</td>
+    <td>Direct measurement</td>
+</tr>
+</tbody></table>
+<h2 id="GEA_gates">GEA_gates</h2>
+<p><strong>Primary Source Table:</strong> <code>T_RAW_Gea_Separatie</code> | <strong>Variables:</strong> 5</p>
+<table>
+<thead>
+<tr>
+    <th style="width: 15%;">Column Name</th>
+    <th style="width: 18%;">English Label</th>
+    <th style="width: 8%;">Type</th>
+    <th style="width: 8%;">Unit</th>
+    <th style="width: 10%;">Method</th>
+    <th style="width: 25%;">English Description</th>
+    <th style="width: 16%;">Calculation / Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><code>cow</code></td>
+    <td><strong>Cow</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>date</code></td>
+    <td><strong>Date</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date of the data record</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>event</code></td>
+    <td><strong>Event</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>0 = No gate action or weighting, 1 = selection gate A, 2 = selection gate B</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>gate</code></td>
+    <td><strong>Gate</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number of the gate</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>message</code></td>
+    <td><strong>Message</strong></td>
+    <td><code>string</code></td>
+    <td>tekst</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>ID and info gate action, weighting or selection has or has not taken place</td>
+    <td>Direct measurement</td>
+</tr>
+</tbody></table>
+<h2 id="GEA_milkings">GEA_milkings</h2>
+<p><strong>Primary Source Table:</strong> <code>T_RAW_Gea_milk</code> | <strong>Variables:</strong> 13</p>
+<table>
+<thead>
+<tr>
+    <th style="width: 15%;">Column Name</th>
+    <th style="width: 18%;">English Label</th>
+    <th style="width: 8%;">Type</th>
+    <th style="width: 8%;">Unit</th>
+    <th style="width: 10%;">Method</th>
+    <th style="width: 25%;">English Description</th>
+    <th style="width: 16%;">Calculation / Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><code>Cow</code></td>
+    <td><strong>Cow</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>IMDat</code></td>
+    <td><strong>Gea Date and time</strong></td>
+    <td><code>datetime</code></td>
+    <td>yy-mm-dd-hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>GEA, Date and time milking</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Reg1</code></td>
+    <td><strong>Registration number</strong></td>
+    <td><code>integer</code></td>
+    <td>text + number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>National registration number of the animal.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>RespISO</code></td>
+    <td><strong>Responder number</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number of the cows responder</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Name</code></td>
+    <td><strong>Name</strong></td>
+    <td><code>string</code></td>
+    <td>N/A</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number in GEA, should be same as cow</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>IMTim</code></td>
+    <td><strong>Gea time</strong></td>
+    <td><code>string</code></td>
+    <td>N/A</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Time?</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>IMWt</code></td>
+    <td><strong>Cow Weight at Milking</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Live animal body weight measured by the integrated scale inside the GEA milking stall or exit platform.</td>
+    <td>Directly recorded by GEA milking scale sensor.<br><small style='color:#586069;'>Source: T_RAW_Gea_milk</small></td>
+</tr>
+<tr>
+    <td><code>IMFlg</code></td>
+    <td><strong>Milking Status Flag</strong></td>
+    <td><code>string</code></td>
+    <td>code</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Status/diagnostic flag from GEA milking robot/parlor indicating normal completion, kick-off, or incomplete milking.</td>
+    <td>Status code recorded by GEA system.<br><small style='color:#586069;'>Source: T_RAW_Gea_milk</small></td>
+</tr>
+<tr>
+    <td><code>IMDim</code></td>
+    <td><strong>Days in Milk</strong></td>
+    <td><code>integer</code></td>
+    <td>days</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Days in Milk (DIM) recorded in GEA at the time of the milking event.</td>
+    <td>Milking date minus most recent calving date.<br><small style='color:#586069;'>Source: T_RAW_Gea_milk</small></td>
+</tr>
+<tr>
+    <td><code>IMAvFlo</code></td>
+    <td><strong>Avarage milkflow</strong></td>
+    <td><code>string</code></td>
+    <td>N/A</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Average milkflow?</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>IMMxFlow</code></td>
+    <td><strong>Max. milkflow</strong></td>
+    <td><code>string</code></td>
+    <td>N/A</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Max. milkflowAlleen '||||' als waarde???</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>IMStall</code></td>
+    <td><strong>Gea barn</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Place in the Gea milking carousel 1-40</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>IMStartSec</code></td>
+    <td><strong>Gea start sec</strong></td>
+    <td><code>string</code></td>
+    <td>N/A</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Alleen '?????' als waarde???</td>
+    <td>Direct measurement</td>
+</tr>
+</tbody></table>
+<h2 id="TMR_Trioliet_cowconnect_mix">TMR_Trioliet_cowconnect_mix</h2>
+<p><strong>Primary Source Table:</strong> <code>t_raw_cowconnect_mix</code> | <strong>Variables:</strong> 12</p>
+<table>
+<thead>
+<tr>
+    <th style="width: 15%;">Column Name</th>
+    <th style="width: 18%;">English Label</th>
+    <th style="width: 8%;">Type</th>
+    <th style="width: 8%;">Unit</th>
+    <th style="width: 10%;">Method</th>
+    <th style="width: 25%;">English Description</th>
+    <th style="width: 16%;">Calculation / Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><code>date</code></td>
+    <td><strong>Date</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date of the data record</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>externalFeedplanID</code></td>
+    <td><strong>External feedpland ID</strong></td>
+    <td><code>string</code></td>
+    <td>?</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>All NULL</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>feedplanId</code></td>
+    <td><strong>Feedplan ID</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Id of the feedplan</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>feedplanName</code></td>
+    <td><strong>Feedplan name</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Name of the feedplan</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>id</code></td>
+    <td><strong>ID</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>ID</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>isOpen</code></td>
+    <td><strong>Is Open</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>1 or 0 process running or not.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>loadedSum</code></td>
+    <td><strong>Loaded som</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total / sum of all loads</td>
+    <td>?</td>
+</tr>
+<tr>
+    <td><code>mixDate</code></td>
+    <td><strong>Mix date</strong></td>
+    <td><code>datetime</code></td>
+    <td>yy-mm-dd-hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date and time</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>mixLoaderId</code></td>
+    <td><strong>Mix loader ID</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>ID of the mix loader</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>mixLoaderName</code></td>
+    <td><strong>Mix loader name</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Name of the mix loader</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>rationId</code></td>
+    <td><strong>Ration ID</strong></td>
+    <td><code>string</code></td>
+    <td>?</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>All NULL</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>type</code></td>
+    <td><strong>Type</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Type</td>
+    <td>Direct measurement</td>
+</tr>
+</tbody></table>
+<h2 id="Velos_behaviour">Velos_behaviour</h2>
+<p><strong>Primary Source Table:</strong> <code>T_RAW_velos_behaviour</code> | <strong>Variables:</strong> 4</p>
+<table>
+<thead>
+<tr>
+    <th style="width: 15%;">Column Name</th>
+    <th style="width: 18%;">English Label</th>
+    <th style="width: 8%;">Type</th>
+    <th style="width: 8%;">Unit</th>
+    <th style="width: 10%;">Method</th>
+    <th style="width: 25%;">English Description</th>
+    <th style="width: 16%;">Calculation / Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><code>date</code></td>
+    <td><strong>Date</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date of the data record, UTC timezone</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>cow</code></td>
+    <td><strong>Cow</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>type</code></td>
+    <td><strong>Type</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Type of behaviour 1 - 3</td>
+    <td>0, overig actief. 1, niet actief. 2, herkouwen. 3, vreten.</td>
+</tr>
+<tr>
+    <td><code>duration</code></td>
+    <td><strong>Duration</strong></td>
+    <td><code>integer</code></td>
+    <td>sec</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Duration of action/behaviour</td>
+    <td>Calculated by endTime - startTime<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+</tbody></table>
+<h2 id="Velos_behaviour_day">Velos_behaviour_day</h2>
+<p><strong>Primary Source Table:</strong> <code>T_RAW_velos_behaviour</code> | <strong>Variables:</strong> 7</p>
+<table>
+<thead>
+<tr>
+    <th style="width: 15%;">Column Name</th>
+    <th style="width: 18%;">English Label</th>
+    <th style="width: 8%;">Type</th>
+    <th style="width: 8%;">Unit</th>
+    <th style="width: 10%;">Method</th>
+    <th style="width: 25%;">English Description</th>
+    <th style="width: 16%;">Calculation / Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><code>date</code></td>
+    <td><strong>Date</strong></td>
+    <td><code>date</code></td>
+    <td>yyyy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date of the data record, UTC timezone</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>cow</code></td>
+    <td><strong>Cow</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>total</code></td>
+    <td><strong>Total</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total time recorded of the animal 1 day</td>
+    <td>Sum duration of all types<br><small style='color:#586069;'>Source: T_RAW_velos_behaviour</small></td>
+</tr>
+<tr>
+    <td><code>overig</code></td>
+    <td><strong>Other</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Time the cow is actief but not eating or ruminating</td>
+    <td>Sum duration of type 0<br><small style='color:#586069;'>Source: T_RAW_velos_behaviour</small></td>
+</tr>
+<tr>
+    <td><code>nietactief</code></td>
+    <td><strong>Inactive</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Time the cow is inactief</td>
+    <td>Sum duration of type 1<br><small style='color:#586069;'>Source: T_RAW_velos_behaviour</small></td>
+</tr>
+<tr>
+    <td><code>herkouwen</code></td>
+    <td><strong>Ruminating</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Time the cow spent ruminating</td>
+    <td>Sum duration of type 2<br><small style='color:#586069;'>Source: T_RAW_velos_behaviour</small></td>
+</tr>
+<tr>
+    <td><code>vreten</code></td>
+    <td><strong>Eating</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Time the cow spent eating</td>
+    <td>Sum duration of type 3<br><small style='color:#586069;'>Source: T_RAW_velos_behaviour</small></td>
+</tr>
+</tbody></table>
+<h2 id="TMR_Trioliet_cowconnect_drop">TMR_Trioliet_cowconnect_drop</h2>
+<p><strong>Primary Source Table:</strong> <code>t_raw_cowconnect_drop</code> | <strong>Variables:</strong> 11</p>
+<table>
+<thead>
+<tr>
+    <th style="width: 15%;">Column Name</th>
+    <th style="width: 18%;">English Label</th>
+    <th style="width: 8%;">Type</th>
+    <th style="width: 8%;">Unit</th>
+    <th style="width: 10%;">Method</th>
+    <th style="width: 25%;">English Description</th>
+    <th style="width: 16%;">Calculation / Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><code>id</code></td>
+    <td><strong>ID</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>ID</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>externalMixTaskId</code></td>
+    <td><strong>External mix task ID</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>External mix task ID</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>quantity</code></td>
+    <td><strong>Quantity</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Quantity</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>leftOverQuantity</code></td>
+    <td><strong>Left over quantity</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Quantity left over</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>noOfAnimals</code></td>
+    <td><strong>Number of animals</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number of animals</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>feedSectionName</code></td>
+    <td><strong>Feed section name</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Name of the feed section</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>feedsectionType</code></td>
+    <td><strong>feed section type</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Feedsection type</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>externalFeedSectionId</code></td>
+    <td><strong>External feed sectiond ID</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>External Feed section ID if the feed section has an external ID</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>externalMixTask</code></td>
+    <td><strong>External mix task</strong></td>
+    <td><code>string</code></td>
+    <td>N/A</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>nan</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>mix_id</code></td>
+    <td><strong>Mix ID</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Mix ID and external mix task id are foreign keys of the ID (primairy key)</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>type</code></td>
+    <td><strong>Type</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Type</td>
+    <td>Direct measurement</td>
+</tr>
+</tbody></table>
+<h2 id="DC_DM_content">DC_DM_content</h2>
+<p><strong>Primary Source Table:</strong> <code>VL_totaal_droogstoof</code> | <strong>Variables:</strong> 16</p>
+<table>
+<thead>
+<tr>
+    <th style="width: 15%;">Column Name</th>
+    <th style="width: 18%;">English Label</th>
+    <th style="width: 8%;">Type</th>
+    <th style="width: 8%;">Unit</th>
+    <th style="width: 10%;">Method</th>
+    <th style="width: 25%;">English Description</th>
+    <th style="width: 16%;">Calculation / Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><code>BlkDat</code></td>
+    <td><strong>Can date</strong></td>
+    <td><code>datetime</code></td>
+    <td>yy-mm-dd-hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date the can was weighed</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>BlkGew</code></td>
+    <td><strong>Can weight</strong></td>
+    <td><code>number</code></td>
+    <td>gram</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weight of the can</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>BlkNum</code></td>
+    <td><strong>Can number</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number of the can</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>DatMon</code></td>
+    <td><strong>Sample date</strong></td>
+    <td><code>datetime</code></td>
+    <td>yy-mm-dd-hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date the sample was obtained</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>DatSes</code></td>
+    <td><strong>Date session</strong></td>
+    <td><code>datetime</code></td>
+    <td>yy-mm-dd-hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date of weigh session</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>DrgDat</code></td>
+    <td><strong>Dried date</strong></td>
+    <td><code>datetime</code></td>
+    <td>yy-mm-dd-hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date end of the analysis</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>DrgGew</code></td>
+    <td><strong>Dried weight</strong></td>
+    <td><code>number</code></td>
+    <td>gram</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Dried sample weight, with or without weight of the can?</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>DrgStfGkg</code></td>
+    <td><strong>Dry matter weight kg</strong></td>
+    <td><code>number</code></td>
+    <td>gram</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weight of the dry matter</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>DrgTyd</code></td>
+    <td><strong>dry time</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Time end of the analysis when all moisture has evaporated</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>ObjCod</code></td>
+    <td><strong>Object code</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Short description/code of the sample</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>ObjCodNum</code></td>
+    <td><strong>Object code number</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Used when analyzing duplicate or triplicate samples</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>PrjCod</code></td>
+    <td><strong>Project code</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Project code</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>VlgNum</code></td>
+    <td><strong>Tracking number</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Tracking number</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>VrsDat</code></td>
+    <td><strong>fresh date</strong></td>
+    <td><code>datetime</code></td>
+    <td>yy-mm-dd-hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date start of the analysis</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>VrsGew</code></td>
+    <td><strong>fresh weight</strong></td>
+    <td><code>number</code></td>
+    <td>gram</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weight at the start of the analysis</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>VrsTyd</code></td>
+    <td><strong>fresh time</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Time start of the analysis, fresh sample is weighed</td>
+    <td>Direct measurement</td>
+</tr>
+</tbody></table>
+<h2 id="Greenfeed_summarized_data">Greenfeed_summarized_data</h2>
+<p><strong>Primary Source Table:</strong> <code>T_RAW_Greenfeed_Summarized_Data</code> | <strong>Variables:</strong> 24</p>
+<table>
+<thead>
+<tr>
+    <th style="width: 15%;">Column Name</th>
+    <th style="width: 18%;">English Label</th>
+    <th style="width: 8%;">Type</th>
+    <th style="width: 8%;">Unit</th>
+    <th style="width: 10%;">Method</th>
+    <th style="width: 25%;">English Description</th>
+    <th style="width: 16%;">Calculation / Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><code>AirflowCf</code></td>
+    <td><strong>Airflow correction factor</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Airflow correction factor</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>AirflowLitersPerSec</code></td>
+    <td><strong>Airflow liters per second</strong></td>
+    <td><code>integer</code></td>
+    <td>Liter/sec</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Airflow liters per second</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>AnimalName</code></td>
+    <td><strong>Animal name</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Animal name</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>CH4GramsPerDay</code></td>
+    <td><strong>CH4 grams per day</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>CH4 grams per day, methane</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>CO2GramsPerDay</code></td>
+    <td><strong>CO2 grams per day</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>CO2 grams per day, carbon dioxide</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>cow</code></td>
+    <td><strong>Cow</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>date</code></td>
+    <td><strong>Date</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date of the data record</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>EndTime</code></td>
+    <td><strong>End time</strong></td>
+    <td><code>number</code></td>
+    <td>yy-mm-dd-hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>End time</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>GoodDataDuration</code></td>
+    <td><strong>Good data duration</strong></td>
+    <td><code>datetime</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Good data duration</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>greenfeed</code></td>
+    <td><strong>Greenfeed</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Greenfeed</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>H2GramsPerDay</code></td>
+    <td><strong>H2 grams per day</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>H2 grams per day, hydrogen</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>H2SGramsPerDay</code></td>
+    <td><strong>H2S grams per day</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>H2S grams per day, hydrogen sulfide</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>InterruptingTags</code></td>
+    <td><strong>Interrupting tags</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Interrupting tags</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>IsPreliminary</code></td>
+    <td><strong>Is preliminary</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Is preliminary data, validated data comes directly from C-lock.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>O2GramsPerDay</code></td>
+    <td><strong>O2 grams per day</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>O2 grams per day, oxygen</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>RFID</code></td>
+    <td><strong>Rfid</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Rfid</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>RunTime</code></td>
+    <td><strong>Run time</strong></td>
+    <td><code>number</code></td>
+    <td>yy-mm-dd-hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Run time</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>StartTime</code></td>
+    <td><strong>Start time</strong></td>
+    <td><code>number</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Start time, if subgroup not 0</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>TempPipeDegreesCelsius</code></td>
+    <td><strong>Temperature pipe degrees celsius</strong></td>
+    <td><code>number</code></td>
+    <td>°C</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Temperature pipe degrees celsius</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>user</code></td>
+    <td><strong>User</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>User</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>WasInterrupted</code></td>
+    <td><strong>Was interrupted</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Was interrupted</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>WindCf</code></td>
+    <td><strong>Wind correction factor</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Wind correction factor</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>WindDirDeg</code></td>
+    <td><strong>Wind direction degrees</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Wind direction degrees</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>WindSpeedMetersPerSec</code></td>
+    <td><strong>Wind speed meters per second</strong></td>
+    <td><code>integer</code></td>
+    <td>meter/sec</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Wind speed meters per second</td>
+    <td>Direct measurement</td>
+</tr>
+</tbody></table>
+<h2 id="Greenfeed_feed_aggregrated">Greenfeed_feed_aggregrated</h2>
+<p><strong>Primary Source Table:</strong> <code>T_RAW_Greenfeed_Feed_data</code> | <strong>Variables:</strong> 13</p>
+<table>
+<thead>
+<tr>
+    <th style="width: 15%;">Column Name</th>
+    <th style="width: 18%;">English Label</th>
+    <th style="width: 8%;">Type</th>
+    <th style="width: 8%;">Unit</th>
+    <th style="width: 10%;">Method</th>
+    <th style="width: 25%;">English Description</th>
+    <th style="width: 16%;">Calculation / Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><code>cow</code></td>
+    <td><strong>Cow</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>CurrentCup</code></td>
+    <td><strong>Current cup</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Current cup</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>CurrentPeriod</code></td>
+    <td><strong>Current period</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Current period</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>date</code></td>
+    <td><strong>Date</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date of the data record</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>DateTime</code></td>
+    <td><strong>Date and time</strong></td>
+    <td><code>datetime</code></td>
+    <td>yyyy-mm-dd hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date and time</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>DropInterval</code></td>
+    <td><strong>Drop interval</strong></td>
+    <td><code>integer</code></td>
+    <td>sec</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Min. sec between current en new cup</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>FeedType</code></td>
+    <td><strong>Feed type</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Feed type</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>greenfeed</code></td>
+    <td><strong>Greenfeed</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Greenfeed</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>MaxCups</code></td>
+    <td><strong>Maximum cups</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Max. cups per period</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>MaxPeriods</code></td>
+    <td><strong>Maximum periods</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Max. periods per day</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>PeriodInterval</code></td>
+    <td><strong>Period interval</strong></td>
+    <td><code>integer</code></td>
+    <td>sec</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Min. Sec between current en next period</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>RFIDTag</code></td>
+    <td><strong>Rfid tag</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Rfid tag</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>user</code></td>
+    <td><strong>User</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>User</td>
+    <td>Direct measurement</td>
+</tr>
+</tbody></table>
+<h2 id="Weatherstation">Weatherstation</h2>
+<p><strong>Primary Source Table:</strong> <code>T_RAW_weerstation</code> | <strong>Variables:</strong> 18</p>
+<table>
+<thead>
+<tr>
+    <th style="width: 15%;">Column Name</th>
+    <th style="width: 18%;">English Label</th>
+    <th style="width: 8%;">Type</th>
+    <th style="width: 8%;">Unit</th>
+    <th style="width: 10%;">Method</th>
+    <th style="width: 25%;">English Description</th>
+    <th style="width: 16%;">Calculation / Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><code>dewpoint</code></td>
+    <td><strong>Dewpoint</strong></td>
+    <td><code>number</code></td>
+    <td>°C</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Dew point is the temperature to which air must be cooled to become saturated with water vapor</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>global_radiation</code></td>
+    <td><strong>Global radiation</strong></td>
+    <td><code>string</code></td>
+    <td>Watt/m2</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>The sum of the diffuse and direct solar radiation is called global solar radiation.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>gust</code></td>
+    <td><strong>Wind gust</strong></td>
+    <td><code>integer</code></td>
+    <td>Beaufort, over 10 minuten (meter/sec)?</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>A sudden, brief increase in speed of the wind</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>gust_direction</code></td>
+    <td><strong>Wind gust direction</strong></td>
+    <td><code>string</code></td>
+    <td>° Degree</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Direction from which the wind gust blows</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>humidity_150</code></td>
+    <td><strong>Humidity</strong></td>
+    <td><code>number</code></td>
+    <td>%</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>The concentration of water vapor present in the air</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>latitude</code></td>
+    <td><strong>Latitude</strong></td>
+    <td><code>string</code></td>
+    <td>° Degree</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Coordinate that specifies the north–south position</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>longitude</code></td>
+    <td><strong>Longitude</strong></td>
+    <td><code>string</code></td>
+    <td>° Degree</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Coordinate that specifies the east–west position</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>precipitation</code></td>
+    <td><strong>Precipitation</strong></td>
+    <td><code>string</code></td>
+    <td>Millimeters</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Any product of the condensation of atmospheric water vapor that falls from clouds</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>rain_chance</code></td>
+    <td><strong>Rain chance</strong></td>
+    <td><code>number</code></td>
+    <td>%</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Chance of precipitation</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>station_name</code></td>
+    <td><strong>Station name</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Station name</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>symbol_number</code></td>
+    <td><strong>Symbol number</strong></td>
+    <td><code>string</code></td>
+    <td>?</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Symbol number</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>temperature_10</code></td>
+    <td><strong>Temperature 10</strong></td>
+    <td><code>number</code></td>
+    <td>°C</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Temperature 10 cm above ground level.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>temperature_150</code></td>
+    <td><strong>Temperature 150</strong></td>
+    <td><code>number</code></td>
+    <td>°C</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Temperature 150 cm above ground level.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>timestamp</code></td>
+    <td><strong>Timestamp</strong></td>
+    <td><code>datetime</code></td>
+    <td>yy-mm-dd-hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Timestamp</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>wet_bulb_temperature</code></td>
+    <td><strong>Wet bulb temperature</strong></td>
+    <td><code>number</code></td>
+    <td>°C</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Thermometer with the bulb in somthing wet</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>wind_direction</code></td>
+    <td><strong>Wind direction</strong></td>
+    <td><code>string</code></td>
+    <td>° Degree</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Direction from which the wind blows</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>windchill</code></td>
+    <td><strong>Windchill</strong></td>
+    <td><code>number</code></td>
+    <td>°C</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>The cooling effect of wind blowing on a surface</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>windspeed</code></td>
+    <td><strong>Windspeed</strong></td>
+    <td><code>integer</code></td>
+    <td>Beaufort, over 10 minuten (meter/sec)?</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Rate at which wind/air is moving</td>
+    <td>Direct measurement</td>
+</tr>
+</tbody></table>
+<h2 id="Missing_data">Missing_data</h2>
+<p><strong>Primary Source Table:</strong> <code>tvl_totaal_missende_data_proef</code> | <strong>Variables:</strong> 17</p>
+<table>
+<thead>
+<tr>
+    <th style="width: 15%;">Column Name</th>
+    <th style="width: 18%;">English Label</th>
+    <th style="width: 8%;">Type</th>
+    <th style="width: 8%;">Unit</th>
+    <th style="width: 10%;">Method</th>
+    <th style="width: 25%;">English Description</th>
+    <th style="width: 16%;">Calculation / Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><code>bcs</code></td>
+    <td><strong>Body condition score</strong></td>
+    <td><code>boolean</code></td>
+    <td>Ja/Nee</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Automatic body condition score camera</td>
+    <td>number</td>
+</tr>
+<tr>
+    <td><code>behcod</code></td>
+    <td><strong>Treatment code</strong></td>
+    <td><code>string</code></td>
+    <td>Ja/Nee</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Treatment code</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>bijzonderheden</code></td>
+    <td><strong>Particularities</strong></td>
+    <td><code>boolean</code></td>
+    <td>Ja/Nee</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Particularities</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>date</code></td>
+    <td><strong>Date</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date of the data record</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>gewa</code></td>
+    <td><strong>Weight evening</strong></td>
+    <td><code>boolean</code></td>
+    <td>Ja/Nee</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weight evening</td>
+    <td>kg</td>
+</tr>
+<tr>
+    <td><code>gewgeaa</code></td>
+    <td><strong>Weight gea evening</strong></td>
+    <td><code>boolean</code></td>
+    <td>Ja/Nee</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weight gea evening</td>
+    <td>kg</td>
+</tr>
+<tr>
+    <td><code>gewgeao</code></td>
+    <td><strong>Weight gea morning</strong></td>
+    <td><code>boolean</code></td>
+    <td>Ja/Nee</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weight gea morning</td>
+    <td>kg</td>
+</tr>
+<tr>
+    <td><code>gewo</code></td>
+    <td><strong>Weight morning</strong></td>
+    <td><code>boolean</code></td>
+    <td>Ja/Nee</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weight morning</td>
+    <td>kg</td>
+</tr>
+<tr>
+    <td><code>hok</code></td>
+    <td><strong>Barn</strong></td>
+    <td><code>boolean</code></td>
+    <td>Ja/Nee</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Barn</td>
+    <td>number</td>
+</tr>
+<tr>
+    <td><code>kgmlka</code></td>
+    <td><strong>Kg milk evening</strong></td>
+    <td><code>boolean</code></td>
+    <td>Ja/Nee</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Kg milk evening</td>
+    <td>kg</td>
+</tr>
+<tr>
+    <td><code>kgmlko</code></td>
+    <td><strong>Kg milk morning</strong></td>
+    <td><code>boolean</code></td>
+    <td>Ja/Nee</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Kg milk morning</td>
+    <td>kg</td>
+</tr>
+<tr>
+    <td><code>oornum</code></td>
+    <td><strong>Ear number</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>opnkv</code></td>
+    <td><strong>Intake feed</strong></td>
+    <td><code>boolean</code></td>
+    <td>Ja/Nee</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Intake feed</td>
+    <td>kg</td>
+</tr>
+<tr>
+    <td><code>opnrv</code></td>
+    <td><strong>Intake roughage</strong></td>
+    <td><code>string</code></td>
+    <td>Ja/Nee</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Intake roughage</td>
+    <td>kg</td>
+</tr>
+<tr>
+    <td><code>prdsta</code></td>
+    <td><strong>Production stage</strong></td>
+    <td><code>boolean</code></td>
+    <td>Ja/Nee</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Identifying the stage of the cow, producing milk or not</td>
+    <td>short text</td>
+</tr>
+<tr>
+    <td><code>prfcod</code></td>
+    <td><strong>Trial code</strong></td>
+    <td><code>string</code></td>
+    <td>Ja/Nee</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Trial code</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>velos</code></td>
+    <td><strong>Velos</strong></td>
+    <td><code>boolean</code></td>
+    <td>Ja/Nee</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Velos cow behavior</td>
+    <td>Direct measurement</td>
+</tr>
+</tbody></table>
+<h2 id="Environment_barn_Animal_day">Environment_barn_Animal_day</h2>
+<p><strong>Primary Source Table:</strong> <code>TVL_Dier_Datum_Stal</code> | <strong>Variables:</strong> 52</p>
+<table>
+<thead>
+<tr>
+    <th style="width: 15%;">Column Name</th>
+    <th style="width: 18%;">English Label</th>
+    <th style="width: 8%;">Type</th>
+    <th style="width: 8%;">Unit</th>
+    <th style="width: 10%;">Method</th>
+    <th style="width: 25%;">English Description</th>
+    <th style="width: 16%;">Calculation / Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><code>AgeDAys</code></td>
+    <td><strong>Age</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Age of the animal in days</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>AnimalNumber</code></td>
+    <td><strong>Animal Number</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Unique animal server identifier issued across the different systems at Dairy Campus</td>
+    <td>Verschil met NumberAnimal?</td>
+</tr>
+<tr>
+    <td><code>AntGewA</code></td>
+    <td><strong>Weight afternoon</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weight of the animal after milking in the afternoon</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>AntGewO</code></td>
+    <td><strong>Weight morning</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weight of the animal after milking in the morning</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>BirthDate</code></td>
+    <td><strong>Date of birth</strong></td>
+    <td><code>date</code></td>
+    <td>yyyy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>The cows date of birth</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>DateMelkCon4Wk</code></td>
+    <td><strong>Date of 4-Weekly Milk Recording</strong></td>
+    <td><code>date</code></td>
+    <td>yyyy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date of the most recent official 4-weekly milk control / recording event (MPR).</td>
+    <td>Date of official test day sampling.<br><small style='color:#586069;'>Source: T_Animal_MilkSamples</small></td>
+</tr>
+<tr>
+    <td><code>DatGldTot</code></td>
+    <td><strong>Valid Until Date</strong></td>
+    <td><code>datetime</code></td>
+    <td>yyyy-mm-dd</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Date until which the current housing, lactation, or trial assignment status remains valid.</td>
+    <td>End validity date of status record.<br><small style='color:#586069;'>Source: TVL_Dier_Datum_Stal</small></td>
+</tr>
+<tr>
+    <td><code>DaysInLactation</code></td>
+    <td><strong>Days in lactation</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Amount of days producing milk</td>
+    <td>Date - calving date<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>DryDate</code></td>
+    <td><strong>Start date dry period</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Starting date of the dry period</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>EarNumber</code></td>
+    <td><strong>Ear number</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Eiw</code></td>
+    <td><strong>Protein concentration standard</strong></td>
+    <td><code>number</code></td>
+    <td>%</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Protein concentration of the monthly milk test</td>
+    <td>Calculated by whom or what or how?<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>EndDate</code></td>
+    <td><strong>Ending date experiment</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Expected end date of the experiment</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Ket</code></td>
+    <td><strong>Ketose concentration of the monthly milk test</strong></td>
+    <td><code>string</code></td>
+    <td>Calculated</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>number</td>
+    <td>Laboratory diagnostic score from milk recording analysis.<br><small style='color:#586069;'>Source: T_Animal_MilkSamples</small></td>
+</tr>
+<tr>
+    <td><code>ExpecCalvingDate</code></td>
+    <td><strong>Expected calving date</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Expected calving date based on insemination date</td>
+    <td>Calculated by ExpectedCalvingDate() function from last successful insemination.<br><small style='color:#586069;'>Source: t_animal_matings / ExpectedCalvingDate</small></td>
+</tr>
+<tr>
+    <td><code>Fat%</code></td>
+    <td><strong>Calculated day fat concentration</strong></td>
+    <td><code>number</code></td>
+    <td>%</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>An estimated daily milk fat concentration based on the AO sampling and the corresponding milk yield of that day.  x</td>
+    <td>Calculated by whom or what or how?<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>GewTot</code></td>
+    <td><strong>Weight totaal</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Average weight of the animal for the day.</td>
+    <td>Recorded by automated walkthrough weighing scale.<br><small style='color:#586069;'>Source: TVL_Dier_Gewicht_Etmaal</small></td>
+</tr>
+<tr>
+    <td><code>IDNumber</code></td>
+    <td><strong>ID nummer</strong></td>
+    <td><code>integer</code></td>
+    <td>National registration number of the animal.</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Registration number same as LevNum</td>
+    <td>Official national cattle ear tag number.<br><small style='color:#586069;'>Source: t_animals</small></td>
+</tr>
+<tr>
+    <td><code>InsiminationDate</code></td>
+    <td><strong>Insemination day</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date of last insemination</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Lac</code></td>
+    <td><strong>Lactose concentration standard</strong></td>
+    <td><code>number</code></td>
+    <td>%</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Lactose of the monthly milk test</td>
+    <td>Calculated by whom or what or how?<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>Lactose%</code></td>
+    <td><strong>Calculated day lactose concentration</strong></td>
+    <td><code>number</code></td>
+    <td>%</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>An estimated daily milk lactose concentration based on the AO sampling and the corresponding milk yield of that day.</td>
+    <td>Calculated by whom or what or how?<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>LastCalvingDate</code></td>
+    <td><strong>Last calving date</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date of last calving</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Milk_Yield</code></td>
+    <td><strong>Milk Yield</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Milk yield</td>
+    <td>Verschil Milk_Yield, MilkYield en MilkDay?</td>
+</tr>
+<tr>
+    <td><code>MilkAfternoon</code></td>
+    <td><strong>Milk Yield afternoon</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Milk Yield afternoon</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>MilkDay</code></td>
+    <td><strong>Milk Yield day</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Milk Yield day</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>MilkMorning</code></td>
+    <td><strong>Milk Yield morning</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Milk Yield morning</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>MilkYield</code></td>
+    <td><strong>Milk Yield</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Milk yield</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>MlkCon</code></td>
+    <td><strong>Milk Con?</strong></td>
+    <td><code>boolean</code></td>
+    <td>boolean</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Indicator flag showing whether official milk recording (MPR) data was collected on this date.</td>
+    <td>Boolean flag indicating presence of milk laboratory sample record.<br><small style='color:#586069;'>Source: T_Animal_MilkSamples</small></td>
+</tr>
+<tr>
+    <td><code>NumberAnimal</code></td>
+    <td><strong>Number Animal</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Unique animal server identifier issued across the different systems at Dairy Campus</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>NumberOLactations</code></td>
+    <td><strong>Parity</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Parity (amount of calvings) of the animal</td>
+    <td>typfout? NumberOfLactation?</td>
+</tr>
+<tr>
+    <td><code>NumbOfDates</code></td>
+    <td><strong>Number of dates?</strong></td>
+    <td><code>date</code></td>
+    <td>count</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Count of observation days recorded for the animal within the experimental reporting period.</td>
+    <td>Count of distinct active recording dates.<br><small style='color:#586069;'>Source: TVL_Dier_Datum_Proef</small></td>
+</tr>
+<tr>
+    <td><code>Protein%</code></td>
+    <td><strong>Calculated day protein concentration</strong></td>
+    <td><code>number</code></td>
+    <td>%</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>An estimated daily milk protein concentration based on the AO sampling and the corresponding milk yield of that day.</td>
+    <td>Calculated by whom or what or how?<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>SampleDateEvening</code></td>
+    <td><strong>Sample date evening</strong></td>
+    <td><code>datetime</code></td>
+    <td>yy-mm-dd-hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date the sample was obtained during the evening</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>SampleDateMorning</code></td>
+    <td><strong>Sample date morning</strong></td>
+    <td><code>datetime</code></td>
+    <td>yy-mm-dd-hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date the sample was obtained during the morning</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>SCC</code></td>
+    <td><strong>Calculated day somatic cell count</strong></td>
+    <td><code>string</code></td>
+    <td>1000 cells/mL</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>An estimated daily somatic cell count based on the AO sampling and the corresponding milk yield of that day.</td>
+    <td>Calculated by whom or what or how?<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>StartDate</code></td>
+    <td><strong>Start date</strong></td>
+    <td><code>datetime</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Start date</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Stl</code></td>
+    <td><strong>Barn Section</strong></td>
+    <td><code>string</code></td>
+    <td>identifier</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Physical barn building or housing section identifier at Dairy Campus.</td>
+    <td>Stable / Barn number recorded in management system.<br><small style='color:#586069;'>Source: TVL_Dier_Datum_Stal</small></td>
+</tr>
+<tr>
+    <td><code>SumVoeGft</code></td>
+    <td><strong>Total Feed Granted</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total amount of concentrate feed programmed/granted to the animal over the period.</td>
+    <td>Sum of programmed concentrate feeding amounts.<br><small style='color:#586069;'>Source: TVL_Dier_Voeropname_KV_Etmaal</small></td>
+</tr>
+<tr>
+    <td><code>SumVoeOpnm</code></td>
+    <td><strong>Total Feed Intake</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total actual concentrate feed consumed by the animal over the period.</td>
+    <td>Sum of consumed concentrate intake amounts.<br><small style='color:#586069;'>Source: TVL_Dier_Voeropname_KV_Etmaal</small></td>
+</tr>
+<tr>
+    <td><code>SumVoeRst</code></td>
+    <td><strong>Total Feed Residual</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total amount of unconsumed concentrate feed remaining in the troughs.</td>
+    <td>Total Feed Granted minus Total Feed Intake.<br><small style='color:#586069;'>Source: TVL_Dier_Voeropname_KV_Etmaal</small></td>
+</tr>
+<tr>
+    <td><code>Unit</code></td>
+    <td><strong>Unit / barn number</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Location of where the cows are housed.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Ure</code></td>
+    <td><strong>Calculated day urea concentration</strong></td>
+    <td><code>string</code></td>
+    <td>mg/dL</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>An estimated daily milk urea concentration based on the AO sampling and the corresponding milk yield of that day.</td>
+    <td>Calculated by whom or what or how?<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>Urea (mg/100g)</code></td>
+    <td><strong>Weekly milk urea concentration</strong></td>
+    <td><code>string</code></td>
+    <td>mg/dL</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weekly milk urea concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Vet</code></td>
+    <td><strong>Weekly milk fat concentration</strong></td>
+    <td><code>number</code></td>
+    <td>%</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weekly milk fat concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Week</code></td>
+    <td><strong>Week</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Calender week number of data record</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>WeekDay</code></td>
+    <td><strong>Day of the week</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Abbreviaton of weekday (Ma = Monday, Di = Tuesday, Wo = Wednesday, Do = Thursday, Vr = Friday, Za = Saturday, Zo = Sunday)</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>WeightAfternoon</code></td>
+    <td><strong>Weight afternoon</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weight of the animal after milking in the afternoon</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>WeightMorning</code></td>
+    <td><strong>Weight morning</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weight of the animal after milking in the morning</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Year</code></td>
+    <td><strong>number</strong></td>
+    <td><code>string</code></td>
+    <td>N/A</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Measured</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>VrwDgn</code></td>
+    <td><strong>Expected Days</strong></td>
+    <td><code>integer</code></td>
+    <td>days</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Expected remaining gestation days or planned days dry prior to the anticipated calving date.</td>
+    <td>Expected calving date minus current date.<br><small style='color:#586069;'>Source: TVL_Dier_Datum_Stal</small></td>
+</tr>
+<tr>
+    <td><code>AntMlkO</code></td>
+    <td><strong>Number of milkings morning</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>How often an animal was milked in the morning. 1 is the assumed value. 0 means a missing value/something wrong with registration. 2+ means reattachment of the milking apparatus, can be outlier values.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>AntMlkA</code></td>
+    <td><strong>Number of milkings afternoon</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>How often an animal was milked in the afternoon. 1 is the assumed value. 0 means a missing value/something wrong with registration. 2+ means reattachment of the milking apparatus, can be outlier values.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Date</code></td>
+    <td><strong>Date</strong></td>
+    <td><code>datetime</code></td>
+    <td>yy-mm-dd-hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date</td>
+    <td>Direct measurement</td>
+</tr>
+</tbody></table>
+<h2 id="Environment_barn_Animal_experim">Environment_barn_Animal_experim</h2>
+<p><strong>Primary Source Table:</strong> <code>?</code> | <strong>Variables:</strong> 54</p>
+<table>
+<thead>
+<tr>
+    <th style="width: 15%;">Column Name</th>
+    <th style="width: 18%;">English Label</th>
+    <th style="width: 8%;">Type</th>
+    <th style="width: 8%;">Unit</th>
+    <th style="width: 10%;">Method</th>
+    <th style="width: 25%;">English Description</th>
+    <th style="width: 16%;">Calculation / Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td><code>AntMlkA</code></td>
+    <td><strong>Number of milkings afternoon</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>How often an animal was milked in the afternoon. 1 is the assumed value. 0 means a missing value/something wrong with registration. 2+ means reattachment of the milking apparatus, can be outlier values.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>AntMlkO</code></td>
+    <td><strong>Number of milkings morning</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>How often an animal was milked in the morning. 1 is the assumed value. 0 means a missing value/something wrong with registration. 2+ means reattachment of the milking apparatus, can be outlier values.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Date</code></td>
+    <td><strong>Date</strong></td>
+    <td><code>datetime</code></td>
+    <td>yy-mm-dd-hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>VrwDgn</code></td>
+    <td><strong>Expected Days</strong></td>
+    <td><code>integer</code></td>
+    <td>days</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Expected remaining gestation days or planned days dry prior to the anticipated calving date.</td>
+    <td>Expected calving date minus current date.<br><small style='color:#586069;'>Source: TVL_Dier_Datum_Stal</small></td>
+</tr>
+<tr>
+    <td><code>AgeDays</code></td>
+    <td><strong>Age in Days</strong></td>
+    <td><code>integer</code></td>
+    <td>days</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Age of the animal in days calculated as recording date minus birth date.</td>
+    <td>Recording date - Birth date.<br><small style='color:#586069;'>Source: TVL_Dier_Datum_Stal</small></td>
+</tr>
+<tr>
+    <td><code>AnimalNumber</code></td>
+    <td><strong>Animal Number</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Unique animal server identifier issued across the different systems at Dairy Campus</td>
+    <td>Verschil met NumberAnimal?</td>
+</tr>
+<tr>
+    <td><code>BirthDate</code></td>
+    <td><strong>Date of birth</strong></td>
+    <td><code>date</code></td>
+    <td>yyyy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>The cows date of birth</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>DaysInLactation</code></td>
+    <td><strong>Days in lactation</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Amount of days producing milk</td>
+    <td>Date - calving date<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>DryDate</code></td>
+    <td><strong>Start date dry period</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Starting date of the dry period</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>EarNumber</code></td>
+    <td><strong>Ear number</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>EndDate</code></td>
+    <td><strong>Ending date experiment</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Expected end date of the experiment</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Fat%</code></td>
+    <td><strong>Calculated day fat concentration</strong></td>
+    <td><code>number</code></td>
+    <td>%</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>An estimated daily milk fat concentration based on the AO sampling and the corresponding milk yield of that day.  x</td>
+    <td>Calculated by whom or what or how?<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>GewTot</code></td>
+    <td><strong>Total Weight</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Total live animal body weight (average or latest measurement for the date).</td>
+    <td>Recorded by automated walkthrough weighing scale.<br><small style='color:#586069;'>Source: TVL_Dier_Gewicht_Etmaal</small></td>
+</tr>
+<tr>
+    <td><code>InsiminationDate</code></td>
+    <td><strong>Insemination day</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date of last insemination</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Ket</code></td>
+    <td><strong>Ketosis Indicator</strong></td>
+    <td><code>string</code></td>
+    <td>code</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Ketosis classification indicator (0: healthy/negative, 1: suspected subclinical ketosis, 2: clinical ketosis).</td>
+    <td>Laboratory diagnostic score from milk recording analysis.<br><small style='color:#586069;'>Source: T_Animal_MilkSamples</small></td>
+</tr>
+<tr>
+    <td><code>Lactose%</code></td>
+    <td><strong>Calculated day lactose concentration</strong></td>
+    <td><code>number</code></td>
+    <td>%</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>An estimated daily milk lactose concentration based on the AO sampling and the corresponding milk yield of that day.</td>
+    <td>Calculated by whom or what or how?<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>LastCalvingDate</code></td>
+    <td><strong>Last calving date</strong></td>
+    <td><code>date</code></td>
+    <td>yy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date of last calving</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>NumberAnimal</code></td>
+    <td><strong>Number Animal</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Unique animal server identifier issued across the different systems at Dairy Campus</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>NumberOLactations</code></td>
+    <td><strong>Parity</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Parity (amount of calvings) of the animal</td>
+    <td>typfout? NumberOfLactation?</td>
+</tr>
+<tr>
+    <td><code>NumbOfDates</code></td>
+    <td><strong>Number of Dates</strong></td>
+    <td><code>date</code></td>
+    <td>count</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Count of observation days recorded for the animal within the experimental reporting period.</td>
+    <td>Count of distinct active recording dates.<br><small style='color:#586069;'>Source: TVL_Dier_Datum_Proef</small></td>
+</tr>
+<tr>
+    <td><code>Projectcode</code></td>
+    <td><strong>Project Code</strong></td>
+    <td><code>string</code></td>
+    <td>identifier</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Unique research experiment / trial code (e.g. 4400003634). Same as prfcod.</td>
+    <td>Official trial identifier registered in t_proef.<br><small style='color:#586069;'>Source: t_proef</small></td>
+</tr>
+<tr>
+    <td><code>ProjectName</code></td>
+    <td><strong>Project Name</strong></td>
+    <td><code>string</code></td>
+    <td>text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Official descriptive name of the research project or trial. Same as prfnam.</td>
+    <td>Official trial title registered in t_proef.<br><small style='color:#586069;'>Source: t_proef</small></td>
+</tr>
+<tr>
+    <td><code>Protein%</code></td>
+    <td><strong>Calculated day protein concentration</strong></td>
+    <td><code>number</code></td>
+    <td>%</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>An estimated daily milk protein concentration based on the AO sampling and the corresponding milk yield of that day.</td>
+    <td>Calculated by whom or what or how?<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>SampleDateEvening</code></td>
+    <td><strong>Sample date evening</strong></td>
+    <td><code>datetime</code></td>
+    <td>yy-mm-dd-hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date the sample was obtained during the evening</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>SampleDateMorning</code></td>
+    <td><strong>Sample date morning</strong></td>
+    <td><code>datetime</code></td>
+    <td>yy-mm-dd-hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date the sample was obtained during the morning</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>SCC</code></td>
+    <td><strong>Calculated day somatic cell count</strong></td>
+    <td><code>string</code></td>
+    <td>1000 cells/mL</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>An estimated daily somatic cell count based on the AO sampling and the corresponding milk yield of that day.</td>
+    <td>Calculated by whom or what or how?<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>StartDate</code></td>
+    <td><strong>Start date</strong></td>
+    <td><code>datetime</code></td>
+    <td>hh-mm-ss</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Start date</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>SumVoeGft</code></td>
+    <td><strong>Total Feed Granted</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total amount of concentrate feed programmed/granted to the animal over the period.</td>
+    <td>Sum of programmed concentrate feeding amounts.<br><small style='color:#586069;'>Source: TVL_Dier_Voeropname_KV_Etmaal</small></td>
+</tr>
+<tr>
+    <td><code>SumVoeRst</code></td>
+    <td><strong>Total Feed Residual</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total amount of unconsumed concentrate feed remaining in the troughs.</td>
+    <td>Total Feed Granted minus Total Feed Intake.<br><small style='color:#586069;'>Source: TVL_Dier_Voeropname_KV_Etmaal</small></td>
+</tr>
+<tr>
+    <td><code>Unit</code></td>
+    <td><strong>Unit / barn number</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Location of where the cows are housed.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Urea (mg/100g)</code></td>
+    <td><strong>Weekly milk urea concentration</strong></td>
+    <td><code>string</code></td>
+    <td>mg/dL</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weekly milk urea concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Week</code></td>
+    <td><strong>Week</strong></td>
+    <td><code>integer</code></td>
+    <td>number</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Calender week number of data record</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>WeekDay</code></td>
+    <td><strong>Day of the week</strong></td>
+    <td><code>string</code></td>
+    <td>short text</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Abbreviaton of weekday (Ma = Monday, Di = Tuesday, Wo = Wednesday, Do = Thursday, Vr = Friday, Za = Saturday, Zo = Sunday)</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>WeightAfternoon</code></td>
+    <td><strong>Weight afternoon</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weight of the animal after milking in the afternoon</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>WeightMorning</code></td>
+    <td><strong>Weight morning</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weight of the animal after milking in the morning</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>Year</code></td>
+    <td><strong>number</strong></td>
+    <td><code>string</code></td>
+    <td>N/A</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Measured</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>AntGewA</code></td>
+    <td><strong>Weight afternoon</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weight of the animal after milking in the afternoon</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>AntGewO</code></td>
+    <td><strong>Weight morning</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weight of the animal after milking in the morning</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>IDNumber</code></td>
+    <td><strong>Animal Identification Number</strong></td>
+    <td><code>string</code></td>
+    <td>identifier</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Official national unique life identification number of the animal (LevNum / EU identification tag).</td>
+    <td>Official national cattle ear tag number.<br><small style='color:#586069;'>Source: t_animals</small></td>
+</tr>
+<tr>
+    <td><code>DateMelkCon4Wk</code></td>
+    <td><strong>Date of 4-Weekly Milk Recording</strong></td>
+    <td><code>date</code></td>
+    <td>yyyy-mm-dd</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Date of the most recent official 4-weekly milk control / recording event (MPR).</td>
+    <td>Date of official test day sampling.<br><small style='color:#586069;'>Source: T_Animal_MilkSamples</small></td>
+</tr>
+<tr>
+    <td><code>DatGldTot</code></td>
+    <td><strong>Valid Until Date</strong></td>
+    <td><code>datetime</code></td>
+    <td>yyyy-mm-dd</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Date until which the current housing, lactation, or trial assignment status remains valid.</td>
+    <td>End validity date of status record.<br><small style='color:#586069;'>Source: TVL_Dier_Datum_Stal</small></td>
+</tr>
+<tr>
+    <td><code>Eiw</code></td>
+    <td><strong>Protein concentration standard</strong></td>
+    <td><code>number</code></td>
+    <td>%</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Protein concentration of the monthly milk test</td>
+    <td>Calculated by whom or what or how?<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>ExpecCalvingDate</code></td>
+    <td><strong>Expected Calving Date</strong></td>
+    <td><code>date</code></td>
+    <td>yyyy-mm-dd</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Estimated date of the next calving, based on confirmed insemination date + gestation length (~270-280 days).</td>
+    <td>Calculated by ExpectedCalvingDate() function from last successful insemination.<br><small style='color:#586069;'>Source: t_animal_matings / ExpectedCalvingDate</small></td>
+</tr>
+<tr>
+    <td><code>Lac</code></td>
+    <td><strong>Lactose concentration standard</strong></td>
+    <td><code>number</code></td>
+    <td>%</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Lactose of the monthly milk test</td>
+    <td>Calculated by whom or what or how?<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>Milk_Yield</code></td>
+    <td><strong>Milk Yield</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Milk yield</td>
+    <td>Verschil Milk_Yield, MilkYield en MilkDay?</td>
+</tr>
+<tr>
+    <td><code>MilkAfternoon</code></td>
+    <td><strong>Milk Yield afternoon</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Milk Yield afternoon</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>MilkDay</code></td>
+    <td><strong>Milk Yield day</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Milk Yield day</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>MilkMorming</code></td>
+    <td><strong>Morning Milk Yield</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Total quantity of milk produced during morning milking sessions.</td>
+    <td>Sum of morning milking yields.<br><small style='color:#586069;'>Source: TVL_Dier_Melkgift_Etmaal_Melkcontrole</small></td>
+</tr>
+<tr>
+    <td><code>MilkYield</code></td>
+    <td><strong>Milk Yield</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Milk yield</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>MlkCon</code></td>
+    <td><strong>Milk Recording Present</strong></td>
+    <td><code>boolean</code></td>
+    <td>boolean</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Indicator flag showing whether official milk recording (MPR) data was collected on this date.</td>
+    <td>Boolean flag indicating presence of milk laboratory sample record.<br><small style='color:#586069;'>Source: T_Animal_MilkSamples</small></td>
+</tr>
+<tr>
+    <td><code>Stl</code></td>
+    <td><strong>Barn Section</strong></td>
+    <td><code>string</code></td>
+    <td>identifier</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Physical barn building or housing section identifier at Dairy Campus.</td>
+    <td>Stable / Barn number recorded in management system.<br><small style='color:#586069;'>Source: TVL_Dier_Datum_Stal</small></td>
+</tr>
+<tr>
+    <td><code>Ure</code></td>
+    <td><strong>Calculated day urea concentration</strong></td>
+    <td><code>string</code></td>
+    <td>mg/dL</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>An estimated daily milk urea concentration based on the AO sampling and the corresponding milk yield of that day.</td>
+    <td>Calculated by whom or what or how?<br><small style='color:#586069;'>Source: ?</small></td>
+</tr>
+<tr>
+    <td><code>Vet</code></td>
+    <td><strong>Weekly milk fat concentration</strong></td>
+    <td><code>number</code></td>
+    <td>%</td>
+    <td><span class="tag tag-meas">Measured</span></td>
+    <td>Weekly milk fat concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.</td>
+    <td>Direct measurement</td>
+</tr>
+<tr>
+    <td><code>SumVoeOpnm</code></td>
+    <td><strong>Total Feed Intake</strong></td>
+    <td><code>number</code></td>
+    <td>kg</td>
+    <td><span class="tag tag-calc">Calculated</span></td>
+    <td>Total actual concentrate feed consumed by the animal over the period.</td>
+    <td>Sum of consumed concentrate intake amounts.<br><small style='color:#586069;'>Source: TVL_Dier_Voeropname_KV_Etmaal</small></td>
+</tr>
+</tbody></table>
+</body></html>

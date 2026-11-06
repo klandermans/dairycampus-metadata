@@ -1,0 +1,47 @@
+dataset_name,source_table,column_name,name_en,name_nl,data_type,unit,measurement_type,description_en,calculation_description,calculation_source
+Triomatic_RIC_drop,t_raw_trioliet,AnimalCount,Animal count,Aantal dieren,integer,number,N/A,The number of animals,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,Date,Date,Datum,datetime,yy-mm-dd-hh-mm-ss,Measured,Date,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,Extra,Extra,Extra,integer,number,N/A,Extra information,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,FeedingGroup,Feeding group,Voergroep,integer,number,Measured,"Log source 0 = 1, log source 1 = NULL betekenis Feeding group?",N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,filename,Filename,Bestandsnaam,string,short text,N/A,Name of the file containing information,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,FinishedReady,Finished ready,Klaar Gereed,string,?,N/A,NULL?,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,GroupID,Group ID,Groep ID,integer,number,N/A,Id of the group,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,GroupName,Group name,Groep naam,string,short text,N/A,Name of the group,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,Id,ID,ID,integer,number,N/A,ID,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,IngredientName,Ingredient name,Ingredient naam,string,short text,N/A,Name of the ingredient,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,k42,k42,k42,integer,number,N/A,Validation record for data processing,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,LogSource,Log source,Logboekbron,integer,number,N/A,"0 meaning feed preparation, and 1 the distribution of feed to RIC bins",N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,NettoLoadedWeight,Netto loaded weight,Netto geladen gewicht,number,kg,Measured,Netto weight loaded,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,NrOfSplittings,Number of splittings,Aantal splittingen,integer,number,N/A,Number of splittings,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,NumberRecipeLines,Number of recipe lines,Aantal recept lijnen,integer,number,N/A,Total number of recipe lines,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,OpdrachtID,Job ID,Opdracht ID,integer,number,N/A,Job ID,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,PerformedFeedFactor,Performed feed factor,Uitgevoerde voerfactor,integer,number,N/A,Performed feed factor,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,PerformedProductDryWeightKgAfterDrop,Kg dry weight after drop,Kg droog gewicht na uitgave,number,kg,Measured,Kg dry weight after drop,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,PerformedProductDryWeightPartAfterDrop,Part of dry weight after drop,Deel droog gewicht na uitgave,number,kg,Measured,Part of dry weight after drop,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,PerformedProductError,Performed product error,Error uitgevoerd product,number,kg,Calculated,"Error, difference between Scheduled kg and performed kg feed",?,N/A
+Triomatic_RIC_drop,t_raw_trioliet,PerformedProductKgAfterDrop,Kg product after drop,Kg product na uitgave,number,kg,Measured,Kg product after drop,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,PerformedProductKgAtStop,Kg product at stop,Kg product bij stop,number,kg,Measured,Kg product at stop,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,PerformedTime,Performed time,Tijd uitvoering,number,hh-mm-ss,Measured,Performed time,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,PushingGroup,Pushing group,Duw groep,integer,number,N/A,Pushing group,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,Ready,Ready,Gereed,integer,number,N/A,Ready,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,ReadyTime,Ready time,Tijd gereed,number,hh-mm-ss,N/A,"Ready time, if log source 1",N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,ReceptLineNr,Recept line number,Recept lijn nummer,integer,number,N/A,Current number of recipe line,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,ReceptName,Recipe name,Recept lijn naam,string,short text,N/A,Name of the feed recipe,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,ScheduledDryWeightContent,Scheduled dry weight content,Gepland droog gewicht,integer,number,Calculated,Scheduled dry weight content,?,N/A
+Triomatic_RIC_drop,t_raw_trioliet,ScheduledDryWeightContentPart,Scheduled dry weight content part,Deel gepland droog gewicht,integer,number,Calculated,Scheduled dry weight content part,?,N/A
+Triomatic_RIC_drop,t_raw_trioliet,ScheduledDryWeightKg,Scheduled dry weight kg,Gepland droog gewicht kg,number,kg,Calculated,Scheduled dry weight kg,?,N/A
+Triomatic_RIC_drop,t_raw_trioliet,ScheduledFeedFactor,Scheduled feed factor,Geplande voerfactor,integer,number,N/A,Scheduled feed factor,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,ScheduledPart,Scheduled part,Gepland deel,integer,number,Calculated,Scheduled part,?,N/A
+Triomatic_RIC_drop,t_raw_trioliet,ScheduledProductKg,Scheduled product kg,Gepland product kg,number,kg,N/A,Scheduled product kg,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,ScheduledTime,Scheduled time,Geplande tijd,number,hh-mm-ss,N/A,"Scheduled time, if log source 1",N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,SplittedNr,Splitted number,Gesplitst nummer,integer,number,N/A,"Splitted number, only 1",N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,StartPosition,Start position,Start positie,integer,number,Measured,"Start position, if subgroup not 0",N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,StartTime,Start time,Start tijd,number,hh-mm-ss,Measured,"Start time, if subgroup not 0",N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,StartWeight,Start weight,Start gewicht,number,kg,Measured,"Start weight, if subgroup not 0",N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,StopPosition,Stop position,Stop positie,integer,number,Measured,"Stop position, if subgroup not 0",N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,StopTime,Stop time,Stop tijd,number,hh-mm-ss,Measured,"Stop time, if subgroup not 0",N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,StopWeight,Stop weight,Stop gewicht,number,kg,Measured,"Stop weight, if subgroup not 0",N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,StrawGroup,Straw group,Strogroep,integer,number,N/A,Straw group,N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,SubGroupNr,Subgroup number,Sub groep nummer,integer,number,N/A,"Number of the subgroup, 0 no subgroup",N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,TakeoffTime,Take off time,Vertrek tijd,number,hh-mm-ss,Measured,"Take off time, if log source 1",N/A,N/A
+Triomatic_RIC_drop,t_raw_trioliet,TrackSection,Track section,Spoor sectie,integer,number,N/A,"Track section, if subgroup 1 if there is no subgroup 0",N/A,N/A

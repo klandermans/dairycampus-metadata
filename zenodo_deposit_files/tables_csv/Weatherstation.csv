@@ -1,0 +1,19 @@
+dataset_name,source_table,column_name,name_en,name_nl,data_type,unit,measurement_type,description_en,calculation_description,calculation_source
+Weatherstation,T_RAW_weerstation,dewpoint,Dewpoint,Dauwpunt,number,°C,Measured,Dew point is the temperature to which air must be cooled to become saturated with water vapor,N/A,N/A
+Weatherstation,T_RAW_weerstation,global_radiation,Global radiation,Globale straling,string,Watt/m2,Measured,The sum of the diffuse and direct solar radiation is called global solar radiation.,N/A,N/A
+Weatherstation,T_RAW_weerstation,gust,Wind gust,Windvlaag,integer,"Beaufort, over 10 minuten (meter/sec)?",Measured,"A sudden, brief increase in speed of the wind",N/A,N/A
+Weatherstation,T_RAW_weerstation,gust_direction,Wind gust direction,Windvlaag richting,string,° Degree,Measured,Direction from which the wind gust blows,N/A,N/A
+Weatherstation,T_RAW_weerstation,humidity_150,Humidity,Luchtvochtigheid,number,%,Measured,The concentration of water vapor present in the air,N/A,N/A
+Weatherstation,T_RAW_weerstation,latitude,Latitude,Breedtegraad,string,° Degree,Measured,Coordinate that specifies the north–south position,N/A,N/A
+Weatherstation,T_RAW_weerstation,longitude,Longitude,Lengtegraad,string,° Degree,Measured,Coordinate that specifies the east–west position,N/A,N/A
+Weatherstation,T_RAW_weerstation,precipitation,Precipitation,Neerslag,string,Millimeters,Measured,Any product of the condensation of atmospheric water vapor that falls from clouds,N/A,N/A
+Weatherstation,T_RAW_weerstation,rain_chance,Rain chance,Kans op regen,number,%,Measured,Chance of precipitation,N/A,N/A
+Weatherstation,T_RAW_weerstation,station_name,Station name,Station naam,string,short text,N/A,Station name,N/A,N/A
+Weatherstation,T_RAW_weerstation,symbol_number,Symbol number,Symbool nummer,string,?,?,Symbol number,N/A,N/A
+Weatherstation,T_RAW_weerstation,temperature_10,Temperature 10,Temperatuur 10,number,°C,Measured,Temperature 10 cm above ground level.,N/A,N/A
+Weatherstation,T_RAW_weerstation,temperature_150,Temperature 150,Temperatuur 150,number,°C,Measured,Temperature 150 cm above ground level.,N/A,N/A
+Weatherstation,T_RAW_weerstation,timestamp,Timestamp,Datum en tijd,datetime,yy-mm-dd-hh-mm-ss,Measured,Timestamp,N/A,N/A
+Weatherstation,T_RAW_weerstation,wet_bulb_temperature,Wet bulb temperature,Natteboltemperatuur,number,°C,Measured,Thermometer with the bulb in somthing wet,N/A,N/A
+Weatherstation,T_RAW_weerstation,wind_direction,Wind direction,Wind richting,string,° Degree,Measured,Direction from which the wind blows,N/A,N/A
+Weatherstation,T_RAW_weerstation,windchill,Windchill,Gevoelstemperatuur,number,°C,Measured,The cooling effect of wind blowing on a surface,N/A,N/A
+Weatherstation,T_RAW_weerstation,windspeed,Windspeed,Wind snelheid,integer,"Beaufort, over 10 minuten (meter/sec)?",Measured,Rate at which wind/air is moving,N/A,N/A

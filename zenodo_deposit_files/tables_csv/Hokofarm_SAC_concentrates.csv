@@ -1,0 +1,43 @@
+dataset_name,source_table,column_name,name_en,name_nl,data_type,unit,measurement_type,description_en,calculation_description,calculation_source
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,ashA,Ash A,As A,number,kg,Calculated,"Ash, indigestible part of feed A","Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,ashB,Ash B,As B,number,kg,Calculated,"Ash, indigestible part of feed B","Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,ashC,Ash C,As C,number,kg,Calculated,"Ash, indigestible part of feed C","Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,ashD,Ash D,As D,number,kg,Calculated,"Ash, indigestible part of feed D","Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,cow,Cow,Koe,integer,number,N/A,"Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.",N/A,N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,crudeFiberA,CrudeFibre A,Ruwe vezel A,number,kg,Calculated,Crude fiber in feed A,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,crudeFiberB,CrudeFibre B,Ruwe vezel B,number,kg,Calculated,Crude fiber in feed B,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,crudeFiberC,CrudeFibre C,Ruwe vezel C,number,kg,Calculated,Crude fiber in feed C,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,crudeFiberD,CrudeFibre D,Ruwe vezel D,number,kg,Calculated,Crude fiber in feed D,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,date,Date,Datum,date,yy-mm-dd,Measured,Date of the data record,N/A,N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,dateTime,Date and time,Datum en tijd,datetime,yyyy-mm-dd-hh-mm-ss,Measured,Date and time,N/A,N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,dryMatterA,Dry matter A,Droge stof A,number,kg,Calculated,Dry matter of feed A,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,dryMatterB,Dry matter B,Droge stof B,number,kg,Calculated,Dry matter of feed B,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,dryMatterC,Dry matter C,Droge stof C,number,kg,Calculated,Dry matter of feed C,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,dryMatterD,Dry matter D,Droge stof D,number,kg,Calculated,Dry matter of feed D,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,endTime,End time,Eind tijd,number,hh-mm-ss,Measured,End time of action/behaviour,N/A,N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,energyA,Energy A,Energie A,string,VEM,Calculated,Energy content A,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,energyB,Energy B,Energie B,string,VEM,Calculated,Energy content B,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,energyC,Energy C,Energie C,string,VEM,Calculated,Energy content C,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,energyD,Energy D,Energie D,string,VEM,Calculated,Energy content D,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,fatA,Fat A,Vet A,number,kg,Calculated,Fat content A,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,fatB,Fat B,Vet B,number,kg,Calculated,Fat content B,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,fatC,Fat C,Vet C,number,kg,Calculated,Fat content C,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,fatD,Fat D,Vet D,number,kg,Calculated,Fat content D,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,feedTypeA,Feed type A,Voer type A,string,short text,N/A,Type of feed A,N/A,N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,feedTypeB,Feed type B,Voer type B,string,short text,N/A,Type of feed B,N/A,N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,feedTypeC,Feed type C,Voer type C,string,short text,N/A,Type of feed C,N/A,N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,feedTypeD,Feed type D,Voer type D,string,short text,N/A,Type of feed D,N/A,N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,fileName,File name,Bestandsnaam,string,text,N/A,Name of a file,N/A,N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,hashValue,Hash value,Hash waarde,integer,number,N/A,Validation record for data processing,N/A,N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,intakeA,Intake A,Opname A,number,kg,Calculated,Feed intake A,Calculated by endWeight - startWeight,?
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,intakeB,Intake B,Opname B,number,kg,Calculated,Feed intake B,Calculated by endWeight - startWeight,?
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,intakeC,Intake C,Opname C,number,kg,Calculated,Feed intake C,Calculated by endWeight - startWeight,?
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,intakeD,Intake D,Opname D,number,kg,Calculated,Feed intake D,Calculated by endWeight - startWeight,?
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,proteinA,Protein A,Eiwit A,integer,number,Calculated,Protein content A,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,proteinB,Protein B,Eiwit B,integer,number,Calculated,Protein content B,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,proteinC,Protein C,Eiwit C,integer,number,Calculated,Protein content C,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,proteinD,Protein D,Eiwit D,integer,number,Calculated,Protein content D,"Dry matter energy, protein, crude fiber and fat always 0 in this table?",N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,startTime,Start time,Start tijd,number,hh-mm-ss,Measured,Start time of action/behaviour,N/A,N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,station,Station,Station,integer,number,Measured,Station or location of activity,N/A,N/A
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,totalTime,Total time,Totaal tijd,integer,sec,Calculated,Total duration,Calculated by endTime - startTime,?
+Hokofarm_SAC_concentrates,t_raw_hokofarmvb,transponder,Transponder,Transponder,integer,number,Measured,Transponder number of the cow,N/A,N/A

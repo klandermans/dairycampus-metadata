@@ -1,0 +1,18 @@
+dataset_name,source_table,column_name,name_en,name_nl,data_type,unit,measurement_type,description_en,calculation_description,calculation_source
+Missing_data,tvl_totaal_missende_data_proef,bcs,Body condition score,Lichaam conditie score,boolean,Ja/Nee,Measured,Automatic body condition score camera,number,N/A
+Missing_data,tvl_totaal_missende_data_proef,behcod,Treatment code,Behandelcode,string,Ja/Nee,Measured,Treatment code,N/A,N/A
+Missing_data,tvl_totaal_missende_data_proef,bijzonderheden,Particularities,Bijzonderheden,boolean,Ja/Nee,Measured,Particularities,N/A,N/A
+Missing_data,tvl_totaal_missende_data_proef,date,Date,Datum,date,yy-mm-dd,Measured,Date of the data record,,N/A
+Missing_data,tvl_totaal_missende_data_proef,gewa,Weight evening,Gewicht avond,boolean,Ja/Nee,Measured,Weight evening,kg,N/A
+Missing_data,tvl_totaal_missende_data_proef,gewgeaa,Weight gea evening,Gewicht gea avond,boolean,Ja/Nee,Measured,Weight gea evening,kg,N/A
+Missing_data,tvl_totaal_missende_data_proef,gewgeao,Weight gea morning,Gewicht gea ochtend,boolean,Ja/Nee,Measured,Weight gea morning,kg,N/A
+Missing_data,tvl_totaal_missende_data_proef,gewo,Weight morning,Gewicht ochtend,boolean,Ja/Nee,Measured,Weight morning,kg,N/A
+Missing_data,tvl_totaal_missende_data_proef,hok,Barn,Hok,boolean,Ja/Nee,Measured,Barn,number,N/A
+Missing_data,tvl_totaal_missende_data_proef,kgmlka,Kg milk evening,Kg melk avond,boolean,Ja/Nee,Measured,Kg milk evening,kg,N/A
+Missing_data,tvl_totaal_missende_data_proef,kgmlko,Kg milk morning,Kg melk ochtend,boolean,Ja/Nee,Measured,Kg milk morning,kg,N/A
+Missing_data,tvl_totaal_missende_data_proef,oornum,Ear number,Oornummer,integer,number,N/A,"Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number.",,N/A
+Missing_data,tvl_totaal_missende_data_proef,opnkv,Intake feed,Opname krachtvoer,boolean,Ja/Nee,Measured,Intake feed,kg,N/A
+Missing_data,tvl_totaal_missende_data_proef,opnrv,Intake roughage,Opname ruwvoer,string,Ja/Nee,Measured,Intake roughage,kg,N/A
+Missing_data,tvl_totaal_missende_data_proef,prdsta,Production stage,Productie stadium,boolean,Ja/Nee,Measured,"Identifying the stage of the cow, producing milk or not",short text,N/A
+Missing_data,tvl_totaal_missende_data_proef,prfcod,Trial code,Proefcode,string,Ja/Nee,Measured,Trial code,N/A,N/A
+Missing_data,tvl_totaal_missende_data_proef,velos,Velos,Velos,boolean,Ja/Nee,Measured,Velos cow behavior,N/A,N/A

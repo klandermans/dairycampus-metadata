@@ -1,0 +1,62 @@
+<p><strong>Dairy Campus Research Data Platform: Standardized Metadata Dictionaries, Extraction Queries, and Calculation Models</strong></p>
+<p><strong>Authors:</strong> Bert Klandermans &amp; Fedde de Jong<br>
+<strong>Institution:</strong> Dairy Campus, Wageningen University &amp; Research (Leeuwarden, the Netherlands)</p>
+
+<h3>1. Overview</h3>
+<p>This deposit provides the authoritative FAIR metadata dictionaries, data definitions, and calculation algorithms for high-throughput dairy cattle research data collected at the <strong>Dairy Campus</strong> research facility. It documents <strong>19 core research tables</strong> comprising <strong>507 scientific variables</strong> across cattle nutrition, emissions, milk production, and animal behavior.</p>
+
+<h3>2. Interactive Metadata Tables (Included Files)</h3>
+<p>To inspect and search the data dictionaries directly in your browser, click <strong>Preview</strong> on the uploaded files:</p>
+<ul>
+    <li><strong><code>01_Dairy_Campus_Master_Data_Dictionary.csv</code></strong>: Complete searchable catalog of all 507 parameters with English labels, data types, physical measurement units, and calculation logic. Zenodo displays this as an interactive web table.</li>
+    <li><strong><code>02_Dairy_Campus_Metadata_Dictionary_EN.xlsx</code></strong>: Formatted multi-tab spreadsheet with an index sheet and dedicated sheets for each of the 19 research datasets.</li>
+    <li><strong><code>03_Dairy_Campus_Complete_Data_Catalog.html</code> &amp; <code>.md</code></strong>: Complete standalone human-readable reference catalogs.</li>
+    <li><strong><code>04_Dairy_Campus_Calculations_and_Queries.zip</code></strong>: SQL calculation procedures, view definitions, and trial extraction queries.</li>
+</ul>
+
+<h3>3. Summary of Documented Research Datasets</h3>
+<table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+<thead style="background-color: #f2f2f2;">
+    <tr>
+        <th>Dataset Name</th>
+        <th>Scientific Domain</th>
+        <th>Variables</th>
+        <th>Source System</th>
+    </tr>
+</thead>
+<tbody>
+    <tr><td><code>TVL_total</code></td><td>Master Daily Integrated Cow Summary</td><td>97</td><td>Dairy Campus central research table</td></tr>
+    <tr><td><code>Hokofarm_RIC</code></td><td>Roughage Intake Control (visit records)</td><td>18</td><td>Hokofarm RIC weighing troughs</td></tr>
+    <tr><td><code>Hokofarm_SAC_concentrates</code></td><td>Concentrate Feeder Visits</td><td>42</td><td>SAC / Hokofarm concentrate stations</td></tr>
+    <tr><td><code>TVL_RIC_intake_dm</code></td><td>Daily Roughage &amp; Dry Matter Intake</td><td>12</td><td>RIC troughs + dry oven lab tests</td></tr>
+    <tr><td><code>Triomatic_RIC_load</code></td><td>Feeding Robot Loading Batches</td><td>46</td><td>Trioliet Triomatic feeding kitchen</td></tr>
+    <tr><td><code>Triomatic_RIC_drop</code></td><td>Feeding Robot Deliveries to Troughs</td><td>46</td><td>Trioliet Triomatic feeding robot</td></tr>
+    <tr><td><code>GEA_milkings</code></td><td>Milking Transactions &amp; Yields</td><td>13</td><td>GEA automated milking systems</td></tr>
+    <tr><td><code>GEA_gates</code></td><td>Smart Selection Gate Passages</td><td>5</td><td>GEA automated sorting gates</td></tr>
+    <tr><td><code>TMR_Trioliet_cowconnect_mix</code></td><td>Mixer Wagon Rations (CowConnect)</td><td>12</td><td>CowConnect weighing system</td></tr>
+    <tr><td><code>TMR_Trioliet_cowconnect_drop</code></td><td>Mixer Wagon Distributions</td><td>11</td><td>CowConnect weighing system</td></tr>
+    <tr><td><code>Velos_behaviour</code></td><td>Behavior Observation Intervals</td><td>4</td><td>Nedap Velos Smarttags (neck/leg)</td></tr>
+    <tr><td><code>Velos_behaviour_day</code></td><td>Daily Behavior Budgets (Eating, Ruminating)</td><td>7</td><td>Nedap Velos daily aggregations</td></tr>
+    <tr><td><code>Greenfeed_summarized_data</code></td><td>Enteric Methane &amp; CO2 Emissions</td><td>24</td><td>C-Lock GreenFeed emission hoods</td></tr>
+    <tr><td><code>Greenfeed_feed_aggregrated</code></td><td>GreenFeed Bait Feed Drops</td><td>13</td><td>C-Lock GreenFeed dispenser</td></tr>
+    <tr><td><code>DC_DM_content</code></td><td>Dry Matter Content Determinations</td><td>16</td><td>Laboratory drying oven (droogstoof)</td></tr>
+    <tr><td><code>Weatherstation</code></td><td>Meteorological Observations</td><td>18</td><td>On-site automated weather station</td></tr>
+    <tr><td><code>Missing_data</code></td><td>Data Quality &amp; Completeness Matrix</td><td>17</td><td>Automated quality audit view</td></tr>
+    <tr><td><code>Environment_barn_Animal_day</code></td><td>Barn Section &amp; Animal Profile</td><td>52</td><td>Management database</td></tr>
+    <tr><td><code>Environment_barn_Animal_experim</code></td><td>Experimental Cohort Daily Records</td><td>54</td><td>Trial assignment database</td></tr>
+</tbody>
+</table>
+
+<h3>4. Key Calculation Models &amp; MPR Formulas</h3>
+<ul>
+    <li><strong>Dry Matter Intake (DMI)</strong>: Calculated by subtracting mixer wagon added water from roughage intake and multiplying by weekly laboratory oven dry matter percentage:
+    <br><code>tot.opnDs = sum(Intake * ((TotalLoaded - AddedWaterKg) / TotalLoaded) * (DM_pct / 100))</code></li>
+    <li><strong>Milk Recording (MPR) AO Yield-Weighted Formula</strong>:
+    <br><code>Component_daily = (Evening_Concentration * Evening_Yield + Morning_Concentration * Morning_Yield) / (Evening_Yield + Morning_Yield)</code></li>
+    <li><strong>Fat- and Protein-Corrected Milk (FPCM / Standaardmelk)</strong>:
+    <br><code>FPCM = MilkYield * (0.337 + 0.116 * Fat% + 0.060 * Protein%)</code></li>
+    <li><strong>Feed Conversion Efficiency</strong>:
+    <br><code>FCE = FPCM (kg/day) / Dry Matter Intake (kg DM/day)</code></li>
+</ul>
+
+<p><strong>License:</strong> Metadata and documentation are licensed under Creative Commons Attribution 4.0 International (CC-BY 4.0). Code and SQL scripts are licensed under MIT.</p>

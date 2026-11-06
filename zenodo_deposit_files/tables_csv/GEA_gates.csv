@@ -1,0 +1,6 @@
+dataset_name,source_table,column_name,name_en,name_nl,data_type,unit,measurement_type,description_en,calculation_description,calculation_source
+GEA_gates,T_RAW_Gea_Separatie,cow,Cow,Koe,integer,number,N/A,"Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.",N/A,N/A
+GEA_gates,T_RAW_Gea_Separatie,date,Date,Datum,date,yy-mm-dd,Measured,Date of the data record,N/A,N/A
+GEA_gates,T_RAW_Gea_Separatie,event,Event,Gebeurtenis,integer,number,N/A,"0 = No gate action or weighting, 1 = selection gate A, 2 = selection gate B",N/A,N/A
+GEA_gates,T_RAW_Gea_Separatie,gate,Gate,Poort,integer,number,N/A,Number of the gate,N/A,N/A
+GEA_gates,T_RAW_Gea_Separatie,message,Message,Bericht,string,tekst,N/A,"ID and info gate action, weighting or selection has or has not taken place",N/A,N/A

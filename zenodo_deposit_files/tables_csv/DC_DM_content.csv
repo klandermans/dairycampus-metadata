@@ -1,0 +1,17 @@
+dataset_name,source_table,column_name,name_en,name_nl,data_type,unit,measurement_type,description_en,calculation_description,calculation_source
+DC_DM_content,VL_totaal_droogstoof,BlkDat,Can date,Blik datum,datetime,yy-mm-dd-hh-mm-ss,Measured,Date the can was weighed,N/A,N/A
+DC_DM_content,VL_totaal_droogstoof,BlkGew,Can weight,Blik gewicht,number,gram,Measured,Weight of the can,N/A,N/A
+DC_DM_content,VL_totaal_droogstoof,BlkNum,Can number,Blik nummer,integer,number,N/A,Number of the can,N/A,N/A
+DC_DM_content,VL_totaal_droogstoof,DatMon,Sample date,Monster datum,datetime,yy-mm-dd-hh-mm-ss,Measured,Date the sample was obtained,N/A,N/A
+DC_DM_content,VL_totaal_droogstoof,DatSes,Date session,Datum Sessie,datetime,yy-mm-dd-hh-mm-ss,Measured,Date of weigh session,N/A,N/A
+DC_DM_content,VL_totaal_droogstoof,DrgDat,Dried date,Droog datum,datetime,yy-mm-dd-hh-mm-ss,Measured,Date end of the analysis,N/A,N/A
+DC_DM_content,VL_totaal_droogstoof,DrgGew,Dried weight,Droog gewicht,number,gram,Measured,"Dried sample weight, with or without weight of the can?",N/A,N/A
+DC_DM_content,VL_totaal_droogstoof,DrgStfGkg,Dry matter weight kg,Gewicht drogestof kg,number,gram,Measured,Weight of the dry matter,N/A,N/A
+DC_DM_content,VL_totaal_droogstoof,DrgTyd,dry time,Droog tijd,number,hh-mm-ss,Measured,Time end of the analysis when all moisture has evaporated,N/A,N/A
+DC_DM_content,VL_totaal_droogstoof,ObjCod,Object code,Object code,string,short text,N/A,Short description/code of the sample,N/A,N/A
+DC_DM_content,VL_totaal_droogstoof,ObjCodNum,Object code number,Object code nummer,integer,number,N/A,Used when analyzing duplicate or triplicate samples,N/A,N/A
+DC_DM_content,VL_totaal_droogstoof,PrjCod,Project code,Project code,string,short text,N/A,Project code,N/A,N/A
+DC_DM_content,VL_totaal_droogstoof,VlgNum,Tracking number,Volgnummer,integer,number,N/A,Tracking number,N/A,N/A
+DC_DM_content,VL_totaal_droogstoof,VrsDat,fresh date,Vers datum,datetime,yy-mm-dd-hh-mm-ss,Measured,Date start of the analysis,N/A,N/A
+DC_DM_content,VL_totaal_droogstoof,VrsGew,fresh weight,Vers gewicht,number,gram,Measured,Weight at the start of the analysis,N/A,N/A
+DC_DM_content,VL_totaal_droogstoof,VrsTyd,fresh time,Vers tijd,number,hh-mm-ss,Measured,"Time start of the analysis, fresh sample is weighed",N/A,N/A
