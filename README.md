@@ -139,8 +139,12 @@ All calculations are fully documented in [`calculations/README.md`](calculations
 2. **Concentrate Allowance & Consumption**:
    - Dispensed across SAC stations and GEA in-parlor feeders.
    - Calculation: $\text{Intake} = \text{QuantityProgrammed} - \text{QuantityRemaining}$.
-3. **Milk Yield & Quality Testing**:
+3. **Milk Production & MPR Quality Testing**:
    - Morning, evening, and daily totals ($\text{KgMlkEtm} = \text{KgMlkO} + \text{KgMlkA}$).
+   - **AO Yield-Weighted Component Formula** (Evening/Morning sampling):
+     $$\bar{C} = \frac{\sum_{i \in \{A, O\}} C_i \times Y_i}{\sum_{i \in \{A, O\}} Y_i}$$
+   - **Fat- and Protein-Corrected Milk (FPCM / Dutch Standard Milk Formula)**:
+     $$\text{FPCM} = \text{MilkYield} \times (0.337 + 0.116 \times \text{Fat\%} + 0.060 \times \text{Protein\%})$$
    - Routine 4-weekly laboratory testing (MPR): Fat %, Protein %, Lactose %, Urea, Somatic Cell Count (`CelStd`), and diagnostic ketosis code (`KetStd`).
 4. **Behavioral Budgets (Nedap Velos Smarttags)**:
    - High-resolution intervals aggregated into 24-hour budgets for eating, ruminating, inactivity (lying), and active locomotion.

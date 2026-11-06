@@ -96,27 +96,27 @@ COLUMN_ENRICHMENTS = {
         "Source.table": "T_Raw_HokofarmCD (totalIntakeKVD)"
     },
     ("tvl_totaal", "mpr_week.Fat_Concentration"): {
-        "Data.calculated.description": "ISO-calendar week average milk fat concentration calculated across regular CRV test recordings.",
+        "Data.calculated.description": "ISO-calendar week yield-weighted average milk fat concentration calculated across regular CRV/MPR test recordings: sum(Fat_Concentration * MilkingYield) / sum(MilkingYield). Used to derive Fat- and Protein-Corrected Milk (FPCM).",
         "Source.table": "VL_Dier_Datum_Crv"
     },
     ("tvl_totaal", "mpr_week.Protein_Concentration"): {
-        "Data.calculated.description": "ISO-calendar week average milk protein concentration calculated across regular CRV test recordings.",
+        "Data.calculated.description": "ISO-calendar week yield-weighted average milk protein concentration calculated across regular CRV/MPR test recordings: sum(Protein_Concentration * MilkingYield) / sum(MilkingYield). Used to derive Fat- and Protein-Corrected Milk (FPCM).",
         "Source.table": "VL_Dier_Datum_Crv"
     },
     ("tvl_totaal", "mpr_week.Lactose_Concentration"): {
-        "Data.calculated.description": "ISO-calendar week average milk lactose concentration calculated across regular CRV test recordings.",
+        "Data.calculated.description": "ISO-calendar week yield-weighted average milk lactose concentration calculated across regular CRV/MPR test recordings: sum(Lactose_Concentration * MilkingYield) / sum(MilkingYield).",
         "Source.table": "VL_Dier_Datum_Crv"
     },
     ("tvl_totaal", "mpr_week.SCC"): {
-        "Data.calculated.description": "ISO-calendar week average milk somatic cell count calculated across regular CRV test recordings.",
+        "Data.calculated.description": "ISO-calendar week yield-weighted average somatic cell count (1,000 cells/mL) calculated across regular CRV/MPR test recordings: sum(SCC * MilkingYield) / sum(MilkingYield).",
         "Source.table": "VL_Dier_Datum_Crv"
     },
     ("tvl_totaal", "mpr_week.Urea_Concentration"): {
-        "Data.calculated.description": "ISO-calendar week average milk urea concentration calculated across regular CRV test recordings.",
+        "Data.calculated.description": "ISO-calendar week yield-weighted average milk urea concentration (mg/dL) calculated across regular CRV/MPR test recordings: sum(Urea_Concentration * MilkingYield) / sum(MilkingYield).",
         "Source.table": "VL_Dier_Datum_Crv"
     },
     ("tvl_totaal", "mpr_week.Urea_Concentration "): {
-        "Data.calculated.description": "ISO-calendar week average milk urea concentration calculated across regular CRV test recordings.",
+        "Data.calculated.description": "ISO-calendar week yield-weighted average milk urea concentration (mg/dL) calculated across regular CRV/MPR test recordings: sum(Urea_Concentration * MilkingYield) / sum(MilkingYield).",
         "Source.table": "VL_Dier_Datum_Crv"
     },
     ("tvl_totaal", "tot.opnDs"): {
