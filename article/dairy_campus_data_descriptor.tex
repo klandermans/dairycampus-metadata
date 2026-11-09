@@ -1,0 +1,927 @@
+
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper,top=22mm,bottom=24mm,left=20mm,right=20mm,headheight=14pt]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{fontspec}
+\usepackage{microtype}
+\usepackage[table]{xcolor}
+\usepackage{array,longtable,booktabs}
+\usepackage{siunitx}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{caption}
+\usepackage[hidelinks,bookmarksnumbered,bookmarksopen]{hyperref}
+
+\definecolor{accent}{HTML}{1F4E79}
+\definecolor{rowgrey}{HTML}{F3F5F8}
+\hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent,citecolor=accent,
+  pdftitle={Dairy Campus Research Data Platform: Data Descriptor},
+  pdfauthor={Bert Klandermans; Fedde de Jong}}
+
+\titleformat{\section}{\sffamily\large\bfseries\color{accent}}{\thesection}{0.8em}{}
+\titleformat{\subsection}{\sffamily\normalsize\bfseries\color{accent}}{\thesubsection}{0.8em}{}
+\titlespacing*{\section}{0pt}{14pt}{6pt}
+\titlespacing*{\subsection}{0pt}{12pt}{4pt}
+
+\captionsetup{font=small,labelfont={bf,sf},justification=raggedright,singlelinecheck=false}
+\setlist{itemsep=2pt,topsep=4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\fancyhead[L]{\small\sffamily Dairy Campus Research Data Platform \textemdash{} Data Descriptor}
+\fancyhead[R]{\small\sffamily\hyperlink{toc}{Contents}}
+\fancyfoot[C]{\small\sffamily\thepage}
+
+% ---- uniform data-dictionary layout (identical for all 19 tables) ----
+\setlength{\tabcolsep}{4pt}
+\newlength{\dictw}
+\setlength{\dictw}{\dimexpr\textwidth-12\tabcolsep\relax}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1\dictw}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1\dictw}}
+\newcommand{\dicthead}{%
+  \toprule
+  \sffamily\bfseries Variable &\sffamily\bfseries Type &\sffamily\bfseries Unit &
+  \sffamily\bfseries Origin &\sffamily\bfseries Description &\sffamily\bfseries Derivation / source\\
+  \midrule}
+
+\sisetup{detect-all}
+
+\begin{document}
+
+\begin{center}
+  {\sffamily\bfseries\LARGE\color{accent} Dairy Campus Research Data Platform\par}
+  \vspace{4pt}
+  {\sffamily\large Data Descriptor, Standardised Metadata Dictionaries\\ and Calculation Methodology\par}
+  \vspace{10pt}
+  {\normalsize Bert Klandermans \quad Fedde de Jong\par}
+  \vspace{2pt}
+  {\small\itshape Dairy Campus, Wageningen University \& Research, Leeuwarden, The Netherlands\par}
+  \vspace{4pt}
+  {\small DOI: \href{https://doi.org/10.5281/zenodo.24092174}{10.5281/zenodo.24092174} \quad\textbar\quad Licence: CC BY 4.0\par}
+\end{center}
+\vspace{6pt}
+\noindent\rule{\textwidth}{0.4pt}
+\begin{abstract}
+\noindent
+Dairy Campus (Wageningen University \& Research, Leeuwarden) operates a
+multi-sensor experimental dairy herd for research on nutrition, feed efficiency,
+enteric methane mitigation, animal welfare and precision livestock farming. This
+data descriptor documents the research data platform: 19
+datasets comprising 507 variables, with their data types,
+units, measurement origin and derivation. Derived quantities computed in the SQL
+layer (water correction of roughage intake, dry matter intake, yield-weighted milk
+composition, behaviour budgets and lactation timing) are given in closed form.
+\end{abstract}
+\noindent\rule{\textwidth}{0.4pt}
+
+\hypertarget{toc}{}
+\tableofcontents
+\clearpage
+
+\section{Facility and sensor infrastructure}
+Dairy Campus houses an experimental herd of approximately 500 Holstein Friesian
+cows. The platform continuously ingests data from the following systems:
+\begin{itemize}
+  \item \textbf{Hokofarm RIC troughs} \textendash{} individual roughage intake bins on load cells with RFID identification.
+  \item \textbf{Trioliet Triomatic} \textendash{} automated feed kitchen and feeding robot; loading and trough deliveries.
+  \item \textbf{Hokofarm/SAC concentrate stations} \textendash{} computerised dispensing of up to four concentrates (A\textendash D).
+  \item \textbf{GEA milking systems and smart gates} \textendash{} milk yield, milking duration, body weight and routing.
+  \item \textbf{Nedap Velos smarttags} \textendash{} behaviour classification into eating, ruminating, inactive and other active.
+  \item \textbf{C-Lock GreenFeed} \textendash{} enteric CH$_4$ and CO$_2$ fluxes during voluntary bait-fed visits.
+  \item \textbf{Weather station} \textendash{} ambient temperature, humidity, wind, precipitation and radiation.
+\end{itemize}
+Laboratory drying-oven dry matter analyses and official milk recording (CRV/MPR)
+complement the sensor streams.
+
+
+\section{Calculation methodology}\label{sec:methods}
+
+This section formalises the derived variables that are computed inside the SQL
+tables and views of the platform. Only calculations documented in the data
+dictionary are included; the variable names given in parentheses refer to the
+columns in Section~\ref{sec:dictionaries}. Time stamps are denoted $t$, masses
+$M$ (\si{\kilogram}), and the index $d$ refers to a calendar day.
+
+\subsection{Roughage intake per visit and per day}
+The Hokofarm RIC troughs are mounted on load cells. The intake and duration of
+visit $v$, and the daily fresh intake of roughage fraction
+$f \in \{1,2,3,4\}$ (\texttt{rv1.Prod}\,--\,\texttt{rv4.Prod}), are
+\begin{equation}
+  I_{v} = M_{v}^{\text{start}} - M_{v}^{\text{end}}, \qquad
+  \Delta t_{v} = t_{v}^{\text{end}} - t_{v}^{\text{start}}, \qquad
+  I_{f,d} = \sum_{v \in \mathcal{V}_{f,d}} I_{v},
+  \label{eq:ric}
+\end{equation}
+where $\mathcal{V}_{f,d}$ is the set of visits of a cow to troughs holding
+fraction $f$ on day $d$.
+
+\subsection{Correction for water added in the feed kitchen}
+Water is added to the ration in the Trioliet Triomatic feed kitchen. Intake
+excluding added water (\texttt{rv$f$.ProdExclWater}, \texttt{opnMinWater};
+view \texttt{VL\_Totaal\_sub\_ric\_opn\_prod}) is
+\begin{equation}
+  I_{f,d}^{\text{excl}} \;=\;
+  \frac{M_{\text{loaded}} - M_{\text{water}}}{M_{\text{loaded}}}\; I_{f,d},
+  \label{eq:water}
+\end{equation}
+with $M_{\text{loaded}}$ the total mass loaded into the mixer and
+$M_{\text{water}}$ the mass of water added to that batch.
+
+\subsection{Dry matter intake}
+Weekly dry matter contents $\mathrm{DM}_{f}$ (\si{\percent}) are determined
+gravimetrically in the drying oven (\texttt{VL\_totaal\_droogstoof}). Total
+daily dry matter intake (\texttt{tot.opnDs}, \si{\kilogram\,DM\per\day}) is
+\begin{equation}
+  \mathrm{DMI}_{d} \;=\; \sum_{f=1}^{4} I_{f,d}^{\text{excl}}\,
+  \frac{\mathrm{DM}_{f}}{100}.
+  \label{eq:dmi}
+\end{equation}
+
+\subsection{Concentrate feeding}
+For the computerised concentrate stations, the residual (not consumed)
+concentrate (\texttt{SumVoeRst}) follows from the programmed allowance
+(\texttt{SumVoeGft}) and the consumed amount (\texttt{SumVoeOpnm}):
+\begin{equation}
+  C_{d}^{\text{rest}} = C_{d}^{\text{granted}} - C_{d}^{\text{intake}} .
+  \label{eq:conc}
+\end{equation}
+
+\subsection{Yield-weighted milk composition}
+Milk recording (CRV/MPR) concentrations are aggregated per ISO calendar week $w$
+as yield-weighted means (\texttt{mpr\_week.*}; view \texttt{VL\_Dier\_Datum\_Crv}):
+\begin{equation}
+  \bar{c}_{w} \;=\;
+  \frac{\displaystyle\sum_{j \in \mathcal{J}_{w}} c_{j}\, Y_{j}}
+       {\displaystyle\sum_{j \in \mathcal{J}_{w}} Y_{j}},
+  \qquad c \in \{\text{fat},\ \text{protein},\ \text{lactose},\ \text{urea},\ \text{SCC}\},
+  \label{eq:mpr}
+\end{equation}
+where $\mathcal{J}_{w}$ is the set of test milkings in week $w$, $c_{j}$ the
+concentration and $Y_{j}$ (\si{\kilogram}) the milk yield of milking $j$.
+
+\subsection{Daily behaviour budgets}
+Nedap Velos intervals $k$ carry a behaviour state $s_{k} \in \{0,1,2,3\}$
+(0 other active, 1 inactive, 2 ruminating, 3 eating). The daily time budget per
+state (\texttt{overig}, \texttt{nietactief}, \texttt{herkouwen},
+\texttt{vreten}) and the total (\texttt{total}) are
+\begin{equation}
+  T_{s,d} = \sum_{k \in \mathcal{K}_{d}} \Delta t_{k}\, \mathbf{1}[s_{k}=s],
+  \qquad
+  T_{d} = \sum_{s=0}^{3} T_{s,d},
+  \label{eq:velos}
+\end{equation}
+with $\mathcal{K}_{d}$ the intervals recorded on day $d$ and $\mathbf{1}[\cdot]$
+the indicator function.
+
+\subsection{Lactation and reproduction timing}
+For a record on date $t$ (all quantities in days):
+\begin{align}
+  \mathrm{DIM}           &= t - t_{\text{calving}}
+      && \text{(\texttt{LacDgn}, \texttt{IMDim}, \texttt{DaysInLactation})} \label{eq:dim}\\
+  A                      &= t - t_{\text{birth}}
+      && \text{(\texttt{AgeDays})} \label{eq:age}\\
+  t_{\text{exp.\,calving}} &= t_{\text{insemination}} + 280
+      && \text{(\texttt{VrwKlfDat}, \texttt{ExpecCalvingDate})} \label{eq:expcalv}\\
+  D_{\text{to calving}}  &= t_{\text{exp.\,calving}} - t
+      && \text{(\texttt{VrwDgn})} \label{eq:vrwdgn}
+\end{align}
+
+
+\section{Dataset overview}\label{sec:overview}
+Table~\ref{tab:overview} lists all datasets; names link to the corresponding data dictionary.
+\begingroup\small
+\rowcolors{2}{rowgrey}{white}
+\begin{longtable}{>{\raggedleft\arraybackslash}p{0.04\textwidth}
+                  >{\raggedright\arraybackslash}p{0.36\textwidth}
+                  >{\raggedright\arraybackslash}p{0.40\textwidth}
+                  >{\raggedleft\arraybackslash}p{0.08\textwidth}}
+\caption{Datasets of the Dairy Campus research data platform.}\label{tab:overview}\\
+\toprule
+\sffamily\bfseries \# & \sffamily\bfseries Dataset & \sffamily\bfseries Content & \sffamily\bfseries Variables\\
+\midrule\endfirsthead
+\toprule
+\sffamily\bfseries \# & \sffamily\bfseries Dataset & \sffamily\bfseries Content & \sffamily\bfseries Variables\\
+\midrule\endhead
+\bottomrule\endfoot
+
+1 & \hyperref[ds:TVL_total]{\texttt{TVL\_\allowbreak{}total}} & Master daily integrated cow summary & 97\\
+2 & \hyperref[ds:Hokofarm_SAC_concentrates]{\texttt{Hokofarm\_\allowbreak{}SAC\_\allowbreak{}concentrates}} & Automatic concentrate feeder transactions & 42\\
+3 & \hyperref[ds:Hokofarm_RIC]{\texttt{Hokofarm\_\allowbreak{}RIC}} & Roughage intake control (RIC) visit transactions & 18\\
+4 & \hyperref[ds:TVL_RIC_intake_dm]{\texttt{TVL\_\allowbreak{}RIC\_\allowbreak{}intake\_\allowbreak{}dm}} & Daily roughage intake and dry matter integration & 12\\
+5 & \hyperref[ds:Triomatic_RIC_load]{\texttt{Triomatic\_\allowbreak{}RIC\_\allowbreak{}load}} & Trioliet Triomatic feeding robot loading records & 46\\
+6 & \hyperref[ds:Triomatic_RIC_drop]{\texttt{Triomatic\_\allowbreak{}RIC\_\allowbreak{}drop}} & Trioliet Triomatic feeding robot trough deliveries & 46\\
+7 & \hyperref[ds:GEA_gates]{\texttt{GEA\_\allowbreak{}gates}} & GEA separation and smart gate passages & 5\\
+8 & \hyperref[ds:GEA_milkings]{\texttt{GEA\_\allowbreak{}milkings}} & GEA milking transactions & 13\\
+9 & \hyperref[ds:TMR_Trioliet_cowconnect_mix]{\texttt{TMR\_\allowbreak{}Trioliet\_\allowbreak{}cowconnect\_\allowbreak{}mix}} & CowConnect mixer wagon rations & 12\\
+10 & \hyperref[ds:Velos_behaviour]{\texttt{Velos\_\allowbreak{}behaviour}} & Nedap Velos behaviour intervals & 4\\
+11 & \hyperref[ds:Velos_behaviour_day]{\texttt{Velos\_\allowbreak{}behaviour\_\allowbreak{}day}} & Nedap Velos daily behaviour budgets & 7\\
+12 & \hyperref[ds:TMR_Trioliet_cowconnect_drop]{\texttt{TMR\_\allowbreak{}Trioliet\_\allowbreak{}cowconnect\_\allowbreak{}drop}} & CowConnect feed distribution drops & 11\\
+13 & \hyperref[ds:DC_DM_content]{\texttt{DC\_\allowbreak{}DM\_\allowbreak{}content}} & Laboratory dry matter content (drying oven) & 16\\
+14 & \hyperref[ds:Greenfeed_summarized_data]{\texttt{Greenfeed\_\allowbreak{}summarized\_\allowbreak{}data}} & GreenFeed enteric emission summaries & 24\\
+15 & \hyperref[ds:Greenfeed_feed_aggregrated]{\texttt{Greenfeed\_\allowbreak{}feed\_\allowbreak{}aggregrated}} & GreenFeed bait feed drops & 13\\
+16 & \hyperref[ds:Weatherstation]{\texttt{Weatherstation}} & Dairy Campus meteorological station & 18\\
+17 & \hyperref[ds:Missing_data]{\texttt{Missing\_\allowbreak{}data}} & Data completeness audit matrix & 17\\
+18 & \hyperref[ds:Environment_barn_Animal_day]{\texttt{Environment\_\allowbreak{}barn\_\allowbreak{}Animal\_\allowbreak{}day}} & Barn environment and animal daily profile & 52\\
+19 & \hyperref[ds:Environment_barn_Animal_experim]{\texttt{Environment\_\allowbreak{}barn\_\allowbreak{}Animal\_\allowbreak{}experim}} & Experimental cohort animal daily records & 54\\
+\end{longtable}\endgroup
+
+\clearpage
+\section{Data dictionaries}\label{sec:dictionaries}
+All dictionaries share an identical layout. \emph{Origin} indicates whether a
+variable is measured by a sensor or laboratory, or derived in the SQL layer;
+derivations refer to the equations in Section~\ref{sec:methods}. A dash
+(\textemdash) denotes information that is not documented.
+
+\subsection{Master daily integrated cow summary}\label{ds:TVL_total}
+{\small \textbf{Dataset:} \texttt{TVL\_\allowbreak{}total} \quad\textbar\quad \textbf{Source table:} \texttt{tvl\_\allowbreak{}totaal} \quad\textbar\quad \textbf{Variables:} 97}\par
+\begingroup\footnotesize\rowcolors{2}{rowgrey}{white}
+\begin{longtable}{L{0.22}C{0.08}C{0.10}C{0.09}L{0.30}L{0.21}}
+\caption{Data dictionary of \texttt{TVL\_total}.}\\
+\dicthead\endfirsthead
+\multicolumn{6}{l}{\footnotesize\itshape continued}\\ \dicthead\endhead
+\bottomrule\endfoot
+\texttt{Animal\allowbreak{}Server\allowbreak{}Id}\newline Animal server number & integer & \textendash & \textemdash & Unique animal server identifier issued across the different systems at Dairy Campus & \textemdash\\
+\texttt{Ant\allowbreak{}Mlk\allowbreak{}A}\newline Number of milkings afternoon & integer & \textendash & Measured & How often an animal was milked in the afternoon. 1 is the assumed value. 0 means a missing value/something wrong with registration. 2+ means reattachment of the milking apparatus, can be outlier values. & \textemdash\\
+\texttt{Ant\allowbreak{}Mlk\allowbreak{}Etm}\newline Number of milkings 24 hours & integer & \textendash & Measured & Amount of milkings in the last 24 hours. 2 is the assumed value. 1 or 3+ means something is off during morning and/or afternoon milking. & \textemdash\\
+\texttt{Ant\allowbreak{}Mlk\allowbreak{}O}\newline Number of milkings morning & integer & \textendash & Measured & How often an animal was milked in the morning. 1 is the assumed value. 0 means a missing value/something wrong with registration. 2+ means reattachment of the milking apparatus, can be outlier values. & \textemdash\\
+\texttt{bcs}\newline Body condition score & integer & \textendash & Measured & Automatic body condition score camera & \textemdash\\
+\texttt{Beg\allowbreak{}Dat\allowbreak{}Prf}\newline Starting date experiment & date & yy-mm-dd & Measured & Expected start date of the experiment & \textemdash\\
+\texttt{Beh\allowbreak{}Cod}\newline Treatment code & string & text & \textemdash & Abbreviaton of the treatname name. Set by the researcher. & \textemdash\\
+\texttt{Beh\allowbreak{}Nam}\newline Treatment name & string & text & \textemdash & Full name of the treatment. Set by the researcher & \textemdash\\
+\texttt{Blk}\newline Blocking group & integer & \textendash & \textemdash & Number of the assigned block. Set by the researcher. & \textemdash\\
+\texttt{C21-10}\newline Total concentrate via station 1 till 4 & number & \si{\kilogram} & Derived & Dag totaal krachtvoer caroussel & \textemdash\\
+\texttt{C21-9}\newline Concentrate feed milking caroussel & number & \si{\kilogram} & \textemdash & Kilogram of concentrate feed dispatched at the milking caroussel. NOT the uptake, that cannot be registered currently. & \textemdash\\
+\texttt{Cel\allowbreak{}Std}\newline Somatic cell count standard & string & x1000 cells/mL & Derived & Somatic cell count of the monthly milk test & Official somatic cell count (SCC) determined from routine 4-weekly milk recording samples (MPR), analyzed by laboratory. \newline \textit{Source:} \texttt{T\_\allowbreak{}Animal\_\allowbreak{}Milk\allowbreak{}Samples (Mlk\allowbreak{}Con.\allowbreak{}SCCDay)}\\
+\texttt{Dat}\newline Date & date & yy-mm-dd & Measured & Date of the data record & \textemdash\\
+\texttt{Del\allowbreak{}Pro-13}\newline Feed from the milking robot & number & \si{\kilogram} & \textemdash & Intake feed 1 from the milkingrobot & \textemdash\\
+\texttt{Drg\allowbreak{}Zet\allowbreak{}Dat}\newline Start date dry period & date & yy-mm-dd & Measured & Starting date of the dry period & \textemdash\\
+\texttt{Eiw\allowbreak{}Std}\newline Protein concentration standard & number & \si{\percent} & Derived & Protein concentration of the monthly milk test & Milk crude protein percentage determined from official routine milk recording laboratory analysis. \newline \textit{Source:} \texttt{T\_\allowbreak{}Animal\_\allowbreak{}Milk\allowbreak{}Samples (Mlk\allowbreak{}Con.\allowbreak{}Protein\allowbreak{}Percentage)}\\
+\texttt{End\allowbreak{}Dat\allowbreak{}Prf}\newline Ending date experiment & date & yy-mm-dd & Measured & Expected end date of the experiment & \textemdash\\
+\texttt{Gew\allowbreak{}A}\newline Weight afternoon & number & \si{\kilogram} & Measured & Weight of the animal after milking in the afternoon & \textemdash\\
+\texttt{Gew\allowbreak{}O}\newline Weight morning & number & \si{\kilogram} & Measured & Weight of the animal after milking in the morning & \textemdash\\
+\texttt{gf\_\allowbreak{}visits}\newline GreenFeed measurements & string & \textemdash & \textemdash & Measurements on cow emission (summarized data) & \textemdash\\
+\texttt{gf\_\allowbreak{}cupdrops}\newline GreenFeed cupdrops & string & \textemdash & \textemdash & GreenFeed portions concentrate feed. & \textemdash\\
+\texttt{Hok}\newline Pen / Stable number & integer & \textendash & \textemdash & Location of where the cows are housed. & \textemdash\\
+\texttt{Hok\allowbreak{}Min1}\newline Pen / Stable number day before & integer & \textendash & \textemdash & Location of where the cows are housed day before & \textemdash\\
+\texttt{Atributed\allowbreak{}KVA}\newline Attributed Concentrate A & number & \si{\kilogram} & Derived & Total allocated/programmed amount of concentrate feed type A for the cow on the specified date. & Sum of programmed concentrate A quantities across feeding stations (Hokofarm / SAC). \newline \textit{Source:} \texttt{T\_\allowbreak{}Raw\_\allowbreak{}Hokofarm\allowbreak{}CD / TVL\_\allowbreak{}Totaal\_\allowbreak{}sub\_\allowbreak{}kv}\\
+\texttt{Total\allowbreak{}Intake\allowbreak{}KVA}\newline Concentrate feed station 1 & number & \si{\kilogram} & Derived & Total intake feed from SAC box 1 & Total consumed quantity of concentrate feed A by the animal at the automatic feeding station on the specified date. \newline \textit{Source:} \texttt{T\_\allowbreak{}Raw\_\allowbreak{}Hokofarm\allowbreak{}CD (total\allowbreak{}Intake\allowbreak{}KVA)}\\
+\texttt{Atributed\allowbreak{}KVB}\newline Attributed Concentrate B & number & \si{\kilogram} & Derived & Total allocated/programmed amount of concentrate feed type B for the cow on the specified date. & Sum of programmed concentrate B quantities across feeding stations (Hokofarm / SAC). \newline \textit{Source:} \texttt{T\_\allowbreak{}Raw\_\allowbreak{}Hokofarm\allowbreak{}CD / TVL\_\allowbreak{}Totaal\_\allowbreak{}sub\_\allowbreak{}kv}\\
+\texttt{Total\allowbreak{}Intake\allowbreak{}KVB}\newline Concentrate feed station 2 & number & \si{\kilogram} & Derived & Total intake feed from SAC box 2 & Total consumed quantity of concentrate feed B by the animal at the automatic feeding station on the specified date. \newline \textit{Source:} \texttt{T\_\allowbreak{}Raw\_\allowbreak{}Hokofarm\allowbreak{}CD (total\allowbreak{}Intake\allowbreak{}KVB)}\\
+\texttt{Atributed\allowbreak{}KVC}\newline Attributed Concentrate C & number & \si{\kilogram} & Derived & Total allocated/programmed amount of concentrate feed type C for the cow on the specified date. & Sum of programmed concentrate C quantities across feeding stations (Hokofarm / SAC). \newline \textit{Source:} \texttt{T\_\allowbreak{}Raw\_\allowbreak{}Hokofarm\allowbreak{}CD / TVL\_\allowbreak{}Totaal\_\allowbreak{}sub\_\allowbreak{}kv}\\
+\texttt{Total\allowbreak{}Intake\allowbreak{}KVC}\newline Concentrate feed station 3 & number & \si{\kilogram} & Derived & Total intake feed from SAC box 3 & Total consumed quantity of concentrate feed C by the animal at the automatic feeding station on the specified date. \newline \textit{Source:} \texttt{T\_\allowbreak{}Raw\_\allowbreak{}Hokofarm\allowbreak{}CD (total\allowbreak{}Intake\allowbreak{}KVC)}\\
+\texttt{Atributed\allowbreak{}KVD}\newline Attributed Concentrate D & number & \si{\kilogram} & Derived & Total allocated/programmed amount of concentrate feed type D for the cow on the specified date. & Sum of programmed concentrate D quantities across feeding stations (Hokofarm / SAC). \newline \textit{Source:} \texttt{T\_\allowbreak{}Raw\_\allowbreak{}Hokofarm\allowbreak{}CD / TVL\_\allowbreak{}Totaal\_\allowbreak{}sub\_\allowbreak{}kv}\\
+\texttt{Total\allowbreak{}Intake\allowbreak{}KVD}\newline Concentrate feed station 4 & number & \si{\kilogram} & Derived & Total intake feed from SAC box 4 & Total consumed quantity of concentrate feed D by the animal at the automatic feeding station on the specified date. \newline \textit{Source:} \texttt{T\_\allowbreak{}Raw\_\allowbreak{}Hokofarm\allowbreak{}CD (total\allowbreak{}Intake\allowbreak{}KVD)}\\
+\texttt{Hrh\allowbreak{}Num}\newline Repeating number & integer & \textendash & \textemdash & Number of repeat of a previously performed test & \textemdash\\
+\texttt{Ins\allowbreak{}Dat}\newline Insemination day & date & yy-mm-dd & Measured & Date of last insemination & \textemdash\\
+\texttt{Jar}\newline Year & integer & \textendash & Measured & Year of the data record & \textemdash\\
+\texttt{Ket\allowbreak{}Std}\newline Ketose concentration standard & integer & \textendash & Derived & Ketose concentration of the monthly milk test & Ketosis diagnostic classification code (0: normal/negative, 1: suspected subclinical, 2: clinical ketosis). \newline \textit{Source:} \texttt{T\_\allowbreak{}Animal\_\allowbreak{}Milk\allowbreak{}Samples (Mlk\allowbreak{}Con.\allowbreak{}Ketosis\allowbreak{}Code)}\\
+\texttt{Kg\allowbreak{}Mlk\allowbreak{}A}\newline Kilogram milk afternoon & number & \si{\kilogram} & Measured & Kilogram of milk registred at the afternoon milking event & \textemdash\\
+\texttt{Kg\allowbreak{}Mlk\allowbreak{}Etm}\newline Kilogram milk 24 hours & number & \si{\kilogram} & Measured & Kilogram of milk in the last 24 hours & \textemdash\\
+\texttt{Kg\allowbreak{}Mlk\allowbreak{}O}\newline Kilogram milk morning & number & \si{\kilogram} & Measured & Kilogram of milk registred at the morning milking event & \textemdash\\
+\texttt{Klf\allowbreak{}Dat}\newline Calving date & date & yy-mm-dd & Measured & Date of last calving & \textemdash\\
+\texttt{Lac\allowbreak{}Dgn}\newline Days in lactation & integer & \textendash & Derived & Amount of days producing milk & Date - calving date\\
+\texttt{Lac\allowbreak{}Num}\newline Parity & integer & \textendash & Measured & Parity (amount of calvings) of the animal & \textemdash\\
+\texttt{Lac\allowbreak{}Std}\newline Lactose concentration standard & number & \si{\percent} & Derived & Lactose of the monthly milk test & Milk lactose percentage determined from official routine milk recording laboratory analysis. \newline \textit{Source:} \texttt{T\_\allowbreak{}Animal\_\allowbreak{}Milk\allowbreak{}Samples (Mlk\allowbreak{}Con.\allowbreak{}Lactose\allowbreak{}Percentage)}\\
+\texttt{Lev\allowbreak{}Num}\newline Registration number & integer & text + number & \textemdash & National registration number of the animal. & \textemdash\\
+\texttt{Lft\allowbreak{}Dgn}\newline Age & integer & \textendash & Measured & Age of the animal in days & \textemdash\\
+\texttt{Mlk\allowbreak{}Std}\newline Milk standard & number & \si{\kilogram} & Derived & Kilogram of milk produced during the standard (once a month) milk composition sampling & Total daily milk yield recorded during the official milk control recording day. \newline \textit{Source:} \texttt{T\_\allowbreak{}Animal\_\allowbreak{}Milk\allowbreak{}Samples (Mlk\allowbreak{}Con.\allowbreak{}Milk\allowbreak{}Quantity\allowbreak{}Mass)}\\
+\texttt{mpr\_\allowbreak{}dag.\allowbreak{}Fat\_\allowbreak{}Concentration}\newline Weekly milk fat concentration & number & \si{\percent} & Measured & Weekly milk fat concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week. & \textemdash\\
+\texttt{mpr\_\allowbreak{}dag.\allowbreak{}Lactose\_\allowbreak{}Concentration}\newline Weekly milk lactose concentration & number & \si{\percent} & Measured & Weekly milk lactose concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week. & \textemdash\\
+\texttt{mpr\_\allowbreak{}dag.\allowbreak{}Protein\_\allowbreak{}Concentration}\newline Weekly milk protein concentration & number & \si{\percent} & Measured & Weekly milk protein concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week. & \textemdash\\
+\texttt{mpr\_\allowbreak{}dag.\allowbreak{}SCC}\newline Weekly somatic cell count & string & $10^{3}$\,cells\,mL$^{-1}$ & Measured & Weekly somatic cell count during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week. & \textemdash\\
+\texttt{mpr\_\allowbreak{}dag.\allowbreak{}Urea\_\allowbreak{}Concentration}\newline Weekly milk urea concentration & string & \si{\milli\gram\per\deci\litre} & Measured & Weekly milk urea concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week. & \textemdash\\
+\texttt{mpr\_\allowbreak{}week.\allowbreak{}Fat\_\allowbreak{}Concentration}\newline Calculated day fat concentration & number & \si{\percent} & Derived & An estimated daily milk fat concentration based on the AO sampling and the corresponding milk yield of that day.  x & ISO-calendar week yield-weighted average milk fat concentration calculated across regular CRV/MPR test recordings: sum(Fat\_\allowbreak{}Concentration * MilkingYield) / sum(MilkingYield). Used to derive Fat- and Protein-Corrected Milk (FPCM). \newline \textit{Source:} \texttt{VL\_\allowbreak{}Dier\_\allowbreak{}Datum\_\allowbreak{}Crv}\\
+\texttt{mpr\_\allowbreak{}week.\allowbreak{}Lactose\_\allowbreak{}Concentration}\newline Calculated day lactose concentration & number & \si{\percent} & Derived & An estimated daily milk lactose concentration based on the AO sampling and the corresponding milk yield of that day. & ISO-calendar week yield-weighted average milk lactose concentration calculated across regular CRV/MPR test recordings: sum(Lactose\_\allowbreak{}Concentration * MilkingYield) / sum(MilkingYield). \newline \textit{Source:} \texttt{VL\_\allowbreak{}Dier\_\allowbreak{}Datum\_\allowbreak{}Crv}\\
+\texttt{mpr\_\allowbreak{}week.\allowbreak{}Protein\_\allowbreak{}Concentration}\newline Calculated day protein concentration & number & \si{\percent} & Derived & An estimated daily milk protein concentration based on the AO sampling and the corresponding milk yield of that day. & ISO-calendar week yield-weighted average milk protein concentration calculated across regular CRV/MPR test recordings: sum(Protein\_\allowbreak{}Concentration * MilkingYield) / sum(MilkingYield). Used to derive Fat- and Protein-Corrected Milk (FPCM). \newline \textit{Source:} \texttt{VL\_\allowbreak{}Dier\_\allowbreak{}Datum\_\allowbreak{}Crv}\\
+\texttt{mpr\_\allowbreak{}week.\allowbreak{}SCC}\newline Calculated day somatic cell count & string & $10^{3}$\,cells\,mL$^{-1}$ & Derived & An estimated daily somatic cell count based on the AO sampling and the corresponding milk yield of that day. & ISO-calendar week yield-weighted average somatic cell count (1,000 cells/mL) calculated across regular CRV/MPR test recordings: sum(SCC * MilkingYield) / sum(MilkingYield). \newline \textit{Source:} \texttt{VL\_\allowbreak{}Dier\_\allowbreak{}Datum\_\allowbreak{}Crv}\\
+\texttt{mpr\_\allowbreak{}week.\allowbreak{}Urea\_\allowbreak{}Concentration}\newline Calculated day urea concentration & string & \si{\milli\gram\per\deci\litre} & Derived & An estimated daily milk urea concentration based on the AO sampling and the corresponding milk yield of that day. & ISO-calendar week yield-weighted average milk urea concentration (mg/dL) calculated across regular CRV/MPR test recordings: sum(Urea\_\allowbreak{}Concentration * MilkingYield) / sum(MilkingYield). \newline \textit{Source:} \texttt{VL\_\allowbreak{}Dier\_\allowbreak{}Datum\_\allowbreak{}Crv}\\
+\texttt{Oor\allowbreak{}Num}\newline Ear number & integer & \textendash & \textemdash & Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. & \textemdash\\
+\texttt{Opn\allowbreak{}Rv\allowbreak{}Ds\allowbreak{}Hans}\newline Intake roughage dry matter Hans & string & \textemdash & \textemdash & Intake of dry matter from the roughage, Hans (Will be removed from table) & \textemdash\\
+\texttt{Prd\allowbreak{}Sta}\newline Production stage & string & text & \textemdash & Identifying the stage of the cow, producing milk or not & \textemdash\\
+\texttt{Prf\allowbreak{}Cod}\newline Experiment number & integer & \textendash & \textemdash & Code assigned by Dairy Campus to identify the experiment. Can be the same as the MyProjects number, or differ. & \textemdash\\
+\texttt{Row\allowbreak{}ID}\newline Row ID & integer & \textendash & \textemdash & Unique number for row in a specific table. & \textemdash\\
+\texttt{rv1.\allowbreak{}ds}\newline Roughage 1 dry matter & string & \textemdash & \textemdash & Roughage 1 dry matter & \textemdash\\
+\texttt{rv1.\allowbreak{}name}\newline Roughage name 1 & string & text & \textemdash & Name of the roughage treatment consumed by the animal & \textemdash\\
+\texttt{rv1.\allowbreak{}opn\allowbreak{}Ds}\newline Roughage 1 intake dry matter & string & \textemdash & \textemdash & Roughage 1 intake dry matter & \textemdash\\
+\texttt{rv1.\allowbreak{}Prod}\newline Roughage product 1 & number & \si{\kilogram} & Derived & Total uptake in kilograms of the roughage & Sum of roughage intake of all visits in a single day. The roughage bin calculates uptake as: starting weight - end weight (bins contains a scale)\\
+\texttt{rv1.\allowbreak{}Prod\allowbreak{}Excl\allowbreak{}Water}\newline Roughage 1 intake excluding water & number & \si{\kilogram} & Derived & Total uptake in kilograms of the roughage excluding water & Daily roughage intake fraction 1 excluding added water: (TotalLoaded - AddedWaterKg) / TotalLoaded * Intake. \newline \textit{Source:} \texttt{VL\_\allowbreak{}Totaal\_\allowbreak{}sub\_\allowbreak{}ric\_\allowbreak{}opn\_\allowbreak{}prod}\\
+\texttt{rv1.\allowbreak{}ric\allowbreak{}Bez}\newline Roughage 1 RIC bin visits & integer & \textendash & Measured & Amount of times the animal visited the roughage bins to consume the roughage. & \textemdash\\
+\texttt{rv1.\allowbreak{}tr\allowbreak{}Batches}\newline Roughage 1 batches & integer & \textendash & Measured & Amount of different batches distributed by the feeding robot that the animal consumed for its total roughage uptake & \textemdash\\
+\texttt{rv2.\allowbreak{}ds}\newline Roughage 2 dry matter & number & \si{\kilogram} & \textemdash & Roughage 2 dry matter & \textemdash\\
+\texttt{rv2.\allowbreak{}name}\newline Roughage name 2 & string & text & \textemdash & Name of the roughage treatment consumed by the animal. These are only active (2, 3 and 4) when the animal consumes roughage from a treatment she isn't assigned to. & \textemdash\\
+\texttt{rv2.\allowbreak{}opn\allowbreak{}Ds}\newline Roughage 2 intake dry matter & number & \si{\kilogram} & \textemdash & Roughage 2 intake dry matter & \textemdash\\
+\texttt{rv2.\allowbreak{}Prod}\newline Roughage product 2 & number & \si{\kilogram} & Derived & Total uptake in kilograms of the roughage. & \textemdash\\
+\texttt{rv2.\allowbreak{}Prod\allowbreak{}Excl\allowbreak{}Water}\newline Roughage 2 intake excluding water & number & \si{\kilogram} & Derived & Total uptake in kilograms of the roughage excluding water & Daily roughage intake fraction 2 excluding added water: (TotalLoaded - AddedWaterKg) / TotalLoaded * Intake. \newline \textit{Source:} \texttt{VL\_\allowbreak{}Totaal\_\allowbreak{}sub\_\allowbreak{}ric\_\allowbreak{}opn\_\allowbreak{}prod}\\
+\texttt{rv2.\allowbreak{}ric\allowbreak{}Bez}\newline Roughage 2 RIC bin visits & integer & \textendash & Measured & Amount of times the animal visited the roughage bins to consume the roughage. & \textemdash\\
+\texttt{rv2.\allowbreak{}tr\allowbreak{}Batches}\newline Roughage 2 batches & integer & \textendash & Measured & Amount of different batches distributed by the feeding robot that the animal consumed for its total roughage uptake & \textemdash\\
+\texttt{rv3.\allowbreak{}ds}\newline Roughage 3 dry matter & number & \si{\kilogram} & \textemdash & Roughage 3 dry matter & \textemdash\\
+\texttt{rv3.\allowbreak{}name}\newline Roughage name 3 & string & text & \textemdash & Name of the roughage treatment consumed by the animal. These are only active (2, 3 and 4) when the animal consumes roughage from a treatment she isn't assigned to. & \textemdash\\
+\texttt{rv3.\allowbreak{}opn\allowbreak{}Ds}\newline Roughage 3 intake dry matter & number & \si{\kilogram} & \textemdash & Roughage 3 intake dry matter & \textemdash\\
+\texttt{rv3.\allowbreak{}Prod}\newline Roughage product 3 & number & \si{\kilogram} & Derived & Total uptake in kilograms of the roughage. & Sum of roughage intake of all visits in a single day. The roughage bin calculates uptake as: starting weight - end weight (bins contains a scale)\\
+\texttt{rv3.\allowbreak{}Prod\allowbreak{}Excl\allowbreak{}Water}\newline Roughage 3 intake excluding water & number & \si{\kilogram} & Derived & Total uptake in kilograms of the roughage excluding water & Daily roughage intake fraction 3 excluding added water: (TotalLoaded - AddedWaterKg) / TotalLoaded * Intake. \newline \textit{Source:} \texttt{VL\_\allowbreak{}Totaal\_\allowbreak{}sub\_\allowbreak{}ric\_\allowbreak{}opn\_\allowbreak{}prod}\\
+\texttt{rv3.\allowbreak{}ric\allowbreak{}Bez}\newline Roughage 3 RIC bin visits & integer & \textendash & Measured & Amount of times the animal visited the roughage bins to consume the roughage. & \textemdash\\
+\texttt{rv3.\allowbreak{}tr\allowbreak{}Batches}\newline Roughage 3 batches & integer & \textendash & Measured & Amount of different batches distributed by the feeding robot that the animal consumed for its total roughage uptake & \textemdash\\
+\texttt{rv4.\allowbreak{}ds}\newline Roughage 4 dry matter & number & \si{\kilogram} & \textemdash & Roughage 4 dry matter & \textemdash\\
+\texttt{rv4.\allowbreak{}name}\newline Roughage name 4 & string & text & \textemdash & Name of the roughage treatment consumed by the animal. These are only active (2, 3 and 4) when the animal consumes roughage from a treatment she isn't assigned to. & \textemdash\\
+\texttt{rv4.\allowbreak{}opn\allowbreak{}Ds}\newline Roughage 4 intake dry matter & number & \si{\kilogram} & \textemdash & Roughage 4 intake dry matter & \textemdash\\
+\texttt{rv4.\allowbreak{}Prod}\newline Roughage product 4 & number & \si{\kilogram} & Derived & Total uptake in kilograms of the roughage. & Sum of roughage intake of all visits in a single day. The roughage bin calculates uptake as: starting weight - end weight (bins contains a scale)\\
+\texttt{rv4.\allowbreak{}Prod\allowbreak{}Excl\allowbreak{}Water}\newline Roughage 4 intake excluding water & number & \si{\kilogram} & Derived & Total uptake in kilograms of the roughage excluding water & Daily roughage intake fraction 4 excluding added water: (TotalLoaded - AddedWaterKg) / TotalLoaded * Intake. \newline \textit{Source:} \texttt{VL\_\allowbreak{}Totaal\_\allowbreak{}sub\_\allowbreak{}ric\_\allowbreak{}opn\_\allowbreak{}prod}\\
+\texttt{rv4.\allowbreak{}ric\allowbreak{}Bez}\newline Roughage 4 RIC bin visits & integer & \textendash & Measured & Amount of times the animal visited the roughage bins to consume the roughage. & \textemdash\\
+\texttt{rv4.\allowbreak{}tr\allowbreak{}Batches}\newline Roughage 4 batches & integer & \textendash & Measured & Amount of different batches distributed by the feeding robot that the animal consumed for its total roughage uptake & \textemdash\\
+\texttt{tot.\allowbreak{}opn\allowbreak{}Ds}\newline Total intake drymatter & number & \si{\kilogram} & Derived & Total uptake in kilograms of dry matter & Total daily dry matter intake (kg DM/day). Calculated by summing the dry matter intake of all roughage fractions: (OpnMinWater * DryMatterPercentage). \newline \textit{Source:} \texttt{VL\_\allowbreak{}Totaal\_\allowbreak{}sub\_\allowbreak{}ric\_\allowbreak{}opn\_\allowbreak{}prod}\\
+\texttt{tot.\allowbreak{}Prod}\newline Total product & number & \si{\kilogram} & \textemdash & Total roughage 1 t/m 4 & \textemdash\\
+\texttt{Ure\allowbreak{}Std}\newline Urea concentration standard & number & mg/100 gram & Derived & Urea concentration of the monthly milk test & Milk urea nitrogen content determined from official routine milk recording laboratory analysis. \newline \textit{Source:} \texttt{T\_\allowbreak{}Animal\_\allowbreak{}Milk\allowbreak{}Samples (Mlk\allowbreak{}Con.\allowbreak{}Urea)}\\
+\texttt{Vet\allowbreak{}Std}\newline Fat concentration standard & number & \si{\percent} & Derived & Fat concentration of the monthly milk test & Milk fat percentage determined from official routine milk recording laboratory analysis. \newline \textit{Source:} \texttt{T\_\allowbreak{}Animal\_\allowbreak{}Milk\allowbreak{}Samples (Mlk\allowbreak{}Con.\allowbreak{}Fat\allowbreak{}Percentage)}\\
+\texttt{Vlg\allowbreak{}Klf\allowbreak{}Dat}\newline Next calving date & date & yy-mm-dd & Derived & Next calving date, not predicted, but added after calving & \textemdash\\
+\texttt{Vrw\allowbreak{}Dgn}\newline Expected number of days & integer & \textendash & Derived & Number of days from date to expected calving date based on insemination date & Expected calving date minus current date. \newline \textit{Source:} \texttt{TVL\_\allowbreak{}Dier\_\allowbreak{}Datum\_\allowbreak{}Stal}\\
+\texttt{Vrw\allowbreak{}Klf\allowbreak{}Dat}\newline Expected calving date & date & yy-mm-dd & Derived & Expected calving date based on insemination date & Insemination date + 280 days\\
+\texttt{Wek}\newline Week & integer & \textendash & Measured & Calender week number of data record & \textemdash\\
+\texttt{Wek\allowbreak{}Dag}\newline Day of the week & string & text & \textemdash & Abbreviaton of weekday (Ma = Monday, Di = Tuesday, Wo = Wednesday, Do = Thursday, Vr = Friday, Za = Saturday, Zo = Sunday) & \textemdash\\
+\end{longtable}\endgroup
+\subsection{Automatic concentrate feeder transactions}\label{ds:Hokofarm_SAC_concentrates}
+{\small \textbf{Dataset:} \texttt{Hokofarm\_\allowbreak{}SAC\_\allowbreak{}concentrates} \quad\textbar\quad \textbf{Source table:} \texttt{t\_\allowbreak{}raw\_\allowbreak{}hokofarmvb} \quad\textbar\quad \textbf{Variables:} 42}\par
+\begingroup\footnotesize\rowcolors{2}{rowgrey}{white}
+\begin{longtable}{L{0.22}C{0.08}C{0.10}C{0.09}L{0.30}L{0.21}}
+\caption{Data dictionary of \texttt{Hokofarm\_SAC\_concentrates}.}\\
+\dicthead\endfirsthead
+\multicolumn{6}{l}{\footnotesize\itshape continued}\\ \dicthead\endhead
+\bottomrule\endfoot
+\texttt{ash\allowbreak{}A}\newline Ash A & number & \si{\kilogram} & Derived & Ash, indigestible part of feed A & \textemdash\\
+\texttt{ash\allowbreak{}B}\newline Ash B & number & \si{\kilogram} & Derived & Ash, indigestible part of feed B & \textemdash\\
+\texttt{ash\allowbreak{}C}\newline Ash C & number & \si{\kilogram} & Derived & Ash, indigestible part of feed C & \textemdash\\
+\texttt{ash\allowbreak{}D}\newline Ash D & number & \si{\kilogram} & Derived & Ash, indigestible part of feed D & \textemdash\\
+\texttt{cow}\newline Cow & integer & \textendash & \textemdash & Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date. & \textemdash\\
+\texttt{crude\allowbreak{}Fiber\allowbreak{}A}\newline CrudeFibre A & number & \si{\kilogram} & Derived & Crude fiber in feed A & \textemdash\\
+\texttt{crude\allowbreak{}Fiber\allowbreak{}B}\newline CrudeFibre B & number & \si{\kilogram} & Derived & Crude fiber in feed B & \textemdash\\
+\texttt{crude\allowbreak{}Fiber\allowbreak{}C}\newline CrudeFibre C & number & \si{\kilogram} & Derived & Crude fiber in feed C & \textemdash\\
+\texttt{crude\allowbreak{}Fiber\allowbreak{}D}\newline CrudeFibre D & number & \si{\kilogram} & Derived & Crude fiber in feed D & \textemdash\\
+\texttt{date}\newline Date & date & yy-mm-dd & Measured & Date of the data record & \textemdash\\
+\texttt{date\allowbreak{}Time}\newline Date and time & datetime & yyyy-mm-dd-hh-mm-ss & Measured & Date and time & \textemdash\\
+\texttt{dry\allowbreak{}Matter\allowbreak{}A}\newline Dry matter A & number & \si{\kilogram} & Derived & Dry matter of feed A & \textemdash\\
+\texttt{dry\allowbreak{}Matter\allowbreak{}B}\newline Dry matter B & number & \si{\kilogram} & Derived & Dry matter of feed B & \textemdash\\
+\texttt{dry\allowbreak{}Matter\allowbreak{}C}\newline Dry matter C & number & \si{\kilogram} & Derived & Dry matter of feed C & \textemdash\\
+\texttt{dry\allowbreak{}Matter\allowbreak{}D}\newline Dry matter D & number & \si{\kilogram} & Derived & Dry matter of feed D & \textemdash\\
+\texttt{end\allowbreak{}Time}\newline End time & number & hh-mm-ss & Measured & End time of action/behaviour & \textemdash\\
+\texttt{energy\allowbreak{}A}\newline Energy A & string & VEM & Derived & Energy content A & \textemdash\\
+\texttt{energy\allowbreak{}B}\newline Energy B & string & VEM & Derived & Energy content B & \textemdash\\
+\texttt{energy\allowbreak{}C}\newline Energy C & string & VEM & Derived & Energy content C & \textemdash\\
+\texttt{energy\allowbreak{}D}\newline Energy D & string & VEM & Derived & Energy content D & \textemdash\\
+\texttt{fat\allowbreak{}A}\newline Fat A & number & \si{\kilogram} & Derived & Fat content A & \textemdash\\
+\texttt{fat\allowbreak{}B}\newline Fat B & number & \si{\kilogram} & Derived & Fat content B & \textemdash\\
+\texttt{fat\allowbreak{}C}\newline Fat C & number & \si{\kilogram} & Derived & Fat content C & \textemdash\\
+\texttt{fat\allowbreak{}D}\newline Fat D & number & \si{\kilogram} & Derived & Fat content D & \textemdash\\
+\texttt{feed\allowbreak{}Type\allowbreak{}A}\newline Feed type A & string & text & \textemdash & Type of feed A & \textemdash\\
+\texttt{feed\allowbreak{}Type\allowbreak{}B}\newline Feed type B & string & text & \textemdash & Type of feed B & \textemdash\\
+\texttt{feed\allowbreak{}Type\allowbreak{}C}\newline Feed type C & string & text & \textemdash & Type of feed C & \textemdash\\
+\texttt{feed\allowbreak{}Type\allowbreak{}D}\newline Feed type D & string & text & \textemdash & Type of feed D & \textemdash\\
+\texttt{file\allowbreak{}Name}\newline File name & string & text & \textemdash & Name of a file & \textemdash\\
+\texttt{hash\allowbreak{}Value}\newline Hash value & integer & \textendash & \textemdash & Validation record for data processing & \textemdash\\
+\texttt{intake\allowbreak{}A}\newline Intake A & number & \si{\kilogram} & Derived & Feed intake A & Calculated by endWeight - startWeight\\
+\texttt{intake\allowbreak{}B}\newline Intake B & number & \si{\kilogram} & Derived & Feed intake B & Calculated by endWeight - startWeight\\
+\texttt{intake\allowbreak{}C}\newline Intake C & number & \si{\kilogram} & Derived & Feed intake C & Calculated by endWeight - startWeight\\
+\texttt{intake\allowbreak{}D}\newline Intake D & number & \si{\kilogram} & Derived & Feed intake D & Calculated by endWeight - startWeight\\
+\texttt{protein\allowbreak{}A}\newline Protein A & integer & \textendash & Derived & Protein content A & \textemdash\\
+\texttt{protein\allowbreak{}B}\newline Protein B & integer & \textendash & Derived & Protein content B & \textemdash\\
+\texttt{protein\allowbreak{}C}\newline Protein C & integer & \textendash & Derived & Protein content C & \textemdash\\
+\texttt{protein\allowbreak{}D}\newline Protein D & integer & \textendash & Derived & Protein content D & \textemdash\\
+\texttt{start\allowbreak{}Time}\newline Start time & number & hh-mm-ss & Measured & Start time of action/behaviour & \textemdash\\
+\texttt{station}\newline Station & integer & \textendash & Measured & Station or location of activity & \textemdash\\
+\texttt{total\allowbreak{}Time}\newline Total time & integer & \si{\second} & Derived & Total duration & Calculated by endTime - startTime\\
+\texttt{transponder}\newline Transponder & integer & \textendash & Measured & Transponder number of the cow & \textemdash\\
+\end{longtable}\endgroup
+\subsection{Roughage intake control (RIC) visit transactions}\label{ds:Hokofarm_RIC}
+{\small \textbf{Dataset:} \texttt{Hokofarm\_\allowbreak{}RIC} \quad\textbar\quad \textbf{Source table:} \texttt{t\_\allowbreak{}raw\_\allowbreak{}hokofarmvr} \quad\textbar\quad \textbf{Variables:} 18}\par
+\begingroup\footnotesize\rowcolors{2}{rowgrey}{white}
+\begin{longtable}{L{0.22}C{0.08}C{0.10}C{0.09}L{0.30}L{0.21}}
+\caption{Data dictionary of \texttt{Hokofarm\_RIC}.}\\
+\dicthead\endfirsthead
+\multicolumn{6}{l}{\footnotesize\itshape continued}\\ \dicthead\endhead
+\bottomrule\endfoot
+\texttt{ash}\newline Ash & number & \si{\kilogram} & Derived & Ash, indigestible part of the feed & \textemdash\\
+\texttt{cow}\newline Cow & integer & \textendash & \textemdash & Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date. & \textemdash\\
+\texttt{crude\allowbreak{}Fibre}\newline CrudeFibre & number & \si{\kilogram} & Derived & Crude fiber in the feed & \textemdash\\
+\texttt{date}\newline Date & date & yy-mm-dd & Measured & Date of the data record & \textemdash\\
+\texttt{datetime}\newline Date and time & datetime & yyyy-mm-dd-hh-mm-ss & Measured & Date and time & \textemdash\\
+\texttt{dry\allowbreak{}Matter}\newline Dry matter & number & \si{\kilogram} & Derived & Dry matter & \textemdash\\
+\texttt{duration}\newline Duration & integer & \si{\second} & Derived & Duration of action/behaviour & Calculated by endTime - startTime\\
+\texttt{end\allowbreak{}Time}\newline End time & number & hh-mm-ss & Measured & End time of action/behaviour & \textemdash\\
+\texttt{end\allowbreak{}Weight}\newline End Weight & number & \si{\kilogram} & Measured & End weight & \textemdash\\
+\texttt{energy}\newline Energy & string & VEM & Derived & Energy content & \textemdash\\
+\texttt{fat}\newline Fat & number & \si{\kilogram} & Derived & Fat content & \textemdash\\
+\texttt{feed\allowbreak{}Type}\newline Feed type & string & text & \textemdash & Type of feed & \textemdash\\
+\texttt{intake}\newline Intake & number & \si{\kilogram} & Derived & Feed intake & Calculated by endWeight - startWeight\\
+\texttt{protein}\newline Protein & number & \si{\kilogram} & Derived & Protein content & \textemdash\\
+\texttt{start\allowbreak{}Time}\newline Start time & number & hh-mm-ss & Measured & Start time of action/behaviour & \textemdash\\
+\texttt{start\allowbreak{}Weight}\newline Start weight & number & \si{\kilogram} & Measured & Start weight & \textemdash\\
+\texttt{station}\newline Station & integer & \textendash & Measured & Station or location of activity & \textemdash\\
+\texttt{transponder}\newline Transponder & integer & \textendash & Measured & Transponder number of the cow & \textemdash\\
+\end{longtable}\endgroup
+\subsection{Daily roughage intake and dry matter integration}\label{ds:TVL_RIC_intake_dm}
+{\small \textbf{Dataset:} \texttt{TVL\_\allowbreak{}RIC\_\allowbreak{}intake\_\allowbreak{}dm} \quad\textbar\quad \textbf{Source table:} \texttt{TVL\_\allowbreak{}totaal\_\allowbreak{}hokofarm\_\allowbreak{}ds} \quad\textbar\quad \textbf{Variables:} 12}\par
+\begingroup\footnotesize\rowcolors{2}{rowgrey}{white}
+\begin{longtable}{L{0.22}C{0.08}C{0.10}C{0.09}L{0.30}L{0.21}}
+\caption{Data dictionary of \texttt{TVL\_RIC\_intake\_dm}.}\\
+\dicthead\endfirsthead
+\multicolumn{6}{l}{\footnotesize\itshape continued}\\ \dicthead\endhead
+\bottomrule\endfoot
+\texttt{cow}\newline Cow & integer & \textendash & \textemdash & Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date. & \textemdash\\
+\texttt{date}\newline Date & date & yy-mm-dd & Measured & Date of the data record & \textemdash\\
+\texttt{ds\allowbreak{}Pct}\newline dry matter percentage & integer & \textendash & Derived & Percentage of dry matter in the feed & \textemdash\\
+\texttt{feedtype}\newline feedtype & string & text & \textemdash & Type of feed & \textemdash\\
+\texttt{name}\newline Name & string & text & \textemdash & Name collected based on other value & \textemdash\\
+\texttt{opn\allowbreak{}Ds\allowbreak{}VR}\newline Intake dry matter Roughage RIC & number & \si{\kilogram} & \textemdash & Intake of dry matter from roughage RIC & \textemdash\\
+\texttt{opn\allowbreak{}Inc\allowbreak{}Water}\newline Intake including water & number & \si{\kilogram} & Derived & Feed intake including water & \textemdash\\
+\texttt{opn\allowbreak{}Min\allowbreak{}Water}\newline Intake subtracting water & number & \si{\kilogram} & Derived & Feed intake excluding water & \textemdash\\
+\texttt{opn\allowbreak{}Prod}\newline Intake product & number & \si{\kilogram} & \textemdash & Total intake of product & \textemdash\\
+\texttt{ric\allowbreak{}Bez}\newline Ric visits & integer & \textendash & \textemdash & Number of visits to RIC & \textemdash\\
+\texttt{Row\allowbreak{}ID}\newline Row ID & integer & \textendash & \textemdash & Unique number for row in a specific table. & \textemdash\\
+\texttt{tr\allowbreak{}Batches}\newline Tioliet batches & integer & \textendash & \textemdash & Number of times the triolith has released feed. & \textemdash\\
+\end{longtable}\endgroup
+\subsection{Trioliet Triomatic feeding robot loading records}\label{ds:Triomatic_RIC_load}
+{\small \textbf{Dataset:} \texttt{Triomatic\_\allowbreak{}RIC\_\allowbreak{}load} \quad\textbar\quad \textbf{Source table:} \texttt{t\_\allowbreak{}raw\_\allowbreak{}trioliet} \quad\textbar\quad \textbf{Variables:} 46}\par
+\begingroup\footnotesize\rowcolors{2}{rowgrey}{white}
+\begin{longtable}{L{0.22}C{0.08}C{0.10}C{0.09}L{0.30}L{0.21}}
+\caption{Data dictionary of \texttt{Triomatic\_RIC\_load}.}\\
+\dicthead\endfirsthead
+\multicolumn{6}{l}{\footnotesize\itshape continued}\\ \dicthead\endhead
+\bottomrule\endfoot
+\texttt{Animal\allowbreak{}Count}\newline Animal count & integer & \textendash & \textemdash & The number of animals & \textemdash\\
+\texttt{Date}\newline Date & datetime & yy-mm-dd-hh-mm-ss & Measured & Date & \textemdash\\
+\texttt{Extra}\newline Extra & integer & \textendash & \textemdash & Extra information & \textemdash\\
+\texttt{Feeding\allowbreak{}Group}\newline Feeding group & integer & \textendash & Measured & Log source 0 = 1, log source 1 = NULL betekenis Feeding group? & \textemdash\\
+\texttt{filename}\newline Filename & string & text & \textemdash & Name of the file containing information & \textemdash\\
+\texttt{Finished\allowbreak{}Ready}\newline Finished ready & string & \textemdash & \textemdash & NULL? & \textemdash\\
+\texttt{Group\allowbreak{}ID}\newline Group ID & integer & \textendash & \textemdash & Id of the group & \textemdash\\
+\texttt{Group\allowbreak{}Name}\newline Group name & string & text & \textemdash & Name of the group & \textemdash\\
+\texttt{Id}\newline ID & integer & \textendash & \textemdash & ID & \textemdash\\
+\texttt{Ingredient\allowbreak{}Name}\newline Ingredient name & string & text & \textemdash & Name of the ingredient & \textemdash\\
+\texttt{k42}\newline k42 & integer & \textendash & \textemdash & Validation record for data processing & \textemdash\\
+\texttt{Log\allowbreak{}Source}\newline Log source & integer & \textendash & \textemdash & 0 meaning feed preparation, and 1 the distribution of feed to RIC bins & \textemdash\\
+\texttt{Netto\allowbreak{}Loaded\allowbreak{}Weight}\newline Netto loaded weight & number & \si{\kilogram} & Measured & Netto weight loaded & \textemdash\\
+\texttt{Nr\allowbreak{}Of\allowbreak{}Splittings}\newline Number of splittings & integer & \textendash & \textemdash & Number of splittings & \textemdash\\
+\texttt{Number\allowbreak{}Recipe\allowbreak{}Lines}\newline Number of recipe lines & integer & \textendash & \textemdash & Total number of recipe lines & \textemdash\\
+\texttt{Opdracht\allowbreak{}ID}\newline Job ID & integer & \textendash & \textemdash & Job ID & \textemdash\\
+\texttt{Performed\allowbreak{}Feed\allowbreak{}Factor}\newline Performed feed factor & integer & \textendash & \textemdash & Performed feed factor & \textemdash\\
+\texttt{Performed\allowbreak{}Product\allowbreak{}Dry\allowbreak{}Weight\allowbreak{}Kg\allowbreak{}After\allowbreak{}Drop}\newline Kg dry weight after drop & number & \si{\kilogram} & Measured & Kg dry weight after drop & \textemdash\\
+\texttt{Performed\allowbreak{}Product\allowbreak{}Dry\allowbreak{}Weight\allowbreak{}Part\allowbreak{}After\allowbreak{}Drop}\newline Part of dry weight after drop & number & \si{\kilogram} & Measured & Part of dry weight after drop & \textemdash\\
+\texttt{Performed\allowbreak{}Product\allowbreak{}Error}\newline Performed product error & number & \si{\kilogram} & Derived & Error, difference between Scheduled kg and performed kg feed & \textemdash\\
+\texttt{Performed\allowbreak{}Product\allowbreak{}Kg\allowbreak{}After\allowbreak{}Drop}\newline Kg product after drop & number & \si{\kilogram} & Measured & Kg product after drop & \textemdash\\
+\texttt{Performed\allowbreak{}Product\allowbreak{}Kg\allowbreak{}At\allowbreak{}Stop}\newline Kg product at stop & number & \si{\kilogram} & Measured & Kg product at stop & \textemdash\\
+\texttt{Performed\allowbreak{}Time}\newline Performed time & number & hh-mm-ss & Measured & Performed time & \textemdash\\
+\texttt{Pushing\allowbreak{}Group}\newline Pushing group & integer & \textendash & \textemdash & Pushing group & \textemdash\\
+\texttt{Ready}\newline Ready & integer & \textendash & \textemdash & Ready & \textemdash\\
+\texttt{Ready\allowbreak{}Time}\newline Ready time & number & hh-mm-ss & \textemdash & Ready time, if log source 1 & \textemdash\\
+\texttt{Recept\allowbreak{}Line\allowbreak{}Nr}\newline Recept line number & integer & \textendash & \textemdash & Current number of recipe line & \textemdash\\
+\texttt{Recept\allowbreak{}Name}\newline Recipe name & string & text & \textemdash & Name of the feed recipe & \textemdash\\
+\texttt{Scheduled\allowbreak{}Dry\allowbreak{}Weight\allowbreak{}Content}\newline Scheduled dry weight content & integer & \textendash & Derived & Scheduled dry weight content & \textemdash\\
+\texttt{Scheduled\allowbreak{}Dry\allowbreak{}Weight\allowbreak{}Content\allowbreak{}Part}\newline Scheduled dry weight content part & integer & \textendash & Derived & Scheduled dry weight content part & \textemdash\\
+\texttt{Scheduled\allowbreak{}Dry\allowbreak{}Weight\allowbreak{}Kg}\newline Scheduled dry weight kg & number & \si{\kilogram} & Derived & Scheduled dry weight kg & \textemdash\\
+\texttt{Scheduled\allowbreak{}Feed\allowbreak{}Factor}\newline Scheduled feed factor & integer & \textendash & \textemdash & Scheduled feed factor & \textemdash\\
+\texttt{Scheduled\allowbreak{}Part}\newline Scheduled part & integer & \textendash & Derived & Scheduled part & \textemdash\\
+\texttt{Scheduled\allowbreak{}Product\allowbreak{}Kg}\newline Scheduled product kg & number & \si{\kilogram} & \textemdash & Scheduled product kg & \textemdash\\
+\texttt{Scheduled\allowbreak{}Time}\newline Scheduled time & number & hh-mm-ss & \textemdash & Scheduled time, if log source 1 & \textemdash\\
+\texttt{Splitted\allowbreak{}Nr}\newline Splitted number & integer & \textendash & \textemdash & Splitted number, only 1 & \textemdash\\
+\texttt{Start\allowbreak{}Position}\newline Start position & integer & \textendash & Measured & Start position, if subgroup not 0 & \textemdash\\
+\texttt{Start\allowbreak{}Time}\newline Start time & number & hh-mm-ss & Measured & Start time, if subgroup not 0 & \textemdash\\
+\texttt{Start\allowbreak{}Weight}\newline Start weight & number & \si{\kilogram} & Measured & Start weight, if subgroup not 0 & \textemdash\\
+\texttt{Stop\allowbreak{}Position}\newline Stop position & integer & \textendash & Measured & Stop position, if subgroup not 0 & \textemdash\\
+\texttt{Stop\allowbreak{}Time}\newline Stop time & number & hh-mm-ss & Measured & Stop time, if subgroup not 0 & \textemdash\\
+\texttt{Stop\allowbreak{}Weight}\newline Stop weight & number & \si{\kilogram} & Measured & Stop weight, if subgroup not 0 & \textemdash\\
+\texttt{Straw\allowbreak{}Group}\newline Straw group & integer & \textendash & \textemdash & Straw group & \textemdash\\
+\texttt{Sub\allowbreak{}Group\allowbreak{}Nr}\newline Subgroup number & integer & \textendash & \textemdash & Number of the subgroup, 0 no subgroup & \textemdash\\
+\texttt{Takeoff\allowbreak{}Time}\newline Take off time & number & hh-mm-ss & Measured & Take off time, if log source 1 & \textemdash\\
+\texttt{Track\allowbreak{}Section}\newline Track section & integer & \textendash & \textemdash & Track section, if subgroup 1 if there is no subgroup 0 & \textemdash\\
+\end{longtable}\endgroup
+\subsection{Trioliet Triomatic feeding robot trough deliveries}\label{ds:Triomatic_RIC_drop}
+{\small \textbf{Dataset:} \texttt{Triomatic\_\allowbreak{}RIC\_\allowbreak{}drop} \quad\textbar\quad \textbf{Source table:} \texttt{t\_\allowbreak{}raw\_\allowbreak{}trioliet} \quad\textbar\quad \textbf{Variables:} 46}\par
+\begingroup\footnotesize\rowcolors{2}{rowgrey}{white}
+\begin{longtable}{L{0.22}C{0.08}C{0.10}C{0.09}L{0.30}L{0.21}}
+\caption{Data dictionary of \texttt{Triomatic\_RIC\_drop}.}\\
+\dicthead\endfirsthead
+\multicolumn{6}{l}{\footnotesize\itshape continued}\\ \dicthead\endhead
+\bottomrule\endfoot
+\texttt{Animal\allowbreak{}Count}\newline Animal count & integer & \textendash & \textemdash & The number of animals & \textemdash\\
+\texttt{Date}\newline Date & datetime & yy-mm-dd-hh-mm-ss & Measured & Date & \textemdash\\
+\texttt{Extra}\newline Extra & integer & \textendash & \textemdash & Extra information & \textemdash\\
+\texttt{Feeding\allowbreak{}Group}\newline Feeding group & integer & \textendash & Measured & Log source 0 = 1, log source 1 = NULL betekenis Feeding group? & \textemdash\\
+\texttt{filename}\newline Filename & string & text & \textemdash & Name of the file containing information & \textemdash\\
+\texttt{Finished\allowbreak{}Ready}\newline Finished ready & string & \textemdash & \textemdash & NULL? & \textemdash\\
+\texttt{Group\allowbreak{}ID}\newline Group ID & integer & \textendash & \textemdash & Id of the group & \textemdash\\
+\texttt{Group\allowbreak{}Name}\newline Group name & string & text & \textemdash & Name of the group & \textemdash\\
+\texttt{Id}\newline ID & integer & \textendash & \textemdash & ID & \textemdash\\
+\texttt{Ingredient\allowbreak{}Name}\newline Ingredient name & string & text & \textemdash & Name of the ingredient & \textemdash\\
+\texttt{k42}\newline k42 & integer & \textendash & \textemdash & Validation record for data processing & \textemdash\\
+\texttt{Log\allowbreak{}Source}\newline Log source & integer & \textendash & \textemdash & 0 meaning feed preparation, and 1 the distribution of feed to RIC bins & \textemdash\\
+\texttt{Netto\allowbreak{}Loaded\allowbreak{}Weight}\newline Netto loaded weight & number & \si{\kilogram} & Measured & Netto weight loaded & \textemdash\\
+\texttt{Nr\allowbreak{}Of\allowbreak{}Splittings}\newline Number of splittings & integer & \textendash & \textemdash & Number of splittings & \textemdash\\
+\texttt{Number\allowbreak{}Recipe\allowbreak{}Lines}\newline Number of recipe lines & integer & \textendash & \textemdash & Total number of recipe lines & \textemdash\\
+\texttt{Opdracht\allowbreak{}ID}\newline Job ID & integer & \textendash & \textemdash & Job ID & \textemdash\\
+\texttt{Performed\allowbreak{}Feed\allowbreak{}Factor}\newline Performed feed factor & integer & \textendash & \textemdash & Performed feed factor & \textemdash\\
+\texttt{Performed\allowbreak{}Product\allowbreak{}Dry\allowbreak{}Weight\allowbreak{}Kg\allowbreak{}After\allowbreak{}Drop}\newline Kg dry weight after drop & number & \si{\kilogram} & Measured & Kg dry weight after drop & \textemdash\\
+\texttt{Performed\allowbreak{}Product\allowbreak{}Dry\allowbreak{}Weight\allowbreak{}Part\allowbreak{}After\allowbreak{}Drop}\newline Part of dry weight after drop & number & \si{\kilogram} & Measured & Part of dry weight after drop & \textemdash\\
+\texttt{Performed\allowbreak{}Product\allowbreak{}Error}\newline Performed product error & number & \si{\kilogram} & Derived & Error, difference between Scheduled kg and performed kg feed & \textemdash\\
+\texttt{Performed\allowbreak{}Product\allowbreak{}Kg\allowbreak{}After\allowbreak{}Drop}\newline Kg product after drop & number & \si{\kilogram} & Measured & Kg product after drop & \textemdash\\
+\texttt{Performed\allowbreak{}Product\allowbreak{}Kg\allowbreak{}At\allowbreak{}Stop}\newline Kg product at stop & number & \si{\kilogram} & Measured & Kg product at stop & \textemdash\\
+\texttt{Performed\allowbreak{}Time}\newline Performed time & number & hh-mm-ss & Measured & Performed time & \textemdash\\
+\texttt{Pushing\allowbreak{}Group}\newline Pushing group & integer & \textendash & \textemdash & Pushing group & \textemdash\\
+\texttt{Ready}\newline Ready & integer & \textendash & \textemdash & Ready & \textemdash\\
+\texttt{Ready\allowbreak{}Time}\newline Ready time & number & hh-mm-ss & \textemdash & Ready time, if log source 1 & \textemdash\\
+\texttt{Recept\allowbreak{}Line\allowbreak{}Nr}\newline Recept line number & integer & \textendash & \textemdash & Current number of recipe line & \textemdash\\
+\texttt{Recept\allowbreak{}Name}\newline Recipe name & string & text & \textemdash & Name of the feed recipe & \textemdash\\
+\texttt{Scheduled\allowbreak{}Dry\allowbreak{}Weight\allowbreak{}Content}\newline Scheduled dry weight content & integer & \textendash & Derived & Scheduled dry weight content & \textemdash\\
+\texttt{Scheduled\allowbreak{}Dry\allowbreak{}Weight\allowbreak{}Content\allowbreak{}Part}\newline Scheduled dry weight content part & integer & \textendash & Derived & Scheduled dry weight content part & \textemdash\\
+\texttt{Scheduled\allowbreak{}Dry\allowbreak{}Weight\allowbreak{}Kg}\newline Scheduled dry weight kg & number & \si{\kilogram} & Derived & Scheduled dry weight kg & \textemdash\\
+\texttt{Scheduled\allowbreak{}Feed\allowbreak{}Factor}\newline Scheduled feed factor & integer & \textendash & \textemdash & Scheduled feed factor & \textemdash\\
+\texttt{Scheduled\allowbreak{}Part}\newline Scheduled part & integer & \textendash & Derived & Scheduled part & \textemdash\\
+\texttt{Scheduled\allowbreak{}Product\allowbreak{}Kg}\newline Scheduled product kg & number & \si{\kilogram} & \textemdash & Scheduled product kg & \textemdash\\
+\texttt{Scheduled\allowbreak{}Time}\newline Scheduled time & number & hh-mm-ss & \textemdash & Scheduled time, if log source 1 & \textemdash\\
+\texttt{Splitted\allowbreak{}Nr}\newline Splitted number & integer & \textendash & \textemdash & Splitted number, only 1 & \textemdash\\
+\texttt{Start\allowbreak{}Position}\newline Start position & integer & \textendash & Measured & Start position, if subgroup not 0 & \textemdash\\
+\texttt{Start\allowbreak{}Time}\newline Start time & number & hh-mm-ss & Measured & Start time, if subgroup not 0 & \textemdash\\
+\texttt{Start\allowbreak{}Weight}\newline Start weight & number & \si{\kilogram} & Measured & Start weight, if subgroup not 0 & \textemdash\\
+\texttt{Stop\allowbreak{}Position}\newline Stop position & integer & \textendash & Measured & Stop position, if subgroup not 0 & \textemdash\\
+\texttt{Stop\allowbreak{}Time}\newline Stop time & number & hh-mm-ss & Measured & Stop time, if subgroup not 0 & \textemdash\\
+\texttt{Stop\allowbreak{}Weight}\newline Stop weight & number & \si{\kilogram} & Measured & Stop weight, if subgroup not 0 & \textemdash\\
+\texttt{Straw\allowbreak{}Group}\newline Straw group & integer & \textendash & \textemdash & Straw group & \textemdash\\
+\texttt{Sub\allowbreak{}Group\allowbreak{}Nr}\newline Subgroup number & integer & \textendash & \textemdash & Number of the subgroup, 0 no subgroup & \textemdash\\
+\texttt{Takeoff\allowbreak{}Time}\newline Take off time & number & hh-mm-ss & Measured & Take off time, if log source 1 & \textemdash\\
+\texttt{Track\allowbreak{}Section}\newline Track section & integer & \textendash & \textemdash & Track section, if subgroup 1 if there is no subgroup 0 & \textemdash\\
+\end{longtable}\endgroup
+\subsection{GEA separation and smart gate passages}\label{ds:GEA_gates}
+{\small \textbf{Dataset:} \texttt{GEA\_\allowbreak{}gates} \quad\textbar\quad \textbf{Source table:} \texttt{T\_\allowbreak{}RAW\_\allowbreak{}Gea\_\allowbreak{}Separatie} \quad\textbar\quad \textbf{Variables:} 5}\par
+\begingroup\footnotesize\rowcolors{2}{rowgrey}{white}
+\begin{longtable}{L{0.22}C{0.08}C{0.10}C{0.09}L{0.30}L{0.21}}
+\caption{Data dictionary of \texttt{GEA\_gates}.}\\
+\dicthead\endfirsthead
+\multicolumn{6}{l}{\footnotesize\itshape continued}\\ \dicthead\endhead
+\bottomrule\endfoot
+\texttt{cow}\newline Cow & integer & \textendash & \textemdash & Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date. & \textemdash\\
+\texttt{date}\newline Date & date & yy-mm-dd & Measured & Date of the data record & \textemdash\\
+\texttt{event}\newline Event & integer & \textendash & \textemdash & 0 = No gate action or weighting, 1 = selection gate A, 2 = selection gate B & \textemdash\\
+\texttt{gate}\newline Gate & integer & \textendash & \textemdash & Number of the gate & \textemdash\\
+\texttt{message}\newline Message & string & tekst & \textemdash & ID and info gate action, weighting or selection has or has not taken place & \textemdash\\
+\end{longtable}\endgroup
+\subsection{GEA milking transactions}\label{ds:GEA_milkings}
+{\small \textbf{Dataset:} \texttt{GEA\_\allowbreak{}milkings} \quad\textbar\quad \textbf{Source table:} \texttt{T\_\allowbreak{}RAW\_\allowbreak{}Gea\_\allowbreak{}milk} \quad\textbar\quad \textbf{Variables:} 13}\par
+\begingroup\footnotesize\rowcolors{2}{rowgrey}{white}
+\begin{longtable}{L{0.22}C{0.08}C{0.10}C{0.09}L{0.30}L{0.21}}
+\caption{Data dictionary of \texttt{GEA\_milkings}.}\\
+\dicthead\endfirsthead
+\multicolumn{6}{l}{\footnotesize\itshape continued}\\ \dicthead\endhead
+\bottomrule\endfoot
+\texttt{Cow}\newline Cow & integer & \textendash & \textemdash & Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date. & \textemdash\\
+\texttt{IMDat}\newline Gea Date and time & datetime & yy-mm-dd-hh-mm-ss & \textemdash & GEA, Date and time milking & \textemdash\\
+\texttt{Reg1}\newline Registration number & integer & text + number & \textemdash & National registration number of the animal. & \textemdash\\
+\texttt{Resp\allowbreak{}ISO}\newline Responder number & integer & \textendash & \textemdash & Number of the cows responder & \textemdash\\
+\texttt{Name}\newline Name & string & \textemdash & \textemdash & Number in GEA, should be same as cow & \textemdash\\
+\texttt{IMTim}\newline Gea time & string & \textemdash & \textemdash & Time? & \textemdash\\
+\texttt{IMWt}\newline Cow Weight at Milking & number & \si{\kilogram} & Measured & Live animal body weight measured by the integrated scale inside the GEA milking stall or exit platform. & Directly recorded by GEA milking scale sensor. \newline \textit{Source:} \texttt{T\_\allowbreak{}RAW\_\allowbreak{}Gea\_\allowbreak{}milk}\\
+\texttt{IMFlg}\newline Milking Status Flag & string & code & Measured & Status/diagnostic flag from GEA milking robot/parlor indicating normal completion, kick-off, or incomplete milking. & Status code recorded by GEA system. \newline \textit{Source:} \texttt{T\_\allowbreak{}RAW\_\allowbreak{}Gea\_\allowbreak{}milk}\\
+\texttt{IMDim}\newline Days in Milk & integer & days & Derived & Days in Milk (DIM) recorded in GEA at the time of the milking event. & Milking date minus most recent calving date. \newline \textit{Source:} \texttt{T\_\allowbreak{}RAW\_\allowbreak{}Gea\_\allowbreak{}milk}\\
+\texttt{IMAv\allowbreak{}Flo}\newline Avarage milkflow & string & \textemdash & \textemdash & Average milkflow? & \textemdash\\
+\texttt{IMMx\allowbreak{}Flow}\newline Max. milkflow & string & \textemdash & \textemdash & Max. milkflowAlleen '||||' als waarde??? & \textemdash\\
+\texttt{IMStall}\newline Gea barn & integer & \textendash & \textemdash & Place in the Gea milking carousel 1-40 & \textemdash\\
+\texttt{IMStart\allowbreak{}Sec}\newline Gea start sec & string & \textemdash & \textemdash & Alleen '?????' als waarde??? & \textemdash\\
+\end{longtable}\endgroup
+\subsection{CowConnect mixer wagon rations}\label{ds:TMR_Trioliet_cowconnect_mix}
+{\small \textbf{Dataset:} \texttt{TMR\_\allowbreak{}Trioliet\_\allowbreak{}cowconnect\_\allowbreak{}mix} \quad\textbar\quad \textbf{Source table:} \texttt{t\_\allowbreak{}raw\_\allowbreak{}cowconnect\_\allowbreak{}mix} \quad\textbar\quad \textbf{Variables:} 12}\par
+\begingroup\footnotesize\rowcolors{2}{rowgrey}{white}
+\begin{longtable}{L{0.22}C{0.08}C{0.10}C{0.09}L{0.30}L{0.21}}
+\caption{Data dictionary of \texttt{TMR\_Trioliet\_cowconnect\_mix}.}\\
+\dicthead\endfirsthead
+\multicolumn{6}{l}{\footnotesize\itshape continued}\\ \dicthead\endhead
+\bottomrule\endfoot
+\texttt{date}\newline Date & date & yy-mm-dd & Measured & Date of the data record & \textemdash\\
+\texttt{external\allowbreak{}Feedplan\allowbreak{}ID}\newline External feedpland ID & string & \textemdash & \textemdash & All NULL & \textemdash\\
+\texttt{feedplan\allowbreak{}Id}\newline Feedplan ID & integer & \textendash & \textemdash & Id of the feedplan & \textemdash\\
+\texttt{feedplan\allowbreak{}Name}\newline Feedplan name & string & text & \textemdash & Name of the feedplan & \textemdash\\
+\texttt{id}\newline ID & string & text & \textemdash & ID & \textemdash\\
+\texttt{is\allowbreak{}Open}\newline Is Open & integer & \textendash & \textemdash & 1 or 0 process running or not. & \textemdash\\
+\texttt{loaded\allowbreak{}Sum}\newline Loaded som & number & \si{\kilogram} & Derived & Total / sum of all loads & \textemdash\\
+\texttt{mix\allowbreak{}Date}\newline Mix date & datetime & yy-mm-dd-hh-mm-ss & Measured & Date and time & \textemdash\\
+\texttt{mix\allowbreak{}Loader\allowbreak{}Id}\newline Mix loader ID & integer & \textendash & \textemdash & ID of the mix loader & \textemdash\\
+\texttt{mix\allowbreak{}Loader\allowbreak{}Name}\newline Mix loader name & string & text & \textemdash & Name of the mix loader & \textemdash\\
+\texttt{ration\allowbreak{}Id}\newline Ration ID & string & \textemdash & \textemdash & All NULL & \textemdash\\
+\texttt{type}\newline Type & string & text & \textemdash & Type & \textemdash\\
+\end{longtable}\endgroup
+\subsection{Nedap Velos behaviour intervals}\label{ds:Velos_behaviour}
+{\small \textbf{Dataset:} \texttt{Velos\_\allowbreak{}behaviour} \quad\textbar\quad \textbf{Source table:} \texttt{T\_\allowbreak{}RAW\_\allowbreak{}velos\_\allowbreak{}behaviour} \quad\textbar\quad \textbf{Variables:} 4}\par
+\begingroup\footnotesize\rowcolors{2}{rowgrey}{white}
+\begin{longtable}{L{0.22}C{0.08}C{0.10}C{0.09}L{0.30}L{0.21}}
+\caption{Data dictionary of \texttt{Velos\_behaviour}.}\\
+\dicthead\endfirsthead
+\multicolumn{6}{l}{\footnotesize\itshape continued}\\ \dicthead\endhead
+\bottomrule\endfoot
+\texttt{date}\newline Date & date & yy-mm-dd & Measured & Date of the data record, UTC timezone & \textemdash\\
+\texttt{cow}\newline Cow & integer & \textendash & \textemdash & Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date. & \textemdash\\
+\texttt{type}\newline Type & string & text & \textemdash & Type of behaviour 1 - 3 & 0, overig actief. 1, niet actief. 2, herkouwen. 3, vreten.\\
+\texttt{duration}\newline Duration & integer & \si{\second} & Derived & Duration of action/behaviour & Calculated by endTime - startTime\\
+\end{longtable}\endgroup
+\subsection{Nedap Velos daily behaviour budgets}\label{ds:Velos_behaviour_day}
+{\small \textbf{Dataset:} \texttt{Velos\_\allowbreak{}behaviour\_\allowbreak{}day} \quad\textbar\quad \textbf{Source table:} \texttt{T\_\allowbreak{}RAW\_\allowbreak{}velos\_\allowbreak{}behaviour} \quad\textbar\quad \textbf{Variables:} 7}\par
+\begingroup\footnotesize\rowcolors{2}{rowgrey}{white}
+\begin{longtable}{L{0.22}C{0.08}C{0.10}C{0.09}L{0.30}L{0.21}}
+\caption{Data dictionary of \texttt{Velos\_behaviour\_day}.}\\
+\dicthead\endfirsthead
+\multicolumn{6}{l}{\footnotesize\itshape continued}\\ \dicthead\endhead
+\bottomrule\endfoot
+\texttt{date}\newline Date & date & yyyy-mm-dd & Measured & Date of the data record, UTC timezone & \textemdash\\
+\texttt{cow}\newline Cow & integer & \textendash & \textemdash & Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date. & \textemdash\\
+\texttt{total}\newline Total & number & hh-mm-ss & Derived & Total time recorded of the animal 1 day & Sum duration of all types \newline \textit{Source:} \texttt{T\_\allowbreak{}RAW\_\allowbreak{}velos\_\allowbreak{}behaviour}\\
+\texttt{overig}\newline Other & number & hh-mm-ss & Derived & Time the cow is actief but not eating or ruminating & Sum duration of type 0 \newline \textit{Source:} \texttt{T\_\allowbreak{}RAW\_\allowbreak{}velos\_\allowbreak{}behaviour}\\
+\texttt{nietactief}\newline Inactive & number & hh-mm-ss & Derived & Time the cow is inactief & Sum duration of type 1 \newline \textit{Source:} \texttt{T\_\allowbreak{}RAW\_\allowbreak{}velos\_\allowbreak{}behaviour}\\
+\texttt{herkouwen}\newline Ruminating & number & hh-mm-ss & Derived & Time the cow spent ruminating & Sum duration of type 2 \newline \textit{Source:} \texttt{T\_\allowbreak{}RAW\_\allowbreak{}velos\_\allowbreak{}behaviour}\\
+\texttt{vreten}\newline Eating & number & hh-mm-ss & Derived & Time the cow spent eating & Sum duration of type 3 \newline \textit{Source:} \texttt{T\_\allowbreak{}RAW\_\allowbreak{}velos\_\allowbreak{}behaviour}\\
+\end{longtable}\endgroup
+\subsection{CowConnect feed distribution drops}\label{ds:TMR_Trioliet_cowconnect_drop}
+{\small \textbf{Dataset:} \texttt{TMR\_\allowbreak{}Trioliet\_\allowbreak{}cowconnect\_\allowbreak{}drop} \quad\textbar\quad \textbf{Source table:} \texttt{t\_\allowbreak{}raw\_\allowbreak{}cowconnect\_\allowbreak{}drop} \quad\textbar\quad \textbf{Variables:} 11}\par
+\begingroup\footnotesize\rowcolors{2}{rowgrey}{white}
+\begin{longtable}{L{0.22}C{0.08}C{0.10}C{0.09}L{0.30}L{0.21}}
+\caption{Data dictionary of \texttt{TMR\_Trioliet\_cowconnect\_drop}.}\\
+\dicthead\endfirsthead
+\multicolumn{6}{l}{\footnotesize\itshape continued}\\ \dicthead\endhead
+\bottomrule\endfoot
+\texttt{id}\newline ID & string & text & \textemdash & ID & \textemdash\\
+\texttt{external\allowbreak{}Mix\allowbreak{}Task\allowbreak{}Id}\newline External mix task ID & string & text & \textemdash & External mix task ID & \textemdash\\
+\texttt{quantity}\newline Quantity & number & \si{\kilogram} & Measured & Quantity & \textemdash\\
+\texttt{left\allowbreak{}Over\allowbreak{}Quantity}\newline Left over quantity & number & \si{\kilogram} & Measured & Quantity left over & \textemdash\\
+\texttt{no\allowbreak{}Of\allowbreak{}Animals}\newline Number of animals & integer & \textendash & \textemdash & Number of animals & \textemdash\\
+\texttt{feed\allowbreak{}Section\allowbreak{}Name}\newline Feed section name & string & text & \textemdash & Name of the feed section & \textemdash\\
+\texttt{feedsection\allowbreak{}Type}\newline feed section type & integer & \textendash & \textemdash & Feedsection type & \textemdash\\
+\texttt{external\allowbreak{}Feed\allowbreak{}Section\allowbreak{}Id}\newline External feed sectiond ID & integer & \textendash & \textemdash & External Feed section ID if the feed section has an external ID & \textemdash\\
+\texttt{external\allowbreak{}Mix\allowbreak{}Task}\newline External mix task & string & \textemdash & \textemdash & \textemdash & \textemdash\\
+\texttt{mix\_\allowbreak{}id}\newline Mix ID & string & text & \textemdash & Mix ID and external mix task id are foreign keys of the ID (primairy key) & \textemdash\\
+\texttt{type}\newline Type & string & text & \textemdash & Type & \textemdash\\
+\end{longtable}\endgroup
+\subsection{Laboratory dry matter content (drying oven)}\label{ds:DC_DM_content}
+{\small \textbf{Dataset:} \texttt{DC\_\allowbreak{}DM\_\allowbreak{}content} \quad\textbar\quad \textbf{Source table:} \texttt{VL\_\allowbreak{}totaal\_\allowbreak{}droogstoof} \quad\textbar\quad \textbf{Variables:} 16}\par
+\begingroup\footnotesize\rowcolors{2}{rowgrey}{white}
+\begin{longtable}{L{0.22}C{0.08}C{0.10}C{0.09}L{0.30}L{0.21}}
+\caption{Data dictionary of \texttt{DC\_DM\_content}.}\\
+\dicthead\endfirsthead
+\multicolumn{6}{l}{\footnotesize\itshape continued}\\ \dicthead\endhead
+\bottomrule\endfoot
+\texttt{Blk\allowbreak{}Dat}\newline Can date & datetime & yy-mm-dd-hh-mm-ss & Measured & Date the can was weighed & \textemdash\\
+\texttt{Blk\allowbreak{}Gew}\newline Can weight & number & \si{\gram} & Measured & Weight of the can & \textemdash\\
+\texttt{Blk\allowbreak{}Num}\newline Can number & integer & \textendash & \textemdash & Number of the can & \textemdash\\
+\texttt{Dat\allowbreak{}Mon}\newline Sample date & datetime & yy-mm-dd-hh-mm-ss & Measured & Date the sample was obtained & \textemdash\\
+\texttt{Dat\allowbreak{}Ses}\newline Date session & datetime & yy-mm-dd-hh-mm-ss & Measured & Date of weigh session & \textemdash\\
+\texttt{Drg\allowbreak{}Dat}\newline Dried date & datetime & yy-mm-dd-hh-mm-ss & Measured & Date end of the analysis & \textemdash\\
+\texttt{Drg\allowbreak{}Gew}\newline Dried weight & number & \si{\gram} & Measured & Dried sample weight, with or without weight of the can? & \textemdash\\
+\texttt{Drg\allowbreak{}Stf\allowbreak{}Gkg}\newline Dry matter weight kg & number & \si{\gram} & Measured & Weight of the dry matter & \textemdash\\
+\texttt{Drg\allowbreak{}Tyd}\newline dry time & number & hh-mm-ss & Measured & Time end of the analysis when all moisture has evaporated & \textemdash\\
+\texttt{Obj\allowbreak{}Cod}\newline Object code & string & text & \textemdash & Short description/code of the sample & \textemdash\\
+\texttt{Obj\allowbreak{}Cod\allowbreak{}Num}\newline Object code number & integer & \textendash & \textemdash & Used when analyzing duplicate or triplicate samples & \textemdash\\
+\texttt{Prj\allowbreak{}Cod}\newline Project code & string & text & \textemdash & Project code & \textemdash\\
+\texttt{Vlg\allowbreak{}Num}\newline Tracking number & integer & \textendash & \textemdash & Tracking number & \textemdash\\
+\texttt{Vrs\allowbreak{}Dat}\newline fresh date & datetime & yy-mm-dd-hh-mm-ss & Measured & Date start of the analysis & \textemdash\\
+\texttt{Vrs\allowbreak{}Gew}\newline fresh weight & number & \si{\gram} & Measured & Weight at the start of the analysis & \textemdash\\
+\texttt{Vrs\allowbreak{}Tyd}\newline fresh time & number & hh-mm-ss & Measured & Time start of the analysis, fresh sample is weighed & \textemdash\\
+\end{longtable}\endgroup
+\subsection{GreenFeed enteric emission summaries}\label{ds:Greenfeed_summarized_data}
+{\small \textbf{Dataset:} \texttt{Greenfeed\_\allowbreak{}summarized\_\allowbreak{}data} \quad\textbar\quad \textbf{Source table:} \texttt{T\_\allowbreak{}RAW\_\allowbreak{}Greenfeed\_\allowbreak{}Summarized\_\allowbreak{}Data} \quad\textbar\quad \textbf{Variables:} 24}\par
+\begingroup\footnotesize\rowcolors{2}{rowgrey}{white}
+\begin{longtable}{L{0.22}C{0.08}C{0.10}C{0.09}L{0.30}L{0.21}}
+\caption{Data dictionary of \texttt{Greenfeed\_summarized\_data}.}\\
+\dicthead\endfirsthead
+\multicolumn{6}{l}{\footnotesize\itshape continued}\\ \dicthead\endhead
+\bottomrule\endfoot
+\texttt{Airflow\allowbreak{}Cf}\newline Airflow correction factor & integer & \textendash & \textemdash & Airflow correction factor & \textemdash\\
+\texttt{Airflow\allowbreak{}Liters\allowbreak{}Per\allowbreak{}Sec}\newline Airflow liters per second & integer & \si{\litre\per\second} & Measured & Airflow liters per second & \textemdash\\
+\texttt{Animal\allowbreak{}Name}\newline Animal name & integer & \textendash & Measured & Animal name & \textemdash\\
+\texttt{CH4Grams\allowbreak{}Per\allowbreak{}Day}\newline CH4 grams per day & integer & \textendash & Measured & CH4 grams per day, methane & \textemdash\\
+\texttt{CO2Grams\allowbreak{}Per\allowbreak{}Day}\newline CO2 grams per day & integer & \textendash & Measured & CO2 grams per day, carbon dioxide & \textemdash\\
+\texttt{cow}\newline Cow & integer & \textendash & \textemdash & Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date. & \textemdash\\
+\texttt{date}\newline Date & date & yy-mm-dd & Measured & Date of the data record & \textemdash\\
+\texttt{End\allowbreak{}Time}\newline End time & number & yy-mm-dd-hh-mm-ss & Measured & End time & \textemdash\\
+\texttt{Good\allowbreak{}Data\allowbreak{}Duration}\newline Good data duration & datetime & hh-mm-ss & \textemdash & Good data duration & \textemdash\\
+\texttt{greenfeed}\newline Greenfeed & integer & \textendash & Measured & Greenfeed & \textemdash\\
+\texttt{H2Grams\allowbreak{}Per\allowbreak{}Day}\newline H2 grams per day & integer & \textendash & Measured & H2 grams per day, hydrogen & \textemdash\\
+\texttt{H2SGrams\allowbreak{}Per\allowbreak{}Day}\newline H2S grams per day & integer & \textendash & Measured & H2S grams per day, hydrogen sulfide & \textemdash\\
+\texttt{Interrupting\allowbreak{}Tags}\newline Interrupting tags & integer & \textendash & \textemdash & Interrupting tags & \textemdash\\
+\texttt{Is\allowbreak{}Preliminary}\newline Is preliminary & integer & \textendash & \textemdash & Is preliminary data, validated data comes directly from C-lock. & \textemdash\\
+\texttt{O2Grams\allowbreak{}Per\allowbreak{}Day}\newline O2 grams per day & integer & \textendash & Measured & O2 grams per day, oxygen & \textemdash\\
+\texttt{RFID}\newline Rfid & integer & \textendash & \textemdash & Rfid & \textemdash\\
+\texttt{Run\allowbreak{}Time}\newline Run time & number & yy-mm-dd-hh-mm-ss & Measured & Run time & \textemdash\\
+\texttt{Start\allowbreak{}Time}\newline Start time & number & hh-mm-ss & Measured & Start time, if subgroup not 0 & \textemdash\\
+\texttt{Temp\allowbreak{}Pipe\allowbreak{}Degrees\allowbreak{}Celsius}\newline Temperature pipe degrees celsius & number & \si{\degreeCelsius} & Measured & Temperature pipe degrees celsius & \textemdash\\
+\texttt{user}\newline User & string & text & \textemdash & User & \textemdash\\
+\texttt{Was\allowbreak{}Interrupted}\newline Was interrupted & integer & \textendash & \textemdash & Was interrupted & \textemdash\\
+\texttt{Wind\allowbreak{}Cf}\newline Wind correction factor & integer & \textendash & \textemdash & Wind correction factor & \textemdash\\
+\texttt{Wind\allowbreak{}Dir\allowbreak{}Deg}\newline Wind direction degrees & integer & \textendash & Measured & Wind direction degrees & \textemdash\\
+\texttt{Wind\allowbreak{}Speed\allowbreak{}Meters\allowbreak{}Per\allowbreak{}Sec}\newline Wind speed meters per second & integer & \si{\metre\per\second} & Measured & Wind speed meters per second & \textemdash\\
+\end{longtable}\endgroup
+\subsection{GreenFeed bait feed drops}\label{ds:Greenfeed_feed_aggregrated}
+{\small \textbf{Dataset:} \texttt{Greenfeed\_\allowbreak{}feed\_\allowbreak{}aggregrated} \quad\textbar\quad \textbf{Source table:} \texttt{T\_\allowbreak{}RAW\_\allowbreak{}Greenfeed\_\allowbreak{}Feed\_\allowbreak{}data} \quad\textbar\quad \textbf{Variables:} 13}\par
+\begingroup\footnotesize\rowcolors{2}{rowgrey}{white}
+\begin{longtable}{L{0.22}C{0.08}C{0.10}C{0.09}L{0.30}L{0.21}}
+\caption{Data dictionary of \texttt{Greenfeed\_feed\_aggregrated}.}\\
+\dicthead\endfirsthead
+\multicolumn{6}{l}{\footnotesize\itshape continued}\\ \dicthead\endhead
+\bottomrule\endfoot
+\texttt{cow}\newline Cow & integer & \textendash & \textemdash & Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date. & \textemdash\\
+\texttt{Current\allowbreak{}Cup}\newline Current cup & integer & \textendash & Measured & Current cup & \textemdash\\
+\texttt{Current\allowbreak{}Period}\newline Current period & integer & \textendash & Measured & Current period & \textemdash\\
+\texttt{date}\newline Date & date & yy-mm-dd & Measured & Date of the data record & \textemdash\\
+\texttt{Date\allowbreak{}Time}\newline Date and time & datetime & yyyy-mm-dd hh-mm-ss & Measured & Date and time & \textemdash\\
+\texttt{Drop\allowbreak{}Interval}\newline Drop interval & integer & \si{\second} & \textemdash & Min. sec between current en new cup & \textemdash\\
+\texttt{Feed\allowbreak{}Type}\newline Feed type & integer & \textendash & \textemdash & Feed type & \textemdash\\
+\texttt{greenfeed}\newline Greenfeed & integer & \textendash & Measured & Greenfeed & \textemdash\\
+\texttt{Max\allowbreak{}Cups}\newline Maximum cups & integer & \textendash & \textemdash & Max. cups per period & \textemdash\\
+\texttt{Max\allowbreak{}Periods}\newline Maximum periods & integer & \textendash & \textemdash & Max. periods per day & \textemdash\\
+\texttt{Period\allowbreak{}Interval}\newline Period interval & integer & \si{\second} & \textemdash & Min. Sec between current en next period & \textemdash\\
+\texttt{RFIDTag}\newline Rfid tag & integer & \textendash & Measured & Rfid tag & \textemdash\\
+\texttt{user}\newline User & string & text & \textemdash & User & \textemdash\\
+\end{longtable}\endgroup
+\subsection{Dairy Campus meteorological station}\label{ds:Weatherstation}
+{\small \textbf{Dataset:} \texttt{Weatherstation} \quad\textbar\quad \textbf{Source table:} \texttt{T\_\allowbreak{}RAW\_\allowbreak{}weerstation} \quad\textbar\quad \textbf{Variables:} 18}\par
+\begingroup\footnotesize\rowcolors{2}{rowgrey}{white}
+\begin{longtable}{L{0.22}C{0.08}C{0.10}C{0.09}L{0.30}L{0.21}}
+\caption{Data dictionary of \texttt{Weatherstation}.}\\
+\dicthead\endfirsthead
+\multicolumn{6}{l}{\footnotesize\itshape continued}\\ \dicthead\endhead
+\bottomrule\endfoot
+\texttt{dewpoint}\newline Dewpoint & number & \si{\degreeCelsius} & Measured & Dew point is the temperature to which air must be cooled to become saturated with water vapor & \textemdash\\
+\texttt{global\_\allowbreak{}radiation}\newline Global radiation & string & \si{\watt\per\square\metre} & Measured & The sum of the diffuse and direct solar radiation is called global solar radiation. & \textemdash\\
+\texttt{gust}\newline Wind gust & integer & Beaufort, over 10 minuten (meter/sec) & Measured & A sudden, brief increase in speed of the wind & \textemdash\\
+\texttt{gust\_\allowbreak{}direction}\newline Wind gust direction & string & \si{\degree} & Measured & Direction from which the wind gust blows & \textemdash\\
+\texttt{humidity\_\allowbreak{}150}\newline Humidity & number & \si{\percent} & Measured & The concentration of water vapor present in the air & \textemdash\\
+\texttt{latitude}\newline Latitude & string & \si{\degree} & Measured & Coordinate that specifies the north–south position & \textemdash\\
+\texttt{longitude}\newline Longitude & string & \si{\degree} & Measured & Coordinate that specifies the east–west position & \textemdash\\
+\texttt{precipitation}\newline Precipitation & string & Millimeters & Measured & Any product of the condensation of atmospheric water vapor that falls from clouds & \textemdash\\
+\texttt{rain\_\allowbreak{}chance}\newline Rain chance & number & \si{\percent} & Measured & Chance of precipitation & \textemdash\\
+\texttt{station\_\allowbreak{}name}\newline Station name & string & text & \textemdash & Station name & \textemdash\\
+\texttt{symbol\_\allowbreak{}number}\newline Symbol number & string & \textemdash & \textemdash & Symbol number & \textemdash\\
+\texttt{temperature\_\allowbreak{}10}\newline Temperature 10 & number & \si{\degreeCelsius} & Measured & Temperature 10 cm above ground level. & \textemdash\\
+\texttt{temperature\_\allowbreak{}150}\newline Temperature 150 & number & \si{\degreeCelsius} & Measured & Temperature 150 cm above ground level. & \textemdash\\
+\texttt{timestamp}\newline Timestamp & datetime & yy-mm-dd-hh-mm-ss & Measured & Timestamp & \textemdash\\
+\texttt{wet\_\allowbreak{}bulb\_\allowbreak{}temperature}\newline Wet bulb temperature & number & \si{\degreeCelsius} & Measured & Thermometer with the bulb in somthing wet & \textemdash\\
+\texttt{wind\_\allowbreak{}direction}\newline Wind direction & string & \si{\degree} & Measured & Direction from which the wind blows & \textemdash\\
+\texttt{windchill}\newline Windchill & number & \si{\degreeCelsius} & Measured & The cooling effect of wind blowing on a surface & \textemdash\\
+\texttt{windspeed}\newline Windspeed & integer & Beaufort, over 10 minuten (meter/sec) & Measured & Rate at which wind/air is moving & \textemdash\\
+\end{longtable}\endgroup
+\subsection{Data completeness audit matrix}\label{ds:Missing_data}
+{\small \textbf{Dataset:} \texttt{Missing\_\allowbreak{}data} \quad\textbar\quad \textbf{Source table:} \texttt{tvl\_\allowbreak{}totaal\_\allowbreak{}missende\_\allowbreak{}data\_\allowbreak{}proef} \quad\textbar\quad \textbf{Variables:} 17}\par
+\begingroup\footnotesize\rowcolors{2}{rowgrey}{white}
+\begin{longtable}{L{0.22}C{0.08}C{0.10}C{0.09}L{0.30}L{0.21}}
+\caption{Data dictionary of \texttt{Missing\_data}.}\\
+\dicthead\endfirsthead
+\multicolumn{6}{l}{\footnotesize\itshape continued}\\ \dicthead\endhead
+\bottomrule\endfoot
+\texttt{bcs}\newline Body condition score & boolean & yes/no & Measured & Automatic body condition score camera & number\\
+\texttt{behcod}\newline Treatment code & string & yes/no & Measured & Treatment code & \textemdash\\
+\texttt{bijzonderheden}\newline Particularities & boolean & yes/no & Measured & Particularities & \textemdash\\
+\texttt{date}\newline Date & date & yy-mm-dd & Measured & Date of the data record & \textemdash\\
+\texttt{gewa}\newline Weight evening & boolean & yes/no & Measured & Weight evening & kg\\
+\texttt{gewgeaa}\newline Weight gea evening & boolean & yes/no & Measured & Weight gea evening & kg\\
+\texttt{gewgeao}\newline Weight gea morning & boolean & yes/no & Measured & Weight gea morning & kg\\
+\texttt{gewo}\newline Weight morning & boolean & yes/no & Measured & Weight morning & kg\\
+\texttt{hok}\newline Barn & boolean & yes/no & Measured & Barn & number\\
+\texttt{kgmlka}\newline Kg milk evening & boolean & yes/no & Measured & Kg milk evening & kg\\
+\texttt{kgmlko}\newline Kg milk morning & boolean & yes/no & Measured & Kg milk morning & kg\\
+\texttt{oornum}\newline Ear number & integer & \textendash & \textemdash & Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. & \textemdash\\
+\texttt{opnkv}\newline Intake feed & boolean & yes/no & Measured & Intake feed & kg\\
+\texttt{opnrv}\newline Intake roughage & string & yes/no & Measured & Intake roughage & kg\\
+\texttt{prdsta}\newline Production stage & boolean & yes/no & Measured & Identifying the stage of the cow, producing milk or not & short text\\
+\texttt{prfcod}\newline Trial code & string & yes/no & Measured & Trial code & \textemdash\\
+\texttt{velos}\newline Velos & boolean & yes/no & Measured & Velos cow behavior & \textemdash\\
+\end{longtable}\endgroup
+\subsection{Barn environment and animal daily profile}\label{ds:Environment_barn_Animal_day}
+{\small \textbf{Dataset:} \texttt{Environment\_\allowbreak{}barn\_\allowbreak{}Animal\_\allowbreak{}day} \quad\textbar\quad \textbf{Source table:} \texttt{TVL\_\allowbreak{}Dier\_\allowbreak{}Datum\_\allowbreak{}Stal} \quad\textbar\quad \textbf{Variables:} 52}\par
+\begingroup\footnotesize\rowcolors{2}{rowgrey}{white}
+\begin{longtable}{L{0.22}C{0.08}C{0.10}C{0.09}L{0.30}L{0.21}}
+\caption{Data dictionary of \texttt{Environment\_barn\_Animal\_day}.}\\
+\dicthead\endfirsthead
+\multicolumn{6}{l}{\footnotesize\itshape continued}\\ \dicthead\endhead
+\bottomrule\endfoot
+\texttt{Age\allowbreak{}DAys}\newline Age & integer & \textendash & Measured & Age of the animal in days & \textemdash\\
+\texttt{Animal\allowbreak{}Number}\newline Animal Number & integer & \textendash & \textemdash & Unique animal server identifier issued across the different systems at Dairy Campus & \textemdash\\
+\texttt{Ant\allowbreak{}Gew\allowbreak{}A}\newline Weight afternoon & number & \si{\kilogram} & Measured & Weight of the animal after milking in the afternoon & \textemdash\\
+\texttt{Ant\allowbreak{}Gew\allowbreak{}O}\newline Weight morning & number & \si{\kilogram} & Measured & Weight of the animal after milking in the morning & \textemdash\\
+\texttt{Birth\allowbreak{}Date}\newline Date of birth & date & yyyy-mm-dd & Measured & The cows date of birth & \textemdash\\
+\texttt{Date\allowbreak{}Melk\allowbreak{}Con4Wk}\newline Date of 4-Weekly Milk Recording & date & yyyy-mm-dd & Measured & Date of the most recent official 4-weekly milk control / recording event (MPR). & Date of official test day sampling. \newline \textit{Source:} \texttt{T\_\allowbreak{}Animal\_\allowbreak{}Milk\allowbreak{}Samples}\\
+\texttt{Dat\allowbreak{}Gld\allowbreak{}Tot}\newline Valid Until Date & datetime & yyyy-mm-dd & Derived & Date until which the current housing, lactation, or trial assignment status remains valid. & End validity date of status record. \newline \textit{Source:} \texttt{TVL\_\allowbreak{}Dier\_\allowbreak{}Datum\_\allowbreak{}Stal}\\
+\texttt{Days\allowbreak{}In\allowbreak{}Lactation}\newline Days in lactation & integer & \textendash & Derived & Amount of days producing milk & Date - calving date\\
+\texttt{Dry\allowbreak{}Date}\newline Start date dry period & date & yy-mm-dd & Measured & Starting date of the dry period & \textemdash\\
+\texttt{Ear\allowbreak{}Number}\newline Ear number & integer & \textendash & \textemdash & Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. & \textemdash\\
+\texttt{Eiw}\newline Protein concentration standard & number & \si{\percent} & Derived & Protein concentration of the monthly milk test & \textemdash\\
+\texttt{End\allowbreak{}Date}\newline Ending date experiment & date & yy-mm-dd & Measured & Expected end date of the experiment & \textemdash\\
+\texttt{Ket}\newline Ketose concentration of the monthly milk test & string & Calculated & Derived & number & Laboratory diagnostic score from milk recording analysis. \newline \textit{Source:} \texttt{T\_\allowbreak{}Animal\_\allowbreak{}Milk\allowbreak{}Samples}\\
+\texttt{Expec\allowbreak{}Calving\allowbreak{}Date}\newline Expected calving date & date & yy-mm-dd & Derived & Expected calving date based on insemination date & Calculated by ExpectedCalvingDate() function from last successful insemination. \newline \textit{Source:} \texttt{t\_\allowbreak{}animal\_\allowbreak{}matings / Expected\allowbreak{}Calving\allowbreak{}Date}\\
+\texttt{Fat\%}\newline Calculated day fat concentration & number & \si{\percent} & Derived & An estimated daily milk fat concentration based on the AO sampling and the corresponding milk yield of that day.  x & \textemdash\\
+\texttt{Gew\allowbreak{}Tot}\newline Weight totaal & number & \si{\kilogram} & Measured & Average weight of the animal for the day. & Recorded by automated walkthrough weighing scale. \newline \textit{Source:} \texttt{TVL\_\allowbreak{}Dier\_\allowbreak{}Gewicht\_\allowbreak{}Etmaal}\\
+\texttt{IDNumber}\newline ID nummer & integer & National registration number of the animal. & Measured & Registration number same as LevNum & Official national cattle ear tag number. \newline \textit{Source:} \texttt{t\_\allowbreak{}animals}\\
+\texttt{Insimination\allowbreak{}Date}\newline Insemination day & date & yy-mm-dd & Measured & Date of last insemination & \textemdash\\
+\texttt{Lac}\newline Lactose concentration standard & number & \si{\percent} & Derived & Lactose of the monthly milk test & \textemdash\\
+\texttt{Lactose\%}\newline Calculated day lactose concentration & number & \si{\percent} & Derived & An estimated daily milk lactose concentration based on the AO sampling and the corresponding milk yield of that day. & \textemdash\\
+\texttt{Last\allowbreak{}Calving\allowbreak{}Date}\newline Last calving date & date & yy-mm-dd & Measured & Date of last calving & \textemdash\\
+\texttt{Milk\_\allowbreak{}Yield}\newline Milk Yield & number & \si{\kilogram} & Derived & Milk yield & \textemdash\\
+\texttt{Milk\allowbreak{}Afternoon}\newline Milk Yield afternoon & number & \si{\kilogram} & Derived & Milk Yield afternoon & \textemdash\\
+\texttt{Milk\allowbreak{}Day}\newline Milk Yield day & number & \si{\kilogram} & Derived & Milk Yield day & \textemdash\\
+\texttt{Milk\allowbreak{}Morning}\newline Milk Yield morning & number & \si{\kilogram} & Derived & Milk Yield morning & \textemdash\\
+\texttt{Milk\allowbreak{}Yield}\newline Milk Yield & number & \si{\kilogram} & Derived & Milk yield & \textemdash\\
+\texttt{Mlk\allowbreak{}Con}\newline Milk Con? & boolean & boolean & Derived & Indicator flag showing whether official milk recording (MPR) data was collected on this date. & Boolean flag indicating presence of milk laboratory sample record. \newline \textit{Source:} \texttt{T\_\allowbreak{}Animal\_\allowbreak{}Milk\allowbreak{}Samples}\\
+\texttt{Number\allowbreak{}Animal}\newline Number Animal & integer & \textendash & \textemdash & Unique animal server identifier issued across the different systems at Dairy Campus & \textemdash\\
+\texttt{Number\allowbreak{}OLactations}\newline Parity & integer & \textendash & Measured & Parity (amount of calvings) of the animal & \textemdash\\
+\texttt{Numb\allowbreak{}Of\allowbreak{}Dates}\newline Number of dates? & date & count & Derived & Count of observation days recorded for the animal within the experimental reporting period. & Count of distinct active recording dates. \newline \textit{Source:} \texttt{TVL\_\allowbreak{}Dier\_\allowbreak{}Datum\_\allowbreak{}Proef}\\
+\texttt{Protein\%}\newline Calculated day protein concentration & number & \si{\percent} & Derived & An estimated daily milk protein concentration based on the AO sampling and the corresponding milk yield of that day. & \textemdash\\
+\texttt{Sample\allowbreak{}Date\allowbreak{}Evening}\newline Sample date evening & datetime & yy-mm-dd-hh-mm-ss & Measured & Date the sample was obtained during the evening & \textemdash\\
+\texttt{Sample\allowbreak{}Date\allowbreak{}Morning}\newline Sample date morning & datetime & yy-mm-dd-hh-mm-ss & Measured & Date the sample was obtained during the morning & \textemdash\\
+\texttt{SCC}\newline Calculated day somatic cell count & string & $10^{3}$\,cells\,mL$^{-1}$ & Derived & An estimated daily somatic cell count based on the AO sampling and the corresponding milk yield of that day. & \textemdash\\
+\texttt{Start\allowbreak{}Date}\newline Start date & datetime & hh-mm-ss & Measured & Start date & \textemdash\\
+\texttt{Stl}\newline Barn Section & string & identifier & Measured & Physical barn building or housing section identifier at Dairy Campus. & Stable / Barn number recorded in management system. \newline \textit{Source:} \texttt{TVL\_\allowbreak{}Dier\_\allowbreak{}Datum\_\allowbreak{}Stal}\\
+\texttt{Sum\allowbreak{}Voe\allowbreak{}Gft}\newline Total Feed Granted & number & \si{\kilogram} & Derived & Total amount of concentrate feed programmed/granted to the animal over the period. & Sum of programmed concentrate feeding amounts. \newline \textit{Source:} \texttt{TVL\_\allowbreak{}Dier\_\allowbreak{}Voeropname\_\allowbreak{}KV\_\allowbreak{}Etmaal}\\
+\texttt{Sum\allowbreak{}Voe\allowbreak{}Opnm}\newline Total Feed Intake & number & \si{\kilogram} & Derived & Total actual concentrate feed consumed by the animal over the period. & Sum of consumed concentrate intake amounts. \newline \textit{Source:} \texttt{TVL\_\allowbreak{}Dier\_\allowbreak{}Voeropname\_\allowbreak{}KV\_\allowbreak{}Etmaal}\\
+\texttt{Sum\allowbreak{}Voe\allowbreak{}Rst}\newline Total Feed Residual & number & \si{\kilogram} & Derived & Total amount of unconsumed concentrate feed remaining in the troughs. & Total Feed Granted minus Total Feed Intake. \newline \textit{Source:} \texttt{TVL\_\allowbreak{}Dier\_\allowbreak{}Voeropname\_\allowbreak{}KV\_\allowbreak{}Etmaal}\\
+\texttt{Unit}\newline Unit / barn number & integer & \textendash & \textemdash & Location of where the cows are housed. & \textemdash\\
+\texttt{Ure}\newline Calculated day urea concentration & string & \si{\milli\gram\per\deci\litre} & Derived & An estimated daily milk urea concentration based on the AO sampling and the corresponding milk yield of that day. & \textemdash\\
+\texttt{Urea (mg/100g)}\newline Weekly milk urea concentration & string & \si{\milli\gram\per\deci\litre} & Measured & Weekly milk urea concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week. & \textemdash\\
+\texttt{Vet}\newline Weekly milk fat concentration & number & \si{\percent} & Measured & Weekly milk fat concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week. & \textemdash\\
+\texttt{Week}\newline Week & integer & \textendash & Measured & Calender week number of data record & \textemdash\\
+\texttt{Week\allowbreak{}Day}\newline Day of the week & string & text & \textemdash & Abbreviaton of weekday (Ma = Monday, Di = Tuesday, Wo = Wednesday, Do = Thursday, Vr = Friday, Za = Saturday, Zo = Sunday) & \textemdash\\
+\texttt{Weight\allowbreak{}Afternoon}\newline Weight afternoon & number & \si{\kilogram} & Measured & Weight of the animal after milking in the afternoon & \textemdash\\
+\texttt{Weight\allowbreak{}Morning}\newline Weight morning & number & \si{\kilogram} & Measured & Weight of the animal after milking in the morning & \textemdash\\
+\texttt{Year}\newline number & string & \textemdash & \textemdash & Measured & \textemdash\\
+\texttt{Vrw\allowbreak{}Dgn}\newline Expected Days & integer & days & Derived & Expected remaining gestation days or planned days dry prior to the anticipated calving date. & Expected calving date minus current date. \newline \textit{Source:} \texttt{TVL\_\allowbreak{}Dier\_\allowbreak{}Datum\_\allowbreak{}Stal}\\
+\texttt{Ant\allowbreak{}Mlk\allowbreak{}O}\newline Number of milkings morning & integer & \textendash & Measured & How often an animal was milked in the morning. 1 is the assumed value. 0 means a missing value/something wrong with registration. 2+ means reattachment of the milking apparatus, can be outlier values. & \textemdash\\
+\texttt{Ant\allowbreak{}Mlk\allowbreak{}A}\newline Number of milkings afternoon & integer & \textendash & Measured & How often an animal was milked in the afternoon. 1 is the assumed value. 0 means a missing value/something wrong with registration. 2+ means reattachment of the milking apparatus, can be outlier values. & \textemdash\\
+\texttt{Date}\newline Date & datetime & yy-mm-dd-hh-mm-ss & Measured & Date & \textemdash\\
+\end{longtable}\endgroup
+\subsection{Experimental cohort animal daily records}\label{ds:Environment_barn_Animal_experim}
+{\small \textbf{Dataset:} \texttt{Environment\_\allowbreak{}barn\_\allowbreak{}Animal\_\allowbreak{}experim} \quad\textbar\quad \textbf{Variables:} 54}\par
+\begingroup\footnotesize\rowcolors{2}{rowgrey}{white}
+\begin{longtable}{L{0.22}C{0.08}C{0.10}C{0.09}L{0.30}L{0.21}}
+\caption{Data dictionary of \texttt{Environment\_barn\_Animal\_experim}.}\\
+\dicthead\endfirsthead
+\multicolumn{6}{l}{\footnotesize\itshape continued}\\ \dicthead\endhead
+\bottomrule\endfoot
+\texttt{Ant\allowbreak{}Mlk\allowbreak{}A}\newline Number of milkings afternoon & integer & \textendash & Measured & How often an animal was milked in the afternoon. 1 is the assumed value. 0 means a missing value/something wrong with registration. 2+ means reattachment of the milking apparatus, can be outlier values. & \textemdash\\
+\texttt{Ant\allowbreak{}Mlk\allowbreak{}O}\newline Number of milkings morning & integer & \textendash & Measured & How often an animal was milked in the morning. 1 is the assumed value. 0 means a missing value/something wrong with registration. 2+ means reattachment of the milking apparatus, can be outlier values. & \textemdash\\
+\texttt{Date}\newline Date & datetime & yy-mm-dd-hh-mm-ss & Measured & Date & \textemdash\\
+\texttt{Vrw\allowbreak{}Dgn}\newline Expected Days & integer & days & Derived & Expected remaining gestation days or planned days dry prior to the anticipated calving date. & Expected calving date minus current date. \newline \textit{Source:} \texttt{TVL\_\allowbreak{}Dier\_\allowbreak{}Datum\_\allowbreak{}Stal}\\
+\texttt{Age\allowbreak{}Days}\newline Age in Days & integer & days & Derived & Age of the animal in days calculated as recording date minus birth date. & Recording date - Birth date. \newline \textit{Source:} \texttt{TVL\_\allowbreak{}Dier\_\allowbreak{}Datum\_\allowbreak{}Stal}\\
+\texttt{Animal\allowbreak{}Number}\newline Animal Number & integer & \textendash & \textemdash & Unique animal server identifier issued across the different systems at Dairy Campus & \textemdash\\
+\texttt{Birth\allowbreak{}Date}\newline Date of birth & date & yyyy-mm-dd & Measured & The cows date of birth & \textemdash\\
+\texttt{Days\allowbreak{}In\allowbreak{}Lactation}\newline Days in lactation & integer & \textendash & Derived & Amount of days producing milk & Date - calving date\\
+\texttt{Dry\allowbreak{}Date}\newline Start date dry period & date & yy-mm-dd & Measured & Starting date of the dry period & \textemdash\\
+\texttt{Ear\allowbreak{}Number}\newline Ear number & integer & \textendash & \textemdash & Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. & \textemdash\\
+\texttt{End\allowbreak{}Date}\newline Ending date experiment & date & yy-mm-dd & Measured & Expected end date of the experiment & \textemdash\\
+\texttt{Fat\%}\newline Calculated day fat concentration & number & \si{\percent} & Derived & An estimated daily milk fat concentration based on the AO sampling and the corresponding milk yield of that day.  x & \textemdash\\
+\texttt{Gew\allowbreak{}Tot}\newline Total Weight & number & \si{\kilogram} & Measured & Total live animal body weight (average or latest measurement for the date). & Recorded by automated walkthrough weighing scale. \newline \textit{Source:} \texttt{TVL\_\allowbreak{}Dier\_\allowbreak{}Gewicht\_\allowbreak{}Etmaal}\\
+\texttt{Insimination\allowbreak{}Date}\newline Insemination day & date & yy-mm-dd & Measured & Date of last insemination & \textemdash\\
+\texttt{Ket}\newline Ketosis Indicator & string & code & Derived & Ketosis classification indicator (0: healthy/negative, 1: suspected subclinical ketosis, 2: clinical ketosis). & Laboratory diagnostic score from milk recording analysis. \newline \textit{Source:} \texttt{T\_\allowbreak{}Animal\_\allowbreak{}Milk\allowbreak{}Samples}\\
+\texttt{Lactose\%}\newline Calculated day lactose concentration & number & \si{\percent} & Derived & An estimated daily milk lactose concentration based on the AO sampling and the corresponding milk yield of that day. & \textemdash\\
+\texttt{Last\allowbreak{}Calving\allowbreak{}Date}\newline Last calving date & date & yy-mm-dd & Measured & Date of last calving & \textemdash\\
+\texttt{Number\allowbreak{}Animal}\newline Number Animal & integer & \textendash & \textemdash & Unique animal server identifier issued across the different systems at Dairy Campus & \textemdash\\
+\texttt{Number\allowbreak{}OLactations}\newline Parity & integer & \textendash & Measured & Parity (amount of calvings) of the animal & \textemdash\\
+\texttt{Numb\allowbreak{}Of\allowbreak{}Dates}\newline Number of Dates & date & count & Derived & Count of observation days recorded for the animal within the experimental reporting period. & Count of distinct active recording dates. \newline \textit{Source:} \texttt{TVL\_\allowbreak{}Dier\_\allowbreak{}Datum\_\allowbreak{}Proef}\\
+\texttt{Projectcode}\newline Project Code & string & identifier & Measured & Unique research experiment / trial code (e.g. 4400003634). Same as prfcod. & Official trial identifier registered in t\_\allowbreak{}proef. \newline \textit{Source:} \texttt{t\_\allowbreak{}proef}\\
+\texttt{Project\allowbreak{}Name}\newline Project Name & string & text & Measured & Official descriptive name of the research project or trial. Same as prfnam. & Official trial title registered in t\_\allowbreak{}proef. \newline \textit{Source:} \texttt{t\_\allowbreak{}proef}\\
+\texttt{Protein\%}\newline Calculated day protein concentration & number & \si{\percent} & Derived & An estimated daily milk protein concentration based on the AO sampling and the corresponding milk yield of that day. & \textemdash\\
+\texttt{Sample\allowbreak{}Date\allowbreak{}Evening}\newline Sample date evening & datetime & yy-mm-dd-hh-mm-ss & Measured & Date the sample was obtained during the evening & \textemdash\\
+\texttt{Sample\allowbreak{}Date\allowbreak{}Morning}\newline Sample date morning & datetime & yy-mm-dd-hh-mm-ss & Measured & Date the sample was obtained during the morning & \textemdash\\
+\texttt{SCC}\newline Calculated day somatic cell count & string & $10^{3}$\,cells\,mL$^{-1}$ & Derived & An estimated daily somatic cell count based on the AO sampling and the corresponding milk yield of that day. & \textemdash\\
+\texttt{Start\allowbreak{}Date}\newline Start date & datetime & hh-mm-ss & Measured & Start date & \textemdash\\
+\texttt{Sum\allowbreak{}Voe\allowbreak{}Gft}\newline Total Feed Granted & number & \si{\kilogram} & Derived & Total amount of concentrate feed programmed/granted to the animal over the period. & Sum of programmed concentrate feeding amounts. \newline \textit{Source:} \texttt{TVL\_\allowbreak{}Dier\_\allowbreak{}Voeropname\_\allowbreak{}KV\_\allowbreak{}Etmaal}\\
+\texttt{Sum\allowbreak{}Voe\allowbreak{}Rst}\newline Total Feed Residual & number & \si{\kilogram} & Derived & Total amount of unconsumed concentrate feed remaining in the troughs. & Total Feed Granted minus Total Feed Intake. \newline \textit{Source:} \texttt{TVL\_\allowbreak{}Dier\_\allowbreak{}Voeropname\_\allowbreak{}KV\_\allowbreak{}Etmaal}\\
+\texttt{Unit}\newline Unit / barn number & integer & \textendash & \textemdash & Location of where the cows are housed. & \textemdash\\
+\texttt{Urea (mg/100g)}\newline Weekly milk urea concentration & string & \si{\milli\gram\per\deci\litre} & Measured & Weekly milk urea concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week. & \textemdash\\
+\texttt{Week}\newline Week & integer & \textendash & Measured & Calender week number of data record & \textemdash\\
+\texttt{Week\allowbreak{}Day}\newline Day of the week & string & text & \textemdash & Abbreviaton of weekday (Ma = Monday, Di = Tuesday, Wo = Wednesday, Do = Thursday, Vr = Friday, Za = Saturday, Zo = Sunday) & \textemdash\\
+\texttt{Weight\allowbreak{}Afternoon}\newline Weight afternoon & number & \si{\kilogram} & Measured & Weight of the animal after milking in the afternoon & \textemdash\\
+\texttt{Weight\allowbreak{}Morning}\newline Weight morning & number & \si{\kilogram} & Measured & Weight of the animal after milking in the morning & \textemdash\\
+\texttt{Year}\newline number & string & \textemdash & \textemdash & Measured & \textemdash\\
+\texttt{Ant\allowbreak{}Gew\allowbreak{}A}\newline Weight afternoon & number & \si{\kilogram} & Measured & Weight of the animal after milking in the afternoon & \textemdash\\
+\texttt{Ant\allowbreak{}Gew\allowbreak{}O}\newline Weight morning & number & \si{\kilogram} & Measured & Weight of the animal after milking in the morning & \textemdash\\
+\texttt{IDNumber}\newline Animal Identification Number & string & identifier & Measured & Official national unique life identification number of the animal (LevNum / EU identification tag). & Official national cattle ear tag number. \newline \textit{Source:} \texttt{t\_\allowbreak{}animals}\\
+\texttt{Date\allowbreak{}Melk\allowbreak{}Con4Wk}\newline Date of 4-Weekly Milk Recording & date & yyyy-mm-dd & Measured & Date of the most recent official 4-weekly milk control / recording event (MPR). & Date of official test day sampling. \newline \textit{Source:} \texttt{T\_\allowbreak{}Animal\_\allowbreak{}Milk\allowbreak{}Samples}\\
+\texttt{Dat\allowbreak{}Gld\allowbreak{}Tot}\newline Valid Until Date & datetime & yyyy-mm-dd & Derived & Date until which the current housing, lactation, or trial assignment status remains valid. & End validity date of status record. \newline \textit{Source:} \texttt{TVL\_\allowbreak{}Dier\_\allowbreak{}Datum\_\allowbreak{}Stal}\\
+\texttt{Eiw}\newline Protein concentration standard & number & \si{\percent} & Derived & Protein concentration of the monthly milk test & \textemdash\\
+\texttt{Expec\allowbreak{}Calving\allowbreak{}Date}\newline Expected Calving Date & date & yyyy-mm-dd & Derived & Estimated date of the next calving, based on confirmed insemination date + gestation length (\textasciitilde{}270-280 days). & Calculated by ExpectedCalvingDate() function from last successful insemination. \newline \textit{Source:} \texttt{t\_\allowbreak{}animal\_\allowbreak{}matings / Expected\allowbreak{}Calving\allowbreak{}Date}\\
+\texttt{Lac}\newline Lactose concentration standard & number & \si{\percent} & Derived & Lactose of the monthly milk test & \textemdash\\
+\texttt{Milk\_\allowbreak{}Yield}\newline Milk Yield & number & \si{\kilogram} & Derived & Milk yield & \textemdash\\
+\texttt{Milk\allowbreak{}Afternoon}\newline Milk Yield afternoon & number & \si{\kilogram} & Derived & Milk Yield afternoon & \textemdash\\
+\texttt{Milk\allowbreak{}Day}\newline Milk Yield day & number & \si{\kilogram} & Derived & Milk Yield day & \textemdash\\
+\texttt{Milk\allowbreak{}Morming}\newline Morning Milk Yield & number & \si{\kilogram} & Measured & Total quantity of milk produced during morning milking sessions. & Sum of morning milking yields. \newline \textit{Source:} \texttt{TVL\_\allowbreak{}Dier\_\allowbreak{}Melkgift\_\allowbreak{}Etmaal\_\allowbreak{}Melkcontrole}\\
+\texttt{Milk\allowbreak{}Yield}\newline Milk Yield & number & \si{\kilogram} & Derived & Milk yield & \textemdash\\
+\texttt{Mlk\allowbreak{}Con}\newline Milk Recording Present & boolean & boolean & Derived & Indicator flag showing whether official milk recording (MPR) data was collected on this date. & Boolean flag indicating presence of milk laboratory sample record. \newline \textit{Source:} \texttt{T\_\allowbreak{}Animal\_\allowbreak{}Milk\allowbreak{}Samples}\\
+\texttt{Stl}\newline Barn Section & string & identifier & Measured & Physical barn building or housing section identifier at Dairy Campus. & Stable / Barn number recorded in management system. \newline \textit{Source:} \texttt{TVL\_\allowbreak{}Dier\_\allowbreak{}Datum\_\allowbreak{}Stal}\\
+\texttt{Ure}\newline Calculated day urea concentration & string & \si{\milli\gram\per\deci\litre} & Derived & An estimated daily milk urea concentration based on the AO sampling and the corresponding milk yield of that day. & \textemdash\\
+\texttt{Vet}\newline Weekly milk fat concentration & number & \si{\percent} & Measured & Weekly milk fat concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week. & \textemdash\\
+\texttt{Sum\allowbreak{}Voe\allowbreak{}Opnm}\newline Total Feed Intake & number & \si{\kilogram} & Derived & Total actual concentrate feed consumed by the animal over the period. & Sum of consumed concentrate intake amounts. \newline \textit{Source:} \texttt{TVL\_\allowbreak{}Dier\_\allowbreak{}Voeropname\_\allowbreak{}KV\_\allowbreak{}Etmaal}\\
+\end{longtable}\endgroup
+
+\section{Data availability and citation}
+The machine-readable dictionary (CSV, XLSX), per-dataset CSV files and the SQL
+calculation layer (views, stored procedures and functions) are deposited with this
+descriptor. Please cite:
+\begin{quote}\small
+Klandermans, B., \& de Jong, F. (2026). \emph{Dairy Campus Research Data Platform:
+Data Descriptor, Standardised Metadata Dictionaries and Calculation Methodology}.
+Zenodo. \href{https://doi.org/10.5281/zenodo.24092174}{https://doi.org/10.5281/zenodo.24092174}
+\end{quote}
+\end{document}
