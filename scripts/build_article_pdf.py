@@ -244,15 +244,6 @@ daily dry matter intake (\texttt{tot.opnDs}, \si{\kilogram\,DM\per\day}) is
   \label{eq:dmi}
 \end{equation}
 
-\subsection{Concentrate feeding}
-For the computerised concentrate stations, the residual (not consumed)
-concentrate (\texttt{SumVoeRst}) follows from the programmed allowance
-(\texttt{SumVoeGft}) and the consumed amount (\texttt{SumVoeOpnm}):
-\begin{equation}
-  C_{d}^{\text{rest}} = C_{d}^{\text{granted}} - C_{d}^{\text{intake}} .
-  \label{eq:conc}
-\end{equation}
-
 \subsection{Yield-weighted milk composition}
 Milk recording (CRV/MPR) concentrations are aggregated per ISO calendar week $w$
 as yield-weighted means (\texttt{mpr\_week.*}; view \texttt{VL\_Dier\_Datum\_Crv}):
@@ -265,20 +256,6 @@ as yield-weighted means (\texttt{mpr\_week.*}; view \texttt{VL\_Dier\_Datum\_Crv
 \end{equation}
 where $\mathcal{J}_{w}$ is the set of test milkings in week $w$, $c_{j}$ the
 concentration and $Y_{j}$ (\si{\kilogram}) the milk yield of milking $j$.
-
-\subsection{Daily behaviour budgets}
-Nedap Velos intervals $k$ carry a behaviour state $s_{k} \in \{0,1,2,3\}$
-(0 other active, 1 inactive, 2 ruminating, 3 eating). The daily time budget per
-state (\texttt{overig}, \texttt{nietactief}, \texttt{herkouwen},
-\texttt{vreten}) and the total (\texttt{total}) are
-\begin{equation}
-  T_{s,d} = \sum_{k \in \mathcal{K}_{d}} \Delta t_{k}\, \mathbf{1}[s_{k}=s],
-  \qquad
-  T_{d} = \sum_{s=0}^{3} T_{s,d},
-  \label{eq:velos}
-\end{equation}
-with $\mathcal{K}_{d}$ the intervals recorded on day $d$ and $\mathbf{1}[\cdot]$
-the indicator function.
 
 \subsection{Lactation and reproduction timing}
 For a record on date $t$ (all quantities in days):
@@ -317,14 +294,16 @@ def build_tex(df: pd.DataFrame, doi_str: str = DOI) -> str:
 \noindent\rule{\textwidth}{0.4pt}
 \begin{abstract}
 \noindent
-Dairy Campus (Wageningen University \& Research, Leeuwarden) operates a
-multi-sensor experimental dairy herd for research on nutrition, feed efficiency,
-enteric methane mitigation, animal welfare and precision livestock farming. This
-data descriptor documents the research data platform: """ + f"{len(datasets)}" + r"""
-datasets comprising """ + f"{n_vars}" + r""" variables, with their data types,
-units, measurement origin and derivation. Derived quantities computed in the SQL
-layer (water correction of roughage intake, dry matter intake, yield-weighted milk
-composition, behaviour budgets and lactation timing) are given in closed form.
+Dairy Campus (Wageningen University \& Research, Leeuwarden) maintains an experimental
+dairy herd of approximately 500 Holstein Friesian dairy cows tracked continuously since 2016.
+Spanning more than a decade of high-throughput precision livestock farming observations, the
+platform encompasses millions of individual milking records, load-cell roughage intake visits,
+enteric greenhouse gas fluxes ($\mathrm{CH}_4$, $\mathrm{CO}_2$), and laboratory milk analyses.
+This data descriptor formalizes the complete research data platform: """ + f"{len(datasets)}" + r"""
+distinct datasets encompassing """ + f"{n_vars}" + r""" scientific variables, structured as standardized
+distributions (\texttt{dct:distribution}) of a single central catalog under W3C DCAT and DataCite standards.
+Derived quantities computed in the SQL layer (roughage intake, water exclusion deduction, laboratory
+dry matter intake, yield-weighted milk composition, and lactation demographics) are specified in closed form.
 \end{abstract}
 \noindent\rule{\textwidth}{0.4pt}
 """)
@@ -333,17 +312,18 @@ composition, behaviour budgets and lactation timing) are given in closed form.
 
     # ---- background ----
     L.append(r"""
-\section{Facility and sensor infrastructure}
-Dairy Campus houses an experimental herd of approximately 500 Holstein Friesian
-cows. The platform continuously ingests data from the following systems:
+\section{Longitudinal experimental infrastructure (500 dairy cows, 2016\textendash present)}
+Dairy Campus operates a high-throughput, multi-sensor experimental dairy infrastructure tracking
+an active experimental herd of approximately 500 Holstein Friesian dairy cows continuously since 2016.
+Longitudinal data streams encompass:
 \begin{itemize}
-  \item \textbf{Hokofarm RIC troughs} \textendash{} individual roughage intake bins on load cells with RFID identification.
-  \item \textbf{Trioliet Triomatic} \textendash{} automated feed kitchen and feeding robot; loading and trough deliveries.
-  \item \textbf{Hokofarm/SAC concentrate stations} \textendash{} computerised dispensing of up to four concentrates (A\textendash D).
-  \item \textbf{GEA milking systems and smart gates} \textendash{} milk yield, milking duration, body weight and routing.
-  \item \textbf{Nedap Velos smarttags} \textendash{} behaviour classification into eating, ruminating, inactive and other active.
-  \item \textbf{C-Lock GreenFeed} \textendash{} enteric CH$_4$ and CO$_2$ fluxes during voluntary bait-fed visits.
-  \item \textbf{Weather station} \textendash{} ambient temperature, humidity, wind, precipitation and radiation.
+  \item \textbf{GEA automated milking systems and parlors} \textendash{} millions of individual milking records including session yields, duration, quarter electrical conductivity, and walkthrough body weights.
+  \item \textbf{Hokofarm RIC troughs} \textendash{} millions of individual roughage intake visits on high-precision load cells with RFID cow recognition.
+  \item \textbf{Trioliet Triomatic robot} \textendash{} automated kitchen ingredient batch mixing, loading, added water mass, and trough delivery drops.
+  \item \textbf{Hokofarm/SAC concentrate stations} \textendash{} individual programmed concentrate allocations (A\textendash D) versus consumed amounts.
+  \item \textbf{C-Lock GreenFeed hoods} \textendash{} voluntary voluntary bait-fed visits measuring individual enteric $\mathrm{CH}_4$ and $\mathrm{CO}_2$ flux rates.
+  \item \textbf{Nedap Velos smarttags} \textendash{} continuous behavioral accelerometry (eating, ruminating, lying, walking).
+  \item \textbf{Meteorological weather station} \textendash{} ambient temperature, relative humidity, wind speed, solar radiation, and rain.
 \end{itemize}
 Laboratory drying-oven dry matter analyses and official milk recording (CRV/MPR)
 complement the sensor streams.
@@ -404,10 +384,7 @@ derivations refer to the equations in Section~\ref{sec:methods}. A dash
         L.append(r"\multicolumn{6}{l}{\footnotesize\itshape continued}\\ \dicthead\endhead")
         L.append(r"\bottomrule\endfoot")
         for _, r in sub.iterrows():
-            label = clean(r["name_en"])
-            var = ident(clean(r["column_name"]))
-            if label:
-                var += r"\newline " + prose(label)
+            var = r"\textbf{" + ident(clean(r["column_name"])) + "}"
             dtype = esc(clean(r["data_type"])) or r"\textemdash"
             L.append(
                 f"{var} & {dtype} & {unit_tex(r['unit'])} & {origin_tex(r['measurement_type'])} & "

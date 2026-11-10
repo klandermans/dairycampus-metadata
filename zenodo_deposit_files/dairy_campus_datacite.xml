@@ -1,0 +1,68 @@
+<?xml version="1.0" ?>
+<resource xmlns="http://datacite.org/schema/kernel-4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.4/metadata.xsd">
+  <identifier identifierType="DOI">10.5281/zenodo.24092291</identifier>
+  <creators>
+    <creator>
+      <creatorName nameType="Personal">Klandermans, Bert</creatorName>
+      <givenName>Bert</givenName>
+      <familyName>Klandermans</familyName>
+      <affiliation>Dairy Campus, Wageningen University &amp; Research</affiliation>
+    </creator>
+    <creator>
+      <creatorName nameType="Personal">de Jong, Fedde</creatorName>
+      <givenName>Fedde</givenName>
+      <familyName>de Jong</familyName>
+      <affiliation>Dairy Campus, Wageningen University &amp; Research</affiliation>
+    </creator>
+  </creators>
+  <titles>
+    <title>Dairy Campus Research Data Platform: Comprehensive Data Descriptor, Standardized Metadata Dictionaries, and Calculation Methodologies</title>
+  </titles>
+  <publisher>Dairy Campus, Wageningen University &amp; Research</publisher>
+  <publicationYear>2026</publicationYear>
+  <resourceType resourceTypeGeneral="Dataset">DataCatalog</resourceType>
+  <subjects>
+    <subject>Dairy Campus</subject>
+    <subject>Wageningen University &amp; Research</subject>
+    <subject>Precision Livestock Farming</subject>
+    <subject>Dairy Cattle</subject>
+    <subject>Enteric Methane</subject>
+    <subject>Roughage Intake Control</subject>
+    <subject>GreenFeed</subject>
+    <subject>Milking Records</subject>
+    <subject>Data Catalog</subject>
+    <subject>DCAT Distribution</subject>
+  </subjects>
+  <dates>
+    <date dateType="Collected">2016-01-01/2026-11-10</date>
+    <date dateType="Updated">2026-11-10</date>
+  </dates>
+  <formats>
+    <format>application/ld+json</format>
+    <format>application/x-sql</format>
+    <format>text/csv</format>
+  </formats>
+  <descriptions>
+    <description descriptionType="Abstract">The Dairy Campus research data platform (Wageningen University &amp; Research, Leeuwarden, The Netherlands) encompasses longitudinal high-frequency multi-sensor records collected continuously since 2016 from an experimental herd of approximately 500 Holstein Friesian dairy cows. This catalog structures 19 distinct research datasets (507 variables) defining automated milking records, individual feed intake visits, concentrate allocations, accelerometer behavioral states, enteric greenhouse gas fluxes (CH4, CO2), barn climate, and official milk testing records.</description>
+    <description descriptionType="TechnicalInfo">Central Catalog Distributions:
+- TVL_total (97 vars, Source: tvl_totaal): Master Daily Integrated Cow Summary (intake, yields, milk components, body weight, BCS, emissions)
+- Hokofarm_SAC_concentrates (42 vars, Source: t_raw_hokofarmvb): Automatic Concentrate Feeder Transactions (programmed feed, intake, feeder speed, visits)
+- Hokofarm_RIC (18 vars, Source: t_raw_hokofarmvr): Roughage Intake Control Individual Visit Transactions (entry/exit timestamps, trough weights)
+- TVL_RIC_intake_dm (12 vars, Source: TVL_totaal_hokofarm_ds): Roughage Daily Intake &amp; Dry Matter Integration (fresh intake, laboratory dry oven DM%)
+- Triomatic_RIC_load (46 vars, Source: t_raw_trioliet): Trioliet Feeding Robot Mixer Loading Records (kitchen ingredient batch target and loaded weights)
+- Triomatic_RIC_drop (46 vars, Source: t_raw_trioliet): Trioliet Feeding Robot Trough Deliveries (discharged ration mass to pens and RIC bins)
+- GEA_gates (5 vars, Source: T_RAW_Gea_Separatie): GEA Separation &amp; Smart Gate Passages (cow identification, routing decisions, sorting gate ID)
+- GEA_milkings (13 vars, Source: T_RAW_Gea_milk): GEA Milking Robot &amp; Parlor Transactions (session yields, duration, conductivity, body weight)
+- TMR_Trioliet_cowconnect_mix (12 vars, Source: t_raw_cowconnect_mix): CowConnect Mixer Wagon Rations (planned vs actual ingredient loading weights and mixing times)
+- Velos_behaviour (4 vars, Source: T_RAW_velos_behaviour): Nedap Velos Cow Behaviour Intervals (smarttag sensor state transitions for eating, ruminating, lying)
+- Velos_behaviour_day (7 vars, Source: T_RAW_velos_behaviour): Nedap Velos Daily Cow Behaviour Summary (aggregated 24-hour durations of eating, ruminating, resting)
+- TMR_Trioliet_cowconnect_drop (11 vars, Source: t_raw_cowconnect_drop): CowConnect Feed Distribution Drops (ration discharge records along feed fences)
+- DC_DM_content (16 vars, Source: VL_totaal_droogstoof): Laboratory Dry Matter Content Oven Tests (official droogstoof gravimetric oven analysis results)
+- Greenfeed_summarized_data (24 vars, Source: T_RAW_Greenfeed_Summarized_Data): GreenFeed Enteric Emission Summaries (validated CH4 and CO2 fluxes, head sensors, airflow rates)
+- Greenfeed_feed_aggregrated (13 vars, Source: T_RAW_Greenfeed_Feed_data): GreenFeed Bait Feed Drops (pelleted feed mass and cup drop rewards during emission visits)
+- Weatherstation (18 vars, Source: T_RAW_weerstation): Dairy Campus Meteorological Weather Station (ambient temperature, humidity, wind, solar radiation, rain)
+- Missing_data (17 vars, Source: tvl_totaal_missende_data_proef): Data Quality &amp; Completeness Audit Matrix (automated daily validation flags per cow per day)
+- Environment_barn_Animal_day (52 vars, Source: TVL_Dier_Datum_Stal): Barn Environment &amp; Animal Daily Profile (pen housing, lactation days, parity, age, movement)
+- Environment_barn_Animal_experim (54 vars, Source: ?): Experimental Cohort Animal Daily Records (trial project codes, treatment assignments, blocks)</description>
+  </descriptions>
+</resource>
