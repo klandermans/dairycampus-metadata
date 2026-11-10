@@ -1,0 +1,186 @@
+<?xml version="1.0" ?>
+<tableSchema xmlns="http://dairycampus.nl/schema/metadata/v1" xmlns:dct="http://purl.org/dc/terms/" xmlns:dcat="http://www.w3.org/ns/dcat#" id="Greenfeed_summarized_data" tableNumber="14">
+  <header>
+    <tableName>Greenfeed_summarized_data</tableName>
+    <description>GreenFeed Enteric Emission Summaries (validated CH4 and CO2 fluxes, head sensors, airflow rates)</description>
+    <sourceObject>T_RAW_Greenfeed_Summarized_Data</sourceObject>
+    <centralCatalogDoi>10.5281/zenodo.24092291</centralCatalogDoi>
+    <catalogUrl>https://doi.org/10.5281/zenodo.24092291</catalogUrl>
+    <distributionId>https://doi.org/10.5281/zenodo.24092291#distribution_Greenfeed_summarized_data</distributionId>
+    <temporalSpan>2016-present</temporalSpan>
+    <facility>Dairy Campus, Wageningen University &amp; Research, Leeuwarden, The Netherlands</facility>
+    <targetPopulation>500 Holstein Friesian dairy cows</targetPopulation>
+    <variableCount>24</variableCount>
+    <license>https://creativecommons.org/licenses/by/4.0/</license>
+  </header>
+  <fields>
+    <field position="1">
+      <fieldName>AirflowCf</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Airflow correction factor</description>
+    </field>
+    <field position="2">
+      <fieldName>AirflowLitersPerSec</fieldName>
+      <dataType>integer</dataType>
+      <unit>Liter/sec</unit>
+      <origin>Measured</origin>
+      <description>Airflow liters per second</description>
+    </field>
+    <field position="3">
+      <fieldName>AnimalName</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Animal name</description>
+    </field>
+    <field position="4">
+      <fieldName>CH4GramsPerDay</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>CH4 grams per day, methane</description>
+    </field>
+    <field position="5">
+      <fieldName>CO2GramsPerDay</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>CO2 grams per day, carbon dioxide</description>
+    </field>
+    <field position="6">
+      <fieldName>cow</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.</description>
+    </field>
+    <field position="7">
+      <fieldName>date</fieldName>
+      <dataType>date</dataType>
+      <unit>yy-mm-dd</unit>
+      <origin>Measured</origin>
+      <description>Date of the data record</description>
+    </field>
+    <field position="8">
+      <fieldName>EndTime</fieldName>
+      <dataType>number</dataType>
+      <unit>yy-mm-dd-hh-mm-ss</unit>
+      <origin>Measured</origin>
+      <description>End time</description>
+    </field>
+    <field position="9">
+      <fieldName>GoodDataDuration</fieldName>
+      <dataType>datetime</dataType>
+      <unit>hh-mm-ss</unit>
+      <origin>Measured</origin>
+      <description>Good data duration</description>
+    </field>
+    <field position="10">
+      <fieldName>greenfeed</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Greenfeed</description>
+    </field>
+    <field position="11">
+      <fieldName>H2GramsPerDay</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>H2 grams per day, hydrogen</description>
+    </field>
+    <field position="12">
+      <fieldName>H2SGramsPerDay</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>H2S grams per day, hydrogen sulfide</description>
+    </field>
+    <field position="13">
+      <fieldName>InterruptingTags</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Interrupting tags</description>
+    </field>
+    <field position="14">
+      <fieldName>IsPreliminary</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Is preliminary data, validated data comes directly from C-lock.</description>
+    </field>
+    <field position="15">
+      <fieldName>O2GramsPerDay</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>O2 grams per day, oxygen</description>
+    </field>
+    <field position="16">
+      <fieldName>RFID</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Rfid</description>
+    </field>
+    <field position="17">
+      <fieldName>RunTime</fieldName>
+      <dataType>number</dataType>
+      <unit>yy-mm-dd-hh-mm-ss</unit>
+      <origin>Measured</origin>
+      <description>Run time</description>
+    </field>
+    <field position="18">
+      <fieldName>StartTime</fieldName>
+      <dataType>number</dataType>
+      <unit>hh-mm-ss</unit>
+      <origin>Measured</origin>
+      <description>Start time, if subgroup not 0</description>
+    </field>
+    <field position="19">
+      <fieldName>TempPipeDegreesCelsius</fieldName>
+      <dataType>number</dataType>
+      <unit>°C</unit>
+      <origin>Measured</origin>
+      <description>Temperature pipe degrees celsius</description>
+    </field>
+    <field position="20">
+      <fieldName>user</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>User</description>
+    </field>
+    <field position="21">
+      <fieldName>WasInterrupted</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Was interrupted</description>
+    </field>
+    <field position="22">
+      <fieldName>WindCf</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Wind correction factor</description>
+    </field>
+    <field position="23">
+      <fieldName>WindDirDeg</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Wind direction degrees</description>
+    </field>
+    <field position="24">
+      <fieldName>WindSpeedMetersPerSec</fieldName>
+      <dataType>integer</dataType>
+      <unit>meter/sec</unit>
+      <origin>Measured</origin>
+      <description>Wind speed meters per second</description>
+    </field>
+  </fields>
+</tableSchema>

@@ -1,0 +1,102 @@
+<?xml version="1.0" ?>
+<tableSchema xmlns="http://dairycampus.nl/schema/metadata/v1" xmlns:dct="http://purl.org/dc/terms/" xmlns:dcat="http://www.w3.org/ns/dcat#" id="TVL_RIC_intake_dm" tableNumber="4">
+  <header>
+    <tableName>TVL_RIC_intake_dm</tableName>
+    <description>Roughage Daily Intake &amp; Dry Matter Integration (fresh intake, laboratory dry oven DM%)</description>
+    <sourceObject>TVL_totaal_hokofarm_ds</sourceObject>
+    <centralCatalogDoi>10.5281/zenodo.24092291</centralCatalogDoi>
+    <catalogUrl>https://doi.org/10.5281/zenodo.24092291</catalogUrl>
+    <distributionId>https://doi.org/10.5281/zenodo.24092291#distribution_TVL_RIC_intake_dm</distributionId>
+    <temporalSpan>2016-present</temporalSpan>
+    <facility>Dairy Campus, Wageningen University &amp; Research, Leeuwarden, The Netherlands</facility>
+    <targetPopulation>500 Holstein Friesian dairy cows</targetPopulation>
+    <variableCount>12</variableCount>
+    <license>https://creativecommons.org/licenses/by/4.0/</license>
+  </header>
+  <fields>
+    <field position="1">
+      <fieldName>cow</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.</description>
+    </field>
+    <field position="2">
+      <fieldName>date</fieldName>
+      <dataType>date</dataType>
+      <unit>yy-mm-dd</unit>
+      <origin>Measured</origin>
+      <description>Date of the data record</description>
+    </field>
+    <field position="3">
+      <fieldName>dsPct</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Calculated</origin>
+      <description>Percentage of dry matter in the feed</description>
+    </field>
+    <field position="4">
+      <fieldName>feedtype</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>Type of feed</description>
+    </field>
+    <field position="5">
+      <fieldName>name</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>Name collected based on other value</description>
+    </field>
+    <field position="6">
+      <fieldName>opnDsVR</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Intake of dry matter from roughage RIC</description>
+    </field>
+    <field position="7">
+      <fieldName>opnIncWater</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Feed intake including water</description>
+    </field>
+    <field position="8">
+      <fieldName>opnMinWater</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Feed intake excluding water</description>
+    </field>
+    <field position="9">
+      <fieldName>opnProd</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Total intake of product</description>
+    </field>
+    <field position="10">
+      <fieldName>ricBez</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Number of visits to RIC</description>
+    </field>
+    <field position="11">
+      <fieldName>RowID</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Unique number for row in a specific table.</description>
+    </field>
+    <field position="12">
+      <fieldName>trBatches</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Number of times the triolith has released feed.</description>
+    </field>
+  </fields>
+</tableSchema>

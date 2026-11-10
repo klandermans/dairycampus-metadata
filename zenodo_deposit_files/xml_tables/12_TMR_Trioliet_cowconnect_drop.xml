@@ -1,0 +1,93 @@
+<?xml version="1.0" ?>
+<tableSchema xmlns="http://dairycampus.nl/schema/metadata/v1" xmlns:dct="http://purl.org/dc/terms/" xmlns:dcat="http://www.w3.org/ns/dcat#" id="TMR_Trioliet_cowconnect_drop" tableNumber="12">
+  <header>
+    <tableName>TMR_Trioliet_cowconnect_drop</tableName>
+    <description>CowConnect Feed Distribution Drops (ration discharge records along feed fences)</description>
+    <sourceObject>t_raw_cowconnect_drop</sourceObject>
+    <centralCatalogDoi>10.5281/zenodo.24092291</centralCatalogDoi>
+    <catalogUrl>https://doi.org/10.5281/zenodo.24092291</catalogUrl>
+    <distributionId>https://doi.org/10.5281/zenodo.24092291#distribution_TMR_Trioliet_cowconnect_drop</distributionId>
+    <temporalSpan>2016-present</temporalSpan>
+    <facility>Dairy Campus, Wageningen University &amp; Research, Leeuwarden, The Netherlands</facility>
+    <targetPopulation>500 Holstein Friesian dairy cows</targetPopulation>
+    <variableCount>11</variableCount>
+    <license>https://creativecommons.org/licenses/by/4.0/</license>
+  </header>
+  <fields>
+    <field position="1">
+      <fieldName>id</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>ID</description>
+    </field>
+    <field position="2">
+      <fieldName>externalMixTaskId</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>External mix task ID</description>
+    </field>
+    <field position="3">
+      <fieldName>quantity</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Quantity</description>
+    </field>
+    <field position="4">
+      <fieldName>leftOverQuantity</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Quantity left over</description>
+    </field>
+    <field position="5">
+      <fieldName>noOfAnimals</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Number of animals</description>
+    </field>
+    <field position="6">
+      <fieldName>feedSectionName</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>Name of the feed section</description>
+    </field>
+    <field position="7">
+      <fieldName>feedsectionType</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Feedsection type</description>
+    </field>
+    <field position="8">
+      <fieldName>externalFeedSectionId</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>External Feed section ID if the feed section has an external ID</description>
+    </field>
+    <field position="9">
+      <fieldName>externalMixTask</fieldName>
+      <dataType>string</dataType>
+      <origin>Measured</origin>
+    </field>
+    <field position="10">
+      <fieldName>mix_id</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>Mix ID and external mix task id are foreign keys of the ID (primairy key)</description>
+    </field>
+    <field position="11">
+      <fieldName>type</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>Type</description>
+    </field>
+  </fields>
+</tableSchema>

@@ -1,0 +1,749 @@
+<?xml version="1.0" ?>
+<tableSchema xmlns="http://dairycampus.nl/schema/metadata/v1" xmlns:dct="http://purl.org/dc/terms/" xmlns:dcat="http://www.w3.org/ns/dcat#" id="TVL_total" tableNumber="1">
+  <header>
+    <tableName>TVL_total</tableName>
+    <description>Master Daily Integrated Cow Summary (intake, yields, milk components, body weight, BCS, emissions)</description>
+    <sourceObject>tvl_totaal</sourceObject>
+    <centralCatalogDoi>10.5281/zenodo.24092291</centralCatalogDoi>
+    <catalogUrl>https://doi.org/10.5281/zenodo.24092291</catalogUrl>
+    <distributionId>https://doi.org/10.5281/zenodo.24092291#distribution_TVL_total</distributionId>
+    <temporalSpan>2016-present</temporalSpan>
+    <facility>Dairy Campus, Wageningen University &amp; Research, Leeuwarden, The Netherlands</facility>
+    <targetPopulation>500 Holstein Friesian dairy cows</targetPopulation>
+    <variableCount>97</variableCount>
+    <license>https://creativecommons.org/licenses/by/4.0/</license>
+  </header>
+  <fields>
+    <field position="1">
+      <fieldName>AnimalServerId</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Unique animal server identifier issued across the different systems at Dairy Campus</description>
+    </field>
+    <field position="2">
+      <fieldName>AntMlkA</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>How often an animal was milked in the afternoon. 1 is the assumed value. 0 means a missing value/something wrong with registration. 2+ means reattachment of the milking apparatus, can be outlier values.</description>
+    </field>
+    <field position="3">
+      <fieldName>AntMlkEtm</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Amount of milkings in the last 24 hours. 2 is the assumed value. 1 or 3+ means something is off during morning and/or afternoon milking.</description>
+    </field>
+    <field position="4">
+      <fieldName>AntMlkO</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>How often an animal was milked in the morning. 1 is the assumed value. 0 means a missing value/something wrong with registration. 2+ means reattachment of the milking apparatus, can be outlier values.</description>
+    </field>
+    <field position="5">
+      <fieldName>bcs</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Automatic body condition score camera</description>
+    </field>
+    <field position="6">
+      <fieldName>BegDatPrf</fieldName>
+      <dataType>date</dataType>
+      <unit>yy-mm-dd</unit>
+      <origin>Measured</origin>
+      <description>Expected start date of the experiment</description>
+    </field>
+    <field position="7">
+      <fieldName>BehCod</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>Abbreviaton of the treatname name. Set by the researcher.</description>
+    </field>
+    <field position="8">
+      <fieldName>BehNam</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>Full name of the treatment. Set by the researcher</description>
+    </field>
+    <field position="9">
+      <fieldName>Blk</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Number of the assigned block. Set by the researcher.</description>
+    </field>
+    <field position="10">
+      <fieldName>C21-10</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Dag totaal krachtvoer caroussel</description>
+    </field>
+    <field position="11">
+      <fieldName>C21-9</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Kilogram of concentrate feed dispatched at the milking caroussel. NOT the uptake, that cannot be registered currently.</description>
+    </field>
+    <field position="12">
+      <fieldName>CelStd</fieldName>
+      <dataType>string</dataType>
+      <unit>x1000 cells/mL</unit>
+      <origin>Calculated</origin>
+      <description>Somatic cell count of the monthly milk test</description>
+      <derivation>Official somatic cell count (SCC) determined from routine 4-weekly milk recording samples (MPR), analyzed by laboratory.</derivation>
+      <sourceObject>T_Animal_MilkSamples (MlkCon.SCCDay)</sourceObject>
+    </field>
+    <field position="13">
+      <fieldName>Dat</fieldName>
+      <dataType>date</dataType>
+      <unit>yy-mm-dd</unit>
+      <origin>Measured</origin>
+      <description>Date of the data record</description>
+    </field>
+    <field position="14">
+      <fieldName>DelPro-13</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Intake feed 1 from the milkingrobot</description>
+    </field>
+    <field position="15">
+      <fieldName>DrgZetDat</fieldName>
+      <dataType>date</dataType>
+      <unit>yy-mm-dd</unit>
+      <origin>Measured</origin>
+      <description>Starting date of the dry period</description>
+    </field>
+    <field position="16">
+      <fieldName>EiwStd</fieldName>
+      <dataType>number</dataType>
+      <unit>%</unit>
+      <origin>Calculated</origin>
+      <description>Protein concentration of the monthly milk test</description>
+      <derivation>Milk crude protein percentage determined from official routine milk recording laboratory analysis.</derivation>
+      <sourceObject>T_Animal_MilkSamples (MlkCon.ProteinPercentage)</sourceObject>
+    </field>
+    <field position="17">
+      <fieldName>EndDatPrf</fieldName>
+      <dataType>date</dataType>
+      <unit>yy-mm-dd</unit>
+      <origin>Measured</origin>
+      <description>Expected end date of the experiment</description>
+    </field>
+    <field position="18">
+      <fieldName>GewA</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Weight of the animal after milking in the afternoon</description>
+    </field>
+    <field position="19">
+      <fieldName>GewO</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Weight of the animal after milking in the morning</description>
+    </field>
+    <field position="20">
+      <fieldName>gf_visits</fieldName>
+      <dataType>string</dataType>
+      <origin>Measured</origin>
+      <description>Measurements on cow emission (summarized data)</description>
+    </field>
+    <field position="21">
+      <fieldName>gf_cupdrops</fieldName>
+      <dataType>string</dataType>
+      <origin>Measured</origin>
+      <description>GreenFeed portions concentrate feed.</description>
+    </field>
+    <field position="22">
+      <fieldName>Hok</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Location of where the cows are housed.</description>
+    </field>
+    <field position="23">
+      <fieldName>HokMin1</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Location of where the cows are housed day before</description>
+    </field>
+    <field position="24">
+      <fieldName>AtributedKVA</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Total allocated/programmed amount of concentrate feed type A for the cow on the specified date.</description>
+      <derivation>Sum of programmed concentrate A quantities across feeding stations (Hokofarm / SAC).</derivation>
+      <sourceObject>T_Raw_HokofarmCD / TVL_Totaal_sub_kv</sourceObject>
+    </field>
+    <field position="25">
+      <fieldName>TotalIntakeKVA</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Total intake feed from SAC box 1</description>
+      <derivation>Total consumed quantity of concentrate feed A by the animal at the automatic feeding station on the specified date.</derivation>
+      <sourceObject>T_Raw_HokofarmCD (totalIntakeKVA)</sourceObject>
+    </field>
+    <field position="26">
+      <fieldName>AtributedKVB</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Total allocated/programmed amount of concentrate feed type B for the cow on the specified date.</description>
+      <derivation>Sum of programmed concentrate B quantities across feeding stations (Hokofarm / SAC).</derivation>
+      <sourceObject>T_Raw_HokofarmCD / TVL_Totaal_sub_kv</sourceObject>
+    </field>
+    <field position="27">
+      <fieldName>TotalIntakeKVB</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Total intake feed from SAC box 2</description>
+      <derivation>Total consumed quantity of concentrate feed B by the animal at the automatic feeding station on the specified date.</derivation>
+      <sourceObject>T_Raw_HokofarmCD (totalIntakeKVB)</sourceObject>
+    </field>
+    <field position="28">
+      <fieldName>AtributedKVC</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Total allocated/programmed amount of concentrate feed type C for the cow on the specified date.</description>
+      <derivation>Sum of programmed concentrate C quantities across feeding stations (Hokofarm / SAC).</derivation>
+      <sourceObject>T_Raw_HokofarmCD / TVL_Totaal_sub_kv</sourceObject>
+    </field>
+    <field position="29">
+      <fieldName>TotalIntakeKVC</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Total intake feed from SAC box 3</description>
+      <derivation>Total consumed quantity of concentrate feed C by the animal at the automatic feeding station on the specified date.</derivation>
+      <sourceObject>T_Raw_HokofarmCD (totalIntakeKVC)</sourceObject>
+    </field>
+    <field position="30">
+      <fieldName>AtributedKVD</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Total allocated/programmed amount of concentrate feed type D for the cow on the specified date.</description>
+      <derivation>Sum of programmed concentrate D quantities across feeding stations (Hokofarm / SAC).</derivation>
+      <sourceObject>T_Raw_HokofarmCD / TVL_Totaal_sub_kv</sourceObject>
+    </field>
+    <field position="31">
+      <fieldName>TotalIntakeKVD</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Total intake feed from SAC box 4</description>
+      <derivation>Total consumed quantity of concentrate feed D by the animal at the automatic feeding station on the specified date.</derivation>
+      <sourceObject>T_Raw_HokofarmCD (totalIntakeKVD)</sourceObject>
+    </field>
+    <field position="32">
+      <fieldName>HrhNum</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Number of repeat of a previously performed test</description>
+    </field>
+    <field position="33">
+      <fieldName>InsDat</fieldName>
+      <dataType>date</dataType>
+      <unit>yy-mm-dd</unit>
+      <origin>Measured</origin>
+      <description>Date of last insemination</description>
+    </field>
+    <field position="34">
+      <fieldName>Jar</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Year of the data record</description>
+    </field>
+    <field position="35">
+      <fieldName>KetStd</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Calculated</origin>
+      <description>Ketose concentration of the monthly milk test</description>
+      <derivation>Ketosis diagnostic classification code (0: normal/negative, 1: suspected subclinical, 2: clinical ketosis).</derivation>
+      <sourceObject>T_Animal_MilkSamples (MlkCon.KetosisCode)</sourceObject>
+    </field>
+    <field position="36">
+      <fieldName>KgMlkA</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Kilogram of milk registred at the afternoon milking event</description>
+    </field>
+    <field position="37">
+      <fieldName>KgMlkEtm</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Kilogram of milk in the last 24 hours</description>
+    </field>
+    <field position="38">
+      <fieldName>KgMlkO</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Kilogram of milk registred at the morning milking event</description>
+    </field>
+    <field position="39">
+      <fieldName>KlfDat</fieldName>
+      <dataType>date</dataType>
+      <unit>yy-mm-dd</unit>
+      <origin>Measured</origin>
+      <description>Date of last calving</description>
+    </field>
+    <field position="40">
+      <fieldName>LacDgn</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Calculated</origin>
+      <description>Amount of days producing milk</description>
+      <derivation>Date - calving date</derivation>
+    </field>
+    <field position="41">
+      <fieldName>LacNum</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Parity (amount of calvings) of the animal</description>
+    </field>
+    <field position="42">
+      <fieldName>LacStd</fieldName>
+      <dataType>number</dataType>
+      <unit>%</unit>
+      <origin>Calculated</origin>
+      <description>Lactose of the monthly milk test</description>
+      <derivation>Milk lactose percentage determined from official routine milk recording laboratory analysis.</derivation>
+      <sourceObject>T_Animal_MilkSamples (MlkCon.LactosePercentage)</sourceObject>
+    </field>
+    <field position="43">
+      <fieldName>LevNum</fieldName>
+      <dataType>integer</dataType>
+      <unit>text + number</unit>
+      <origin>Measured</origin>
+      <description>National registration number of the animal.</description>
+    </field>
+    <field position="44">
+      <fieldName>LftDgn</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Age of the animal in days</description>
+    </field>
+    <field position="45">
+      <fieldName>MlkStd</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Kilogram of milk produced during the standard (once a month) milk composition sampling</description>
+      <derivation>Total daily milk yield recorded during the official milk control recording day.</derivation>
+      <sourceObject>T_Animal_MilkSamples (MlkCon.MilkQuantityMass)</sourceObject>
+    </field>
+    <field position="46">
+      <fieldName>mpr_dag.Fat_Concentration</fieldName>
+      <dataType>number</dataType>
+      <unit>%</unit>
+      <origin>Measured</origin>
+      <description>Weekly milk fat concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.</description>
+    </field>
+    <field position="47">
+      <fieldName>mpr_dag.Lactose_Concentration</fieldName>
+      <dataType>number</dataType>
+      <unit>%</unit>
+      <origin>Measured</origin>
+      <description>Weekly milk lactose concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.</description>
+    </field>
+    <field position="48">
+      <fieldName>mpr_dag.Protein_Concentration</fieldName>
+      <dataType>number</dataType>
+      <unit>%</unit>
+      <origin>Measured</origin>
+      <description>Weekly milk protein concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.</description>
+    </field>
+    <field position="49">
+      <fieldName>mpr_dag.SCC</fieldName>
+      <dataType>string</dataType>
+      <unit>1000 cells/mL</unit>
+      <origin>Measured</origin>
+      <description>Weekly somatic cell count during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.</description>
+    </field>
+    <field position="50">
+      <fieldName>mpr_dag.Urea_Concentration</fieldName>
+      <dataType>string</dataType>
+      <unit>mg/dL</unit>
+      <origin>Measured</origin>
+      <description>Weekly milk urea concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.</description>
+    </field>
+    <field position="51">
+      <fieldName>mpr_week.Fat_Concentration</fieldName>
+      <dataType>number</dataType>
+      <unit>%</unit>
+      <origin>Calculated</origin>
+      <description>An estimated daily milk fat concentration based on the AO sampling and the corresponding milk yield of that day.  x</description>
+      <derivation>ISO-calendar week yield-weighted average milk fat concentration calculated across regular CRV/MPR test recordings: sum(Fat_Concentration * MilkingYield) / sum(MilkingYield). Used to derive Fat- and Protein-Corrected Milk (FPCM).</derivation>
+      <sourceObject>VL_Dier_Datum_Crv</sourceObject>
+    </field>
+    <field position="52">
+      <fieldName>mpr_week.Lactose_Concentration</fieldName>
+      <dataType>number</dataType>
+      <unit>%</unit>
+      <origin>Calculated</origin>
+      <description>An estimated daily milk lactose concentration based on the AO sampling and the corresponding milk yield of that day.</description>
+      <derivation>ISO-calendar week yield-weighted average milk lactose concentration calculated across regular CRV/MPR test recordings: sum(Lactose_Concentration * MilkingYield) / sum(MilkingYield).</derivation>
+      <sourceObject>VL_Dier_Datum_Crv</sourceObject>
+    </field>
+    <field position="53">
+      <fieldName>mpr_week.Protein_Concentration</fieldName>
+      <dataType>number</dataType>
+      <unit>%</unit>
+      <origin>Calculated</origin>
+      <description>An estimated daily milk protein concentration based on the AO sampling and the corresponding milk yield of that day.</description>
+      <derivation>ISO-calendar week yield-weighted average milk protein concentration calculated across regular CRV/MPR test recordings: sum(Protein_Concentration * MilkingYield) / sum(MilkingYield). Used to derive Fat- and Protein-Corrected Milk (FPCM).</derivation>
+      <sourceObject>VL_Dier_Datum_Crv</sourceObject>
+    </field>
+    <field position="54">
+      <fieldName>mpr_week.SCC</fieldName>
+      <dataType>string</dataType>
+      <unit>1000 cells/mL</unit>
+      <origin>Calculated</origin>
+      <description>An estimated daily somatic cell count based on the AO sampling and the corresponding milk yield of that day.</description>
+      <derivation>ISO-calendar week yield-weighted average somatic cell count (1,000 cells/mL) calculated across regular CRV/MPR test recordings: sum(SCC * MilkingYield) / sum(MilkingYield).</derivation>
+      <sourceObject>VL_Dier_Datum_Crv</sourceObject>
+    </field>
+    <field position="55">
+      <fieldName>mpr_week.Urea_Concentration</fieldName>
+      <dataType>string</dataType>
+      <unit>mg/dL</unit>
+      <origin>Calculated</origin>
+      <description>An estimated daily milk urea concentration based on the AO sampling and the corresponding milk yield of that day.</description>
+      <derivation>ISO-calendar week yield-weighted average milk urea concentration (mg/dL) calculated across regular CRV/MPR test recordings: sum(Urea_Concentration * MilkingYield) / sum(MilkingYield).</derivation>
+      <sourceObject>VL_Dier_Datum_Crv</sourceObject>
+    </field>
+    <field position="56">
+      <fieldName>OorNum</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number.</description>
+    </field>
+    <field position="57">
+      <fieldName>OpnRvDsHans</fieldName>
+      <dataType>string</dataType>
+      <origin>Measured</origin>
+      <description>Intake of dry matter from the roughage, Hans (Will be removed from table)</description>
+    </field>
+    <field position="58">
+      <fieldName>PrdSta</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>Identifying the stage of the cow, producing milk or not</description>
+    </field>
+    <field position="59">
+      <fieldName>PrfCod</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Code assigned by Dairy Campus to identify the experiment. Can be the same as the MyProjects number, or differ.</description>
+    </field>
+    <field position="60">
+      <fieldName>RowID</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Unique number for row in a specific table.</description>
+    </field>
+    <field position="61">
+      <fieldName>rv1.ds</fieldName>
+      <dataType>string</dataType>
+      <origin>Measured</origin>
+      <description>Roughage 1 dry matter</description>
+    </field>
+    <field position="62">
+      <fieldName>rv1.name</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>Name of the roughage treatment consumed by the animal</description>
+    </field>
+    <field position="63">
+      <fieldName>rv1.opnDs</fieldName>
+      <dataType>string</dataType>
+      <origin>Measured</origin>
+      <description>Roughage 1 intake dry matter</description>
+    </field>
+    <field position="64">
+      <fieldName>rv1.Prod</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Total uptake in kilograms of the roughage</description>
+      <derivation>Sum of roughage intake of all visits in a single day. The roughage bin calculates uptake as: starting weight - end weight (bins contains a scale)</derivation>
+    </field>
+    <field position="65">
+      <fieldName>rv1.ProdExclWater</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Total uptake in kilograms of the roughage excluding water</description>
+      <derivation>Daily roughage intake fraction 1 excluding added water: (TotalLoaded - AddedWaterKg) / TotalLoaded * Intake.</derivation>
+      <sourceObject>VL_Totaal_sub_ric_opn_prod</sourceObject>
+    </field>
+    <field position="66">
+      <fieldName>rv1.ricBez</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Amount of times the animal visited the roughage bins to consume the roughage.</description>
+    </field>
+    <field position="67">
+      <fieldName>rv1.trBatches</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Amount of different batches distributed by the feeding robot that the animal consumed for its total roughage uptake</description>
+    </field>
+    <field position="68">
+      <fieldName>rv2.ds</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Roughage 2 dry matter</description>
+    </field>
+    <field position="69">
+      <fieldName>rv2.name</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>Name of the roughage treatment consumed by the animal. These are only active (2, 3 and 4) when the animal consumes roughage from a treatment she isn't assigned to.</description>
+    </field>
+    <field position="70">
+      <fieldName>rv2.opnDs</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Roughage 2 intake dry matter</description>
+    </field>
+    <field position="71">
+      <fieldName>rv2.Prod</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Total uptake in kilograms of the roughage.</description>
+    </field>
+    <field position="72">
+      <fieldName>rv2.ProdExclWater</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Total uptake in kilograms of the roughage excluding water</description>
+      <derivation>Daily roughage intake fraction 2 excluding added water: (TotalLoaded - AddedWaterKg) / TotalLoaded * Intake.</derivation>
+      <sourceObject>VL_Totaal_sub_ric_opn_prod</sourceObject>
+    </field>
+    <field position="73">
+      <fieldName>rv2.ricBez</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Amount of times the animal visited the roughage bins to consume the roughage.</description>
+    </field>
+    <field position="74">
+      <fieldName>rv2.trBatches</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Amount of different batches distributed by the feeding robot that the animal consumed for its total roughage uptake</description>
+    </field>
+    <field position="75">
+      <fieldName>rv3.ds</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Roughage 3 dry matter</description>
+    </field>
+    <field position="76">
+      <fieldName>rv3.name</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>Name of the roughage treatment consumed by the animal. These are only active (2, 3 and 4) when the animal consumes roughage from a treatment she isn't assigned to.</description>
+    </field>
+    <field position="77">
+      <fieldName>rv3.opnDs</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Roughage 3 intake dry matter</description>
+    </field>
+    <field position="78">
+      <fieldName>rv3.Prod</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Total uptake in kilograms of the roughage.</description>
+      <derivation>Sum of roughage intake of all visits in a single day. The roughage bin calculates uptake as: starting weight - end weight (bins contains a scale)</derivation>
+    </field>
+    <field position="79">
+      <fieldName>rv3.ProdExclWater</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Total uptake in kilograms of the roughage excluding water</description>
+      <derivation>Daily roughage intake fraction 3 excluding added water: (TotalLoaded - AddedWaterKg) / TotalLoaded * Intake.</derivation>
+      <sourceObject>VL_Totaal_sub_ric_opn_prod</sourceObject>
+    </field>
+    <field position="80">
+      <fieldName>rv3.ricBez</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Amount of times the animal visited the roughage bins to consume the roughage.</description>
+    </field>
+    <field position="81">
+      <fieldName>rv3.trBatches</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Amount of different batches distributed by the feeding robot that the animal consumed for its total roughage uptake</description>
+    </field>
+    <field position="82">
+      <fieldName>rv4.ds</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Roughage 4 dry matter</description>
+    </field>
+    <field position="83">
+      <fieldName>rv4.name</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>Name of the roughage treatment consumed by the animal. These are only active (2, 3 and 4) when the animal consumes roughage from a treatment she isn't assigned to.</description>
+    </field>
+    <field position="84">
+      <fieldName>rv4.opnDs</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Roughage 4 intake dry matter</description>
+    </field>
+    <field position="85">
+      <fieldName>rv4.Prod</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Total uptake in kilograms of the roughage.</description>
+      <derivation>Sum of roughage intake of all visits in a single day. The roughage bin calculates uptake as: starting weight - end weight (bins contains a scale)</derivation>
+    </field>
+    <field position="86">
+      <fieldName>rv4.ProdExclWater</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Total uptake in kilograms of the roughage excluding water</description>
+      <derivation>Daily roughage intake fraction 4 excluding added water: (TotalLoaded - AddedWaterKg) / TotalLoaded * Intake.</derivation>
+      <sourceObject>VL_Totaal_sub_ric_opn_prod</sourceObject>
+    </field>
+    <field position="87">
+      <fieldName>rv4.ricBez</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Amount of times the animal visited the roughage bins to consume the roughage.</description>
+    </field>
+    <field position="88">
+      <fieldName>rv4.trBatches</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Amount of different batches distributed by the feeding robot that the animal consumed for its total roughage uptake</description>
+    </field>
+    <field position="89">
+      <fieldName>tot.opnDs</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Total uptake in kilograms of dry matter</description>
+      <derivation>Total daily dry matter intake (kg DM/day). Calculated by summing the dry matter intake of all roughage fractions: (OpnMinWater * DryMatterPercentage).</derivation>
+      <sourceObject>VL_Totaal_sub_ric_opn_prod</sourceObject>
+    </field>
+    <field position="90">
+      <fieldName>tot.Prod</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Total roughage 1 t/m 4</description>
+    </field>
+    <field position="91">
+      <fieldName>UreStd</fieldName>
+      <dataType>number</dataType>
+      <unit>mg/100 gram</unit>
+      <origin>Calculated</origin>
+      <description>Urea concentration of the monthly milk test</description>
+      <derivation>Milk urea nitrogen content determined from official routine milk recording laboratory analysis.</derivation>
+      <sourceObject>T_Animal_MilkSamples (MlkCon.Urea)</sourceObject>
+    </field>
+    <field position="92">
+      <fieldName>VetStd</fieldName>
+      <dataType>number</dataType>
+      <unit>%</unit>
+      <origin>Calculated</origin>
+      <description>Fat concentration of the monthly milk test</description>
+      <derivation>Milk fat percentage determined from official routine milk recording laboratory analysis.</derivation>
+      <sourceObject>T_Animal_MilkSamples (MlkCon.FatPercentage)</sourceObject>
+    </field>
+    <field position="93">
+      <fieldName>VlgKlfDat</fieldName>
+      <dataType>date</dataType>
+      <unit>yy-mm-dd</unit>
+      <origin>Calculated</origin>
+      <description>Next calving date, not predicted, but added after calving</description>
+    </field>
+    <field position="94">
+      <fieldName>VrwDgn</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Calculated</origin>
+      <description>Number of days from date to expected calving date based on insemination date</description>
+      <derivation>Expected calving date minus current date.</derivation>
+      <sourceObject>TVL_Dier_Datum_Stal</sourceObject>
+    </field>
+    <field position="95">
+      <fieldName>VrwKlfDat</fieldName>
+      <dataType>date</dataType>
+      <unit>yy-mm-dd</unit>
+      <origin>Calculated</origin>
+      <description>Expected calving date based on insemination date</description>
+      <derivation>Insemination date + 280 days</derivation>
+    </field>
+    <field position="96">
+      <fieldName>Wek</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Calender week number of data record</description>
+    </field>
+    <field position="97">
+      <fieldName>WekDag</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>Abbreviaton of weekday (Ma = Monday, Di = Tuesday, Wo = Wednesday, Do = Thursday, Vr = Friday, Za = Saturday, Zo = Sunday)</description>
+    </field>
+  </fields>
+</tableSchema>

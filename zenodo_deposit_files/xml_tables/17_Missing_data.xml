@@ -1,0 +1,148 @@
+<?xml version="1.0" ?>
+<tableSchema xmlns="http://dairycampus.nl/schema/metadata/v1" xmlns:dct="http://purl.org/dc/terms/" xmlns:dcat="http://www.w3.org/ns/dcat#" id="Missing_data" tableNumber="17">
+  <header>
+    <tableName>Missing_data</tableName>
+    <description>Data Quality &amp; Completeness Audit Matrix (automated daily validation flags per cow per day)</description>
+    <sourceObject>tvl_totaal_missende_data_proef</sourceObject>
+    <centralCatalogDoi>10.5281/zenodo.24092291</centralCatalogDoi>
+    <catalogUrl>https://doi.org/10.5281/zenodo.24092291</catalogUrl>
+    <distributionId>https://doi.org/10.5281/zenodo.24092291#distribution_Missing_data</distributionId>
+    <temporalSpan>2016-present</temporalSpan>
+    <facility>Dairy Campus, Wageningen University &amp; Research, Leeuwarden, The Netherlands</facility>
+    <targetPopulation>500 Holstein Friesian dairy cows</targetPopulation>
+    <variableCount>17</variableCount>
+    <license>https://creativecommons.org/licenses/by/4.0/</license>
+  </header>
+  <fields>
+    <field position="1">
+      <fieldName>bcs</fieldName>
+      <dataType>boolean</dataType>
+      <unit>Ja/Nee</unit>
+      <origin>Measured</origin>
+      <description>Automatic body condition score camera</description>
+      <derivation>number</derivation>
+    </field>
+    <field position="2">
+      <fieldName>behcod</fieldName>
+      <dataType>string</dataType>
+      <unit>Ja/Nee</unit>
+      <origin>Measured</origin>
+      <description>Treatment code</description>
+    </field>
+    <field position="3">
+      <fieldName>bijzonderheden</fieldName>
+      <dataType>boolean</dataType>
+      <unit>Ja/Nee</unit>
+      <origin>Measured</origin>
+      <description>Particularities</description>
+    </field>
+    <field position="4">
+      <fieldName>date</fieldName>
+      <dataType>date</dataType>
+      <unit>yy-mm-dd</unit>
+      <origin>Measured</origin>
+      <description>Date of the data record</description>
+    </field>
+    <field position="5">
+      <fieldName>gewa</fieldName>
+      <dataType>boolean</dataType>
+      <unit>Ja/Nee</unit>
+      <origin>Measured</origin>
+      <description>Weight evening</description>
+      <derivation>kg</derivation>
+    </field>
+    <field position="6">
+      <fieldName>gewgeaa</fieldName>
+      <dataType>boolean</dataType>
+      <unit>Ja/Nee</unit>
+      <origin>Measured</origin>
+      <description>Weight gea evening</description>
+      <derivation>kg</derivation>
+    </field>
+    <field position="7">
+      <fieldName>gewgeao</fieldName>
+      <dataType>boolean</dataType>
+      <unit>Ja/Nee</unit>
+      <origin>Measured</origin>
+      <description>Weight gea morning</description>
+      <derivation>kg</derivation>
+    </field>
+    <field position="8">
+      <fieldName>gewo</fieldName>
+      <dataType>boolean</dataType>
+      <unit>Ja/Nee</unit>
+      <origin>Measured</origin>
+      <description>Weight morning</description>
+      <derivation>kg</derivation>
+    </field>
+    <field position="9">
+      <fieldName>hok</fieldName>
+      <dataType>boolean</dataType>
+      <unit>Ja/Nee</unit>
+      <origin>Measured</origin>
+      <description>Barn</description>
+      <derivation>number</derivation>
+    </field>
+    <field position="10">
+      <fieldName>kgmlka</fieldName>
+      <dataType>boolean</dataType>
+      <unit>Ja/Nee</unit>
+      <origin>Measured</origin>
+      <description>Kg milk evening</description>
+      <derivation>kg</derivation>
+    </field>
+    <field position="11">
+      <fieldName>kgmlko</fieldName>
+      <dataType>boolean</dataType>
+      <unit>Ja/Nee</unit>
+      <origin>Measured</origin>
+      <description>Kg milk morning</description>
+      <derivation>kg</derivation>
+    </field>
+    <field position="12">
+      <fieldName>oornum</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number.</description>
+    </field>
+    <field position="13">
+      <fieldName>opnkv</fieldName>
+      <dataType>boolean</dataType>
+      <unit>Ja/Nee</unit>
+      <origin>Measured</origin>
+      <description>Intake feed</description>
+      <derivation>kg</derivation>
+    </field>
+    <field position="14">
+      <fieldName>opnrv</fieldName>
+      <dataType>string</dataType>
+      <unit>Ja/Nee</unit>
+      <origin>Measured</origin>
+      <description>Intake roughage</description>
+      <derivation>kg</derivation>
+    </field>
+    <field position="15">
+      <fieldName>prdsta</fieldName>
+      <dataType>boolean</dataType>
+      <unit>Ja/Nee</unit>
+      <origin>Measured</origin>
+      <description>Identifying the stage of the cow, producing milk or not</description>
+      <derivation>short text</derivation>
+    </field>
+    <field position="16">
+      <fieldName>prfcod</fieldName>
+      <dataType>string</dataType>
+      <unit>Ja/Nee</unit>
+      <origin>Measured</origin>
+      <description>Trial code</description>
+    </field>
+    <field position="17">
+      <fieldName>velos</fieldName>
+      <dataType>boolean</dataType>
+      <unit>Ja/Nee</unit>
+      <origin>Measured</origin>
+      <description>Velos cow behavior</description>
+    </field>
+  </fields>
+</tableSchema>

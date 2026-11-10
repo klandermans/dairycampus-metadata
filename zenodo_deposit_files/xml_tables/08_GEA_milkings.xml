@@ -1,0 +1,110 @@
+<?xml version="1.0" ?>
+<tableSchema xmlns="http://dairycampus.nl/schema/metadata/v1" xmlns:dct="http://purl.org/dc/terms/" xmlns:dcat="http://www.w3.org/ns/dcat#" id="GEA_milkings" tableNumber="8">
+  <header>
+    <tableName>GEA_milkings</tableName>
+    <description>GEA Milking Robot &amp; Parlor Transactions (session yields, duration, conductivity, body weight)</description>
+    <sourceObject>T_RAW_Gea_milk</sourceObject>
+    <centralCatalogDoi>10.5281/zenodo.24092291</centralCatalogDoi>
+    <catalogUrl>https://doi.org/10.5281/zenodo.24092291</catalogUrl>
+    <distributionId>https://doi.org/10.5281/zenodo.24092291#distribution_GEA_milkings</distributionId>
+    <temporalSpan>2016-present</temporalSpan>
+    <facility>Dairy Campus, Wageningen University &amp; Research, Leeuwarden, The Netherlands</facility>
+    <targetPopulation>500 Holstein Friesian dairy cows</targetPopulation>
+    <variableCount>13</variableCount>
+    <license>https://creativecommons.org/licenses/by/4.0/</license>
+  </header>
+  <fields>
+    <field position="1">
+      <fieldName>Cow</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.</description>
+    </field>
+    <field position="2">
+      <fieldName>IMDat</fieldName>
+      <dataType>datetime</dataType>
+      <unit>yy-mm-dd-hh-mm-ss</unit>
+      <origin>Measured</origin>
+      <description>GEA, Date and time milking</description>
+    </field>
+    <field position="3">
+      <fieldName>Reg1</fieldName>
+      <dataType>integer</dataType>
+      <unit>text + number</unit>
+      <origin>Measured</origin>
+      <description>National registration number of the animal.</description>
+    </field>
+    <field position="4">
+      <fieldName>RespISO</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Number of the cows responder</description>
+    </field>
+    <field position="5">
+      <fieldName>Name</fieldName>
+      <dataType>string</dataType>
+      <origin>Measured</origin>
+      <description>Number in GEA, should be same as cow</description>
+    </field>
+    <field position="6">
+      <fieldName>IMTim</fieldName>
+      <dataType>string</dataType>
+      <origin>Measured</origin>
+      <description>Time?</description>
+    </field>
+    <field position="7">
+      <fieldName>IMWt</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Live animal body weight measured by the integrated scale inside the GEA milking stall or exit platform.</description>
+      <derivation>Directly recorded by GEA milking scale sensor.</derivation>
+      <sourceObject>T_RAW_Gea_milk</sourceObject>
+    </field>
+    <field position="8">
+      <fieldName>IMFlg</fieldName>
+      <dataType>string</dataType>
+      <unit>code</unit>
+      <origin>Measured</origin>
+      <description>Status/diagnostic flag from GEA milking robot/parlor indicating normal completion, kick-off, or incomplete milking.</description>
+      <derivation>Status code recorded by GEA system.</derivation>
+      <sourceObject>T_RAW_Gea_milk</sourceObject>
+    </field>
+    <field position="9">
+      <fieldName>IMDim</fieldName>
+      <dataType>integer</dataType>
+      <unit>days</unit>
+      <origin>Calculated</origin>
+      <description>Days in Milk (DIM) recorded in GEA at the time of the milking event.</description>
+      <derivation>Milking date minus most recent calving date.</derivation>
+      <sourceObject>T_RAW_Gea_milk</sourceObject>
+    </field>
+    <field position="10">
+      <fieldName>IMAvFlo</fieldName>
+      <dataType>string</dataType>
+      <origin>Measured</origin>
+      <description>Average milkflow?</description>
+    </field>
+    <field position="11">
+      <fieldName>IMMxFlow</fieldName>
+      <dataType>string</dataType>
+      <origin>Measured</origin>
+      <description>Max. milkflowAlleen '||||' als waarde???</description>
+    </field>
+    <field position="12">
+      <fieldName>IMStall</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Place in the Gea milking carousel 1-40</description>
+    </field>
+    <field position="13">
+      <fieldName>IMStartSec</fieldName>
+      <dataType>string</dataType>
+      <origin>Measured</origin>
+      <description>Alleen '?????' als waarde???</description>
+    </field>
+  </fields>
+</tableSchema>

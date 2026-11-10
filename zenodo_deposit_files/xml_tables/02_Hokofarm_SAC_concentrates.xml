@@ -1,0 +1,317 @@
+<?xml version="1.0" ?>
+<tableSchema xmlns="http://dairycampus.nl/schema/metadata/v1" xmlns:dct="http://purl.org/dc/terms/" xmlns:dcat="http://www.w3.org/ns/dcat#" id="Hokofarm_SAC_concentrates" tableNumber="2">
+  <header>
+    <tableName>Hokofarm_SAC_concentrates</tableName>
+    <description>Automatic Concentrate Feeder Transactions (programmed feed, intake, feeder speed, visits)</description>
+    <sourceObject>t_raw_hokofarmvb</sourceObject>
+    <centralCatalogDoi>10.5281/zenodo.24092291</centralCatalogDoi>
+    <catalogUrl>https://doi.org/10.5281/zenodo.24092291</catalogUrl>
+    <distributionId>https://doi.org/10.5281/zenodo.24092291#distribution_Hokofarm_SAC_concentrates</distributionId>
+    <temporalSpan>2016-present</temporalSpan>
+    <facility>Dairy Campus, Wageningen University &amp; Research, Leeuwarden, The Netherlands</facility>
+    <targetPopulation>500 Holstein Friesian dairy cows</targetPopulation>
+    <variableCount>42</variableCount>
+    <license>https://creativecommons.org/licenses/by/4.0/</license>
+  </header>
+  <fields>
+    <field position="1">
+      <fieldName>ashA</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Ash, indigestible part of feed A</description>
+    </field>
+    <field position="2">
+      <fieldName>ashB</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Ash, indigestible part of feed B</description>
+    </field>
+    <field position="3">
+      <fieldName>ashC</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Ash, indigestible part of feed C</description>
+    </field>
+    <field position="4">
+      <fieldName>ashD</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Ash, indigestible part of feed D</description>
+    </field>
+    <field position="5">
+      <fieldName>cow</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.</description>
+    </field>
+    <field position="6">
+      <fieldName>crudeFiberA</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Crude fiber in feed A</description>
+    </field>
+    <field position="7">
+      <fieldName>crudeFiberB</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Crude fiber in feed B</description>
+    </field>
+    <field position="8">
+      <fieldName>crudeFiberC</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Crude fiber in feed C</description>
+    </field>
+    <field position="9">
+      <fieldName>crudeFiberD</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Crude fiber in feed D</description>
+    </field>
+    <field position="10">
+      <fieldName>date</fieldName>
+      <dataType>date</dataType>
+      <unit>yy-mm-dd</unit>
+      <origin>Measured</origin>
+      <description>Date of the data record</description>
+    </field>
+    <field position="11">
+      <fieldName>dateTime</fieldName>
+      <dataType>datetime</dataType>
+      <unit>yyyy-mm-dd-hh-mm-ss</unit>
+      <origin>Measured</origin>
+      <description>Date and time</description>
+    </field>
+    <field position="12">
+      <fieldName>dryMatterA</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Dry matter of feed A</description>
+    </field>
+    <field position="13">
+      <fieldName>dryMatterB</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Dry matter of feed B</description>
+    </field>
+    <field position="14">
+      <fieldName>dryMatterC</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Dry matter of feed C</description>
+    </field>
+    <field position="15">
+      <fieldName>dryMatterD</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Dry matter of feed D</description>
+    </field>
+    <field position="16">
+      <fieldName>endTime</fieldName>
+      <dataType>number</dataType>
+      <unit>hh-mm-ss</unit>
+      <origin>Measured</origin>
+      <description>End time of action/behaviour</description>
+    </field>
+    <field position="17">
+      <fieldName>energyA</fieldName>
+      <dataType>string</dataType>
+      <unit>VEM</unit>
+      <origin>Calculated</origin>
+      <description>Energy content A</description>
+    </field>
+    <field position="18">
+      <fieldName>energyB</fieldName>
+      <dataType>string</dataType>
+      <unit>VEM</unit>
+      <origin>Calculated</origin>
+      <description>Energy content B</description>
+    </field>
+    <field position="19">
+      <fieldName>energyC</fieldName>
+      <dataType>string</dataType>
+      <unit>VEM</unit>
+      <origin>Calculated</origin>
+      <description>Energy content C</description>
+    </field>
+    <field position="20">
+      <fieldName>energyD</fieldName>
+      <dataType>string</dataType>
+      <unit>VEM</unit>
+      <origin>Calculated</origin>
+      <description>Energy content D</description>
+    </field>
+    <field position="21">
+      <fieldName>fatA</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Fat content A</description>
+    </field>
+    <field position="22">
+      <fieldName>fatB</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Fat content B</description>
+    </field>
+    <field position="23">
+      <fieldName>fatC</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Fat content C</description>
+    </field>
+    <field position="24">
+      <fieldName>fatD</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Fat content D</description>
+    </field>
+    <field position="25">
+      <fieldName>feedTypeA</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>Type of feed A</description>
+    </field>
+    <field position="26">
+      <fieldName>feedTypeB</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>Type of feed B</description>
+    </field>
+    <field position="27">
+      <fieldName>feedTypeC</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>Type of feed C</description>
+    </field>
+    <field position="28">
+      <fieldName>feedTypeD</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>Type of feed D</description>
+    </field>
+    <field position="29">
+      <fieldName>fileName</fieldName>
+      <dataType>string</dataType>
+      <unit>text</unit>
+      <origin>Measured</origin>
+      <description>Name of a file</description>
+    </field>
+    <field position="30">
+      <fieldName>hashValue</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Validation record for data processing</description>
+    </field>
+    <field position="31">
+      <fieldName>intakeA</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Feed intake A</description>
+      <derivation>Calculated by endWeight - startWeight</derivation>
+    </field>
+    <field position="32">
+      <fieldName>intakeB</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Feed intake B</description>
+      <derivation>Calculated by endWeight - startWeight</derivation>
+    </field>
+    <field position="33">
+      <fieldName>intakeC</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Feed intake C</description>
+      <derivation>Calculated by endWeight - startWeight</derivation>
+    </field>
+    <field position="34">
+      <fieldName>intakeD</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Feed intake D</description>
+      <derivation>Calculated by endWeight - startWeight</derivation>
+    </field>
+    <field position="35">
+      <fieldName>proteinA</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Calculated</origin>
+      <description>Protein content A</description>
+    </field>
+    <field position="36">
+      <fieldName>proteinB</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Calculated</origin>
+      <description>Protein content B</description>
+    </field>
+    <field position="37">
+      <fieldName>proteinC</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Calculated</origin>
+      <description>Protein content C</description>
+    </field>
+    <field position="38">
+      <fieldName>proteinD</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Calculated</origin>
+      <description>Protein content D</description>
+    </field>
+    <field position="39">
+      <fieldName>startTime</fieldName>
+      <dataType>number</dataType>
+      <unit>hh-mm-ss</unit>
+      <origin>Measured</origin>
+      <description>Start time of action/behaviour</description>
+    </field>
+    <field position="40">
+      <fieldName>station</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Station or location of activity</description>
+    </field>
+    <field position="41">
+      <fieldName>totalTime</fieldName>
+      <dataType>integer</dataType>
+      <unit>sec</unit>
+      <origin>Calculated</origin>
+      <description>Total duration</description>
+      <derivation>Calculated by endTime - startTime</derivation>
+    </field>
+    <field position="42">
+      <fieldName>transponder</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Transponder number of the cow</description>
+    </field>
+  </fields>
+</tableSchema>

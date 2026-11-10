@@ -1,0 +1,430 @@
+<?xml version="1.0" ?>
+<tableSchema xmlns="http://dairycampus.nl/schema/metadata/v1" xmlns:dct="http://purl.org/dc/terms/" xmlns:dcat="http://www.w3.org/ns/dcat#" id="Environment_barn_Animal_experim" tableNumber="19">
+  <header>
+    <tableName>Environment_barn_Animal_experim</tableName>
+    <description>Experimental Cohort Animal Daily Records (trial project codes, treatment assignments, blocks)</description>
+    <sourceObject>?</sourceObject>
+    <centralCatalogDoi>10.5281/zenodo.24092291</centralCatalogDoi>
+    <catalogUrl>https://doi.org/10.5281/zenodo.24092291</catalogUrl>
+    <distributionId>https://doi.org/10.5281/zenodo.24092291#distribution_Environment_barn_Animal_experim</distributionId>
+    <temporalSpan>2016-present</temporalSpan>
+    <facility>Dairy Campus, Wageningen University &amp; Research, Leeuwarden, The Netherlands</facility>
+    <targetPopulation>500 Holstein Friesian dairy cows</targetPopulation>
+    <variableCount>54</variableCount>
+    <license>https://creativecommons.org/licenses/by/4.0/</license>
+  </header>
+  <fields>
+    <field position="1">
+      <fieldName>AntMlkA</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>How often an animal was milked in the afternoon. 1 is the assumed value. 0 means a missing value/something wrong with registration. 2+ means reattachment of the milking apparatus, can be outlier values.</description>
+    </field>
+    <field position="2">
+      <fieldName>AntMlkO</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>How often an animal was milked in the morning. 1 is the assumed value. 0 means a missing value/something wrong with registration. 2+ means reattachment of the milking apparatus, can be outlier values.</description>
+    </field>
+    <field position="3">
+      <fieldName>Date</fieldName>
+      <dataType>datetime</dataType>
+      <unit>yy-mm-dd-hh-mm-ss</unit>
+      <origin>Measured</origin>
+      <description>Date</description>
+    </field>
+    <field position="4">
+      <fieldName>VrwDgn</fieldName>
+      <dataType>integer</dataType>
+      <unit>days</unit>
+      <origin>Calculated</origin>
+      <description>Expected remaining gestation days or planned days dry prior to the anticipated calving date.</description>
+      <derivation>Expected calving date minus current date.</derivation>
+      <sourceObject>TVL_Dier_Datum_Stal</sourceObject>
+    </field>
+    <field position="5">
+      <fieldName>AgeDays</fieldName>
+      <dataType>integer</dataType>
+      <unit>days</unit>
+      <origin>Calculated</origin>
+      <description>Age of the animal in days calculated as recording date minus birth date.</description>
+      <derivation>Recording date - Birth date.</derivation>
+      <sourceObject>TVL_Dier_Datum_Stal</sourceObject>
+    </field>
+    <field position="6">
+      <fieldName>AnimalNumber</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Unique animal server identifier issued across the different systems at Dairy Campus</description>
+    </field>
+    <field position="7">
+      <fieldName>BirthDate</fieldName>
+      <dataType>date</dataType>
+      <unit>yyyy-mm-dd</unit>
+      <origin>Measured</origin>
+      <description>The cows date of birth</description>
+    </field>
+    <field position="8">
+      <fieldName>DaysInLactation</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Calculated</origin>
+      <description>Amount of days producing milk</description>
+      <derivation>Date - calving date</derivation>
+    </field>
+    <field position="9">
+      <fieldName>DryDate</fieldName>
+      <dataType>date</dataType>
+      <unit>yy-mm-dd</unit>
+      <origin>Measured</origin>
+      <description>Starting date of the dry period</description>
+    </field>
+    <field position="10">
+      <fieldName>EarNumber</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number.</description>
+    </field>
+    <field position="11">
+      <fieldName>EndDate</fieldName>
+      <dataType>date</dataType>
+      <unit>yy-mm-dd</unit>
+      <origin>Measured</origin>
+      <description>Expected end date of the experiment</description>
+    </field>
+    <field position="12">
+      <fieldName>Fat%</fieldName>
+      <dataType>number</dataType>
+      <unit>%</unit>
+      <origin>Calculated</origin>
+      <description>An estimated daily milk fat concentration based on the AO sampling and the corresponding milk yield of that day.  x</description>
+    </field>
+    <field position="13">
+      <fieldName>GewTot</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Total live animal body weight (average or latest measurement for the date).</description>
+      <derivation>Recorded by automated walkthrough weighing scale.</derivation>
+      <sourceObject>TVL_Dier_Gewicht_Etmaal</sourceObject>
+    </field>
+    <field position="14">
+      <fieldName>InsiminationDate</fieldName>
+      <dataType>date</dataType>
+      <unit>yy-mm-dd</unit>
+      <origin>Measured</origin>
+      <description>Date of last insemination</description>
+    </field>
+    <field position="15">
+      <fieldName>Ket</fieldName>
+      <dataType>string</dataType>
+      <unit>code</unit>
+      <origin>Calculated</origin>
+      <description>Ketosis classification indicator (0: healthy/negative, 1: suspected subclinical ketosis, 2: clinical ketosis).</description>
+      <derivation>Laboratory diagnostic score from milk recording analysis.</derivation>
+      <sourceObject>T_Animal_MilkSamples</sourceObject>
+    </field>
+    <field position="16">
+      <fieldName>Lactose%</fieldName>
+      <dataType>number</dataType>
+      <unit>%</unit>
+      <origin>Calculated</origin>
+      <description>An estimated daily milk lactose concentration based on the AO sampling and the corresponding milk yield of that day.</description>
+    </field>
+    <field position="17">
+      <fieldName>LastCalvingDate</fieldName>
+      <dataType>date</dataType>
+      <unit>yy-mm-dd</unit>
+      <origin>Measured</origin>
+      <description>Date of last calving</description>
+    </field>
+    <field position="18">
+      <fieldName>NumberAnimal</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Unique animal server identifier issued across the different systems at Dairy Campus</description>
+    </field>
+    <field position="19">
+      <fieldName>NumberOLactations</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Parity (amount of calvings) of the animal</description>
+    </field>
+    <field position="20">
+      <fieldName>NumbOfDates</fieldName>
+      <dataType>date</dataType>
+      <unit>count</unit>
+      <origin>Calculated</origin>
+      <description>Count of observation days recorded for the animal within the experimental reporting period.</description>
+      <derivation>Count of distinct active recording dates.</derivation>
+      <sourceObject>TVL_Dier_Datum_Proef</sourceObject>
+    </field>
+    <field position="21">
+      <fieldName>Projectcode</fieldName>
+      <dataType>string</dataType>
+      <unit>identifier</unit>
+      <origin>Measured</origin>
+      <description>Unique research experiment / trial code (e.g. 4400003634). Same as prfcod.</description>
+      <derivation>Official trial identifier registered in t_proef.</derivation>
+      <sourceObject>t_proef</sourceObject>
+    </field>
+    <field position="22">
+      <fieldName>ProjectName</fieldName>
+      <dataType>string</dataType>
+      <unit>text</unit>
+      <origin>Measured</origin>
+      <description>Official descriptive name of the research project or trial. Same as prfnam.</description>
+      <derivation>Official trial title registered in t_proef.</derivation>
+      <sourceObject>t_proef</sourceObject>
+    </field>
+    <field position="23">
+      <fieldName>Protein%</fieldName>
+      <dataType>number</dataType>
+      <unit>%</unit>
+      <origin>Calculated</origin>
+      <description>An estimated daily milk protein concentration based on the AO sampling and the corresponding milk yield of that day.</description>
+    </field>
+    <field position="24">
+      <fieldName>SampleDateEvening</fieldName>
+      <dataType>datetime</dataType>
+      <unit>yy-mm-dd-hh-mm-ss</unit>
+      <origin>Measured</origin>
+      <description>Date the sample was obtained during the evening</description>
+    </field>
+    <field position="25">
+      <fieldName>SampleDateMorning</fieldName>
+      <dataType>datetime</dataType>
+      <unit>yy-mm-dd-hh-mm-ss</unit>
+      <origin>Measured</origin>
+      <description>Date the sample was obtained during the morning</description>
+    </field>
+    <field position="26">
+      <fieldName>SCC</fieldName>
+      <dataType>string</dataType>
+      <unit>1000 cells/mL</unit>
+      <origin>Calculated</origin>
+      <description>An estimated daily somatic cell count based on the AO sampling and the corresponding milk yield of that day.</description>
+    </field>
+    <field position="27">
+      <fieldName>StartDate</fieldName>
+      <dataType>datetime</dataType>
+      <unit>hh-mm-ss</unit>
+      <origin>Measured</origin>
+      <description>Start date</description>
+    </field>
+    <field position="28">
+      <fieldName>SumVoeGft</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Total amount of concentrate feed programmed/granted to the animal over the period.</description>
+      <derivation>Sum of programmed concentrate feeding amounts.</derivation>
+      <sourceObject>TVL_Dier_Voeropname_KV_Etmaal</sourceObject>
+    </field>
+    <field position="29">
+      <fieldName>SumVoeRst</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Total amount of unconsumed concentrate feed remaining in the troughs.</description>
+      <derivation>Total Feed Granted minus Total Feed Intake.</derivation>
+      <sourceObject>TVL_Dier_Voeropname_KV_Etmaal</sourceObject>
+    </field>
+    <field position="30">
+      <fieldName>Unit</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Location of where the cows are housed.</description>
+    </field>
+    <field position="31">
+      <fieldName>Urea (mg/100g)</fieldName>
+      <dataType>string</dataType>
+      <unit>mg/dL</unit>
+      <origin>Measured</origin>
+      <description>Weekly milk urea concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.</description>
+    </field>
+    <field position="32">
+      <fieldName>Week</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Calender week number of data record</description>
+    </field>
+    <field position="33">
+      <fieldName>WeekDay</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>Abbreviaton of weekday (Ma = Monday, Di = Tuesday, Wo = Wednesday, Do = Thursday, Vr = Friday, Za = Saturday, Zo = Sunday)</description>
+    </field>
+    <field position="34">
+      <fieldName>WeightAfternoon</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Weight of the animal after milking in the afternoon</description>
+    </field>
+    <field position="35">
+      <fieldName>WeightMorning</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Weight of the animal after milking in the morning</description>
+    </field>
+    <field position="36">
+      <fieldName>Year</fieldName>
+      <dataType>string</dataType>
+      <origin>Measured</origin>
+      <description>Measured</description>
+    </field>
+    <field position="37">
+      <fieldName>AntGewA</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Weight of the animal after milking in the afternoon</description>
+    </field>
+    <field position="38">
+      <fieldName>AntGewO</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Weight of the animal after milking in the morning</description>
+    </field>
+    <field position="39">
+      <fieldName>IDNumber</fieldName>
+      <dataType>string</dataType>
+      <unit>identifier</unit>
+      <origin>Measured</origin>
+      <description>Official national unique life identification number of the animal (LevNum / EU identification tag).</description>
+      <derivation>Official national cattle ear tag number.</derivation>
+      <sourceObject>t_animals</sourceObject>
+    </field>
+    <field position="40">
+      <fieldName>DateMelkCon4Wk</fieldName>
+      <dataType>date</dataType>
+      <unit>yyyy-mm-dd</unit>
+      <origin>Measured</origin>
+      <description>Date of the most recent official 4-weekly milk control / recording event (MPR).</description>
+      <derivation>Date of official test day sampling.</derivation>
+      <sourceObject>T_Animal_MilkSamples</sourceObject>
+    </field>
+    <field position="41">
+      <fieldName>DatGldTot</fieldName>
+      <dataType>datetime</dataType>
+      <unit>yyyy-mm-dd</unit>
+      <origin>Calculated</origin>
+      <description>Date until which the current housing, lactation, or trial assignment status remains valid.</description>
+      <derivation>End validity date of status record.</derivation>
+      <sourceObject>TVL_Dier_Datum_Stal</sourceObject>
+    </field>
+    <field position="42">
+      <fieldName>Eiw</fieldName>
+      <dataType>number</dataType>
+      <unit>%</unit>
+      <origin>Calculated</origin>
+      <description>Protein concentration of the monthly milk test</description>
+    </field>
+    <field position="43">
+      <fieldName>ExpecCalvingDate</fieldName>
+      <dataType>date</dataType>
+      <unit>yyyy-mm-dd</unit>
+      <origin>Calculated</origin>
+      <description>Estimated date of the next calving, based on confirmed insemination date + gestation length (~270-280 days).</description>
+      <derivation>Calculated by ExpectedCalvingDate() function from last successful insemination.</derivation>
+      <sourceObject>t_animal_matings / ExpectedCalvingDate</sourceObject>
+    </field>
+    <field position="44">
+      <fieldName>Lac</fieldName>
+      <dataType>number</dataType>
+      <unit>%</unit>
+      <origin>Calculated</origin>
+      <description>Lactose of the monthly milk test</description>
+    </field>
+    <field position="45">
+      <fieldName>Milk_Yield</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Milk yield</description>
+    </field>
+    <field position="46">
+      <fieldName>MilkAfternoon</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Milk Yield afternoon</description>
+    </field>
+    <field position="47">
+      <fieldName>MilkDay</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Milk Yield day</description>
+    </field>
+    <field position="48">
+      <fieldName>MilkMorming</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Measured</origin>
+      <description>Total quantity of milk produced during morning milking sessions.</description>
+      <derivation>Sum of morning milking yields.</derivation>
+      <sourceObject>TVL_Dier_Melkgift_Etmaal_Melkcontrole</sourceObject>
+    </field>
+    <field position="49">
+      <fieldName>MilkYield</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Milk yield</description>
+    </field>
+    <field position="50">
+      <fieldName>MlkCon</fieldName>
+      <dataType>boolean</dataType>
+      <unit>boolean</unit>
+      <origin>Calculated</origin>
+      <description>Indicator flag showing whether official milk recording (MPR) data was collected on this date.</description>
+      <derivation>Boolean flag indicating presence of milk laboratory sample record.</derivation>
+      <sourceObject>T_Animal_MilkSamples</sourceObject>
+    </field>
+    <field position="51">
+      <fieldName>Stl</fieldName>
+      <dataType>string</dataType>
+      <unit>identifier</unit>
+      <origin>Measured</origin>
+      <description>Physical barn building or housing section identifier at Dairy Campus.</description>
+      <derivation>Stable / Barn number recorded in management system.</derivation>
+      <sourceObject>TVL_Dier_Datum_Stal</sourceObject>
+    </field>
+    <field position="52">
+      <fieldName>Ure</fieldName>
+      <dataType>string</dataType>
+      <unit>mg/dL</unit>
+      <origin>Calculated</origin>
+      <description>An estimated daily milk urea concentration based on the AO sampling and the corresponding milk yield of that day.</description>
+    </field>
+    <field position="53">
+      <fieldName>Vet</fieldName>
+      <dataType>number</dataType>
+      <unit>%</unit>
+      <origin>Measured</origin>
+      <description>Weekly milk fat concentration during the AO sampling for animals in an experiment. AO = avond ochtend (eveningn morning) sample, taken on Tuesday evening and Wednesday morning. So 2 values per week.</description>
+    </field>
+    <field position="54">
+      <fieldName>SumVoeOpnm</fieldName>
+      <dataType>number</dataType>
+      <unit>kg</unit>
+      <origin>Calculated</origin>
+      <description>Total actual concentrate feed consumed by the animal over the period.</description>
+      <derivation>Sum of consumed concentrate intake amounts.</derivation>
+      <sourceObject>TVL_Dier_Voeropname_KV_Etmaal</sourceObject>
+    </field>
+  </fields>
+</tableSchema>

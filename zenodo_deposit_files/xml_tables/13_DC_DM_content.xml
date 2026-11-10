@@ -1,0 +1,130 @@
+<?xml version="1.0" ?>
+<tableSchema xmlns="http://dairycampus.nl/schema/metadata/v1" xmlns:dct="http://purl.org/dc/terms/" xmlns:dcat="http://www.w3.org/ns/dcat#" id="DC_DM_content" tableNumber="13">
+  <header>
+    <tableName>DC_DM_content</tableName>
+    <description>Laboratory Dry Matter Content Oven Tests (official droogstoof gravimetric oven analysis results)</description>
+    <sourceObject>VL_totaal_droogstoof</sourceObject>
+    <centralCatalogDoi>10.5281/zenodo.24092291</centralCatalogDoi>
+    <catalogUrl>https://doi.org/10.5281/zenodo.24092291</catalogUrl>
+    <distributionId>https://doi.org/10.5281/zenodo.24092291#distribution_DC_DM_content</distributionId>
+    <temporalSpan>2016-present</temporalSpan>
+    <facility>Dairy Campus, Wageningen University &amp; Research, Leeuwarden, The Netherlands</facility>
+    <targetPopulation>500 Holstein Friesian dairy cows</targetPopulation>
+    <variableCount>16</variableCount>
+    <license>https://creativecommons.org/licenses/by/4.0/</license>
+  </header>
+  <fields>
+    <field position="1">
+      <fieldName>BlkDat</fieldName>
+      <dataType>datetime</dataType>
+      <unit>yy-mm-dd-hh-mm-ss</unit>
+      <origin>Measured</origin>
+      <description>Date the can was weighed</description>
+    </field>
+    <field position="2">
+      <fieldName>BlkGew</fieldName>
+      <dataType>number</dataType>
+      <unit>gram</unit>
+      <origin>Measured</origin>
+      <description>Weight of the can</description>
+    </field>
+    <field position="3">
+      <fieldName>BlkNum</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Number of the can</description>
+    </field>
+    <field position="4">
+      <fieldName>DatMon</fieldName>
+      <dataType>datetime</dataType>
+      <unit>yy-mm-dd-hh-mm-ss</unit>
+      <origin>Measured</origin>
+      <description>Date the sample was obtained</description>
+    </field>
+    <field position="5">
+      <fieldName>DatSes</fieldName>
+      <dataType>datetime</dataType>
+      <unit>yy-mm-dd-hh-mm-ss</unit>
+      <origin>Measured</origin>
+      <description>Date of weigh session</description>
+    </field>
+    <field position="6">
+      <fieldName>DrgDat</fieldName>
+      <dataType>datetime</dataType>
+      <unit>yy-mm-dd-hh-mm-ss</unit>
+      <origin>Measured</origin>
+      <description>Date end of the analysis</description>
+    </field>
+    <field position="7">
+      <fieldName>DrgGew</fieldName>
+      <dataType>number</dataType>
+      <unit>gram</unit>
+      <origin>Measured</origin>
+      <description>Dried sample weight, with or without weight of the can?</description>
+    </field>
+    <field position="8">
+      <fieldName>DrgStfGkg</fieldName>
+      <dataType>number</dataType>
+      <unit>gram</unit>
+      <origin>Measured</origin>
+      <description>Weight of the dry matter</description>
+    </field>
+    <field position="9">
+      <fieldName>DrgTyd</fieldName>
+      <dataType>number</dataType>
+      <unit>hh-mm-ss</unit>
+      <origin>Measured</origin>
+      <description>Time end of the analysis when all moisture has evaporated</description>
+    </field>
+    <field position="10">
+      <fieldName>ObjCod</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>Short description/code of the sample</description>
+    </field>
+    <field position="11">
+      <fieldName>ObjCodNum</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Used when analyzing duplicate or triplicate samples</description>
+    </field>
+    <field position="12">
+      <fieldName>PrjCod</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>Project code</description>
+    </field>
+    <field position="13">
+      <fieldName>VlgNum</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Tracking number</description>
+    </field>
+    <field position="14">
+      <fieldName>VrsDat</fieldName>
+      <dataType>datetime</dataType>
+      <unit>yy-mm-dd-hh-mm-ss</unit>
+      <origin>Measured</origin>
+      <description>Date start of the analysis</description>
+    </field>
+    <field position="15">
+      <fieldName>VrsGew</fieldName>
+      <dataType>number</dataType>
+      <unit>gram</unit>
+      <origin>Measured</origin>
+      <description>Weight at the start of the analysis</description>
+    </field>
+    <field position="16">
+      <fieldName>VrsTyd</fieldName>
+      <dataType>number</dataType>
+      <unit>hh-mm-ss</unit>
+      <origin>Measured</origin>
+      <description>Time start of the analysis, fresh sample is weighed</description>
+    </field>
+  </fields>
+</tableSchema>

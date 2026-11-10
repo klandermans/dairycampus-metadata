@@ -1,0 +1,144 @@
+<?xml version="1.0" ?>
+<tableSchema xmlns="http://dairycampus.nl/schema/metadata/v1" xmlns:dct="http://purl.org/dc/terms/" xmlns:dcat="http://www.w3.org/ns/dcat#" id="Weatherstation" tableNumber="16">
+  <header>
+    <tableName>Weatherstation</tableName>
+    <description>Dairy Campus Meteorological Weather Station (ambient temperature, humidity, wind, solar radiation, rain)</description>
+    <sourceObject>T_RAW_weerstation</sourceObject>
+    <centralCatalogDoi>10.5281/zenodo.24092291</centralCatalogDoi>
+    <catalogUrl>https://doi.org/10.5281/zenodo.24092291</catalogUrl>
+    <distributionId>https://doi.org/10.5281/zenodo.24092291#distribution_Weatherstation</distributionId>
+    <temporalSpan>2016-present</temporalSpan>
+    <facility>Dairy Campus, Wageningen University &amp; Research, Leeuwarden, The Netherlands</facility>
+    <targetPopulation>500 Holstein Friesian dairy cows</targetPopulation>
+    <variableCount>18</variableCount>
+    <license>https://creativecommons.org/licenses/by/4.0/</license>
+  </header>
+  <fields>
+    <field position="1">
+      <fieldName>dewpoint</fieldName>
+      <dataType>number</dataType>
+      <unit>°C</unit>
+      <origin>Measured</origin>
+      <description>Dew point is the temperature to which air must be cooled to become saturated with water vapor</description>
+    </field>
+    <field position="2">
+      <fieldName>global_radiation</fieldName>
+      <dataType>string</dataType>
+      <unit>Watt/m2</unit>
+      <origin>Measured</origin>
+      <description>The sum of the diffuse and direct solar radiation is called global solar radiation.</description>
+    </field>
+    <field position="3">
+      <fieldName>gust</fieldName>
+      <dataType>integer</dataType>
+      <unit>Beaufort, over 10 minuten (meter/sec)?</unit>
+      <origin>Measured</origin>
+      <description>A sudden, brief increase in speed of the wind</description>
+    </field>
+    <field position="4">
+      <fieldName>gust_direction</fieldName>
+      <dataType>string</dataType>
+      <unit>° Degree</unit>
+      <origin>Measured</origin>
+      <description>Direction from which the wind gust blows</description>
+    </field>
+    <field position="5">
+      <fieldName>humidity_150</fieldName>
+      <dataType>number</dataType>
+      <unit>%</unit>
+      <origin>Measured</origin>
+      <description>The concentration of water vapor present in the air</description>
+    </field>
+    <field position="6">
+      <fieldName>latitude</fieldName>
+      <dataType>string</dataType>
+      <unit>° Degree</unit>
+      <origin>Measured</origin>
+      <description>Coordinate that specifies the north–south position</description>
+    </field>
+    <field position="7">
+      <fieldName>longitude</fieldName>
+      <dataType>string</dataType>
+      <unit>° Degree</unit>
+      <origin>Measured</origin>
+      <description>Coordinate that specifies the east–west position</description>
+    </field>
+    <field position="8">
+      <fieldName>precipitation</fieldName>
+      <dataType>string</dataType>
+      <unit>Millimeters</unit>
+      <origin>Measured</origin>
+      <description>Any product of the condensation of atmospheric water vapor that falls from clouds</description>
+    </field>
+    <field position="9">
+      <fieldName>rain_chance</fieldName>
+      <dataType>number</dataType>
+      <unit>%</unit>
+      <origin>Measured</origin>
+      <description>Chance of precipitation</description>
+    </field>
+    <field position="10">
+      <fieldName>station_name</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>Station name</description>
+    </field>
+    <field position="11">
+      <fieldName>symbol_number</fieldName>
+      <dataType>string</dataType>
+      <unit>?</unit>
+      <origin>?</origin>
+      <description>Symbol number</description>
+    </field>
+    <field position="12">
+      <fieldName>temperature_10</fieldName>
+      <dataType>number</dataType>
+      <unit>°C</unit>
+      <origin>Measured</origin>
+      <description>Temperature 10 cm above ground level.</description>
+    </field>
+    <field position="13">
+      <fieldName>temperature_150</fieldName>
+      <dataType>number</dataType>
+      <unit>°C</unit>
+      <origin>Measured</origin>
+      <description>Temperature 150 cm above ground level.</description>
+    </field>
+    <field position="14">
+      <fieldName>timestamp</fieldName>
+      <dataType>datetime</dataType>
+      <unit>yy-mm-dd-hh-mm-ss</unit>
+      <origin>Measured</origin>
+      <description>Timestamp</description>
+    </field>
+    <field position="15">
+      <fieldName>wet_bulb_temperature</fieldName>
+      <dataType>number</dataType>
+      <unit>°C</unit>
+      <origin>Measured</origin>
+      <description>Thermometer with the bulb in somthing wet</description>
+    </field>
+    <field position="16">
+      <fieldName>wind_direction</fieldName>
+      <dataType>string</dataType>
+      <unit>° Degree</unit>
+      <origin>Measured</origin>
+      <description>Direction from which the wind blows</description>
+    </field>
+    <field position="17">
+      <fieldName>windchill</fieldName>
+      <dataType>number</dataType>
+      <unit>°C</unit>
+      <origin>Measured</origin>
+      <description>The cooling effect of wind blowing on a surface</description>
+    </field>
+    <field position="18">
+      <fieldName>windspeed</fieldName>
+      <dataType>integer</dataType>
+      <unit>Beaufort, over 10 minuten (meter/sec)?</unit>
+      <origin>Measured</origin>
+      <description>Rate at which wind/air is moving</description>
+    </field>
+  </fields>
+</tableSchema>

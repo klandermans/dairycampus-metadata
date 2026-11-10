@@ -1,0 +1,109 @@
+<?xml version="1.0" ?>
+<tableSchema xmlns="http://dairycampus.nl/schema/metadata/v1" xmlns:dct="http://purl.org/dc/terms/" xmlns:dcat="http://www.w3.org/ns/dcat#" id="Greenfeed_feed_aggregrated" tableNumber="15">
+  <header>
+    <tableName>Greenfeed_feed_aggregrated</tableName>
+    <description>GreenFeed Bait Feed Drops (pelleted feed mass and cup drop rewards during emission visits)</description>
+    <sourceObject>T_RAW_Greenfeed_Feed_data</sourceObject>
+    <centralCatalogDoi>10.5281/zenodo.24092291</centralCatalogDoi>
+    <catalogUrl>https://doi.org/10.5281/zenodo.24092291</catalogUrl>
+    <distributionId>https://doi.org/10.5281/zenodo.24092291#distribution_Greenfeed_feed_aggregrated</distributionId>
+    <temporalSpan>2016-present</temporalSpan>
+    <facility>Dairy Campus, Wageningen University &amp; Research, Leeuwarden, The Netherlands</facility>
+    <targetPopulation>500 Holstein Friesian dairy cows</targetPopulation>
+    <variableCount>13</variableCount>
+    <license>https://creativecommons.org/licenses/by/4.0/</license>
+  </header>
+  <fields>
+    <field position="1">
+      <fieldName>cow</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Number on the ear tag of the animal, length 3-4 numbers. Derives from the registration number. Same as AnimalNo, is unique per date.</description>
+    </field>
+    <field position="2">
+      <fieldName>CurrentCup</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Current cup</description>
+    </field>
+    <field position="3">
+      <fieldName>CurrentPeriod</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Current period</description>
+    </field>
+    <field position="4">
+      <fieldName>date</fieldName>
+      <dataType>date</dataType>
+      <unit>yy-mm-dd</unit>
+      <origin>Measured</origin>
+      <description>Date of the data record</description>
+    </field>
+    <field position="5">
+      <fieldName>DateTime</fieldName>
+      <dataType>datetime</dataType>
+      <unit>yyyy-mm-dd hh-mm-ss</unit>
+      <origin>Measured</origin>
+      <description>Date and time</description>
+    </field>
+    <field position="6">
+      <fieldName>DropInterval</fieldName>
+      <dataType>integer</dataType>
+      <unit>sec</unit>
+      <origin>?</origin>
+      <description>Min. sec between current en new cup</description>
+    </field>
+    <field position="7">
+      <fieldName>FeedType</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Feed type</description>
+    </field>
+    <field position="8">
+      <fieldName>greenfeed</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Greenfeed</description>
+    </field>
+    <field position="9">
+      <fieldName>MaxCups</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Max. cups per period</description>
+    </field>
+    <field position="10">
+      <fieldName>MaxPeriods</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Max. periods per day</description>
+    </field>
+    <field position="11">
+      <fieldName>PeriodInterval</fieldName>
+      <dataType>integer</dataType>
+      <unit>sec</unit>
+      <origin>Measured</origin>
+      <description>Min. Sec between current en next period</description>
+    </field>
+    <field position="12">
+      <fieldName>RFIDTag</fieldName>
+      <dataType>integer</dataType>
+      <unit>number</unit>
+      <origin>Measured</origin>
+      <description>Rfid tag</description>
+    </field>
+    <field position="13">
+      <fieldName>user</fieldName>
+      <dataType>string</dataType>
+      <unit>short text</unit>
+      <origin>Measured</origin>
+      <description>User</description>
+    </field>
+  </fields>
+</tableSchema>
