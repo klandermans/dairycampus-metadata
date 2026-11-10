@@ -107,10 +107,11 @@ To ensure strict adherence to the <strong>FAIR data principles</strong> (Findabl
   └── dct:distribution [19] ── Environment_barn_Animal_experim (Trial cohort treatment records, 54 vars)
 </pre>
 <blockquote>
-<p><strong>Formal Metadata Files Attached to this Record:</strong><br>
+<p><strong>Formal Metadata Files Attached to this Record (Directly Previewable):</strong><br>
 &bull; <strong><code>dairy_campus_catalog_dcat.jsonld</code></strong>: Full W3C DCAT 2.0 / schema.org JSON-LD document specifying the central catalog and all 19 <code>dct:distribution</code> entities with exact variable lists.<br>
 &bull; <strong><code>dairy_campus_datacite.xml</code></strong>: DataCite Schema 4.4 XML record with temporal collection span (2016&ndash;present) and technical catalog distributions.<br>
-&bull; <strong>Harvesting &amp; Interoperability:</strong> Compatible with Dataverse, OpenAIRE, and Google Dataset Search.</p>
+&bull; <strong>19 Individual Table XML Files (<code>01_TVL_total.xml</code> &ndash; <code>19_Environment_barn_Animal_experim.xml</code>):</strong> Each research table has its own dedicated XML schema defining all field names, data types, physical units, and SQL formulas.<br>
+&bull; <strong>Direct Browser Preview:</strong> All XML and JSON-LD files are listed individually in the Files section and can be previewed directly in your browser without extracting a ZIP archive.</p>
 </blockquote>
 
 <h4>Sample Machine-Readable W3C DCAT JSON-LD Distribution Schema:</h4>
@@ -253,7 +254,7 @@ Standardized chronological and reproductive timing metrics are derived in view <
 <hr>
 
 <h3><a name="sec_overview"></a>4. Overview of 19 Research Datasets</h3>
-<p>Click on any dataset identifier to jump directly to its complete data dictionary:</p>
+<p>Click on any dataset identifier to jump directly to its complete data dictionary. Individual XML schemas are directly previewable in the Files list above:</p>
 
 <table class="ui celled striped table">
   <thead>
@@ -263,6 +264,7 @@ Standardized chronological and reproductive timing metrics are derived in view <
       <th>Scientific Domain &amp; Description</th>
       <th>Variables</th>
       <th>Source Database Object</th>
+      <th>Direct XML Schema</th>
     </tr>
   </thead>
   <tbody>
@@ -272,6 +274,7 @@ Standardized chronological and reproductive timing metrics are derived in view <
       <td>Master Daily Integrated Cow Summary (intake, yields, milk components, body weight, BCS, emissions)</td>
       <td align="center"><strong>97</strong></td>
       <td><code>tvl_totaal</code></td>
+      <td><code>01_TVL_total.xml</code></td>
     </tr>
     <tr>
       <td align="center">2</td>
@@ -279,6 +282,7 @@ Standardized chronological and reproductive timing metrics are derived in view <
       <td>Automatic Concentrate Feeder Transactions (programmed feed, intake, feeder speed, visits)</td>
       <td align="center"><strong>42</strong></td>
       <td><code>t_raw_hokofarmvb</code></td>
+      <td><code>02_Hokofarm_SAC_concentrates.xml</code></td>
     </tr>
     <tr>
       <td align="center">3</td>
@@ -286,6 +290,7 @@ Standardized chronological and reproductive timing metrics are derived in view <
       <td>Roughage Intake Control Individual Visit Transactions (entry/exit timestamps, trough weights)</td>
       <td align="center"><strong>18</strong></td>
       <td><code>t_raw_hokofarmvr</code></td>
+      <td><code>03_Hokofarm_RIC.xml</code></td>
     </tr>
     <tr>
       <td align="center">4</td>
@@ -293,6 +298,7 @@ Standardized chronological and reproductive timing metrics are derived in view <
       <td>Roughage Daily Intake & Dry Matter Integration (fresh intake, laboratory dry oven DM%)</td>
       <td align="center"><strong>12</strong></td>
       <td><code>TVL_totaal_hokofarm_ds</code></td>
+      <td><code>04_TVL_RIC_intake_dm.xml</code></td>
     </tr>
     <tr>
       <td align="center">5</td>
@@ -300,6 +306,7 @@ Standardized chronological and reproductive timing metrics are derived in view <
       <td>Trioliet Feeding Robot Mixer Loading Records (kitchen ingredient batch target and loaded weights)</td>
       <td align="center"><strong>46</strong></td>
       <td><code>t_raw_trioliet</code></td>
+      <td><code>05_Triomatic_RIC_load.xml</code></td>
     </tr>
     <tr>
       <td align="center">6</td>
@@ -307,6 +314,7 @@ Standardized chronological and reproductive timing metrics are derived in view <
       <td>Trioliet Feeding Robot Trough Deliveries (discharged ration mass to pens and RIC bins)</td>
       <td align="center"><strong>46</strong></td>
       <td><code>t_raw_trioliet</code></td>
+      <td><code>06_Triomatic_RIC_drop.xml</code></td>
     </tr>
     <tr>
       <td align="center">7</td>
@@ -314,6 +322,7 @@ Standardized chronological and reproductive timing metrics are derived in view <
       <td>GEA Separation & Smart Gate Passages (cow identification, routing decisions, sorting gate ID)</td>
       <td align="center"><strong>5</strong></td>
       <td><code>T_RAW_Gea_Separatie</code></td>
+      <td><code>07_GEA_gates.xml</code></td>
     </tr>
     <tr>
       <td align="center">8</td>
@@ -321,6 +330,7 @@ Standardized chronological and reproductive timing metrics are derived in view <
       <td>GEA Milking Robot & Parlor Transactions (session yields, duration, conductivity, body weight)</td>
       <td align="center"><strong>13</strong></td>
       <td><code>T_RAW_Gea_milk</code></td>
+      <td><code>08_GEA_milkings.xml</code></td>
     </tr>
     <tr>
       <td align="center">9</td>
@@ -328,6 +338,7 @@ Standardized chronological and reproductive timing metrics are derived in view <
       <td>CowConnect Mixer Wagon Rations (planned vs actual ingredient loading weights and mixing times)</td>
       <td align="center"><strong>12</strong></td>
       <td><code>t_raw_cowconnect_mix</code></td>
+      <td><code>09_TMR_Trioliet_cowconnect_mix.xml</code></td>
     </tr>
     <tr>
       <td align="center">10</td>
@@ -335,6 +346,7 @@ Standardized chronological and reproductive timing metrics are derived in view <
       <td>Nedap Velos Cow Behaviour Intervals (smarttag sensor state transitions for eating, ruminating, lying)</td>
       <td align="center"><strong>4</strong></td>
       <td><code>T_RAW_velos_behaviour</code></td>
+      <td><code>10_Velos_behaviour.xml</code></td>
     </tr>
     <tr>
       <td align="center">11</td>
@@ -342,6 +354,7 @@ Standardized chronological and reproductive timing metrics are derived in view <
       <td>Nedap Velos Daily Cow Behaviour Summary (aggregated 24-hour durations of eating, ruminating, resting)</td>
       <td align="center"><strong>7</strong></td>
       <td><code>T_RAW_velos_behaviour</code></td>
+      <td><code>11_Velos_behaviour_day.xml</code></td>
     </tr>
     <tr>
       <td align="center">12</td>
@@ -349,6 +362,7 @@ Standardized chronological and reproductive timing metrics are derived in view <
       <td>CowConnect Feed Distribution Drops (ration discharge records along feed fences)</td>
       <td align="center"><strong>11</strong></td>
       <td><code>t_raw_cowconnect_drop</code></td>
+      <td><code>12_TMR_Trioliet_cowconnect_drop.xml</code></td>
     </tr>
     <tr>
       <td align="center">13</td>
@@ -356,6 +370,7 @@ Standardized chronological and reproductive timing metrics are derived in view <
       <td>Laboratory Dry Matter Content Oven Tests (official droogstoof gravimetric oven analysis results)</td>
       <td align="center"><strong>16</strong></td>
       <td><code>VL_totaal_droogstoof</code></td>
+      <td><code>13_DC_DM_content.xml</code></td>
     </tr>
     <tr>
       <td align="center">14</td>
@@ -363,6 +378,7 @@ Standardized chronological and reproductive timing metrics are derived in view <
       <td>GreenFeed Enteric Emission Summaries (validated CH4 and CO2 fluxes, head sensors, airflow rates)</td>
       <td align="center"><strong>24</strong></td>
       <td><code>T_RAW_Greenfeed_Summarized_Data</code></td>
+      <td><code>14_Greenfeed_summarized_data.xml</code></td>
     </tr>
     <tr>
       <td align="center">15</td>
@@ -370,6 +386,7 @@ Standardized chronological and reproductive timing metrics are derived in view <
       <td>GreenFeed Bait Feed Drops (pelleted feed mass and cup drop rewards during emission visits)</td>
       <td align="center"><strong>13</strong></td>
       <td><code>T_RAW_Greenfeed_Feed_data</code></td>
+      <td><code>15_Greenfeed_feed_aggregrated.xml</code></td>
     </tr>
     <tr>
       <td align="center">16</td>
@@ -377,6 +394,7 @@ Standardized chronological and reproductive timing metrics are derived in view <
       <td>Dairy Campus Meteorological Weather Station (ambient temperature, humidity, wind, solar radiation, rain)</td>
       <td align="center"><strong>18</strong></td>
       <td><code>T_RAW_weerstation</code></td>
+      <td><code>16_Weatherstation.xml</code></td>
     </tr>
     <tr>
       <td align="center">17</td>
@@ -384,6 +402,7 @@ Standardized chronological and reproductive timing metrics are derived in view <
       <td>Data Quality & Completeness Audit Matrix (automated daily validation flags per cow per day)</td>
       <td align="center"><strong>17</strong></td>
       <td><code>tvl_totaal_missende_data_proef</code></td>
+      <td><code>17_Missing_data.xml</code></td>
     </tr>
     <tr>
       <td align="center">18</td>
@@ -391,6 +410,7 @@ Standardized chronological and reproductive timing metrics are derived in view <
       <td>Barn Environment & Animal Daily Profile (pen housing, lactation days, parity, age, movement)</td>
       <td align="center"><strong>52</strong></td>
       <td><code>TVL_Dier_Datum_Stal</code></td>
+      <td><code>18_Environment_barn_Animal_day.xml</code></td>
     </tr>
     <tr>
       <td align="center">19</td>
@@ -398,6 +418,7 @@ Standardized chronological and reproductive timing metrics are derived in view <
       <td>Experimental Cohort Animal Daily Records (trial project codes, treatment assignments, blocks)</td>
       <td align="center"><strong>54</strong></td>
       <td><code>?</code></td>
+      <td><code>19_Environment_barn_Animal_experim.xml</code></td>
     </tr>
   </tbody>
 </table>
@@ -413,7 +434,7 @@ The field names in each table correspond strictly and identically to the column 
 
 <hr>
 <h4><a name="table_TVL_total"></a>Table 1: <code>TVL_total</code> &mdash; Master Daily Integrated Cow Summary (intake, yields, milk components, body weight, BCS, emissions)</h4>
-<p><strong>Database Object:</strong> <code>tvl_totaal</code> &nbsp;|&nbsp; <strong>Variables:</strong> 97 &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
+<p><strong>Database Object:</strong> <code>tvl_totaal</code> &nbsp;|&nbsp; <strong>Variables:</strong> 97 &nbsp;|&nbsp; <strong>Schema File:</strong> <code>01_TVL_total.xml</code> &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
 
 <table class="ui celled striped table">
   <thead>
@@ -1209,7 +1230,7 @@ The field names in each table correspond strictly and identically to the column 
 
 <hr>
 <h4><a name="table_Hokofarm_SAC_concentrates"></a>Table 2: <code>Hokofarm_SAC_concentrates</code> &mdash; Automatic Concentrate Feeder Transactions (programmed feed, intake, feeder speed, visits)</h4>
-<p><strong>Database Object:</strong> <code>t_raw_hokofarmvb</code> &nbsp;|&nbsp; <strong>Variables:</strong> 42 &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
+<p><strong>Database Object:</strong> <code>t_raw_hokofarmvb</code> &nbsp;|&nbsp; <strong>Variables:</strong> 42 &nbsp;|&nbsp; <strong>Schema File:</strong> <code>02_Hokofarm_SAC_concentrates.xml</code> &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
 
 <table class="ui celled striped table">
   <thead>
@@ -1565,7 +1586,7 @@ The field names in each table correspond strictly and identically to the column 
 
 <hr>
 <h4><a name="table_Hokofarm_RIC"></a>Table 3: <code>Hokofarm_RIC</code> &mdash; Roughage Intake Control Individual Visit Transactions (entry/exit timestamps, trough weights)</h4>
-<p><strong>Database Object:</strong> <code>t_raw_hokofarmvr</code> &nbsp;|&nbsp; <strong>Variables:</strong> 18 &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
+<p><strong>Database Object:</strong> <code>t_raw_hokofarmvr</code> &nbsp;|&nbsp; <strong>Variables:</strong> 18 &nbsp;|&nbsp; <strong>Schema File:</strong> <code>03_Hokofarm_RIC.xml</code> &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
 
 <table class="ui celled striped table">
   <thead>
@@ -1729,7 +1750,7 @@ The field names in each table correspond strictly and identically to the column 
 
 <hr>
 <h4><a name="table_TVL_RIC_intake_dm"></a>Table 4: <code>TVL_RIC_intake_dm</code> &mdash; Roughage Daily Intake & Dry Matter Integration (fresh intake, laboratory dry oven DM%)</h4>
-<p><strong>Database Object:</strong> <code>TVL_totaal_hokofarm_ds</code> &nbsp;|&nbsp; <strong>Variables:</strong> 12 &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
+<p><strong>Database Object:</strong> <code>TVL_totaal_hokofarm_ds</code> &nbsp;|&nbsp; <strong>Variables:</strong> 12 &nbsp;|&nbsp; <strong>Schema File:</strong> <code>04_TVL_RIC_intake_dm.xml</code> &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
 
 <table class="ui celled striped table">
   <thead>
@@ -1845,7 +1866,7 @@ The field names in each table correspond strictly and identically to the column 
 
 <hr>
 <h4><a name="table_Triomatic_RIC_load"></a>Table 5: <code>Triomatic_RIC_load</code> &mdash; Trioliet Feeding Robot Mixer Loading Records (kitchen ingredient batch target and loaded weights)</h4>
-<p><strong>Database Object:</strong> <code>t_raw_trioliet</code> &nbsp;|&nbsp; <strong>Variables:</strong> 46 &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
+<p><strong>Database Object:</strong> <code>t_raw_trioliet</code> &nbsp;|&nbsp; <strong>Variables:</strong> 46 &nbsp;|&nbsp; <strong>Schema File:</strong> <code>05_Triomatic_RIC_load.xml</code> &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
 
 <table class="ui celled striped table">
   <thead>
@@ -2233,7 +2254,7 @@ The field names in each table correspond strictly and identically to the column 
 
 <hr>
 <h4><a name="table_Triomatic_RIC_drop"></a>Table 6: <code>Triomatic_RIC_drop</code> &mdash; Trioliet Feeding Robot Trough Deliveries (discharged ration mass to pens and RIC bins)</h4>
-<p><strong>Database Object:</strong> <code>t_raw_trioliet</code> &nbsp;|&nbsp; <strong>Variables:</strong> 46 &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
+<p><strong>Database Object:</strong> <code>t_raw_trioliet</code> &nbsp;|&nbsp; <strong>Variables:</strong> 46 &nbsp;|&nbsp; <strong>Schema File:</strong> <code>06_Triomatic_RIC_drop.xml</code> &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
 
 <table class="ui celled striped table">
   <thead>
@@ -2621,7 +2642,7 @@ The field names in each table correspond strictly and identically to the column 
 
 <hr>
 <h4><a name="table_GEA_gates"></a>Table 7: <code>GEA_gates</code> &mdash; GEA Separation & Smart Gate Passages (cow identification, routing decisions, sorting gate ID)</h4>
-<p><strong>Database Object:</strong> <code>T_RAW_Gea_Separatie</code> &nbsp;|&nbsp; <strong>Variables:</strong> 5 &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
+<p><strong>Database Object:</strong> <code>T_RAW_Gea_Separatie</code> &nbsp;|&nbsp; <strong>Variables:</strong> 5 &nbsp;|&nbsp; <strong>Schema File:</strong> <code>07_GEA_gates.xml</code> &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
 
 <table class="ui celled striped table">
   <thead>
@@ -2681,7 +2702,7 @@ The field names in each table correspond strictly and identically to the column 
 
 <hr>
 <h4><a name="table_GEA_milkings"></a>Table 8: <code>GEA_milkings</code> &mdash; GEA Milking Robot & Parlor Transactions (session yields, duration, conductivity, body weight)</h4>
-<p><strong>Database Object:</strong> <code>T_RAW_Gea_milk</code> &nbsp;|&nbsp; <strong>Variables:</strong> 13 &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
+<p><strong>Database Object:</strong> <code>T_RAW_Gea_milk</code> &nbsp;|&nbsp; <strong>Variables:</strong> 13 &nbsp;|&nbsp; <strong>Schema File:</strong> <code>08_GEA_milkings.xml</code> &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
 
 <table class="ui celled striped table">
   <thead>
@@ -2805,7 +2826,7 @@ The field names in each table correspond strictly and identically to the column 
 
 <hr>
 <h4><a name="table_TMR_Trioliet_cowconnect_mix"></a>Table 9: <code>TMR_Trioliet_cowconnect_mix</code> &mdash; CowConnect Mixer Wagon Rations (planned vs actual ingredient loading weights and mixing times)</h4>
-<p><strong>Database Object:</strong> <code>t_raw_cowconnect_mix</code> &nbsp;|&nbsp; <strong>Variables:</strong> 12 &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
+<p><strong>Database Object:</strong> <code>t_raw_cowconnect_mix</code> &nbsp;|&nbsp; <strong>Variables:</strong> 12 &nbsp;|&nbsp; <strong>Schema File:</strong> <code>09_TMR_Trioliet_cowconnect_mix.xml</code> &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
 
 <table class="ui celled striped table">
   <thead>
@@ -2921,7 +2942,7 @@ The field names in each table correspond strictly and identically to the column 
 
 <hr>
 <h4><a name="table_Velos_behaviour"></a>Table 10: <code>Velos_behaviour</code> &mdash; Nedap Velos Cow Behaviour Intervals (smarttag sensor state transitions for eating, ruminating, lying)</h4>
-<p><strong>Database Object:</strong> <code>T_RAW_velos_behaviour</code> &nbsp;|&nbsp; <strong>Variables:</strong> 4 &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
+<p><strong>Database Object:</strong> <code>T_RAW_velos_behaviour</code> &nbsp;|&nbsp; <strong>Variables:</strong> 4 &nbsp;|&nbsp; <strong>Schema File:</strong> <code>10_Velos_behaviour.xml</code> &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
 
 <table class="ui celled striped table">
   <thead>
@@ -2973,7 +2994,7 @@ The field names in each table correspond strictly and identically to the column 
 
 <hr>
 <h4><a name="table_Velos_behaviour_day"></a>Table 11: <code>Velos_behaviour_day</code> &mdash; Nedap Velos Daily Cow Behaviour Summary (aggregated 24-hour durations of eating, ruminating, resting)</h4>
-<p><strong>Database Object:</strong> <code>T_RAW_velos_behaviour</code> &nbsp;|&nbsp; <strong>Variables:</strong> 7 &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
+<p><strong>Database Object:</strong> <code>T_RAW_velos_behaviour</code> &nbsp;|&nbsp; <strong>Variables:</strong> 7 &nbsp;|&nbsp; <strong>Schema File:</strong> <code>11_Velos_behaviour_day.xml</code> &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
 
 <table class="ui celled striped table">
   <thead>
@@ -3049,7 +3070,7 @@ The field names in each table correspond strictly and identically to the column 
 
 <hr>
 <h4><a name="table_TMR_Trioliet_cowconnect_drop"></a>Table 12: <code>TMR_Trioliet_cowconnect_drop</code> &mdash; CowConnect Feed Distribution Drops (ration discharge records along feed fences)</h4>
-<p><strong>Database Object:</strong> <code>t_raw_cowconnect_drop</code> &nbsp;|&nbsp; <strong>Variables:</strong> 11 &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
+<p><strong>Database Object:</strong> <code>t_raw_cowconnect_drop</code> &nbsp;|&nbsp; <strong>Variables:</strong> 11 &nbsp;|&nbsp; <strong>Schema File:</strong> <code>12_TMR_Trioliet_cowconnect_drop.xml</code> &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
 
 <table class="ui celled striped table">
   <thead>
@@ -3157,7 +3178,7 @@ The field names in each table correspond strictly and identically to the column 
 
 <hr>
 <h4><a name="table_DC_DM_content"></a>Table 13: <code>DC_DM_content</code> &mdash; Laboratory Dry Matter Content Oven Tests (official droogstoof gravimetric oven analysis results)</h4>
-<p><strong>Database Object:</strong> <code>VL_totaal_droogstoof</code> &nbsp;|&nbsp; <strong>Variables:</strong> 16 &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
+<p><strong>Database Object:</strong> <code>VL_totaal_droogstoof</code> &nbsp;|&nbsp; <strong>Variables:</strong> 16 &nbsp;|&nbsp; <strong>Schema File:</strong> <code>13_DC_DM_content.xml</code> &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
 
 <table class="ui celled striped table">
   <thead>
@@ -3305,7 +3326,7 @@ The field names in each table correspond strictly and identically to the column 
 
 <hr>
 <h4><a name="table_Greenfeed_summarized_data"></a>Table 14: <code>Greenfeed_summarized_data</code> &mdash; GreenFeed Enteric Emission Summaries (validated CH4 and CO2 fluxes, head sensors, airflow rates)</h4>
-<p><strong>Database Object:</strong> <code>T_RAW_Greenfeed_Summarized_Data</code> &nbsp;|&nbsp; <strong>Variables:</strong> 24 &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
+<p><strong>Database Object:</strong> <code>T_RAW_Greenfeed_Summarized_Data</code> &nbsp;|&nbsp; <strong>Variables:</strong> 24 &nbsp;|&nbsp; <strong>Schema File:</strong> <code>14_Greenfeed_summarized_data.xml</code> &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
 
 <table class="ui celled striped table">
   <thead>
@@ -3517,7 +3538,7 @@ The field names in each table correspond strictly and identically to the column 
 
 <hr>
 <h4><a name="table_Greenfeed_feed_aggregrated"></a>Table 15: <code>Greenfeed_feed_aggregrated</code> &mdash; GreenFeed Bait Feed Drops (pelleted feed mass and cup drop rewards during emission visits)</h4>
-<p><strong>Database Object:</strong> <code>T_RAW_Greenfeed_Feed_data</code> &nbsp;|&nbsp; <strong>Variables:</strong> 13 &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
+<p><strong>Database Object:</strong> <code>T_RAW_Greenfeed_Feed_data</code> &nbsp;|&nbsp; <strong>Variables:</strong> 13 &nbsp;|&nbsp; <strong>Schema File:</strong> <code>15_Greenfeed_feed_aggregrated.xml</code> &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
 
 <table class="ui celled striped table">
   <thead>
@@ -3641,7 +3662,7 @@ The field names in each table correspond strictly and identically to the column 
 
 <hr>
 <h4><a name="table_Weatherstation"></a>Table 16: <code>Weatherstation</code> &mdash; Dairy Campus Meteorological Weather Station (ambient temperature, humidity, wind, solar radiation, rain)</h4>
-<p><strong>Database Object:</strong> <code>T_RAW_weerstation</code> &nbsp;|&nbsp; <strong>Variables:</strong> 18 &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
+<p><strong>Database Object:</strong> <code>T_RAW_weerstation</code> &nbsp;|&nbsp; <strong>Variables:</strong> 18 &nbsp;|&nbsp; <strong>Schema File:</strong> <code>16_Weatherstation.xml</code> &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
 
 <table class="ui celled striped table">
   <thead>
@@ -3805,7 +3826,7 @@ The field names in each table correspond strictly and identically to the column 
 
 <hr>
 <h4><a name="table_Missing_data"></a>Table 17: <code>Missing_data</code> &mdash; Data Quality & Completeness Audit Matrix (automated daily validation flags per cow per day)</h4>
-<p><strong>Database Object:</strong> <code>tvl_totaal_missende_data_proef</code> &nbsp;|&nbsp; <strong>Variables:</strong> 17 &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
+<p><strong>Database Object:</strong> <code>tvl_totaal_missende_data_proef</code> &nbsp;|&nbsp; <strong>Variables:</strong> 17 &nbsp;|&nbsp; <strong>Schema File:</strong> <code>17_Missing_data.xml</code> &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
 
 <table class="ui celled striped table">
   <thead>
@@ -3961,7 +3982,7 @@ The field names in each table correspond strictly and identically to the column 
 
 <hr>
 <h4><a name="table_Environment_barn_Animal_day"></a>Table 18: <code>Environment_barn_Animal_day</code> &mdash; Barn Environment & Animal Daily Profile (pen housing, lactation days, parity, age, movement)</h4>
-<p><strong>Database Object:</strong> <code>TVL_Dier_Datum_Stal</code> &nbsp;|&nbsp; <strong>Variables:</strong> 52 &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
+<p><strong>Database Object:</strong> <code>TVL_Dier_Datum_Stal</code> &nbsp;|&nbsp; <strong>Variables:</strong> 52 &nbsp;|&nbsp; <strong>Schema File:</strong> <code>18_Environment_barn_Animal_day.xml</code> &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
 
 <table class="ui celled striped table">
   <thead>
@@ -4397,7 +4418,7 @@ The field names in each table correspond strictly and identically to the column 
 
 <hr>
 <h4><a name="table_Environment_barn_Animal_experim"></a>Table 19: <code>Environment_barn_Animal_experim</code> &mdash; Experimental Cohort Animal Daily Records (trial project codes, treatment assignments, blocks)</h4>
-<p><strong>Database Object:</strong> <code>?</code> &nbsp;|&nbsp; <strong>Variables:</strong> 54 &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
+<p><strong>Database Object:</strong> <code>?</code> &nbsp;|&nbsp; <strong>Variables:</strong> 54 &nbsp;|&nbsp; <strong>Schema File:</strong> <code>19_Environment_barn_Animal_experim.xml</code> &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
 
 <table class="ui celled striped table">
   <thead>

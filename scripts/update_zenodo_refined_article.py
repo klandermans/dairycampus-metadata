@@ -149,10 +149,11 @@ To ensure strict adherence to the <strong>FAIR data principles</strong> (Findabl
   └── dct:distribution [19] ── Environment_barn_Animal_experim (Trial cohort treatment records, 54 vars)
 </pre>
 <blockquote>
-<p><strong>Formal Metadata Files Attached to this Record:</strong><br>
+<p><strong>Formal Metadata Files Attached to this Record (Directly Previewable):</strong><br>
 &bull; <strong><code>dairy_campus_catalog_dcat.jsonld</code></strong>: Full W3C DCAT 2.0 / schema.org JSON-LD document specifying the central catalog and all 19 <code>dct:distribution</code> entities with exact variable lists.<br>
 &bull; <strong><code>dairy_campus_datacite.xml</code></strong>: DataCite Schema 4.4 XML record with temporal collection span (2016&ndash;present) and technical catalog distributions.<br>
-&bull; <strong>Harvesting &amp; Interoperability:</strong> Compatible with Dataverse, OpenAIRE, and Google Dataset Search.</p>
+&bull; <strong>19 Individual Table XML Files (<code>01_TVL_total.xml</code> &ndash; <code>19_Environment_barn_Animal_experim.xml</code>):</strong> Each research table has its own dedicated XML schema defining all field names, data types, physical units, and SQL formulas.<br>
+&bull; <strong>Direct Browser Preview:</strong> All XML and JSON-LD files are listed individually in the Files section and can be previewed directly in your browser without extracting a ZIP archive.</p>
 </blockquote>
 
 <h4>Sample Machine-Readable W3C DCAT JSON-LD Distribution Schema:</h4>
@@ -295,7 +296,7 @@ Standardized chronological and reproductive timing metrics are derived in view <
 <hr>
 
 <h3><a name="sec_overview"></a>4. Overview of 19 Research Datasets</h3>
-<p>Click on any dataset identifier to jump directly to its complete data dictionary:</p>
+<p>Click on any dataset identifier to jump directly to its complete data dictionary. Individual XML schemas are directly previewable in the Files list above:</p>
 
 <table class="ui celled striped table">
   <thead>
@@ -305,6 +306,7 @@ Standardized chronological and reproductive timing metrics are derived in view <
       <th>Scientific Domain &amp; Description</th>
       <th>Variables</th>
       <th>Source Database Object</th>
+      <th>Direct XML Schema</th>
     </tr>
   </thead>
   <tbody>
@@ -313,12 +315,14 @@ Standardized chronological and reproductive timing metrics are derived in view <
         sub = master_df[master_df["dataset_name"] == ds]
         desc = sheet_descriptions.get(ds, ds)
         src = sub["source_table"].iloc[0]
+        xml_fname = f"{idx:02d}_{ds}.xml"
         html += f"""    <tr>
       <td align="center">{idx}</td>
       <td><a href="#table_{ds}"><strong><code>{ds}</code></strong></a></td>
       <td>{desc}</td>
       <td align="center"><strong>{len(sub)}</strong></td>
       <td><code>{src}</code></td>
+      <td><code>{xml_fname}</code></td>
     </tr>
 """
 
@@ -339,11 +343,12 @@ The field names in each table correspond strictly and identically to the column 
         sub = master_df[master_df["dataset_name"] == ds]
         desc = sheet_descriptions.get(ds, ds)
         src = sub["source_table"].iloc[0]
+        xml_fname = f"{idx:02d}_{ds}.xml"
 
         html += f"""
 <hr>
 <h4><a name="table_{ds}"></a>Table {idx}: <code>{ds}</code> &mdash; {desc}</h4>
-<p><strong>Database Object:</strong> <code>{src}</code> &nbsp;|&nbsp; <strong>Variables:</strong> {len(sub)} &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
+<p><strong>Database Object:</strong> <code>{src}</code> &nbsp;|&nbsp; <strong>Variables:</strong> {len(sub)} &nbsp;|&nbsp; <strong>Schema File:</strong> <code>{xml_fname}</code> &nbsp;|&nbsp; <strong>Granularity:</strong> Daily / Visit record</p>
 
 <table class="ui celled striped table">
   <thead>
