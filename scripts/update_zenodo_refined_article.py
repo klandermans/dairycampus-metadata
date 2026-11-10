@@ -149,11 +149,51 @@ To ensure strict adherence to the <strong>FAIR data principles</strong> (Findabl
   └── dct:distribution [19] ── Environment_barn_Animal_experim (Trial cohort treatment records, 54 vars)
 </pre>
 <blockquote>
-<p><strong>Formal Metadata Standards Compliance:</strong><br>
-&bull; <strong>DCAT 2.0 / 3.0:</strong> Each distribution is declared with its URI, media format (<code>text/csv</code>, <code>application/x-sql</code>), variable dimension count, and underlying database object.<br>
-&bull; <strong>DataCite Schema 4.4:</strong> ResourceTypeGeneral = <code>Dataset</code> / <code>DataCatalog</code>, with temporal collection window <code>2016-01-01/present</code>.<br>
-&bull; <strong>JSON-LD:</strong> Full W3C machine-readable DCAT JSON-LD and DataCite XML representations are published in the project repository.</p>
+<p><strong>Formal Metadata Files Attached to this Record:</strong><br>
+&bull; <strong><code>dairy_campus_catalog_dcat.jsonld</code></strong>: Full W3C DCAT 2.0 / schema.org JSON-LD document specifying the central catalog and all 19 <code>dct:distribution</code> entities with exact variable lists.<br>
+&bull; <strong><code>dairy_campus_datacite.xml</code></strong>: DataCite Schema 4.4 XML record with temporal collection span (2016&ndash;present) and technical catalog distributions.<br>
+&bull; <strong>Harvesting &amp; Interoperability:</strong> Compatible with Dataverse, OpenAIRE, and Google Dataset Search.</p>
 </blockquote>
+
+<h4>Sample Machine-Readable W3C DCAT JSON-LD Distribution Schema:</h4>
+<pre>
+{{
+  "@context": {{
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dct": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/"
+  }},
+  "@id": "https://doi.org/{doi_str}",
+  "@type": ["dcat:Catalog", "schema:DataCatalog"],
+  "dct:title": "Dairy Campus Research Data Platform: Central Data Catalog",
+  "dcat:dataset": {{
+    "@type": ["dcat:Dataset", "schema:Dataset"],
+    "dct:distribution": [
+      {{
+        "@id": "https://doi.org/{doi_str}#distribution_TVL_total",
+        "@type": ["dcat:Distribution", "schema:DataDownload"],
+        "dct:identifier": "TVL_total",
+        "dct:title": "Distribution 1: TVL_total",
+        "dct:description": "Master Daily Integrated Cow Summary (97 variables)",
+        "dct:source": "tvl_totaal",
+        "dcat:mediaType": "text/csv",
+        "schema:numberOfVariables": 97
+      }},
+      {{
+        "@id": "https://doi.org/{doi_str}#distribution_Hokofarm_RIC",
+        "@type": ["dcat:Distribution", "schema:DataDownload"],
+        "dct:identifier": "Hokofarm_RIC",
+        "dct:title": "Distribution 3: Hokofarm_RIC",
+        "dct:description": "Roughage Intake Control Individual Visit Transactions (18 variables)",
+        "dct:source": "t_raw_hokofarmvr",
+        "dcat:mediaType": "text/csv",
+        "schema:numberOfVariables": 18
+      }}
+      /* ... and 17 additional distributions (see dairy_campus_catalog_dcat.jsonld) ... */
+    ]
+  }}
+}}
+</pre>
 
 <hr>
 
